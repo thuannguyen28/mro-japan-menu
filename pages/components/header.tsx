@@ -8,13 +8,13 @@ import Avatar from '@mui/material/Avatar';
 export default function Header() {
   return (
 
-	<Toolbar sx={{ ml: 0 , borderBottom:'1px solid #e0e0e0' }}>
+	<Toolbar sx={{ ml: 1 , borderBottom:'1px solid #e0e0e0' }}>
 			<img src="/menu/header.png" width="150" height="30"/>
 			<IconButton
 				size="large"
 				edge="start"
 				aria-label="menu"
-				sx={{ ml: 2 }}
+				sx={{ ml: 2 , display: { xs: 'none', md: 'flex' },}},
 			>
 					<MenuIcon />
 			</IconButton>
@@ -24,6 +24,14 @@ export default function Header() {
 			<Avatar alt="Travis Howard" 
 			      src="/avatar/2.png"
 			      sx={{ width: 56, height: 56, mt:2, mb:2 }} />
+			<IconButton
+				size="large"
+				edge="start"
+				aria-label="menu"
+				sx={{ ml: 2 , display: { xs: 'none', md: 'flex' },}},
+			>
+					<MenuIcon />
+			</IconButton>
 	</Toolbar>
 
 	)

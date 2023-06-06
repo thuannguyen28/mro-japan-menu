@@ -92,14 +92,16 @@ export default function Home() {
             }}
           >
 
-            <img src="/menu/header.png" width="150" height="30"/>
+            <img src="/menu/header.png" width="150" height="30" style={{marginLeft: 40}}/>
 
             <IconButton
               size="large"
               edge="start"
               color="inherit"
               aria-label="menu"
+              style={{marginLeft: 40}}
               onClick={toggleDrawer}
+              sx={{ display: { xs: 'none', md: 'flex' } }}
             >
               <MenuIcon />
             </IconButton>
@@ -112,7 +114,18 @@ export default function Home() {
 
             <Avatar alt="Travis Howard" 
                   src="/avatar/2.png"
-                  sx={{ width: 56, height: 56, mt:2, mb:2 }} />
+                  sx={{ width: 56, height: 56, mt:2, mb:2, mr:3 }} />
+
+            <IconButton
+              size="large"
+              edge="start"
+              color="inherit"
+              aria-label="menu"
+              onClick={toggleDrawer}
+              sx={{ display: { xs: 'flex', md: 'none' } }}
+            >
+              <MenuIcon />
+            </IconButton>
 
           </Toolbar>
       </AppBar>
@@ -152,9 +165,7 @@ export default function Home() {
         >
           <Toolbar />
 
-          <Container maxWidth="xg" sx={{ mt: 4, mb: 4 }}>
-            {mainContainer}
-          </Container>
+          {mainContainer}
 
         </Box>
     </Box>

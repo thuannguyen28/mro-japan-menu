@@ -188,10 +188,6 @@ export const mainListItems = (
 						<Typography sx={{ml:7}}>
 						  <Link href="#">LINE定例作業</Link>
 						</Typography>
-
-						<Typography sx={{ml:7}}>
-						  <Link href="#">Task Card Status</Link>
-						</Typography>
 					</AccordionDetails>
 				</Accordion>
 		</ListSubheader>
