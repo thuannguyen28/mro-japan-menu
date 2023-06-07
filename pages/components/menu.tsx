@@ -19,7 +19,7 @@ import Link from '@mui/material/Link';
 
 export const mainListItems = (
   <React.Fragment>
-    <Typography color="blue" sx={{mt:3, ml:2}}>
+    <Typography color="#3A5075" sx={{mt:3, ml:2}}>
       <strong>PART</strong>
     </Typography>
 		<ListSubheader component="div" >
@@ -143,7 +143,7 @@ export const mainListItems = (
 				</Accordion>
 		</ListSubheader>
 
-		<Typography color="blue" sx={{mt:1, ml:2}}>
+		<Typography color="#3A5075" sx={{mt:1, ml:2}}>
       <strong>WORK ORDER</strong>
     </Typography>
     <ListSubheader component="div" >
@@ -192,7 +192,7 @@ export const mainListItems = (
 				</Accordion>
 		</ListSubheader>
 
-		<Typography color="blue" sx={{mt:1, ml:2}}>
+		<Typography color="#3A5075" sx={{mt:1, ml:2}}>
       <strong>TOOLS</strong>
     </Typography>
     <ListSubheader component="div" >
