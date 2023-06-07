@@ -23,6 +23,7 @@ const Item = styled(Paper)(({ theme }) => ({
 
 export const mainContainer = (
 <React.Fragment>
+<div>
     <Grid container spacing={1}>
       <Grid item xs={12}>
         <Paper
@@ -117,5 +118,6 @@ export const mainContainer = (
     
 
     </Grid>
+</div>
 </React.Fragment>
 );

@@ -17,11 +17,14 @@ import Avatar from '@mui/material/Avatar';
 import { mainListItems, secondaryListItems } from './components/menu';
 import { mainContainer } from './components/container';
 
+import NestedList from './components/menu';
+
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import Divider from '@mui/material/Divider';
 import List from '@mui/material/List';
 
 const drawerWidth: number = 320;
+const drawerWidthMB: number = 420;
 const drawerheight: number = 920;
 
 interface AppBarProps extends MuiAppBarProps {
@@ -51,7 +54,10 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
     '& .MuiDrawer-paper': {
       position: 'relative',
       whiteSpace: 'nowrap',
-      width: drawerWidth,
+      width: drawerWidthMB,
+      [theme.breakpoints.up('sm')]: {
+          width: drawerWidth,
+        },
       height:drawerheight,
       transition: theme.transitions.create('width', {
         easing: theme.transitions.easing.sharp,
@@ -64,9 +70,9 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
           easing: theme.transitions.easing.sharp,
           duration: theme.transitions.duration.leavingScreen,
         }),
-        width: theme.spacing(0),
+        width: `calc(${theme.spacing(0)} + 1px)`,
         [theme.breakpoints.up('sm')]: {
-          width: theme.spacing(0),
+          width: `calc(${theme.spacing(9)} + 1px)`,
         },
       }),
     },
@@ -146,9 +152,9 @@ export default function Home() {
           </Toolbar>
           <Divider />
           <List component="nav">
-            {mainListItems}
+            <NestedList />
             <Divider sx={{ my: 10 }} />
-            {secondaryListItems}
+          
           </List>
         </Drawer>
         <Box
@@ -160,7 +166,7 @@ export default function Home() {
                 : theme.palette.grey[900],
             flexGrow: 1,
             height: '100vh',
-            overflow: 'auto',
+            overflow: 'hidden',
           }}
         >
           <Toolbar />
