@@ -19,6 +19,16 @@ const Item = styled(Paper)(({ theme }) => ({
   padding: theme.spacing(1),
   textAlign: 'center',
   color: theme.palette.text.secondary,
+  boxShadow:'none',
+}));
+
+const ItemIcon = styled(Paper)(({ theme }) => ({
+  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+  ...theme.typography.body2,
+  padding: theme.spacing(1),
+  textAlign: 'center',
+  color: theme.palette.text.secondary,
+  boxShadow:'10',
 }));
 
 export const mainContainer = (
@@ -26,97 +36,117 @@ export const mainContainer = (
 <div>
     <Grid container spacing={1}>
       <Grid item xs={12}>
-        <Paper
-          sx={{
-          	mt:4,
-            p: 2,
-            display: 'flex',
-            flexDirection: 'column',
-            height: 200,
-          }}
-        >
-	      
-    	    <Typography color="black" sx={{ textAlign: 'right', marginLeft: 'auto', mr:2}} >
-		      	<strong>Hello Admind</strong>
-		    	</Typography>
-			    <Paper 
-			    	elevation={0}
-			    	sx={{
-			    	  p:2,
-			    	  mt:2,
-			    	  ml:1,
-			    	  mr:1,
-			    	  height: 120,
-			    	  borderRadius: 4,
-			    	  backgroundColor: '#f5f5f5' }}>
+      	<Box sx={{ width: '100%', height: '100vh'}} backgroundColor="#FFFFFF">
+		      <Paper
+		      	elevation={0}
+	          sx={{
+	          	mt:1,
+	            p: 2,
+	            display: 'flex',
+	            flexDirection: 'column',
+	            height: 160,
+	          }}
+	        >
+				    <Paper 
+				    	elevation={0}
+				    	sx={{
+				    	  p:2,
+				    	  mt:2,
+				    	  ml:1,
+				    	  mr:1,
+				    	  height: 120,
+				    	  borderRadius: 4,
+				    	  backgroundColor: '#f5f5f5' }}>
 
-		    	  	<Typography color="#3A5075" sx={{ textDecoration: 'underline' }}>
-				      <strong>お知らせ</strong>
-				    </Typography>
+			    	  	<Typography color="#3A5075" sx={{ textDecoration: 'underline' }}>
+					      <strong>お知らせ</strong>
+					    </Typography>
 
-				    <Typography 
-				    	color="#3A5075"
-				    	sx={{ mt:2 }}>
-				      <strong>●</strong> Announcement of new business strategy changes applied throughout the company
-				    </Typography>
-			    </Paper>
+					    <Typography 
+					    	color="#3A5075"
+					    	sx={{ mt:2 }}>
+					      <strong>●</strong> Announcement of new business strategy changes applied throughout the company
+					    </Typography>
+				    </Paper>
+	        </Paper>
 
-        </Paper>
-      </Grid>
+	        <Grid item xs={12} sx={{ mt:4, ml:4, mr:4 }}>
+	        	<Typography color="#3A5075" >
+            	<strong>PARTS</strong>
+	          </Typography>
+	          <Divider sx={{ my: 1}} />
+		 			</Grid>
 
-      <Grid item xs={12}>
-        <Grid item xs={12}>
-        	<Grid item xs={12}>
-             <Container maxWidth="" sx={{ bgcolor: '#FFFFFF',p:2 }}>
-		       	  <Grid container spacing={3}>
-		       	  	{/* PARTS */}
-		       	  	<Grid item xs={12} md={8} lg={12}>
-	                <Typography color="#3A5075">
-			            	<strong>PARTS</strong>
-				          </Typography>
-			          	<Divider sx={{ my: 1 }} />
-              	</Grid>
-              	{/* order part */}     	
-              		<Parts />
-		       	  </Grid>
-		     		</Container>
-        	</Grid>
-        	<Grid item xs={12}>
-             <Container maxWidth="" sx={{ bgcolor: '#FFFFFF',p:2}}>
-		       	  <Grid container spacing={3}>
-		       	  	{/* PARTS */}
-		       	  	<Grid item xs={12} md={8} lg={12}>
-	                <Typography color="#3A5075">
-			            	<strong>WORK ORDER</strong>
-				          </Typography>
-			          	<Divider sx={{ my: 1 }} />
-              	</Grid>
-              	{/* order part */}     	
-              		<WorkOrder />
-		       	  </Grid>
-		     		</Container>
-        	</Grid>
+		 			<Grid item xs={12} sx={{ ml:4, mr:4 }}>
+		 				<Grid item xs={12} sx={{ ml:4, mr:4 }}>
+		          <Grid container spacing={2}>
+		            <Grid item xs={6} md={1}>
+							    <Item>
+							    		<Grid>
+								    		<Item>
+								    			<Typography color="#3A5075" sx={{ textDecoration: 'underline', fontSize:13 }}>
+							            	<strong>Parts Order</strong>
+								          </Typography>
+								    		</Item>
+								    		<ItemIcon>
+												  <Avatar
+													 	src="icon/PC/individual.png"
+														sx={{
+														p:1,
+														width: 70,
+														height: 70,
+														}}
+												  />
+													<Typography color="#3A5075" textAlign="center" sx={{ fontSize: 12, mb:1 }}>
+														Parts Order
+													</Typography>
+											
+								    		</ItemIcon>
+							    		</Grid>
+							    </Item>
+							  </Grid>
+							  <Grid item xs={6} md={1}>
+							    <Item>
+							    		<Grid>
+								    		<Item>
+								    			<Typography color="#3A5075" sx={{ textDecoration: 'underline', fontSize:13 }}>
+							            	<strong>Parts Order</strong>
+								          </Typography>
+								    		</Item>
+								    		<ItemIcon>
+												  <Avatar
+													 	src="icon/PC/individual.png"
+														sx={{
+														p:1,
+														width: 70,
+														height: 70,
+														}}
+												  />
+													<Typography color="#3A5075" textAlign="center" sx={{ fontSize: 12, mb:1 }}>
+														Parts Order
+													</Typography>
+											
+								    		</ItemIcon>
+							    		</Grid>
+							    </Item>
 
-        	<Grid item xs={12}>
-             <Container maxWidth="" sx={{ bgcolor: '#FFFFFF',p:2 }}>
-		       	  <Grid container spacing={3}>
-		       	  	{/* PARTS */}
-		       	  	<Grid item xs={12} md={8} lg={12}>
-	                <Typography color="#3A5075">
-			            	<strong>TOOLS</strong>
-				          </Typography>
-			          	<Divider sx={{ my: 1 }} />
-              	</Grid>
-              	{/* order part */}     	
-              		<Tools />
-		       	  </Grid>
-		     		</Container>
-        	</Grid>
-    	</Grid>
-    </Grid>
+							  </Grid>
+							  <Grid item xs={12} md={4}>
+							    <Item>xs=6 md=8</Item>
+							  </Grid>
+							  <Grid item xs={6} md={2}>
+							    <Item>xs=6 md=4</Item>
+							  </Grid>
+							  <Grid item xs={6} md={1}>
+							    <Item>xs=6 md=4</Item>
+							  </Grid>
+							</Grid>
 
-    
+						</Grid>
+		 			</Grid>
 
+		    </Box>
+ 			</Grid>
     </Grid>
 </div>
 </React.Fragment>

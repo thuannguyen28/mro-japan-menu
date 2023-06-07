@@ -155,7 +155,7 @@ const handleClick = (index) => {
 		      <ListItemIcon>
 		        <Icon><img src="../icon/PC/parts supply.png" width="27" height="27" /></Icon>
 		      </ListItemIcon>
-		      <ListItemText primary="Parts Supply Department" />
+		      <ListItemText primary="Parts Supply Depar..." />
 		      {open[4] ? <ExpandLess /> : <ExpandMore />}
 		    </ListItemButton>
 		    <Collapse in={open[4]} timeout="auto" unmountOnExit>
