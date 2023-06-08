@@ -120,12 +120,13 @@ export const mainContainer = (
 				    	elevation={0}
 				    	sx={{
 				    	  p:2,
-				    	  mt:2,
 				    	  ml:1,
 				    	  mr:1,
 				    	  height: 120,
 				    	  borderRadius: 4,
-				    	  backgroundColor: '#f5f5f5' }}>
+				    	  backgroundColor: '#f5f5f5' ,
+				    	  mt: { xs: 4, md: 2 },
+				    	}}>
 
 			    	  	<Typography color="#3A5075" sx={{ textDecoration: 'underline' }}>
 					      <strong>お知らせ</strong>
