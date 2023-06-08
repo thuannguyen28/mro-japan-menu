@@ -16,38 +16,107 @@ import Tools from './tools';
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
   ...theme.typography.body2,
-  padding: theme.spacing(1),
+  padding: theme.spacing(0),
   textAlign: 'center',
   color: theme.palette.text.secondary,
   boxShadow:'none',
 }));
-
-const ItemIcon = styled(Paper)(({ theme }) => ({
+// dọc
+const ItemTitle = styled(Paper)(({ theme }) => ({
+  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+  ...theme.typography.body2,
+  
+  textAlign: 'left',
+  marginLeft:8,
+  display: 'flex',
+  flexDirection: 'column',
+  color: theme.palette.text.secondary,
+  boxShadow:'none',
+}));
+// ngang
+const ItemRow = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
   ...theme.typography.body2,
   padding: theme.spacing(1),
   textAlign: 'center',
+  display: 'flex',
+  flexDirection: 'row',
   color: theme.palette.text.secondary,
-  boxShadow:'10',
+  boxShadow:'none',
 }));
+
+const ItemFrame = styled(Paper)(({ theme }) => ({
+  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+  ...theme.typography.body2, 
+  width:85,
+  height:80,
+  marginRight:10,
+  boxShadow:'10',
+  [theme.breakpoints.up('sm')]: {
+          width: 112,
+          height:121,
+          marginRight:10,
+          padding: theme.spacing(0),
+				  textAlign: 'center',
+				  color: theme.palette.text.secondary,
+				  borderRadius: '10px',
+				  boxShadow:'0px 0px 10px rgba(0, 0, 0, 0.2)',
+        },
+}));
+
+const ItemAvatar = styled(Paper)(({ theme }) => ({
+  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+  ...theme.typography.body2, 
+  width:50,
+  height:50,
+  margin: 'auto',
+  boxShadow:'none',
+  [theme.breakpoints.up('sm')]: {
+          width: 70,
+          height:70,
+          padding: theme.spacing(0),
+          margin: 'auto',
+				  textAlign: 'center',
+				  color: theme.palette.text.secondary,
+				  boxShadow:'none',
+        },
+}));
+
+const ItemText = styled(Paper)(({ theme }) => ({
+  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+  ...theme.typography.body2, 
+  width:75,
+  height:20,
+  margin: 'auto',
+  boxShadow:'none',
+  [theme.breakpoints.up('sm')]: {
+          width: 112,
+          height:50,
+          padding: theme.spacing(1),
+				  textAlign: 'center',
+				  color: theme.palette.text.secondary,
+				  boxShadow:'none',
+        },
+}));
+
 
 export const mainContainer = (
 <React.Fragment>
 <div>
+	<Box>
     <Grid container spacing={1}>
       <Grid item xs={12}>
-      	<Box sx={{ width: '100%', height: '100vh'}} backgroundColor="#FFFFFF">
+      	<Box sx={{ width: '100%', height: '100%',overflow: 'auto'}} backgroundColor="#FFFFFF">
 		      <Paper
 		      	elevation={0}
 	          sx={{
-	          	mt:1,
 	            p: 2,
 	            display: 'flex',
 	            flexDirection: 'column',
 	            height: 160,
 	          }}
 	        >
-				    <Paper 
+				    <Paper
 				    	elevation={0}
 				    	sx={{
 				    	  p:2,
@@ -60,7 +129,7 @@ export const mainContainer = (
 
 			    	  	<Typography color="#3A5075" sx={{ textDecoration: 'underline' }}>
 					      <strong>お知らせ</strong>
-					    </Typography>
+					    	</Typography>
 
 					    <Typography 
 					    	color="#3A5075"
@@ -69,85 +138,36 @@ export const mainContainer = (
 					    </Typography>
 				    </Paper>
 	        </Paper>
-
+	        {/*PARTS*/}
 	        <Grid item xs={12} sx={{ mt:4, ml:4, mr:4 }}>
 	        	<Typography color="#3A5075" >
             	<strong>PARTS</strong>
 	          </Typography>
 	          <Divider sx={{ my: 1}} />
 		 			</Grid>
+		 			<Parts />
 
-		 			<Grid item xs={12} sx={{ ml:4, mr:4 }}>
-		 				<Grid item xs={12} sx={{ ml:4, mr:4 }}>
-		          <Grid container spacing={2}>
-		            <Grid item xs={6} md={1}>
-							    <Item>
-							    		<Grid>
-								    		<Item>
-								    			<Typography color="#3A5075" sx={{ textDecoration: 'underline', fontSize:13 }}>
-							            	<strong>Parts Order</strong>
-								          </Typography>
-								    		</Item>
-								    		<ItemIcon>
-												  <Avatar
-													 	src="icon/PC/individual.png"
-														sx={{
-														p:1,
-														width: 70,
-														height: 70,
-														}}
-												  />
-													<Typography color="#3A5075" textAlign="center" sx={{ fontSize: 12, mb:1 }}>
-														Parts Order
-													</Typography>
-											
-								    		</ItemIcon>
-							    		</Grid>
-							    </Item>
-							  </Grid>
-							  <Grid item xs={6} md={1}>
-							    <Item>
-							    		<Grid>
-								    		<Item>
-								    			<Typography color="#3A5075" sx={{ textDecoration: 'underline', fontSize:13 }}>
-							            	<strong>Parts Order</strong>
-								          </Typography>
-								    		</Item>
-								    		<ItemIcon>
-												  <Avatar
-													 	src="icon/PC/individual.png"
-														sx={{
-														p:1,
-														width: 70,
-														height: 70,
-														}}
-												  />
-													<Typography color="#3A5075" textAlign="center" sx={{ fontSize: 12, mb:1 }}>
-														Parts Order
-													</Typography>
-											
-								    		</ItemIcon>
-							    		</Grid>
-							    </Item>
-
-							  </Grid>
-							  <Grid item xs={12} md={4}>
-							    <Item>xs=6 md=8</Item>
-							  </Grid>
-							  <Grid item xs={6} md={2}>
-							    <Item>xs=6 md=4</Item>
-							  </Grid>
-							  <Grid item xs={6} md={1}>
-							    <Item>xs=6 md=4</Item>
-							  </Grid>
-							</Grid>
-
-						</Grid>
+		 			{/*WORK ORDER*/}
+		 			<Grid item xs={12} sx={{ mt:2, ml:4, mr:4 }}>
+	        	<Typography color="#3A5075" >
+            	<strong>WORK ORDER</strong>
+	          </Typography>
+	          <Divider sx={{ my: 1}} />
 		 			</Grid>
+		 			<WorkOrder />
 
+		 			{/*TOOLS*/}
+		 			<Grid item xs={12} sx={{ mt:2, ml:4, mr:4 }}>
+	        	<Typography color="#3A5075" >
+            	<strong>TOOLS</strong>
+	          </Typography>
+	          <Divider sx={{ my: 1}} />
+		 			</Grid>
+		 			<Tools />
 		    </Box>
  			</Grid>
     </Grid>
+  </Box>
 </div>
 </React.Fragment>
 );
