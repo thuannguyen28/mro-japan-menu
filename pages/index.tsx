@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useState, useEffect } from 'react';
 import CssBaseline from '@mui/material/CssBaseline';
 import Box from '@mui/material/Box';
 import { styled, createTheme, ThemeProvider} from '@mui/material/styles';
@@ -24,7 +25,7 @@ import List from '@mui/material/List';
 import Head from 'next/head';
 
 const drawerWidth: number = 280;
-const drawerWidthMB: number = 420;
+const drawerWidthMB = '100%';
 const drawerheight = '100vh';
 
 interface AppBarProps extends MuiAppBarProps {
@@ -57,7 +58,11 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
       width: drawerWidthMB,
       [theme.breakpoints.up('sm')]: {
           width: drawerWidth,
-        },
+          position: 'relative',
+      },
+      [theme.breakpoints.down('sm')]: {
+          position: 'absolute',
+      },
       height:drawerheight,
       transition: theme.transitions.create('width', {
         easing: theme.transitions.easing.sharp,
@@ -82,8 +87,24 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 // TODO remove, this demo shouldn't need to reset the theme.
 const defaultTheme = createTheme();
 
-
 export default function Home() {
+
+  const [width, setWidth] = React.useState(0);
+
+  const handleWindowSizeChange = () => {
+    setWidth(window.innerWidth);
+  };
+
+  React.useEffect(() => {
+      setWidth(window.innerWidth);
+      window.addEventListener('resize', handleWindowSizeChange);
+      return () => {
+          window.removeEventListener('resize', handleWindowSizeChange);
+      }
+  }, []);
+
+  const isMobile = width <= 768;
+
   const [open, setOpen] = React.useState(true);
   const toggleDrawer = () => {
     setOpen(!open);
@@ -143,7 +164,7 @@ export default function Home() {
           </Toolbar>
       </AppBar>
 
-      <Drawer variant="permanent" open={open}>
+      <Drawer variant="permanent" open={isMobile ? !open : open}>
           <Toolbar
             sx={{
               display: 'flex',
@@ -159,7 +180,7 @@ export default function Home() {
           </Toolbar>
           <Divider />
           <List component="nav">
-            <NestedList />
+            <NestedList data={open}/>
           </List>
         </Drawer>
         <Box
