@@ -47,7 +47,7 @@ export default function NestedList() {
 	    aria-labelledby="nested-list-subheader"
 	    subheader={
 		      <ListSubheader component="div" id="nested-list-subheader">
-		        <Typography color="#3A5075" sx={{mt:3}}>
+		        <Typography color="#3A5075" sx={{mt:2}}>
 				      <strong>PART</strong>
 				    </Typography>
 		      </ListSubheader>
@@ -279,9 +279,9 @@ export default function NestedList() {
                 <StarBorder />
               </ListItemIcon>
               <ListItemText primaryTypographyProps={{ style: cssMenuLink }} primary="Flash Light" />
-            </ListItemButton>            
+            </ListItemButton>
 		      </List>
-		    </Collapse>       
+		    </Collapse>
 	    </List>
 
       <Link  href="#" sx={ cssLink }>
@@ -295,7 +295,7 @@ export default function NestedList() {
             <ListItemIcon> <Icon><img src="../icon/PC/logout.png" width={widthIcon} height={heightIcon} /></Icon> </ListItemIcon>
             <ListItemText primaryTypographyProps={{ style: cssMenuLink }} primary="Logout" />
           </ListItemButton>
-      </Link>      
+      </Link>
     </div>
   );
 }

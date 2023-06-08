@@ -118,18 +118,14 @@ export default function Home() {
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
       <AppBar position="absolute" open={open} color="inherit">
-        <Toolbar
-            sx={{
-              pr: '24px', // keep right padding when drawer closed
-            }}
-          >
-            <img src="/menu/header.png" width="120" height="25" style={{marginLeft: 40}}/>
+        <Toolbar>
+            <img src="/menu/header.png" width="120" height="25" style={{ marginLeft: isMobile ? 0 : 40 }}/>
             <IconButton
               size="large"
               edge="start"
               color="inherit"
               aria-label="menu"
-              style={{marginLeft: 40}}
+              style={{marginLeft: 50}}
               onClick={toggleDrawer}
               sx={{ display: { xs: 'none', md: 'flex' } }}
             >
@@ -142,13 +138,13 @@ export default function Home() {
               noWrap
               sx={{ flexGrow: 1 }} />
 
-            <Typography color="black" sx={{ textAlign: 'right', mr:2, display: { xs: 'none', md: 'flex' }}} >
-              <strong>Hello Admin</strong>
+            <Typography sx={{ color : '#325381', textAlign: 'right', mr:2, display: { xs: 'none', md: 'flex' }}} >
+              Hello<strong style={{ marginLeft: 5 }}>Admin</strong>
             </Typography>
 
             <Avatar alt="Travis Howard" 
                   src="/avatar/avatar.png"
-                  sx={{ width: 50, height: 50, mt:2, mb:2, mr:3 }} />
+                  sx={{ width: 50, height: 50, mt:2, mb:2, mr:3, }} />
 
             <IconButton
               size="large"
@@ -186,12 +182,9 @@ export default function Home() {
         <Box
           component="main"
           sx={{
-            backgroundColor: (theme) =>
-              theme.palette.mode === 'light'
-                ? theme.palette.grey[100]
-                : theme.palette.grey[900],
             flexGrow: 1,
-            overflow: 'hidden',
+            overflow: 'auto',
+            height: '100vh'
           }}
         >
           <Toolbar />
