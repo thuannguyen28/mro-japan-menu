@@ -22,6 +22,7 @@ import NestedList from './components/menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import Divider from '@mui/material/Divider';
 import List from '@mui/material/List';
+import Head from 'next/head';
 
 const drawerWidth: number = 320;
 const drawerWidthMB: number = 420;
@@ -89,6 +90,11 @@ export default function Home() {
     setOpen(!open);
   };
   return (
+    <div>
+    <Head>
+        <title>MRO Japan - Home</title>
+        <meta name="viewport" content="initial-scale=1, width=device-width" />
+    </Head>
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
       <AppBar position="absolute" open={open} color="inherit">
@@ -175,5 +181,6 @@ export default function Home() {
 
         </Box>
     </Box>
+  </div>  
   );
 }
