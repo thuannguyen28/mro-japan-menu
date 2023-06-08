@@ -1,7 +1,6 @@
 import * as React from 'react';
 import CssBaseline from '@mui/material/CssBaseline';
 import Box from '@mui/material/Box';
-import Container from '@mui/material/Container';
 import { styled, createTheme, ThemeProvider} from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
@@ -24,7 +23,7 @@ import Divider from '@mui/material/Divider';
 import List from '@mui/material/List';
 import Head from 'next/head';
 
-const drawerWidth: number = 320;
+const drawerWidth: number = 280;
 const drawerWidthMB: number = 420;
 const drawerheight: number = 920;
 
@@ -104,7 +103,7 @@ export default function Home() {
             }}
           >
 
-            <img src="/menu/header.png" width="150" height="30" style={{marginLeft: 40}}/>
+            <img src="/menu/header.png" width="120" height="25" style={{marginLeft: 40}}/>
 
             <IconButton
               size="large"
@@ -124,9 +123,13 @@ export default function Home() {
               noWrap
               sx={{ flexGrow: 1 }} />
 
+            <Typography color="black" sx={{ textAlign: 'right', mr:2, display: { xs: 'none', md: 'flex' }}} >
+              <strong>Hello Admin</strong>
+            </Typography>
+
             <Avatar alt="Travis Howard" 
                   src="/avatar/2.png"
-                  sx={{ width: 56, height: 56, mt:2, mb:2, mr:3 }} />
+                  sx={{ width: 50, height: 50, mt:2, mb:2, mr:3 }} />
 
             <IconButton
               size="large"
