@@ -118,7 +118,7 @@ export default function Home() {
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
       <AppBar position="absolute" open={open} color="inherit">
-        <Toolbar>
+        <Toolbar sx={{ pt: 1, pb: 1 }}>
             <img src="/menu/header.png" width="120" height="25" style={{ marginLeft: isMobile ? 0 : 40 }}/>
             <IconButton
               size="large"
@@ -144,7 +144,7 @@ export default function Home() {
 
             <Avatar alt="Travis Howard" 
                   src="/avatar/avatar.png"
-                  sx={{ width: 50, height: 50, mt:2, mb:2, mr:3, }} />
+                  sx={{ width: 50, height: 50, mr:3, display: { xs: 'none', md: 'flex' } }} />
 
             <IconButton
               size="large"
@@ -170,11 +170,7 @@ export default function Home() {
               mt:2,
             }}
           >
-            <IconButton onClick={toggleDrawer}>
-              <ChevronLeftIcon />
-            </IconButton>
           </Toolbar>
-          <Divider />
           <List component="nav">
             <NestedList data={open}/>
           </List>
