@@ -13,26 +13,41 @@ import ExpandMore from '@mui/icons-material/ExpandMore';
 import StarBorder from '@mui/icons-material/StarBorder';
 import Typography from '@mui/material/Typography';
 import Icon from '@mui/material/Icon';
+import Link from '@mui/material/Link';
+import MenuItem  from '@mui/material/MenuItem';
+import ListItem  from '@mui/material/ListItem';
 
 export default function NestedList() {
 
-const [open, setOpen] = React.useState([true, true]);
+  const cssMenuLink = {
+    overflow: 'hidden',
+    textOverflow: 'ellipsis',
+    width: '95%',
+    whiteSpace: 'nowrap',
+  };
 
-const handleClick = (index) => {
-  const newOpen = [...open];
-  newOpen[index] = !newOpen[index];
-  setOpen(newOpen);
-};
+  const cssLink = { textDecoration: 'none', color: 'inherit' };
+
+  const [open, setOpen] = React.useState([]);
+
+  const heightIcon = 27;
+  const widthIcon = 27;
+
+  const handleClick = (index) => {
+    const newOpen = [...open];
+    newOpen[index] = !newOpen[index];
+    setOpen(newOpen);
+  };
 
   return (
   	<div>
 	    <List
-	    sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}
+	    sx={{ width: '100%', bgcolor: 'background.paper' }}
 	    component="nav"
 	    aria-labelledby="nested-list-subheader"
 	    subheader={
 		      <ListSubheader component="div" id="nested-list-subheader">
-		        <Typography color="#3A5075" sx={{mt:3, ml:2}}>
+		        <Typography color="#3A5075" sx={{mt:3}}>
 				      <strong>PART</strong>
 				    </Typography>
 		      </ListSubheader>
@@ -41,9 +56,9 @@ const handleClick = (index) => {
 
 	      <ListItemButton onClick={() => handleClick(0)}>
 		      <ListItemIcon>
-		        <Icon><img src="../icon/PC/order.png" width="27" height="27" /></Icon>
+		        <Icon><img src="../icon/PC/order.png" width={widthIcon} height={heightIcon} /></Icon>
 		      </ListItemIcon>
-		      <ListItemText primary="Parts Order" />
+		      <ListItemText primaryTypographyProps={{ style: cssMenuLink }} primary="Parts Order" />
 		      {open[0] ? <ExpandLess /> : <ExpandMore />}
 		    </ListItemButton>
 		    <Collapse in={open[0]} timeout="auto" unmountOnExit>
@@ -52,16 +67,16 @@ const handleClick = (index) => {
 		          <ListItemIcon>
 		            <StarBorder />
 		          </ListItemIcon>
-		          <ListItemText primary="Parts Order" />
+		          <ListItemText primaryTypographyProps={{ style: cssMenuLink }} primary="Parts Order" />
 		        </ListItemButton>
 		      </List>
 		    </Collapse>
 
 	      <ListItemButton onClick={() => handleClick(1)}>
 		      <ListItemIcon>
-		        <Icon><img src="../icon/PC/order kit.png" width="27" height="27" /></Icon>
+		        <Icon><img src="../icon/PC/order kit.png" width={widthIcon} height={heightIcon} /></Icon>
 		      </ListItemIcon>
-		      <ListItemText primary="Parts Kit" />
+		      <ListItemText primaryTypographyProps={{ style: cssMenuLink }} primary="Parts Kit" />
 		      {open[1] ? <ExpandLess /> : <ExpandMore />}
 		    </ListItemButton>
 		    <Collapse in={open[1]} timeout="auto" unmountOnExit>
@@ -70,16 +85,16 @@ const handleClick = (index) => {
 		          <ListItemIcon>
 		            <StarBorder />
 		          </ListItemIcon>
-		          <ListItemText primary="Parts Kit" />
+		          <ListItemText primaryTypographyProps={{ style: cssMenuLink }} primary="Parts Kit" />
 		        </ListItemButton>
 		      </List>
 		    </Collapse>
 
 	      <ListItemButton onClick={() => handleClick(2)}>
 		      <ListItemIcon>
-		        <Icon><img src="../icon/PC/order comfirm.png" width="27" height="27" /></Icon>
+		        <Icon><img src="../icon/PC/order comfirm.png" width={widthIcon} height={heightIcon} /></Icon>
 		      </ListItemIcon>
-		      <ListItemText primary="Order Confirmation" />
+		      <ListItemText primaryTypographyProps={{ style: cssMenuLink }} primary="Order Confirmation" />
 		      {open[2] ? <ExpandLess /> : <ExpandMore />}
 		    </ListItemButton>
 		    <Collapse in={open[2]} timeout="auto" unmountOnExit>
@@ -88,46 +103,34 @@ const handleClick = (index) => {
 		          <ListItemIcon>
 		            <StarBorder />
 		          </ListItemIcon>
-		          <ListItemText primary="Parts Order List (Zone)" />
+		          <ListItemText primaryTypographyProps={{ style: cssMenuLink }} primary="Parts Order List (Zone)" />
 		        </ListItemButton>
-		      </List>
-		    </Collapse>
-		    <Collapse in={open[2]} timeout="auto" unmountOnExit>
-		      <List component="div" disablePadding>
-		        <ListItemButton sx={{ pl: 4 }}>
-		          <ListItemIcon>
-		            <StarBorder />
-		          </ListItemIcon>
-		          <ListItemText primary="Parts Order List Search" />
-		        </ListItemButton>
-		      </List>
-		    </Collapse>
-		    <Collapse in={open[2]} timeout="auto" unmountOnExit>
-		      <List component="div" disablePadding>
-		        <ListItemButton sx={{ pl: 4 }}>
-		          <ListItemIcon>
-		            <StarBorder />
-		          </ListItemIcon>
-		          <ListItemText primary="Parts Order List (All)" />
-		        </ListItemButton>
-		      </List>
-		    </Collapse>
-		    <Collapse in={open[2]} timeout="auto" unmountOnExit>
-		      <List component="div" disablePadding>
-		        <ListItemButton sx={{ pl: 4 }}>
-		          <ListItemIcon>
-		            <StarBorder />
-		          </ListItemIcon>
-		          <ListItemText primary="受領者検索" />
-		        </ListItemButton>
+            <ListItemButton sx={{ pl: 4 }}>
+              <ListItemIcon>
+                <StarBorder />
+              </ListItemIcon>
+              <ListItemText primaryTypographyProps={{ style: cssMenuLink }} primary="Parts Order List Search" />
+            </ListItemButton>
+            <ListItemButton sx={{ pl: 4 }}>
+              <ListItemIcon>
+                <StarBorder />
+              </ListItemIcon>
+              <ListItemText primaryTypographyProps={{ style: cssMenuLink }} primary="Parts Order List (All)" />
+            </ListItemButton>
+            <ListItemButton sx={{ pl: 4 }}>
+              <ListItemIcon>
+                <StarBorder />
+              </ListItemIcon>
+              <ListItemText primaryTypographyProps={{ style: cssMenuLink }} primary="受領者検索" />
+            </ListItemButton>
 		      </List>
 		    </Collapse>
 
 	      <ListItemButton onClick={() => handleClick(3)}>
 		      <ListItemIcon>
-		        <Icon><img src="../icon/PC/document drafting.png" width="27" height="27" /></Icon>
+		        <Icon><img src="../icon/PC/document drafting.png" width={widthIcon} height={heightIcon} /></Icon>
 		      </ListItemIcon>
-		      <ListItemText primary="Document Drafting ..." />
+		      <ListItemText primaryTypographyProps={{ style: cssMenuLink }} primary="Document Drafting Assistance" />
 		      {open[3] ? <ExpandLess /> : <ExpandMore />}
 		    </ListItemButton>
 		    <Collapse in={open[3]} timeout="auto" unmountOnExit>
@@ -136,26 +139,22 @@ const handleClick = (index) => {
 		          <ListItemIcon>
 		            <StarBorder />
 		          </ListItemIcon>
-		          <ListItemText primary="SPR" />
+		          <ListItemText primaryTypographyProps={{ style: cssMenuLink }} primary="SPR" />
 		        </ListItemButton>
-		      </List>
-		    </Collapse>
-		    <Collapse in={open[3]} timeout="auto" unmountOnExit>
-		      <List component="div" disablePadding>
-		        <ListItemButton sx={{ pl: 4 }}>
-		          <ListItemIcon>
-		            <StarBorder />
-		          </ListItemIcon>
-		          <ListItemText primary="良品票添付台紙" />
-		        </ListItemButton>
+            <ListItemButton sx={{ pl: 4 }}>
+              <ListItemIcon>
+                <StarBorder />
+              </ListItemIcon>
+              <ListItemText primaryTypographyProps={{ style: cssMenuLink }} primary="良品票添付台紙" />
+            </ListItemButton>
 		      </List>
 		    </Collapse>
 
 	      <ListItemButton onClick={() => handleClick(4)}>
 		      <ListItemIcon>
-		        <Icon><img src="../icon/PC/parts supply.png" width="27" height="27" /></Icon>
+		        <Icon><img src="../icon/PC/parts supply.png" width={widthIcon} height={heightIcon} /></Icon>
 		      </ListItemIcon>
-		      <ListItemText primary="Parts Supply Depar..." />
+		      <ListItemText primaryTypographyProps={{ style: cssMenuLink }} primary="Parts Supply Department" />
 		      {open[4] ? <ExpandLess /> : <ExpandMore />}
 		    </ListItemButton>
 		    <Collapse in={open[4]} timeout="auto" unmountOnExit>
@@ -164,18 +163,18 @@ const handleClick = (index) => {
 		          <ListItemIcon>
 		            <StarBorder />
 		          </ListItemIcon>
-		          <ListItemText primary="Parts Supply Department Menu" />
+		          <ListItemText primaryTypographyProps={{ style: cssMenuLink }} primary="Parts Supply Department Menu" />
 		        </ListItemButton>
 		      </List>
 		    </Collapse>
 	    </List>
 	    <List
-	    sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}
+	    sx={{ width: '100%', bgcolor: 'background.paper' }}
 	    component="nav"
 	    aria-labelledby="nested-list-subheader"
 	    subheader={
 		      <ListSubheader component="div" id="nested-list-subheader">
-		        <Typography color="#3A5075" sx={{mt:3, ml:2}}>
+		        <Typography color="#3A5075" sx={{mt:3}}>
 				      <strong>WORK ORDER</strong>
 				    </Typography>
 		      </ListSubheader>
@@ -184,9 +183,9 @@ const handleClick = (index) => {
 
 	      <ListItemButton onClick={() => handleClick(5)}>
 		      <ListItemIcon>
-		        <Icon><img src="../icon/PC/calendar.png" width="27" height="27" /></Icon>
+		        <Icon><img src="../icon/PC/calendar.png" width={widthIcon} height={heightIcon} /></Icon>
 		      </ListItemIcon>
-		      <ListItemText primary="Task Card" />
+		      <ListItemText primaryTypographyProps={{ style: cssMenuLink }} primary="Task Card" />
 		      {open[5] ? <ExpandLess /> : <ExpandMore />}
 		    </ListItemButton>
 		    <Collapse in={open[5]} timeout="auto" unmountOnExit>
@@ -195,7 +194,7 @@ const handleClick = (index) => {
 		          <ListItemIcon>
 		            <StarBorder />
 		          </ListItemIcon>
-		          <ListItemText primary="Task Card Status" />
+		          <ListItemText primaryTypographyProps={{ style: cssMenuLink }} primary="Task Card Status" />
 		        </ListItemButton>
 		      </List>
 		    </Collapse>
@@ -205,16 +204,16 @@ const handleClick = (index) => {
 		          <ListItemIcon>
 		            <StarBorder />
 		          </ListItemIcon>
-		          <ListItemText primary="N/R Task Card Status" />
+		          <ListItemText primaryTypographyProps={{ style: cssMenuLink }} primary="N/R Task Card Status" />
 		        </ListItemButton>
 		      </List>
 		    </Collapse>
 
 	      <ListItemButton onClick={() => handleClick(6)}>
 		      <ListItemIcon>
-		        <Icon><img src="../icon/PC/tools.png" width="27" height="27" /></Icon>
+		        <Icon><img src="../icon/PC/tools.png" width={widthIcon} height={heightIcon} /></Icon>
 		      </ListItemIcon>
-		      <ListItemText primary="Line Maintenance" />
+		      <ListItemText primaryTypographyProps={{ style: cssMenuLink }} primary="Line Maintenance" />
 		      {open[6] ? <ExpandLess /> : <ExpandMore />}
 		    </ListItemButton>
 		    <Collapse in={open[6]} timeout="auto" unmountOnExit>
@@ -223,19 +222,19 @@ const handleClick = (index) => {
 		          <ListItemIcon>
 		            <StarBorder />
 		          </ListItemIcon>
-		          <ListItemText primary="LINE定例作業" />
+		          <ListItemText primaryTypographyProps={{ style: cssMenuLink }} primary="LINE定例作業" />
 		        </ListItemButton>
 		      </List>
 		    </Collapse>
 	    </List>
 
 	    <List
-	    sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}
+	    sx={{ width: '100%', bgcolor: 'background.paper', mb: 15 }}
 	    component="nav"
 	    aria-labelledby="nested-list-subheader"
 	    subheader={
 		      <ListSubheader component="div" id="nested-list-subheader">
-		        <Typography color="#3A5075" sx={{mt:3, ml:2}}>
+		        <Typography color="#3A5075" sx={{mt:3}}>
 				      <strong>TOOLS</strong>
 				    </Typography>
 		      </ListSubheader>
@@ -244,9 +243,9 @@ const handleClick = (index) => {
 
 	      <ListItemButton onClick={() => handleClick(7)}>
 		      <ListItemIcon>
-		        <Icon><img src="../icon/PC/tools.png" width="27" height="27" /></Icon>
+		        <Icon><img src="../icon/PC/tools.png" width={widthIcon} height={heightIcon} /></Icon>
 		      </ListItemIcon>
-		      <ListItemText primary="Tools Order" />
+		      <ListItemText primaryTypographyProps={{ style: cssMenuLink }} primary="Tools Order" />
 		      {open[7] ? <ExpandLess /> : <ExpandMore />}
 		    </ListItemButton>
 		    <Collapse in={open[7]} timeout="auto" unmountOnExit>
@@ -255,31 +254,48 @@ const handleClick = (index) => {
 		          <ListItemIcon>
 		            <StarBorder />
 		          </ListItemIcon>
-		          <ListItemText primary="Tools Order" />
+		          <ListItemText primaryTypographyProps={{ style: cssMenuLink }} primary="Tools Order" />
 		        </ListItemButton>
 		      </List>
 		    </Collapse>
 
-		    <ListItemButton onClick={() => handleClick(7)}>
+		    <ListItemButton onClick={() => handleClick(8)}>
 		      <ListItemIcon>
-		        <Icon><img src="../icon/PC/tools check.png" width="27" height="27" /></Icon>
+		        <Icon><img src="../icon/PC/tools check.png" width={widthIcon} height={heightIcon} /></Icon>
 		      </ListItemIcon>
-		      <ListItemText primary="Tools Check" />
-		      {open[7] ? <ExpandLess /> : <ExpandMore />}
+		      <ListItemText primaryTypographyProps={{ style: cssMenuLink }} primary="Tools Check" />
+		      {open[8] ? <ExpandLess /> : <ExpandMore />}
 		    </ListItemButton>
-		    <Collapse in={open[7]} timeout="auto" unmountOnExit>
+		    <Collapse in={open[8]} timeout="auto" unmountOnExit>
 		      <List component="div" disablePadding>
 		        <ListItemButton sx={{ pl: 4 }}>
 		          <ListItemIcon>
 		            <StarBorder />
 		          </ListItemIcon>
-		          <ListItemText primary="Tool Check" />
+		          <ListItemText primaryTypographyProps={{ style: cssMenuLink }} primary="Tool Inventory" />
 		        </ListItemButton>
+            <ListItemButton sx={{ pl: 4 }}>
+              <ListItemIcon>
+                <StarBorder />
+              </ListItemIcon>
+              <ListItemText primaryTypographyProps={{ style: cssMenuLink }} primary="Flash Light" />
+            </ListItemButton>            
 		      </List>
-		    </Collapse>
+		    </Collapse>       
 	    </List>
 
+      <Link  href="#" sx={ cssLink }>
+          <ListItemButton>
+            <ListItemIcon> <Icon><img src="../icon/PC/information.png" width={widthIcon} height={heightIcon} /></Icon> </ListItemIcon>
+            <ListItemText primaryTypographyProps={{ style: cssMenuLink }} primary="Help & information" />
+          </ListItemButton>
+      </Link>
+      <Link  href="#" sx={ cssLink }>
+          <ListItemButton>
+            <ListItemIcon> <Icon><img src="../icon/PC/logout.png" width={widthIcon} height={heightIcon} /></Icon> </ListItemIcon>
+            <ListItemText primaryTypographyProps={{ style: cssMenuLink }} primary="Logout" />
+          </ListItemButton>
+      </Link>      
     </div>
-
   );
 }

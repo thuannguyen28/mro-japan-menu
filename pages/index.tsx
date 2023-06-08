@@ -25,7 +25,7 @@ import Head from 'next/head';
 
 const drawerWidth: number = 280;
 const drawerWidthMB: number = 420;
-const drawerheight: number = 920;
+const drawerheight = '100vh';
 
 interface AppBarProps extends MuiAppBarProps {
   open?: boolean;
@@ -72,7 +72,7 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
         }),
         width: `calc(${theme.spacing(0)} + 1px)`,
         [theme.breakpoints.up('sm')]: {
-          width: `calc(${theme.spacing(9)} + 1px)`,
+          width: `calc(${theme.spacing(7)} + 1px)`,
         },
       }),
     },
@@ -102,9 +102,7 @@ export default function Home() {
               pr: '24px', // keep right padding when drawer closed
             }}
           >
-
             <img src="/menu/header.png" width="120" height="25" style={{marginLeft: 40}}/>
-
             <IconButton
               size="large"
               edge="start"
@@ -128,7 +126,7 @@ export default function Home() {
             </Typography>
 
             <Avatar alt="Travis Howard" 
-                  src="/avatar/2.png"
+                  src="/avatar/avatar.png"
                   sx={{ width: 50, height: 50, mt:2, mb:2, mr:3 }} />
 
             <IconButton
@@ -162,8 +160,6 @@ export default function Home() {
           <Divider />
           <List component="nav">
             <NestedList />
-            <Divider sx={{ my: 10 }} />
-          
           </List>
         </Drawer>
         <Box
