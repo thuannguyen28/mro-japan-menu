@@ -45,13 +45,14 @@ const ItemFrame = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
   ...theme.typography.body2, 
   width:85,
-  height:80,
+  height:85,
   marginRight:10,
+  marginBottom:10,
   boxShadow:'10',
   [theme.breakpoints.up('sm')]: {
           width: 112,
           height:121,
-          marginRight:10,
+          marginRight:20,
           padding: theme.spacing(0),
 				  textAlign: 'center',
 				  color: theme.palette.text.secondary,
@@ -97,10 +98,10 @@ const ItemText = styled(Paper)(({ theme }) => ({
 
 export default function Parts() {
   return (
-   	<Grid item xs={12} sx={{  mr:4 }}>
- 				<Grid item xs={12} sx={{ ml:4, mr:4 }}>
+   	<Grid item xs={12} sx={{  mr:4, mt:4 }}>
+ 				<Grid item xs={12} sx={{ ml:5, mr:4 }}>
           <Grid container spacing={2}>
-            <Grid item xs={5} md={1} sx={{ mr:3}}>
+          
 					    <Item>
 					    	<ItemTitle>
 					    		<Typography color="#3A5075" sx={{ textDecoration: 'underline', fontSize: 13 }}>
@@ -127,8 +128,8 @@ export default function Parts() {
 						    	</ItemFrame>	    	
 					    	</ItemRow>
 					    </Item>
-					  </Grid>
-					  <Grid item xs={5} md={1} sx={{ mr:3}}>
+				
+					 
 					    <Item>
 					    	<ItemTitle>
 					    		<Typography color="#3A5075" sx={{ textDecoration: 'underline', fontSize: 13 }}>
@@ -155,8 +156,8 @@ export default function Parts() {
 						    	</ItemFrame>	    	
 					    	</ItemRow>
 					    </Item>
-					  </Grid>
-					  <Grid item xs={12} md={4}>
+	
+					
 					    <Item>
 						    <ItemTitle>
 						    	<Typography color="#3A5075" sx={{ textDecoration: 'underline', fontSize: 13 }}>
@@ -234,8 +235,8 @@ export default function Parts() {
 						    	</ItemFrame>	
 					    	</ItemRow>
 					    </Item>
-					  </Grid>
-					  <Grid item xs={7} md={2} sx={{ mr:2}}>
+					
+					 
 					    <Item>
 					    	<ItemTitle>
 					    		<Typography color="#3A5075" sx={{ textDecoration: 'underline', fontSize: 13 }}>
@@ -247,7 +248,7 @@ export default function Parts() {
 						    		<ItemAvatar>
 						    			<Avatar
 						    				sx={{ 
-													p:1, 
+													p:1,
 													mr:1, 
 													width: { xs: 56, md: 80 }, 
 													height: { xs: 56, md: 80 } 
@@ -280,8 +281,7 @@ export default function Parts() {
 
 					    	</ItemRow>
 					    </Item>
-					  </Grid>
-					  <Grid item xs={4} md={2}>
+					  
 					    <Item>
 					    	<ItemTitle>
 					    		<Typography color="#3A5075" sx={{ textDecoration: 'underline', fontSize: 13 }}>
@@ -294,7 +294,7 @@ export default function Parts() {
 						    			<Avatar
 						    				sx={{ 
 													p:1, 
-													mr:1, 
+													mr:3, 
 													width: { xs: 56, md: 80 }, 
 													height: { xs: 56, md: 80 } 
 												}}
@@ -308,7 +308,7 @@ export default function Parts() {
 						    	</ItemFrame>	    	
 					    	</ItemRow>
 					    </Item>
-					  </Grid>
+
 					</Grid>
 
 				</Grid>

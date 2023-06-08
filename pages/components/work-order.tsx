@@ -47,11 +47,12 @@ const ItemFrame = styled(Paper)(({ theme }) => ({
   width:85,
   height:80,
   marginRight:10,
+  marginBottom:10,
   boxShadow:'10',
   [theme.breakpoints.up('sm')]: {
           width: 112,
           height:121,
-          marginRight:10,
+          marginRight:20,
           padding: theme.spacing(0),
 				  textAlign: 'center',
 				  color: theme.palette.text.secondary,
@@ -97,10 +98,10 @@ const ItemText = styled(Paper)(({ theme }) => ({
 
 export default function WorkOrder() {
   return (
-   	<Grid item xs={12} sx={{  mr:4 }}>
- 				<Grid item xs={12} sx={{ ml:4, mr:4 }}>
+   	<Grid item xs={12} sx={{  mr:4, mt:4 }}>
+ 				<Grid item xs={12} sx={{ ml:5}}>
           <Grid container spacing={2}>
-            <Grid item xs={7} md={2} sx={{ mr:2}}>
+            
 					    <Item>
 					    	<ItemTitle>
 					    		<Typography color="#3A5075" sx={{ textDecoration: 'underline', fontSize: 13 }}>
@@ -145,8 +146,8 @@ export default function WorkOrder() {
 
 					    	</ItemRow>
 					    </Item>
-					  </Grid>
-					  <Grid item xs={4} md={2}>
+				
+					 
 					    <Item>
 					    	<ItemTitle>
 					    		<Typography color="#3A5075" sx={{ textDecoration: 'underline', fontSize: 13 }}>
@@ -173,7 +174,7 @@ export default function WorkOrder() {
 						    	</ItemFrame>	    	
 					    	</ItemRow>
 					    </Item>
-					  </Grid>
+			
 					</Grid>
 
 				</Grid>
