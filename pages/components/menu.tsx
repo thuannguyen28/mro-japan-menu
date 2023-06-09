@@ -47,7 +47,7 @@ export default function NestedList() {
 	    aria-labelledby="nested-list-subheader"
 	    subheader={
 		      <ListSubheader component="div" id="nested-list-subheader">
-		        <Typography color="#3A5075" sx={{mt:2}}>
+		        <Typography color="#3A5075">
 				      <strong>PART</strong>
 				    </Typography>
 		      </ListSubheader>
