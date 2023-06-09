@@ -14,11 +14,11 @@ import Typography from '@mui/material/Typography';
 import Badge from '@mui/material/Badge';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import Avatar from '@mui/material/Avatar';
-import NestedList from '../../components/menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import Divider from '@mui/material/Divider';
 import List from '@mui/material/List';
-import Head from 'next/head';
+
+import SideBar from '../../components/sidebar';
 
 const drawerWidth: number = 280;
 const drawerWidthMB = '100%';
@@ -112,7 +112,7 @@ export default function PersistentDrawerLeft(props) {
       <CssBaseline />
       <AppBar position="absolute" open={open} color="inherit">
         <Toolbar sx={{ pt: 1, pb: 1 }}>
-            <img src="/menu/header.png" width="120" height="25" style={{ marginLeft: isMobile ? 0 : 40 }}/>
+            <img src="logo.png" width="120" height="25" style={{ marginLeft: isMobile ? 0 : 40 }}/>
             <IconButton
               size="large"
               edge="start"
@@ -165,7 +165,7 @@ export default function PersistentDrawerLeft(props) {
           >
           </Toolbar>
           <List component="nav">
-            <NestedList openMenu={open} isMobile={isMobile} />
+            <SideBar openMenu={open} isMobile={isMobile} />
           </List>
         </Drawer>
         <Box
