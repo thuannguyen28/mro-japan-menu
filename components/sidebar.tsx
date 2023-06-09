@@ -32,8 +32,8 @@ export default function NestedList(props) {
 
   const [open, setOpen] = React.useState([]);
 
-  const heightIcon = 27;
-  const widthIcon = 27;
+  const heightIcon = 26;
+  const widthIcon = 26;
 
   const handleClick = (index) => {
     const newOpen = [...open];
