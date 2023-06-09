@@ -69,8 +69,9 @@ export const mainContainer = (
 
               <Typography 
                 color="#3A5075"
-                sx={{ mt:1 }}>
-                <strong>●</strong> Announcement of new business strategy changes applied throughout the company
+                sx={{ mt:1 ,display:'flex'}}>
+                <strong style={{ marginRight:4 }}>●</strong>
+                Announcement of new business strategy changes applied throughout the company
               </Typography>
             </Paper>
           </Paper>
