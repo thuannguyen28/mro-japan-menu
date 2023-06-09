@@ -107,7 +107,7 @@ const cardMedia = { margin: 'auto', mt: '2px', width: { xs: 30, md: 50 }, height
 
 export default function WorkOrder() {
   return (
-   	<Grid item xs={12} sx={{  mr:4, mt:4 }}>
+   	<Grid item xs={12} sx={{  mr:4, mt:4, ml: { md: 4} }}>
  				<Grid item xs={12} sx={{ ml:5}}>
           <Grid container spacing={2}>
 

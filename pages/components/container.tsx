@@ -33,72 +33,6 @@ const ItemTitle = styled(Paper)(({ theme }) => ({
   color: theme.palette.text.secondary,
   boxShadow:'none',
 }));
-// ngang
-const ItemRow = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-  ...theme.typography.body2,
-  padding: theme.spacing(1),
-  textAlign: 'center',
-  display: 'flex',
-  flexDirection: 'row',
-  color: theme.palette.text.secondary,
-  boxShadow:'none',
-}));
-
-const ItemFrame = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-  ...theme.typography.body2, 
-  width:85,
-  height:80,
-  marginRight:10,
-  boxShadow:'10',
-  [theme.breakpoints.up('sm')]: {
-          width: 112,
-          height:121,
-          marginRight:10,
-          padding: theme.spacing(0),
-				  textAlign: 'center',
-				  color: theme.palette.text.secondary,
-				  borderRadius: '10px',
-				  boxShadow:'0px 0px 10px rgba(0, 0, 0, 0.2)',
-        },
-}));
-
-const ItemAvatar = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-  ...theme.typography.body2, 
-  width:50,
-  height:50,
-  margin: 'auto',
-  boxShadow:'none',
-  [theme.breakpoints.up('sm')]: {
-          width: 70,
-          height:70,
-          padding: theme.spacing(0),
-          margin: 'auto',
-				  textAlign: 'center',
-				  color: theme.palette.text.secondary,
-				  boxShadow:'none',
-        },
-}));
-
-const ItemText = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-  ...theme.typography.body2, 
-  width:75,
-  height:20,
-  margin: 'auto',
-  boxShadow:'none',
-  [theme.breakpoints.up('sm')]: {
-          width: 112,
-          height:50,
-          padding: theme.spacing(1),
-				  textAlign: 'center',
-				  color: theme.palette.text.secondary,
-				  boxShadow:'none',
-        },
-}));
-
 
 export const mainContainer = (
 <React.Fragment>
@@ -135,7 +69,7 @@ export const mainContainer = (
 
 					    <Typography 
 					    	color="#3A5075"
-					    	sx={{ mt:2 }}>
+					    	sx={{ mt:1 }}>
 					      <strong>●</strong> Announcement of new business strategy changes applied throughout the company
 					    </Typography>
 				    </Paper>
