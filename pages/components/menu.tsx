@@ -68,7 +68,7 @@ export default function NestedList() {
 		      <List component="div" disablePadding>
 		        <ListItemButton sx={{ pl: 4 }}>
 		          <ListItemIcon>
-		            <StarBorder />
+		            <StarBorder sx={color} />
 		          </ListItemIcon>
 		          <ListItemText primaryTypographyProps={{ style: cssMenuLink }} primary="Parts Order" />
 		        </ListItemButton>
@@ -86,7 +86,7 @@ export default function NestedList() {
 		      <List component="div" disablePadding>
 		        <ListItemButton sx={{ pl: 4 }}>
 		          <ListItemIcon>
-		            <StarBorder />
+		            <StarBorder sx={color} />
 		          </ListItemIcon>
 		          <ListItemText primaryTypographyProps={{ style: cssMenuLink }} primary="Parts Kit" />
 		        </ListItemButton>
@@ -104,25 +104,25 @@ export default function NestedList() {
 		      <List component="div" disablePadding>
 		        <ListItemButton sx={{ pl: 4 }}>
 		          <ListItemIcon>
-		            <StarBorder />
+		            <StarBorder sx={color} />
 		          </ListItemIcon>
 		          <ListItemText primaryTypographyProps={{ style: cssMenuLink }} primary="Parts Order List (Zone)" />
 		        </ListItemButton>
             <ListItemButton sx={{ pl: 4 }}>
               <ListItemIcon>
-                <StarBorder />
+                <StarBorder sx={color} />
               </ListItemIcon>
               <ListItemText primaryTypographyProps={{ style: cssMenuLink }} primary="Parts Order List Search" />
             </ListItemButton>
             <ListItemButton sx={{ pl: 4 }}>
               <ListItemIcon>
-                <StarBorder />
+                <StarBorder sx={color} />
               </ListItemIcon>
               <ListItemText primaryTypographyProps={{ style: cssMenuLink }} primary="Parts Order List (All)" />
             </ListItemButton>
             <ListItemButton sx={{ pl: 4 }}>
               <ListItemIcon>
-                <StarBorder />
+                <StarBorder sx={color} />
               </ListItemIcon>
               <ListItemText primaryTypographyProps={{ style: cssMenuLink }} primary="受領者検索" />
             </ListItemButton>
@@ -140,13 +140,13 @@ export default function NestedList() {
 		      <List component="div" disablePadding>
 		        <ListItemButton sx={{ pl: 4 }}>
 		          <ListItemIcon>
-		            <StarBorder />
+		            <StarBorder sx={color} />
 		          </ListItemIcon>
 		          <ListItemText primaryTypographyProps={{ style: cssMenuLink }} primary="SPR" />
 		        </ListItemButton>
             <ListItemButton sx={{ pl: 4 }}>
               <ListItemIcon>
-                <StarBorder />
+                <StarBorder sx={color} />
               </ListItemIcon>
               <ListItemText primaryTypographyProps={{ style: cssMenuLink }} primary="良品票添付台紙" />
             </ListItemButton>
@@ -164,7 +164,7 @@ export default function NestedList() {
 		      <List component="div" disablePadding>
 		        <ListItemButton sx={{ pl: 4 }}>
 		          <ListItemIcon>
-		            <StarBorder />
+		            <StarBorder sx={color} />
 		          </ListItemIcon>
 		          <ListItemText primaryTypographyProps={{ style: cssMenuLink }} primary="Parts Supply Department Menu" />
 		        </ListItemButton>
@@ -195,7 +195,7 @@ export default function NestedList() {
 		      <List component="div" disablePadding>
 		        <ListItemButton sx={{ pl: 4 }}>
 		          <ListItemIcon>
-		            <StarBorder />
+		            <StarBorder sx={color} />
 		          </ListItemIcon>
 		          <ListItemText primaryTypographyProps={{ style: cssMenuLink }} primary="Task Card Status" />
 		        </ListItemButton>
@@ -205,7 +205,7 @@ export default function NestedList() {
 		      <List component="div" disablePadding>
 		        <ListItemButton sx={{ pl: 4 }}>
 		          <ListItemIcon>
-		            <StarBorder />
+		            <StarBorder sx={color} />
 		          </ListItemIcon>
 		          <ListItemText primaryTypographyProps={{ style: cssMenuLink }} primary="N/R Task Card Status" />
 		        </ListItemButton>
@@ -223,7 +223,7 @@ export default function NestedList() {
 		      <List component="div" disablePadding>
 		        <ListItemButton sx={{ pl: 4 }}>
 		          <ListItemIcon>
-		            <StarBorder />
+		            <StarBorder sx={color} />
 		          </ListItemIcon>
 		          <ListItemText primaryTypographyProps={{ style: cssMenuLink }} primary="LINE定例作業" />
 		        </ListItemButton>
@@ -255,7 +255,7 @@ export default function NestedList() {
 		      <List component="div" disablePadding>
 		        <ListItemButton sx={{ pl: 4 }}>
 		          <ListItemIcon>
-		            <StarBorder />
+		            <StarBorder sx={color} />
 		          </ListItemIcon>
 		          <ListItemText primaryTypographyProps={{ style: cssMenuLink }} primary="Tools Order" />
 		        </ListItemButton>
@@ -273,13 +273,13 @@ export default function NestedList() {
 		      <List component="div" disablePadding>
 		        <ListItemButton sx={{ pl: 4 }}>
 		          <ListItemIcon>
-		            <StarBorder />
+		            <StarBorder sx={color} />
 		          </ListItemIcon>
 		          <ListItemText primaryTypographyProps={{ style: cssMenuLink }} primary="Tool Inventory" />
 		        </ListItemButton>
             <ListItemButton sx={{ pl: 4 }}>
               <ListItemIcon>
-                <StarBorder />
+                <StarBorder sx={color} />
               </ListItemIcon>
               <ListItemText primaryTypographyProps={{ style: cssMenuLink }} primary="Flash Light" />
             </ListItemButton>
