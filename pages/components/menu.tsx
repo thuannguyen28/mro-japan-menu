@@ -24,7 +24,10 @@ export default function NestedList() {
     textOverflow: 'ellipsis',
     width: '95%',
     whiteSpace: 'nowrap',
+    color:'#9C9C9C',
   };
+
+  const color = {color:'#9C9C9C'};
 
   const cssLink = { textDecoration: 'none', color: 'inherit' };
 
@@ -59,7 +62,7 @@ export default function NestedList() {
 		        <Icon><img src="../icon/PC/order.png" width={widthIcon} height={heightIcon} /></Icon>
 		      </ListItemIcon>
 		      <ListItemText primaryTypographyProps={{ style: cssMenuLink }} primary="Parts Order" />
-		      {open[0] ? <ExpandLess /> : <ExpandMore />}
+		      {open[0] ? <ExpandLess sx={color} /> : <ExpandMore sx={color} />}
 		    </ListItemButton>
 		    <Collapse in={open[0]} timeout="auto" unmountOnExit>
 		      <List component="div" disablePadding>
@@ -77,7 +80,7 @@ export default function NestedList() {
 		        <Icon><img src="../icon/PC/order kit.png" width={widthIcon} height={heightIcon} /></Icon>
 		      </ListItemIcon>
 		      <ListItemText primaryTypographyProps={{ style: cssMenuLink }} primary="Parts Kit" />
-		      {open[1] ? <ExpandLess /> : <ExpandMore />}
+		      {open[1] ? <ExpandLess sx={color} /> : <ExpandMore sx={color} />}
 		    </ListItemButton>
 		    <Collapse in={open[1]} timeout="auto" unmountOnExit>
 		      <List component="div" disablePadding>
@@ -95,7 +98,7 @@ export default function NestedList() {
 		        <Icon><img src="../icon/PC/order comfirm.png" width={widthIcon} height={heightIcon} /></Icon>
 		      </ListItemIcon>
 		      <ListItemText primaryTypographyProps={{ style: cssMenuLink }} primary="Order Confirmation" />
-		      {open[2] ? <ExpandLess /> : <ExpandMore />}
+		      {open[2] ? <ExpandLess sx={color} /> : <ExpandMore sx={color} />}
 		    </ListItemButton>
 		    <Collapse in={open[2]} timeout="auto" unmountOnExit>
 		      <List component="div" disablePadding>
@@ -131,7 +134,7 @@ export default function NestedList() {
 		        <Icon><img src="../icon/PC/document drafting.png" width={widthIcon} height={heightIcon} /></Icon>
 		      </ListItemIcon>
 		      <ListItemText primaryTypographyProps={{ style: cssMenuLink }} primary="Document Drafting Assistance" />
-		      {open[3] ? <ExpandLess /> : <ExpandMore />}
+		      {open[3] ? <ExpandLess sx={color} /> : <ExpandMore sx={color} />}
 		    </ListItemButton>
 		    <Collapse in={open[3]} timeout="auto" unmountOnExit>
 		      <List component="div" disablePadding>
@@ -155,7 +158,7 @@ export default function NestedList() {
 		        <Icon><img src="../icon/PC/parts supply.png" width={widthIcon} height={heightIcon} /></Icon>
 		      </ListItemIcon>
 		      <ListItemText primaryTypographyProps={{ style: cssMenuLink }} primary="Parts Supply Department" />
-		      {open[4] ? <ExpandLess /> : <ExpandMore />}
+		      {open[4] ? <ExpandLess sx={color} /> : <ExpandMore sx={color} />}
 		    </ListItemButton>
 		    <Collapse in={open[4]} timeout="auto" unmountOnExit>
 		      <List component="div" disablePadding>
@@ -186,7 +189,7 @@ export default function NestedList() {
 		        <Icon><img src="../icon/PC/calendar.png" width={widthIcon} height={heightIcon} /></Icon>
 		      </ListItemIcon>
 		      <ListItemText primaryTypographyProps={{ style: cssMenuLink }} primary="Task Card" />
-		      {open[5] ? <ExpandLess /> : <ExpandMore />}
+		      {open[5] ? <ExpandLess sx={color} /> : <ExpandMore sx={color} />}
 		    </ListItemButton>
 		    <Collapse in={open[5]} timeout="auto" unmountOnExit>
 		      <List component="div" disablePadding>
@@ -214,7 +217,7 @@ export default function NestedList() {
 		        <Icon><img src="../icon/PC/tools.png" width={widthIcon} height={heightIcon} /></Icon>
 		      </ListItemIcon>
 		      <ListItemText primaryTypographyProps={{ style: cssMenuLink }} primary="Line Maintenance" />
-		      {open[6] ? <ExpandLess /> : <ExpandMore />}
+		      {open[6] ? <ExpandLess sx={color} /> : <ExpandMore sx={color} />}
 		    </ListItemButton>
 		    <Collapse in={open[6]} timeout="auto" unmountOnExit>
 		      <List component="div" disablePadding>
@@ -246,7 +249,7 @@ export default function NestedList() {
 		        <Icon><img src="../icon/PC/tools.png" width={widthIcon} height={heightIcon} /></Icon>
 		      </ListItemIcon>
 		      <ListItemText primaryTypographyProps={{ style: cssMenuLink }} primary="Tools Order" />
-		      {open[7] ? <ExpandLess /> : <ExpandMore />}
+		      {open[7] ? <ExpandLess sx={color} /> : <ExpandMore sx={color} />}
 		    </ListItemButton>
 		    <Collapse in={open[7]} timeout="auto" unmountOnExit>
 		      <List component="div" disablePadding>
@@ -264,7 +267,7 @@ export default function NestedList() {
 		        <Icon><img src="../icon/PC/tools check.png" width={widthIcon} height={heightIcon} /></Icon>
 		      </ListItemIcon>
 		      <ListItemText primaryTypographyProps={{ style: cssMenuLink }} primary="Tools Check" />
-		      {open[8] ? <ExpandLess /> : <ExpandMore />}
+		      {open[8] ? <ExpandLess sx={color} /> : <ExpandMore sx={color} />}
 		    </ListItemButton>
 		    <Collapse in={open[8]} timeout="auto" unmountOnExit>
 		      <List component="div" disablePadding>

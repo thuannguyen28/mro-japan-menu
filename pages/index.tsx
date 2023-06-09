@@ -28,6 +28,8 @@ const drawerWidth: number = 280;
 const drawerWidthMB = '100%';
 const drawerheight = '100vh';
 
+const color = {color:'#9C9C9C'};
+
 interface AppBarProps extends MuiAppBarProps {
   open?: boolean;
 }
@@ -123,13 +125,13 @@ export default function Home() {
             <IconButton
               size="large"
               edge="start"
-              color="inherit"
+              color="#9C9C9C"
               aria-label="menu"
               style={{marginLeft: 50}}
               onClick={toggleDrawer}
               sx={{ display: { xs: 'none', md: 'flex' } }}
             >
-              <MenuIcon />
+              <MenuIcon sx={color} />
             </IconButton>
 
             <Typography component="h1"
