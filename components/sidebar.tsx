@@ -64,7 +64,11 @@ export default function NestedList(props) {
 	      <ListItemButton onClick={() => handleClick(0)}>
 		      <ListItemIcon>
 		        <Icon><img src="../menu/order.png" width={widthIcon} height={heightIcon} /></Icon>
+		        { !props.openMenu && !props.isMobile ? 
+              (open[0] ? <ExpandLess sx={color} /> : <ExpandMore sx={color} />) : ('')
+            }
 		      </ListItemIcon>
+
 		      <ListItemText primaryTypographyProps={{ style: cssMenuLink }} primary="Parts Order" />
 		      {open[0] ? <ExpandLess sx={color} /> : <ExpandMore sx={color} />}
 		    </ListItemButton>
@@ -82,6 +86,9 @@ export default function NestedList(props) {
 	      <ListItemButton onClick={() => handleClick(1)}>
 		      <ListItemIcon>
 		        <Icon><img src="../menu/order kit.png" width={widthIcon} height={heightIcon} /></Icon>
+		        { !props.openMenu && !props.isMobile ? 
+              (open[0] ? <ExpandLess sx={color} /> : <ExpandMore sx={color} />) : ('')
+            }		        
 		      </ListItemIcon>
 		      <ListItemText primaryTypographyProps={{ style: cssMenuLink }} primary="Parts Kit" />
 		      {open[1] ? <ExpandLess sx={color} /> : <ExpandMore sx={color} />}
@@ -100,6 +107,9 @@ export default function NestedList(props) {
 	      <ListItemButton onClick={() => handleClick(2)}>
 		      <ListItemIcon>
 		        <Icon><img src="../menu/order comfirm.png" width={widthIcon} height={heightIcon} /></Icon>
+		        { !props.openMenu && !props.isMobile ? 
+              (open[0] ? <ExpandLess sx={color} /> : <ExpandMore sx={color} />) : ('')
+            }		        
 		      </ListItemIcon>
 		      <ListItemText primaryTypographyProps={{ style: cssMenuLink }} primary="Order Confirmation" />
 		      {open[2] ? <ExpandLess sx={color} /> : <ExpandMore sx={color} />}
@@ -136,6 +146,9 @@ export default function NestedList(props) {
 	      <ListItemButton onClick={() => handleClick(3)}>
 		      <ListItemIcon>
 		        <Icon><img src="../menu/document drafting.png" width={widthIcon} height={heightIcon} /></Icon>
+		        { !props.openMenu && !props.isMobile ? 
+              (open[0] ? <ExpandLess sx={color} /> : <ExpandMore sx={color} />) : ('')
+            }		        
 		      </ListItemIcon>
 		      <ListItemText primaryTypographyProps={{ style: cssMenuLink }} primary="Document Drafting Assistance" />
 		      {open[3] ? <ExpandLess sx={color} /> : <ExpandMore sx={color} />}
@@ -160,6 +173,9 @@ export default function NestedList(props) {
 	      <ListItemButton onClick={() => handleClick(4)}>
 		      <ListItemIcon>
 		        <Icon><img src="../menu/parts supply.png" width={widthIcon} height={heightIcon} /></Icon>
+		        { !props.openMenu && !props.isMobile ? 
+              (open[0] ? <ExpandLess sx={color} /> : <ExpandMore sx={color} />) : ('')
+            }		        
 		      </ListItemIcon>
 		      <ListItemText primaryTypographyProps={{ style: cssMenuLink }} primary="Parts Supply Department" />
 		      {open[4] ? <ExpandLess sx={color} /> : <ExpandMore sx={color} />}
@@ -197,6 +213,9 @@ export default function NestedList(props) {
 	      <ListItemButton onClick={() => handleClick(5)}>
 		      <ListItemIcon>
 		        <Icon><img src="../menu/task card.png" width={widthIcon} height={heightIcon} /></Icon>
+		        { !props.openMenu && !props.isMobile ? 
+              (open[0] ? <ExpandLess sx={color} /> : <ExpandMore sx={color} />) : ('')
+            }		        
 		      </ListItemIcon>
 		      <ListItemText primaryTypographyProps={{ style: cssMenuLink }} primary="Task Card" />
 		      {open[5] ? <ExpandLess sx={color} /> : <ExpandMore sx={color} />}
@@ -225,6 +244,9 @@ export default function NestedList(props) {
 	      <ListItemButton onClick={() => handleClick(6)}>
 		      <ListItemIcon>
 		        <Icon><img src="../menu/line maintenance.png" width={widthIcon} height={heightIcon} /></Icon>
+		        { !props.openMenu && !props.isMobile ? 
+              (open[0] ? <ExpandLess sx={color} /> : <ExpandMore sx={color} />) : ('')
+            }		        
 		      </ListItemIcon>
 		      <ListItemText primaryTypographyProps={{ style: cssMenuLink }} primary="Line Maintenance" />
 		      {open[6] ? <ExpandLess sx={color} /> : <ExpandMore sx={color} />}
@@ -262,6 +284,9 @@ export default function NestedList(props) {
 	      <ListItemButton onClick={() => handleClick(7)}>
 		      <ListItemIcon>
 		        <Icon><img src="../menu/tools.png" width={widthIcon} height={heightIcon} /></Icon>
+		        { !props.openMenu && !props.isMobile ? 
+              (open[0] ? <ExpandLess sx={color} /> : <ExpandMore sx={color} />) : ('')
+            }		        
 		      </ListItemIcon>
 		      <ListItemText primaryTypographyProps={{ style: cssMenuLink }} primary="Tools Order" />
 		      {open[7] ? <ExpandLess sx={color} /> : <ExpandMore sx={color} />}
@@ -280,6 +305,9 @@ export default function NestedList(props) {
 		    <ListItemButton onClick={() => handleClick(8)}>
 		      <ListItemIcon>
 		        <Icon><img src="../menu/tools check.png" width={widthIcon} height={heightIcon} /></Icon>
+		        { !props.openMenu && !props.isMobile ? 
+              (open[0] ? <ExpandLess sx={color} /> : <ExpandMore sx={color} />) : ('')
+            }		        
 		      </ListItemIcon>
 		      <ListItemText primaryTypographyProps={{ style: cssMenuLink }} primary="Tools Check" />
 		      {open[8] ? <ExpandLess sx={color} /> : <ExpandMore sx={color} />}
