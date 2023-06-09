@@ -46,6 +46,7 @@ export const mainContainer = (
             elevation={0}
             sx={{
               p: 2,
+              pt: 0,
               display: 'flex',
               flexDirection: 'column',
               height: 160,
