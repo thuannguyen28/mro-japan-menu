@@ -37,71 +37,71 @@ const ItemTitle = styled(Paper)(({ theme }) => ({
 export const mainContainer = (
 <React.Fragment>
 <div>
-	<Box sx={{
+  <Box sx={{
         width: '100%',}}>
     <Grid container spacing={1}>
       <Grid item xs={12}>
-      	<Box sx={{ width: '100%', height: '100%',overflow: 'auto'}} backgroundColor="#FFFFFF">
-		      <Paper
-		      	elevation={0}
-	          sx={{
-	            p: 2,
-	            display: 'flex',
-	            flexDirection: 'column',
-	            height: 160,
-	          }}
-	        >
-				    <Paper
-				    	elevation={0}
-				    	sx={{
-				    	  p:2,
-				    	  ml:1,
-				    	  mr:1,
-				    	  height: 120,
-				    	  borderRadius: 4,
-				    	  backgroundColor: '#f5f5f5' ,
-				    	  mt: { xs: 4, md: 2 },
-				    	}}>
+        <Box sx={{ width: '100%', height: '100%',overflow: 'auto'}} backgroundColor="#FFFFFF">
+          <Paper
+            elevation={0}
+            sx={{
+              p: 2,
+              display: 'flex',
+              flexDirection: 'column',
+              height: 160,
+            }}
+          >
+            <Paper
+              elevation={0}
+              sx={{
+                p:2,
+                ml:1,
+                mr:1,
+                height: 120,
+                borderRadius: 4,
+                backgroundColor: '#f5f5f5' ,
+                mt: { xs: 4, md: 2 },
+              }}>
 
-			    	  	<Typography color="#3A5075" sx={{ textDecoration: 'underline' }}>
-					      <strong>お知らせ</strong>
-					    	</Typography>
+                <Typography color="#3A5075" sx={{ textDecoration: 'underline' }}>
+                <strong>お知らせ</strong>
+                </Typography>
 
-					    <Typography 
-					    	color="#3A5075"
-					    	sx={{ mt:1 }}>
-					      <strong>●</strong> Announcement of new business strategy changes applied throughout the company
-					    </Typography>
-				    </Paper>
-	        </Paper>
-	        {/*PARTS*/}
-	        <Grid item xs={12} sx={{ mt:4, ml:4, mr:4 }}>
-	        	<Typography color="#3A5075" >
-            	<strong>PARTS</strong>
-	          </Typography>
-	          <Divider sx={{ my: 1}} />
-		 			</Grid>
-		 			<Parts />
+              <Typography 
+                color="#3A5075"
+                sx={{ mt:1 }}>
+                <strong>●</strong> Announcement of new business strategy changes applied throughout the company
+              </Typography>
+            </Paper>
+          </Paper>
+          {/*PARTS*/}
+          <Grid item xs={12} sx={{ mt:4, ml:4, mr:4 }}>
+            <Typography color="#3A5075" >
+              <strong>PARTS</strong>
+            </Typography>
+            <Divider sx={{ my: 1}} />
+           </Grid>
+          <Parts />
 
-		 			{/*WORK ORDER*/}
-		 			<Grid item xs={12} sx={{ mt:2, ml:4, mr:4 }}>
-	        	<Typography color="#3A5075" >
-            	<strong>WORK ORDER</strong>
-	          </Typography>
-	          <Divider sx={{ my: 1}} />
-		 			</Grid>
-		 			<WorkOrder />
+           {/*WORK ORDER*/}
+           <Grid item xs={12} sx={{ mt:2, ml:4, mr:4 }}>
+            <Typography color="#3A5075" >
+              <strong>WORK ORDER</strong>
+            </Typography>
+            <Divider sx={{ my: 1}} />
+           </Grid>
+           <WorkOrder />
 
-		 			{/*TOOLS*/}
-		 			<Grid item xs={12} sx={{ mt:2, ml:4, mr:4 }}>
-	        	<Typography color="#3A5075" >
-            	<strong>TOOLS</strong>
-	          </Typography>
-	          <Divider sx={{ my: 1}} />
-		 			</Grid>
-		 			<Tools />
-		    </Box>
- 			</Grid>
+           {/*TOOLS*/}
+           <Grid item xs={12} sx={{ mt:2, ml:4, mr:4 }}>
+            <Typography color="#3A5075" >
+              <strong>TOOLS</strong>
+            </Typography>
+            <Divider sx={{ my: 1}} />
+           </Grid>
+           <Tools />
+        </Box>
+       </Grid>
     </Grid>
   </Box>
 </div>

@@ -55,10 +55,10 @@ const ItemFrame = styled(Paper)(({ theme }) => ({
           height:121,
           marginRight:20,
           padding: theme.spacing(0),
-				  textAlign: 'center',
-				  color: theme.palette.text.secondary,
-				  borderRadius: '10px',
-				  boxShadow:'0px 0px 10px rgba(1, 1, 1, 0.2)',
+          textAlign: 'center',
+          color: theme.palette.text.secondary,
+          borderRadius: '10px',
+          boxShadow:'0px 0px 10px rgba(1, 1, 1, 0.2)',
         },
 }));
 
@@ -75,9 +75,9 @@ const ItemAvatar = styled(Paper)(({ theme }) => ({
           height:70,
           padding: theme.spacing(1),
           margin: 'auto',
-				  textAlign: 'center',
-				  color: theme.palette.text.secondary,
-				  boxShadow:'none',
+          textAlign: 'center',
+          color: theme.palette.text.secondary,
+          boxShadow:'none',
         },
 }));
 
@@ -88,18 +88,18 @@ const ItemText = styled(Paper)(({ theme }) => ({
   height:20,
   boxShadow:'none',
   display: 'flex',
-	alignItems: 'center',
-	justifyContent: 'center',
+  alignItems: 'center',
+  justifyContent: 'center',
   [theme.breakpoints.up('sm')]: {
           width: 112,
           height:50,
           display: 'flex',
-					alignItems: 'center',
-					justifyContent: 'center',
+          alignItems: 'center',
+          justifyContent: 'center',
           padding: theme.spacing(1),
-				  textAlign: 'center',
-				  color: theme.palette.text.secondary,
-				  boxShadow:'none',
+          textAlign: 'center',
+          color: theme.palette.text.secondary,
+          boxShadow:'none',
         },
 }));
 
@@ -107,69 +107,69 @@ const cardMedia = { margin: 'auto', mt: '2px', width: { xs: 30, md: 50 }, height
 
 export default function WorkOrder() {
   return (
-   	<Grid item xs={12} sx={{  mr:4, mt:4, ml: { md: 4} }}>
- 				<Grid item xs={12} sx={{ ml:5}}>
+     <Grid item xs={12} sx={{  mr:4, mt:4, ml: { md: 4} }}>
+         <Grid item xs={12} sx={{ ml:5}}>
           <Grid container spacing={2}>
 
-					    <Item>
-					    	<ItemTitle>
-					    		<Typography color="#3A5075" sx={{ textDecoration: 'underline', fontSize: 13 }}>
-							      <strong>Task Card</strong>
-							    </Typography>
-					    	</ItemTitle>
-						    <ItemRow>
-						    	<ItemFrame>
-						    		<ItemAvatar>
-						    			<CardMedia
-						    				sx={cardMedia}
-											 	image="home/main 1-7.png"/>
-						    		</ItemAvatar>
-						    		<ItemText>
-						    			<Typography color="#3A5075" textAlign="center" sx={{ fontSize: 11 }}>
-												Task Card Status
-											</Typography>
-						    		</ItemText>
-						    	</ItemFrame>	    	
-						    	<ItemFrame>
-						    		<ItemAvatar>
-						    			<CardMedia
-						    				sx={cardMedia}
-											 	image="home/main 1-8.png"/>
-						    		</ItemAvatar>
-						    		<ItemText>
-						    			<Typography color="#3A5075" textAlign="center" sx={{ fontSize: 11 }}>
-												N/R Task Card Status
-											</Typography>
-						    		</ItemText>
-						    	</ItemFrame>	
+              <Item>
+                <ItemTitle>
+                  <Typography color="#3A5075" sx={{ textDecoration: 'underline', fontSize: 13 }}>
+                    <strong>Task Card</strong>
+                  </Typography>
+                </ItemTitle>
+                <ItemRow>
+                  <ItemFrame>
+                    <ItemAvatar>
+                      <CardMedia
+                        sx={cardMedia}
+                         image="home/main 1-7.png"/>
+                    </ItemAvatar>
+                    <ItemText>
+                      <Typography color="#3A5075" textAlign="center" sx={{ fontSize: 11 }}>
+                        Task Card Status
+                      </Typography>
+                    </ItemText>
+                  </ItemFrame>        
+                  <ItemFrame>
+                    <ItemAvatar>
+                      <CardMedia
+                        sx={cardMedia}
+                         image="home/main 1-8.png"/>
+                    </ItemAvatar>
+                    <ItemText>
+                      <Typography color="#3A5075" textAlign="center" sx={{ fontSize: 11 }}>
+                        N/R Task Card Status
+                      </Typography>
+                    </ItemText>
+                  </ItemFrame>  
 
-					    	</ItemRow>
-					    </Item>
+                </ItemRow>
+              </Item>
 
-					    <Item>
-					    	<ItemTitle>
-					    		<Typography color="#3A5075" sx={{ textDecoration: 'underline', fontSize: 13 }}>
-							      <strong>Line Maintenance</strong>
-							    </Typography>
-					    	</ItemTitle>
-						    <ItemRow>
-						    	<ItemFrame>
-						    		<ItemAvatar>
-						    			<CardMedia
-						    				sx={cardMedia}
-											 	image="home/main 1-3.png"/>
-						    		</ItemAvatar>
-						    		<ItemText>
-						    			<Typography color="#3A5075" textAlign="center" sx={{ fontSize: 11 }}>
-												LINE定例作業
-											</Typography>
-						    		</ItemText>
-						    	</ItemFrame>	    	
-					    	</ItemRow>
-					    </Item>
+              <Item>
+                <ItemTitle>
+                  <Typography color="#3A5075" sx={{ textDecoration: 'underline', fontSize: 13 }}>
+                    <strong>Line Maintenance</strong>
+                  </Typography>
+                </ItemTitle>
+                <ItemRow>
+                  <ItemFrame>
+                    <ItemAvatar>
+                      <CardMedia
+                        sx={cardMedia}
+                         image="home/main 1-3.png"/>
+                    </ItemAvatar>
+                    <ItemText>
+                      <Typography color="#3A5075" textAlign="center" sx={{ fontSize: 11 }}>
+                        LINE定例作業
+                      </Typography>
+                    </ItemText>
+                  </ItemFrame>        
+                </ItemRow>
+              </Item>
 
-					</Grid>
-				</Grid>
- 			</Grid>
+          </Grid>
+        </Grid>
+       </Grid>
   );
 }
