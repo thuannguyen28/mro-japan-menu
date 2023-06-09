@@ -49,9 +49,14 @@ export default function NestedList(props) {
 	    aria-labelledby="nested-list-subheader"
 	    subheader={
 		      <ListSubheader component="div" id="nested-list-subheader">
-		        <Typography color="#3A5075">
-				      <strong>{ props.openMenu ? 'PART' : ''}</strong>
-				    </Typography>
+		        { !props.openMenu && !props.isMobile ? 
+		        	(''):
+		        	(
+			        <Typography color="#3A5075">
+					      <strong>{ !props.openMenu && !props.isMobile ? '' : 'PART'}</strong>
+					    </Typography>
+					    )
+		        }
 		      </ListSubheader>
 		    }
 		  >
@@ -176,11 +181,14 @@ export default function NestedList(props) {
 	    aria-labelledby="nested-list-subheader"
 	    subheader={
 		      <ListSubheader component="div" id="nested-list-subheader">
-		        { props.openMenu ? (
-		        <Typography color="#3A5075" sx={{mt:3}}>
-				      <strong>WORK ORDER</strong>
-				    </Typography>
-				    ) : ('')
+		        { !props.openMenu && !props.isMobile ? 
+		        	('') 
+		        	:
+			        (
+			        <Typography color="#3A5075" sx={{mt:3}}>
+					      <strong>WORK ORDER</strong>
+					    </Typography>
+					    )
 		        }
 		      </ListSubheader>
 		    }
@@ -239,11 +247,13 @@ export default function NestedList(props) {
 	    aria-labelledby="nested-list-subheader"
 	    subheader={
 		      <ListSubheader component="div" id="nested-list-subheader">
-		        { props.openMenu ? (
+		        { !props.openMenu && !props.isMobile ? 
+		        	('')
+		        	: (
 			        <Typography color="#3A5075" sx={{mt:3}}>
 					      <strong>TOOLS</strong>
 					    </Typography>
-					    )  : ('')
+					    )
 				    }
 		      </ListSubheader>
 		    }
