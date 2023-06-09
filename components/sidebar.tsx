@@ -5,11 +5,9 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import Collapse from '@mui/material/Collapse';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import DraftsIcon from '@mui/icons-material/Drafts';
-import SendIcon from '@mui/icons-material/Send';
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
+import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import StarBorder from '@mui/icons-material/StarBorder';
 import Typography from '@mui/material/Typography';
 import Icon from '@mui/material/Icon';
@@ -65,12 +63,12 @@ export default function NestedList(props) {
 		      <ListItemIcon>
 		        <Icon><img src="../menu/order.png" width={widthIcon} height={heightIcon} /></Icon>
 		        { !props.openMenu && !props.isMobile ? 
-              (open[0] ? <ExpandLess sx={color} /> : <ExpandMore sx={color} />) : ('')
+              (open[0] ? <ExpandMore sx={color} /> : <ChevronRightIcon sx={color} />) : ('')
             }
 		      </ListItemIcon>
 
 		      <ListItemText primaryTypographyProps={{ style: cssMenuLink }} primary="Parts Order" />
-		      {open[0] ? <ExpandLess sx={color} /> : <ExpandMore sx={color} />}
+		      {open[0] ? <ExpandMore sx={color} /> : <ChevronRightIcon sx={color} />}
 		    </ListItemButton>
 		    <Collapse in={open[0]} timeout="auto" unmountOnExit>
 		      <List component="div" disablePadding>
@@ -87,11 +85,11 @@ export default function NestedList(props) {
 		      <ListItemIcon>
 		        <Icon><img src="../menu/order kit.png" width={widthIcon} height={heightIcon} /></Icon>
 		        { !props.openMenu && !props.isMobile ? 
-              (open[0] ? <ExpandLess sx={color} /> : <ExpandMore sx={color} />) : ('')
+              (open[1] ? <ExpandMore sx={color} /> : <ChevronRightIcon sx={color} />) : ('')
             }		        
 		      </ListItemIcon>
 		      <ListItemText primaryTypographyProps={{ style: cssMenuLink }} primary="Parts Kit" />
-		      {open[1] ? <ExpandLess sx={color} /> : <ExpandMore sx={color} />}
+		      {open[1] ? <ExpandMore sx={color} /> : <ChevronRightIcon sx={color} />}
 		    </ListItemButton>
 		    <Collapse in={open[1]} timeout="auto" unmountOnExit>
 		      <List component="div" disablePadding>
@@ -108,11 +106,11 @@ export default function NestedList(props) {
 		      <ListItemIcon>
 		        <Icon><img src="../menu/order comfirm.png" width={widthIcon} height={heightIcon} /></Icon>
 		        { !props.openMenu && !props.isMobile ? 
-              (open[0] ? <ExpandLess sx={color} /> : <ExpandMore sx={color} />) : ('')
+              (open[2] ? <ExpandMore sx={color} /> : <ChevronRightIcon sx={color} />) : ('')
             }		        
 		      </ListItemIcon>
 		      <ListItemText primaryTypographyProps={{ style: cssMenuLink }} primary="Order Confirmation" />
-		      {open[2] ? <ExpandLess sx={color} /> : <ExpandMore sx={color} />}
+		      {open[2] ? <ExpandMore sx={color} /> : <ChevronRightIcon sx={color} />}
 		    </ListItemButton>
 		    <Collapse in={open[2]} timeout="auto" unmountOnExit>
 		      <List component="div" disablePadding>
@@ -147,11 +145,11 @@ export default function NestedList(props) {
 		      <ListItemIcon>
 		        <Icon><img src="../menu/document drafting.png" width={widthIcon} height={heightIcon} /></Icon>
 		        { !props.openMenu && !props.isMobile ? 
-              (open[0] ? <ExpandLess sx={color} /> : <ExpandMore sx={color} />) : ('')
+              (open[3] ? <ExpandMore sx={color} /> : <ChevronRightIcon sx={color} />) : ('')
             }		        
 		      </ListItemIcon>
 		      <ListItemText primaryTypographyProps={{ style: cssMenuLink }} primary="Document Drafting Assistance" />
-		      {open[3] ? <ExpandLess sx={color} /> : <ExpandMore sx={color} />}
+		      {open[3] ? <ExpandMore sx={color} /> : <ChevronRightIcon sx={color} />}
 		    </ListItemButton>
 		    <Collapse in={open[3]} timeout="auto" unmountOnExit>
 		      <List component="div" disablePadding>
@@ -174,11 +172,11 @@ export default function NestedList(props) {
 		      <ListItemIcon>
 		        <Icon><img src="../menu/parts supply.png" width={widthIcon} height={heightIcon} /></Icon>
 		        { !props.openMenu && !props.isMobile ? 
-              (open[0] ? <ExpandLess sx={color} /> : <ExpandMore sx={color} />) : ('')
+              (open[4] ? <ExpandMore sx={color} /> : <ChevronRightIcon sx={color} />) : ('')
             }		        
 		      </ListItemIcon>
 		      <ListItemText primaryTypographyProps={{ style: cssMenuLink }} primary="Parts Supply Department" />
-		      {open[4] ? <ExpandLess sx={color} /> : <ExpandMore sx={color} />}
+		      {open[4] ? <ExpandMore sx={color} /> : <ChevronRightIcon sx={color} />}
 		    </ListItemButton>
 		    <Collapse in={open[4]} timeout="auto" unmountOnExit>
 		      <List component="div" disablePadding>
@@ -214,11 +212,11 @@ export default function NestedList(props) {
 		      <ListItemIcon>
 		        <Icon><img src="../menu/task card.png" width={widthIcon} height={heightIcon} /></Icon>
 		        { !props.openMenu && !props.isMobile ? 
-              (open[0] ? <ExpandLess sx={color} /> : <ExpandMore sx={color} />) : ('')
+              (open[5] ? <ExpandMore sx={color} /> : <ChevronRightIcon sx={color} />) : ('')
             }		        
 		      </ListItemIcon>
 		      <ListItemText primaryTypographyProps={{ style: cssMenuLink }} primary="Task Card" />
-		      {open[5] ? <ExpandLess sx={color} /> : <ExpandMore sx={color} />}
+		      {open[5] ? <ExpandMore sx={color} /> : <ChevronRightIcon sx={color} />}
 		    </ListItemButton>
 		    <Collapse in={open[5]} timeout="auto" unmountOnExit>
 		      <List component="div" disablePadding>
@@ -245,11 +243,11 @@ export default function NestedList(props) {
 		      <ListItemIcon>
 		        <Icon><img src="../menu/line maintenance.png" width={widthIcon} height={heightIcon} /></Icon>
 		        { !props.openMenu && !props.isMobile ? 
-              (open[0] ? <ExpandLess sx={color} /> : <ExpandMore sx={color} />) : ('')
+              (open[6] ? <ExpandMore sx={color} /> : <ChevronRightIcon sx={color} />) : ('')
             }		        
 		      </ListItemIcon>
 		      <ListItemText primaryTypographyProps={{ style: cssMenuLink }} primary="Line Maintenance" />
-		      {open[6] ? <ExpandLess sx={color} /> : <ExpandMore sx={color} />}
+		      {open[6] ? <ExpandMore sx={color} /> : <ChevronRightIcon sx={color} />}
 		    </ListItemButton>
 		    <Collapse in={open[6]} timeout="auto" unmountOnExit>
 		      <List component="div" disablePadding>
@@ -285,11 +283,11 @@ export default function NestedList(props) {
 		      <ListItemIcon>
 		        <Icon><img src="../menu/tools.png" width={widthIcon} height={heightIcon} /></Icon>
 		        { !props.openMenu && !props.isMobile ? 
-              (open[0] ? <ExpandLess sx={color} /> : <ExpandMore sx={color} />) : ('')
+              (open[7] ? <ExpandMore sx={color} /> : <ChevronRightIcon sx={color} />) : ('')
             }		        
 		      </ListItemIcon>
 		      <ListItemText primaryTypographyProps={{ style: cssMenuLink }} primary="Tools Order" />
-		      {open[7] ? <ExpandLess sx={color} /> : <ExpandMore sx={color} />}
+		      {open[7] ? <ExpandMore sx={color} /> : <ChevronRightIcon sx={color} />}
 		    </ListItemButton>
 		    <Collapse in={open[7]} timeout="auto" unmountOnExit>
 		      <List component="div" disablePadding>
@@ -306,11 +304,11 @@ export default function NestedList(props) {
 		      <ListItemIcon>
 		        <Icon><img src="../menu/tools check.png" width={widthIcon} height={heightIcon} /></Icon>
 		        { !props.openMenu && !props.isMobile ? 
-              (open[0] ? <ExpandLess sx={color} /> : <ExpandMore sx={color} />) : ('')
+              (open[8] ? <ExpandMore sx={color} /> : <ChevronRightIcon sx={color} />) : ('')
             }		        
 		      </ListItemIcon>
 		      <ListItemText primaryTypographyProps={{ style: cssMenuLink }} primary="Tools Check" />
-		      {open[8] ? <ExpandLess sx={color} /> : <ExpandMore sx={color} />}
+		      {open[8] ? <ExpandMore sx={color} /> : <ChevronRightIcon sx={color} />}
 		    </ListItemButton>
 		    <Collapse in={open[8]} timeout="auto" unmountOnExit>
 		      <List component="div" disablePadding>
