@@ -17,8 +17,7 @@ import Link from '@mui/material/Link';
 import MenuItem  from '@mui/material/MenuItem';
 import ListItem  from '@mui/material/ListItem';
 
-export default function NestedList() {
-
+export default function NestedList(props) {
   const cssMenuLink = {
     overflow: 'hidden',
     textOverflow: 'ellipsis',
@@ -51,7 +50,7 @@ export default function NestedList() {
 	    subheader={
 		      <ListSubheader component="div" id="nested-list-subheader">
 		        <Typography color="#3A5075">
-				      <strong>PART</strong>
+				      <strong>{ props.openMenu ? 'PART' : ''}</strong>
 				    </Typography>
 		      </ListSubheader>
 		    }
@@ -177,9 +176,12 @@ export default function NestedList() {
 	    aria-labelledby="nested-list-subheader"
 	    subheader={
 		      <ListSubheader component="div" id="nested-list-subheader">
+		        { props.openMenu ? (
 		        <Typography color="#3A5075" sx={{mt:3}}>
 				      <strong>WORK ORDER</strong>
 				    </Typography>
+				    ) : ('')
+		        }
 		      </ListSubheader>
 		    }
 		  >
@@ -237,9 +239,12 @@ export default function NestedList() {
 	    aria-labelledby="nested-list-subheader"
 	    subheader={
 		      <ListSubheader component="div" id="nested-list-subheader">
-		        <Typography color="#3A5075" sx={{mt:3}}>
-				      <strong>TOOLS</strong>
-				    </Typography>
+		        { props.openMenu ? (
+			        <Typography color="#3A5075" sx={{mt:3}}>
+					      <strong>TOOLS</strong>
+					    </Typography>
+					    )  : ('')
+				    }
 		      </ListSubheader>
 		    }
 		  >

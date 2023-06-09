@@ -174,7 +174,7 @@ export default function Home() {
           >
           </Toolbar>
           <List component="nav">
-            <NestedList data={open}/>
+            <NestedList openMenu={open} isMobile={isMobile} />
           </List>
         </Drawer>
         <Box
