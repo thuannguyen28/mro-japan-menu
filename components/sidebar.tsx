@@ -262,7 +262,7 @@ export default function NestedList(props) {
 	    </List>
 
 	    <List
-	    sx={{ width: '100%', bgcolor: 'background.paper', mb: 20 }}
+	    sx={{ width: '100%', bgcolor: 'background.paper', mb: 16 }}
 	    component="nav"
 	    aria-labelledby="nested-list-subheader"
 	    subheader={
