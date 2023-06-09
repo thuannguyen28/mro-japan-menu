@@ -45,7 +45,7 @@ const ItemRow = styled(Paper)(({ theme }) => ({
 const ItemFrame = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
   ...theme.typography.body2, 
-  width:85,
+  width:75,
   height:80,
   marginRight:10,
   marginBottom:10,
@@ -70,7 +70,7 @@ const ItemAvatar = styled(Paper)(({ theme }) => ({
   margin: 'auto',
   boxShadow:'none',
   [theme.breakpoints.up('sm')]: {
-          width: 70,
+          width: 72,
           height:70,
           padding: theme.spacing(0),
           margin: 'auto',
@@ -87,9 +87,15 @@ const ItemText = styled(Paper)(({ theme }) => ({
   height:20,
   margin: 'auto',
   boxShadow:'none',
+  display: 'flex',
+	alignItems: 'center',
+	justifyContent: 'center',
   [theme.breakpoints.up('sm')]: {
           width: 112,
           height:50,
+          display: 'flex',
+					alignItems: 'center',
+					justifyContent: 'center',
           padding: theme.spacing(1),
 				  textAlign: 'center',
 				  color: theme.palette.text.secondary,
@@ -100,85 +106,81 @@ const ItemText = styled(Paper)(({ theme }) => ({
 export default function Tools() {
   return (
    	<Grid item xs={12} sx={{  mr:4, mt:4 }}>
-		 				<Grid item xs={12} sx={{ ml:5, mr:4 }}>
-		          <Grid container spacing={2}>
-		           
-							    <Item>
-							    	<ItemTitle>
-							    		<Typography color="#3A5075" sx={{ textDecoration: 'underline', fontSize: 13 }}>
-									      <strong>Tools Order</strong>
-									    </Typography>
-							    	</ItemTitle>
-								    <ItemRow>
-								    	<ItemFrame>
-								    		<ItemAvatar>
-								    			<Avatar
-														sx={{ 
-															p:1, 
-															mr:1, 
-															width: { xs: 56, md: 80 }, 
-															height: { xs: 56, md: 80 } 
-														}}
-													 	src="icon/Mobile/main.png"/>
-												</ItemAvatar>
-								    		<ItemText>
-								    			<Typography color="#3A5075" textAlign="center" sx={{ fontSize: 11 }}>
-														Tools Order
-													</Typography>
-								    		</ItemText>
-								    	</ItemFrame>	    	
-							    	</ItemRow>
-							    </Item>
-							
-							
-							    <Item>
-							    	<ItemTitle>
-							    		<Typography color="#3A5075" sx={{ textDecoration: 'underline', fontSize: 13 }}>
-									      <strong>Tools Check</strong>
-									    </Typography>
-							    	</ItemTitle>
-								    <ItemRow>
-								    	<ItemFrame>
-								    		<ItemAvatar>
-								    			<Avatar
-								    				sx={{ 
-															p:1, 
-															mr:1, 
-															width: { xs: 56, md: 80 }, 
-															height: { xs: 56, md: 80 } 
-														}}
-													 	src="icon/Mobile/individual.png"/>
-								    		</ItemAvatar>
-								    		<ItemText>
-								    			<Typography color="#3A5075" textAlign="center" sx={{ fontSize: 11 }}>
-														Tools Check
-													</Typography>
-								    		</ItemText>
-								    	</ItemFrame>
-								    	<ItemFrame>
-								    		<ItemAvatar>
-								    			<Avatar
-								    				sx={{ 
-															p:1, 
-															mr:1, 
-															width: { xs: 56, md: 80 }, 
-															height: { xs: 56, md: 80 } 
-														}}
-													 	src="icon/Mobile/individual.png"/>
-								    		</ItemAvatar>
-								    		<ItemText>
-								    			<Typography color="#3A5075" textAlign="center" sx={{ fontSize: 11 }}>
-														Flash Light
-													</Typography>
-								    		</ItemText>
-								    	</ItemFrame>    	
-							    	</ItemRow>
-							    </Item>
-							
-							  
-							</Grid>
+ 				<Grid item xs={12} sx={{ ml:5, mr:4 }}>
+          <Grid container spacing={2}>
+					    <Item>
+					    	<ItemTitle>
+					    		<Typography color="#3A5075" sx={{ textDecoration: 'underline', fontSize: 13 }}>
+							      <strong>Tools Order</strong>
+							    </Typography>
+					    	</ItemTitle>
+						    <ItemRow>
+						    	<ItemFrame>
+						    		<ItemAvatar>
+						    			<Avatar
+												sx={{ 
+													p:1, 
+													mr:1, 
+													width: { xs: 56, md: 80 }, 
+													height: { xs: 56, md: 80 } 
+												}}
+											 	src="icon/PC/Tool order.png"/>
+										</ItemAvatar>
+						    		<ItemText>
+						    			<Typography color="#3A5075" textAlign="center" sx={{ fontSize: 11 }}>
+												Tools Order
+											</Typography>
+						    		</ItemText>
+						    	</ItemFrame>	    	
+					    	</ItemRow>
+					    </Item>
 
-						</Grid>
-		 			</Grid>
+					    <Item>
+					    	<ItemTitle>
+					    		<Typography color="#3A5075" sx={{ textDecoration: 'underline', fontSize: 13 }}>
+							      <strong>Tools Check</strong>
+							    </Typography>
+					    	</ItemTitle>
+						    <ItemRow>
+						    	<ItemFrame>
+						    		<ItemAvatar>
+						    			<Avatar
+						    				sx={{ 
+													p:1, 
+													mr:1, 
+													width: { xs: 56, md: 80 }, 
+													height: { xs: 56, md: 80 } 
+												}}
+											 	src="icon/Mobile/parts kit.png"/>
+						    		</ItemAvatar>
+						    		<ItemText>
+						    			<Typography color="#3A5075" textAlign="center" sx={{ fontSize: 11 }}>
+												Tools Check
+											</Typography>
+						    		</ItemText>
+						    	</ItemFrame>
+						    	<ItemFrame>
+						    		<ItemAvatar>
+						    			<Avatar
+						    				sx={{ 
+													p:1, 
+													mr:1, 
+													width: { xs: 56, md: 80 }, 
+													height: { xs: 56, md: 80 } 
+												}}
+											 	src="icon/PC/filter.png"/>
+						    		</ItemAvatar>
+						    		<ItemText>
+						    			<Typography color="#3A5075" textAlign="center" sx={{ fontSize: 11 }}>
+												Flash Light
+											</Typography>
+						    		</ItemText>
+						    	</ItemFrame>    	
+					    	</ItemRow>
+					    </Item>
+
+					</Grid>
+				</Grid>
+ 			</Grid>
   );
 }

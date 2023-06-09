@@ -44,8 +44,8 @@ const ItemRow = styled(Paper)(({ theme }) => ({
 const ItemFrame = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
   ...theme.typography.body2, 
-  width:85,
-  height:85,
+  width:75,
+  height:80,
   marginRight:10,
   marginBottom:10,
   boxShadow:'10',
@@ -69,7 +69,7 @@ const ItemAvatar = styled(Paper)(({ theme }) => ({
   margin: 'auto',
   boxShadow:'none',
   [theme.breakpoints.up('sm')]: {
-          width: 70,
+          width: 72,
           height:70,
           padding: theme.spacing(0),
           margin: 'auto',
@@ -86,9 +86,15 @@ const ItemText = styled(Paper)(({ theme }) => ({
   height:20,
   margin: 'auto',
   boxShadow:'none',
+  display: 'flex',
+	alignItems: 'center',
+	justifyContent: 'center',
   [theme.breakpoints.up('sm')]: {
           width: 112,
           height:50,
+          display: 'flex',
+					alignItems: 'center',
+					justifyContent: 'center',
           padding: theme.spacing(1),
 				  textAlign: 'center',
 				  color: theme.palette.text.secondary,
@@ -101,7 +107,7 @@ export default function Parts() {
    	<Grid item xs={12} sx={{  mr:4, mt:4 }}>
  				<Grid item xs={12} sx={{ ml:5, mr:4 }}>
           <Grid container spacing={2}>
-          
+
 					    <Item>
 					    	<ItemTitle>
 					    		<Typography color="#3A5075" sx={{ textDecoration: 'underline', fontSize: 13 }}>
@@ -128,8 +134,7 @@ export default function Parts() {
 						    	</ItemFrame>	    	
 					    	</ItemRow>
 					    </Item>
-				
-					 
+
 					    <Item>
 					    	<ItemTitle>
 					    		<Typography color="#3A5075" sx={{ textDecoration: 'underline', fontSize: 13 }}>
@@ -156,8 +161,7 @@ export default function Parts() {
 						    	</ItemFrame>	    	
 					    	</ItemRow>
 					    </Item>
-	
-					
+
 					    <Item>
 						    <ItemTitle>
 						    	<Typography color="#3A5075" sx={{ textDecoration: 'underline', fontSize: 13 }}>
@@ -235,8 +239,7 @@ export default function Parts() {
 						    	</ItemFrame>	
 					    	</ItemRow>
 					    </Item>
-					
-					 
+
 					    <Item>
 					    	<ItemTitle>
 					    		<Typography color="#3A5075" sx={{ textDecoration: 'underline', fontSize: 13 }}>
@@ -281,7 +284,7 @@ export default function Parts() {
 
 					    	</ItemRow>
 					    </Item>
-					  
+
 					    <Item>
 					    	<ItemTitle>
 					    		<Typography color="#3A5075" sx={{ textDecoration: 'underline', fontSize: 13 }}>

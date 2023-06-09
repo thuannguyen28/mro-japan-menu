@@ -103,7 +103,8 @@ const ItemText = styled(Paper)(({ theme }) => ({
 export const mainContainer = (
 <React.Fragment>
 <div>
-	<Box>
+	<Box sx={{
+        width: '100%',}}>
     <Grid container spacing={1}>
       <Grid item xs={12}>
       	<Box sx={{ width: '100%', height: '100%',overflow: 'auto'}} backgroundColor="#FFFFFF">
