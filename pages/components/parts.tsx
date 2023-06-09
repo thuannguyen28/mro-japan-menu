@@ -8,6 +8,8 @@ import { styled } from '@mui/material/styles';
 import Avatar from '@mui/material/Avatar';
 import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
+import CardMedia from '@mui/material/CardMedia';
+
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -44,11 +46,11 @@ const ItemRow = styled(Paper)(({ theme }) => ({
 const ItemFrame = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
   ...theme.typography.body2, 
-  width:75,
+  width:77,
   height:80,
-  marginRight:10,
+  marginRight:5,
   marginBottom:10,
-  boxShadow:'10',
+  boxShadow:'0px 0px 10px rgba(0, 0, 0, 0.2)',
   [theme.breakpoints.up('sm')]: {
           width: 112,
           height:121,
@@ -57,7 +59,7 @@ const ItemFrame = styled(Paper)(({ theme }) => ({
 				  textAlign: 'center',
 				  color: theme.palette.text.secondary,
 				  borderRadius: '10px',
-				  boxShadow:'0px 0px 10px rgba(0, 0, 0, 0.2)',
+				  boxShadow:'0px 0px 10px rgba(1, 1, 1, 0.2)',
         },
 }));
 
@@ -67,11 +69,12 @@ const ItemAvatar = styled(Paper)(({ theme }) => ({
   width:50,
   height:50,
   margin: 'auto',
+  padding: theme.spacing(1),
   boxShadow:'none',
   [theme.breakpoints.up('sm')]: {
-          width: 72,
+          width: 70,
           height:70,
-          padding: theme.spacing(0),
+          padding: theme.spacing(1),
           margin: 'auto',
 				  textAlign: 'center',
 				  color: theme.palette.text.secondary,
@@ -84,7 +87,6 @@ const ItemText = styled(Paper)(({ theme }) => ({
   ...theme.typography.body2, 
   width:75,
   height:20,
-  margin: 'auto',
   boxShadow:'none',
   display: 'flex',
 	alignItems: 'center',
@@ -102,6 +104,8 @@ const ItemText = styled(Paper)(({ theme }) => ({
         },
 }));
 
+const cardMedia = { margin: 'auto', mt: '2px', width: { xs: 30, md: 50 }, height: { xs: 35, md: 62 } };
+
 export default function Parts() {
   return (
    	<Grid item xs={12} sx={{  mr:4, mt:4 }}>
@@ -117,14 +121,9 @@ export default function Parts() {
 						    <ItemRow>
 						    	<ItemFrame>
 						    		<ItemAvatar>
-						    			<Avatar
-												sx={{ 
-													p:1, 
-													mr:1, 
-													width: { xs: 56, md: 80 }, 
-													height: { xs: 56, md: 80 } 
-												}}
-											 	src="icon/Mobile/main.png"/>
+						    			<CardMedia
+						    				sx={cardMedia}
+											 	image="home/main 1-0.png"/>
 										</ItemAvatar>
 						    		<ItemText>
 						    			<Typography color="#3A5075" textAlign="center" sx={{ fontSize: 11 }}>
@@ -144,14 +143,9 @@ export default function Parts() {
 						    <ItemRow>
 						    	<ItemFrame>
 						    		<ItemAvatar>
-						    			<Avatar
-						    				sx={{ 
-													p:1, 
-													mr:1, 
-													width: { xs: 56, md: 80 }, 
-													height: { xs: 56, md: 80 } 
-												}}
-											 	src="icon/Mobile/individual.png"/>
+						    			<CardMedia
+						    				sx={cardMedia}
+											 	image="home/main 1-13.png"/>
 						    		</ItemAvatar>
 						    		<ItemText>
 						    			<Typography color="#3A5075" textAlign="center" sx={{ fontSize: 11 }}>
@@ -171,14 +165,9 @@ export default function Parts() {
 						    <ItemRow>
 						    	<ItemFrame>
 						    		<ItemAvatar>
-						    			<Avatar
-						    				sx={{ 
-													p:1, 
-													mr:1, 
-													width: { xs: 56, md: 80 }, 
-													height: { xs: 56, md: 80 } 
-												}}
-											 	src="icon/Mobile/order list 1.png"/>
+						    			<CardMedia
+						    				sx={cardMedia}
+											 	image="home/main 1-9.png"/>
 						    		</ItemAvatar>
 						    		<ItemText>
 						    			<Typography color="#3A5075" textAlign="center" sx={{ fontSize: 11 }}>
@@ -188,14 +177,9 @@ export default function Parts() {
 						    	</ItemFrame>	    	
 						    	<ItemFrame>
 						    		<ItemAvatar>
-						    			<Avatar
-						    				sx={{ 
-													p:1, 
-													mr:1, 
-													width: { xs: 56, md: 80 }, 
-													height: { xs: 56, md: 80 } 
-												}}
-											 	src="icon/Mobile/confirm 3.png"/>
+						    			<CardMedia
+						    				sx={cardMedia}
+											 	image="home/main 1-11.png"/>
 						    		</ItemAvatar>
 						    		<ItemText>
 						    			<Typography color="#3A5075" textAlign="center" sx={{ fontSize: 11 }}>
@@ -205,14 +189,9 @@ export default function Parts() {
 						    	</ItemFrame>	
 						    	<ItemFrame>
 						    		<ItemAvatar>
-						    			<Avatar
-						    				sx={{ 
-													p:1, 
-													mr:1, 
-													width: { xs: 56, md: 80 }, 
-													height: { xs: 56, md: 80 } 
-												}}
-											 	src="icon/Mobile/part kit.png"/>
+						    			<CardMedia
+						    				sx={cardMedia}
+											 	image="home/main 1-10.png"/>
 						    		</ItemAvatar>
 						    		<ItemText>
 						    			<Typography color="#3A5075" textAlign="center" sx={{ fontSize: 11 }}>
@@ -222,14 +201,9 @@ export default function Parts() {
 						    	</ItemFrame>	
 						    	<ItemFrame>
 						    		<ItemAvatar>
-						    			<Avatar
-						    				sx={{ 
-													p:1, 
-													mr:1, 
-													width: { xs: 56, md: 80 }, 
-													height: { xs: 56, md: 80 } 
-												}}
-											 	src="icon/Mobile/parts kit 2 .png"/>
+						    			<CardMedia
+						    				sx={cardMedia}
+											 	image="home/main 1-12.png"/>
 						    		</ItemAvatar>
 						    		<ItemText>
 						    			<Typography color="#3A5075" textAlign="center" sx={{ fontSize: 11 }}>
@@ -249,14 +223,9 @@ export default function Parts() {
 						    <ItemRow>
 						    	<ItemFrame>
 						    		<ItemAvatar>
-						    			<Avatar
-						    				sx={{ 
-													p:1,
-													mr:1, 
-													width: { xs: 56, md: 80 }, 
-													height: { xs: 56, md: 80 } 
-												}}
-											 	src="icon/PC/parts supply.png"/>
+						    			<CardMedia
+						    				sx={cardMedia}
+											 	image="home/main 1-1.png"/>
 						    		</ItemAvatar>
 						    		<ItemText>
 						    			<Typography color="#3A5075" textAlign="center" sx={{ fontSize: 11 }}>
@@ -266,14 +235,9 @@ export default function Parts() {
 						    	</ItemFrame>	    	
 						    	<ItemFrame>
 						    		<ItemAvatar>
-						    			<Avatar
-						    				sx={{ 
-													p:1, 
-													mr:1, 
-													width: { xs: 56, md: 80 }, 
-													height: { xs: 56, md: 80 } 
-												}}
-											 	src="icon/Mobile/confirm 4.png"/>
+						    			<CardMedia
+						    				sx={cardMedia}
+											 	image="home/main 1-2.png"/>
 						    		</ItemAvatar>
 						    		<ItemText>
 						    			<Typography color="#3A5075" textAlign="center" sx={{ fontSize: 11 }}>
@@ -294,14 +258,9 @@ export default function Parts() {
 						    <ItemRow>
 						    	<ItemFrame>
 						    		<ItemAvatar>
-						    			<Avatar
-						    				sx={{ 
-													p:1, 
-													mr:3, 
-													width: { xs: 56, md: 80 }, 
-													height: { xs: 56, md: 80 } 
-												}}
-											 	src="icon/Mobile/document 3.png"/>
+						    			<CardMedia
+						    				sx={cardMedia}
+											 	image="home/main 1-14.png"/>
 						    		</ItemAvatar>
 						    		<ItemText>
 						    			<Typography color="#3A5075" textAlign="center" sx={{ fontSize: 11 }}>
