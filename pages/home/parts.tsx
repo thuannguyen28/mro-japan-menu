@@ -9,7 +9,9 @@ import Avatar from '@mui/material/Avatar';
 import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
 import CardMedia from '@mui/material/CardMedia';
+import Link from '@mui/material/Link';
 
+const cssLink = { textDecoration: 'none', color: 'inherit' };
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -119,18 +121,20 @@ export default function Parts() {
 							    </Typography>
 					    	</ItemTitle>
 						    <ItemRow>
-						    	<ItemFrame>
-						    		<ItemAvatar>
-						    			<CardMedia
-						    				sx={cardMedia}
-											 	image="home/main 1-0.png"/>
-										</ItemAvatar>
-						    		<ItemText>
-						    			<Typography color="#3A5075" textAlign="center" sx={{ fontSize: 11 }}>
-												Parts Order
-											</Typography>
-						    		</ItemText>
-						    	</ItemFrame>	    	
+						      <Link  href="/part_order" sx={cssLink}>
+							    	<ItemFrame>
+							    		<ItemAvatar>
+							    			<CardMedia
+							    				sx={cardMedia}
+												 	image="home/main 1-0.png"/>
+											</ItemAvatar>
+							    		<ItemText>
+							    			<Typography color="#3A5075" textAlign="center" sx={{ fontSize: 11 }}>
+													Parts Order
+												</Typography>
+							    		</ItemText>
+							    	</ItemFrame>
+							    </Link>	
 					    	</ItemRow>
 					    </Item>
 

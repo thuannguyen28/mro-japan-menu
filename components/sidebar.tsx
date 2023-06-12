@@ -72,12 +72,14 @@ export default function NestedList(props) {
 		    </ListItemButton>
 		    <Collapse in={open[0]} timeout="auto" unmountOnExit>
 		      <List component="div" disablePadding>
-		        <ListItemButton sx={{ pl: 4 }}>
-		          <ListItemIcon>
-		            <StarBorder sx={color} />
-		          </ListItemIcon>
-		          <ListItemText primaryTypographyProps={{ style: cssMenuLink }} primary="Parts Order" />
-		        </ListItemButton>
+		        <Link  href="/part_order" sx={cssLink}>
+			        <ListItemButton sx={{ pl: 4 }}>
+			          <ListItemIcon>
+			            <StarBorder sx={color} />
+			          </ListItemIcon>
+			          <ListItemText primaryTypographyProps={{ style: cssMenuLink }} primary="Parts Order" />
+			        </ListItemButton>
+			      </Link>  
 		      </List>
 		    </Collapse>
 

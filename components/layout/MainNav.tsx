@@ -17,6 +17,7 @@ import Avatar from '@mui/material/Avatar';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import Divider from '@mui/material/Divider';
 import List from '@mui/material/List';
+import Link from '@mui/material/Link';
 
 import SideBar from '../../components/sidebar';
 
@@ -112,7 +113,9 @@ export default function PersistentDrawerLeft(props) {
       <CssBaseline />
       <AppBar position="absolute" open={open} color="inherit">
         <Toolbar sx={{ pt: 1, pb: 1 }}>
-            <img src="logo.png" width="120" height="25" style={{ marginLeft: isMobile ? 0 : 40 }}/>
+            <Link  href="/">
+              <img src="logo.png" width="120" height="25" style={{ marginLeft: isMobile ? 0 : 40 }}/>
+            </Link>
             <IconButton
               size="large"
               edge="start"
