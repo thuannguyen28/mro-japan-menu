@@ -10,9 +10,6 @@ import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
 import CardMedia from '@mui/material/CardMedia';
 import Link from '@mui/material/Link';
-import IconButton from '@mui/material/IconButton';
-
-import MenuIcon from '@mui/icons-material/Menu';
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -111,23 +108,7 @@ const cardMedia2 = { margin: 'auto', mt:2 , width: { xs: 120, md: 232 }, height:
 
 const cssLink = { textDecoration: 'none', color: 'inherit' };
 
-
-export default function Parts() {
-  const [width, setWidth] = React.useState(0);
-
-  const handleWindowSizeChange = () => {
-    setWidth(window.innerWidth);
-  };
-
-  React.useEffect(() => {
-      setWidth(window.innerWidth);
-      window.addEventListener('resize', handleWindowSizeChange);
-      return () => {
-          window.removeEventListener('resize', handleWindowSizeChange);
-      }
-  }, []);
-
-  const isMobile = width <= 768;
+export default function Anal() {
   return (
   <div>
     <Box sx={{
@@ -135,23 +116,7 @@ export default function Parts() {
       <Grid container spacing={1}>
         <Grid item xs={12}>
           <Box sx={{ width: '100%', height: '100%',overflow: 'auto'}} backgroundColor="#FFFFFF">
-            <Typography color="#3A5075" sx={{ p: { xs: 2, md: 4 }  }}>
-              <strong>Part Order</strong>
-                <IconButton
-                  size="large"
-                  edge="start"
-                  color="inherit"
-                  aria-label="menu"
-                  sx={{ ml:31 }}
-                >
-                { isMobile ? <MenuIcon /> : ''}
-              </IconButton>
-
-            </Typography>
-            <Typography color="#3A5075" sx={{ mb:{xs:6, md:0}, ml:{xs:2, md:0}}}>
-              <strong>{ isMobile ? 'Customer select' : ''}</strong>
-            </Typography>
-            <Grid container spacing={2}>
+            <Grid container spacing={2} sx={{ p: { xs: 2, md: 4 }  }}>
               <Item>
                 <ItemRow>
                   <Link  href="/part_order/anal" sx={cssLink}>
@@ -164,46 +129,8 @@ export default function Parts() {
                     </ItemFrame>
                   </Link>
                 </ItemRow>
-
-                <ItemRow>
-                  <Link  href="/part_order" sx={cssLink}>
-                    <ItemFrame>
-                      <ItemAvatar>
-                        <CardMedia
-                          sx={cardMedia1}
-                          image="part-order/solaseed.png"/>
-                      </ItemAvatar>
-                    </ItemFrame>
-                  </Link>
-                </ItemRow>
-              </Item>
-
-              <Item>
-                <ItemRow>
-                  <Link  href="/part_order" sx={cssLink}>
-                    <ItemFrame>
-                      <ItemAvatar>
-                        <CardMedia
-                          sx={cardMedia2}
-                          image="part-order/peach.png"/>
-                      </ItemAvatar>
-                    </ItemFrame>
-                  </Link>
-                </ItemRow>
-
-                <ItemRow>
-                  <Link  href="/part_order" sx={cssLink}>
-                    <ItemFrame>
-                      <ItemAvatar>
-                        <CardMedia
-                          sx={cardMedia}
-                          image="part-order/starflyer.png"/>
-                      </ItemAvatar>
-                    </ItemFrame>
-                  </Link>
-                </ItemRow>
-
-              </Item>
+			  </Item>
+           
             </Grid>
           </Box>
          </Grid>

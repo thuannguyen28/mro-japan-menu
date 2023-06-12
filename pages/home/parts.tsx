@@ -121,7 +121,7 @@ export default function Parts() {
 							    </Typography>
 					    	</ItemTitle>
 						    <ItemRow>
-						      <Link  href="/part_order" sx={cssLink}>
+						      <Link href="/part_order" sx={cssLink}>
 							    	<ItemFrame>
 							    		<ItemAvatar>
 							    			<CardMedia

@@ -114,7 +114,7 @@ export default function PersistentDrawerLeft(props) {
       <AppBar position="absolute" open={open} color="inherit">
         <Toolbar sx={{ pt: 1, pb: 1 }}>
             <Link  href="/">
-              <img src="logo.png" width="120" height="25" style={{ marginLeft: isMobile ? 0 : 40 }}/>
+              <img src="../logo.png" width="120" height="25" style={{ marginLeft: isMobile ? 0 : 40 }}/>
             </Link>
             <IconButton
               size="large"
