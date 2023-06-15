@@ -698,10 +698,10 @@ export default function Anal() {
                       <ItemData>
                         <ItemRowDataList>
                           <ItemColumnData>
-                            <SearchIcon color="disabled" />
+                            <SearchIcon color="disabled" onClick={handleClickOpenSearch} sx={{ cursor:'pointer' }} /> 
                           </ItemColumnData>
                           <ItemColumnData sx={{ ml:10 }}>
-                            <Typography sx={cssDetailData}>MS24665 - 153</Typography>
+                            <Typography sx={{ color:'#325381'}}>Parts Number</Typography>
                           </ItemColumnData>
                         </ItemRowDataList>
                       </ItemData>
@@ -746,10 +746,10 @@ export default function Anal() {
                       <ItemData>
                         <ItemRowDataList>
                           <ItemColumnData>
-                            <SearchIcon color="disabled" />
+                            <SearchIcon color="disabled" onClick={handleClickOpenSearch} sx={{ cursor:'pointer' }} /> 
                           </ItemColumnData>
                           <ItemColumnData sx={{ ml:10 }}>
-                            <Typography sx={cssDetailData}>MS24665 - 153</Typography>
+                            <Typography sx={{ color:'#325381'}}>Parts Number</Typography>
                           </ItemColumnData>
                         </ItemRowDataList>
                       </ItemData>
@@ -794,10 +794,10 @@ export default function Anal() {
                       <ItemData>
                         <ItemRowDataList>
                           <ItemColumnData>
-                            <SearchIcon color="disabled" />
+                            <SearchIcon color="disabled" onClick={handleClickOpenSearch} sx={{ cursor:'pointer' }} /> 
                           </ItemColumnData>
                           <ItemColumnData sx={{ ml:10 }}>
-                            <Typography sx={cssDetailData}>MS24665 - 153</Typography>
+                            <Typography sx={{ color:'#325381'}}>Parts Number</Typography>
                           </ItemColumnData>
                         </ItemRowDataList>
                       </ItemData>
@@ -842,10 +842,10 @@ export default function Anal() {
                       <ItemData>
                         <ItemRowDataList>
                           <ItemColumnData>
-                            <SearchIcon color="disabled" />
+                            <SearchIcon color="disabled" onClick={handleClickOpenSearch} sx={{ cursor:'pointer' }} /> 
                           </ItemColumnData>
                           <ItemColumnData sx={{ ml:10 }}>
-                            <Typography sx={cssDetailData}>MS24665 - 153</Typography>
+                            <Typography sx={{ color:'#325381'}}>Parts Number</Typography>
                           </ItemColumnData>
                         </ItemRowDataList>
                       </ItemData>
@@ -889,10 +889,10 @@ export default function Anal() {
                       <ItemData>
                         <ItemRowDataList>
                           <ItemColumnData>
-                            <AddIcon color="disabled" />
+                            <SearchIcon color="disabled" onClick={handleClickOpenSearch} sx={{ cursor:'pointer' }} /> 
                           </ItemColumnData>
                           <ItemColumnData sx={{ ml:10 }}>
-                            <Typography sx={{ color:'#325381'}}>Add rows...</Typography>
+                            <Typography sx={{ color:'#325381'}}>Parts Number</Typography>
                           </ItemColumnData>
                         </ItemRowDataList>
                       </ItemData>
@@ -927,20 +927,30 @@ export default function Anal() {
 
                   <Grid container spacing={2} sx={{ mt:2}}>
                     <Grid item xs={1.3}>
-                       <Button variant="contained" sx={{ width:150, fontSize:11 }}><img src="../home/print.png" width="24" height="24"/>Printer</Button>
+                       <Button sx={{ width:150, fontSize:11,backgroundColor: '#325381' }}><img src="../home/print.png" width="24" height="24"/>
+                        <Typography sx={{ color:'#FFFFFF', fontSize:12}}>Printer</Typography>
+                       </Button>
                     </Grid>
                     <Grid item xs={1.3}>
-                      <Button variant="contained" sx={{ width:150, fontSize:11 }} onClick={handleClickOpen}><img src="../home/memo.png" width="24" height="24" />メモ</Button>
+                      <Button variant="contained" sx={{ width:150, fontSize:11,backgroundColor: '#325381' }} onClick={handleClickOpen}><img src="../home/memo.png" width="24" height="24" />
+                        <Typography sx={{ color:'#FFFFFF', fontSize:12}}>メモ</Typography>
+                      </Button>
                     </Grid>
                     <Grid item xs={4}></Grid>
                     <Grid item xs={1.3}>
-                      <Button variant="contained" sx={{ width:150, fontSize:11 }}><img src="../home/spr.png" width="24" height="24" />SPR 起票</Button>
+                      <Button variant="contained" sx={{ width:150, fontSize:11,backgroundColor: '#325381' }}><img src="../home/spr.png" width="24" height="24" />
+                        <Typography sx={{ color:'#FFFFFF', fontSize:12}}>SPR 起票</Typography>
+                      </Button>
                     </Grid>
                     <Grid item xs={1.3}>
-                      <Button variant="contained" sx={{ width:150, fontSize:11 }}><img src="../home/order.png" width="24" height="24" />Direct Order</Button>
+                      <Button variant="contained" sx={{ width:150, fontSize:11,backgroundColor: '#325381' }}><img src="../home/order.png" width="24" height="24" />
+                        <Typography sx={{ color:'#FFFFFF', fontSize:12}}>Direct Order</Typography>
+                      </Button>
                     </Grid>
                     <Grid item xs={1.3}>
-                      <Button variant="contained" sx={{ width:150, fontSize:11 }}><img src="../home/hozon.png" width="24" height="24" />保存</Button>
+                      <Button variant="contained" sx={{ width:150, fontSize:11,backgroundColor: '#325381' }}><img src="../home/hozon.png" width="24" height="24" />
+                        <Typography sx={{ color:'#FFFFFF', fontSize:12}}>保存</Typography>
+                      </Button>
                     </Grid>
                   </Grid>
                 </Box>
