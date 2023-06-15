@@ -913,7 +913,6 @@ export default function Anal() {
                       <Button variant="contained" sx={{ width:150, fontSize:11 }}><img src="../home/hozon.png" width="24" height="24" />保存</Button>
                     </Grid>
                   </Grid>
-
                 </Box>
               {/*----------*/}
             </Paper>
@@ -1094,6 +1093,35 @@ export default function Anal() {
 
       </Dialog>
     {/*----------End Dialog search----------*/}
+
+    {/*----------Footer----------*/}
+    <Paper sx={{marginTop: 'calc(10% + 60px)', bottom: 0}} component="footer" square variant="outlined">
+      <Container maxWidth="xl">
+        <Box
+          sx={{
+            flexGrow: 1,
+            justifyContent: "left",
+            display: "flex",
+            my:1
+          }}
+        >
+        </Box>
+        
+        <Box
+          sx={{
+            flexGrow: 1,
+            justifyContent: "left",
+            display: "flex",
+            mb: 2,
+          }}
+        >
+          <Typography variant="caption" color="initial">
+            Copyright © 2023 OCC
+          </Typography>
+        </Box>
+      </Container>
+    </Paper>
+    {/*----------Footer----------*/}
   </div>
   );
 }
