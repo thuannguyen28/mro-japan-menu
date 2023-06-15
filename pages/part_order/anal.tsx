@@ -248,6 +248,7 @@ const cssCombobox = { color : '#325381', fontSize:14, textAlign:'center', ml:1 }
 const cssData = { display:'flex', alignItems:'center', fontSize:12, color:'#DE0606' };
 const cssEnd = { textAlign:'center', fontSize:12, color:'#DE0606' };
 const cssSearchData = { fontSize:16,color:'#325381' };
+const cssDetailData = { color:'#325381' };
 
 const filterOptions = createFilterOptions({
   matchFrom: 'start',
@@ -664,13 +665,13 @@ export default function Anal() {
                 <Box sx={{ flexGrow: 1 }}>
                   <Grid container spacing={0} sx={{ mb:2 }}>
                     <Grid item xs={3}>
-                        <Typography sx={{ color:'#325381' }}>Parts Number</Typography>
+                        <Typography sx={cssDetailData}>Parts Number</Typography>
                     </Grid>
                     <Grid item xs={3}>
-                        <Typography sx={{ color:'#325381' }}>Nomen</Typography>
+                        <Typography sx={cssDetailData}>Nomen</Typography>
                     </Grid>
                     <Grid item xs={1.2}>
-                      <Typography sx={{ color:'#325381' }}>UT</Typography>
+                      <Typography sx={cssDetailData}>UT</Typography>
                     </Grid>
                     <Grid item xs={1.2}>
                       <ItemRowData>
@@ -700,63 +701,30 @@ export default function Anal() {
                             <SearchIcon color="disabled" />
                           </ItemColumnData>
                           <ItemColumnData sx={{ ml:10 }}>
-                            <Typography sx={{ color:'#325381'}}>Parts Number</Typography>
+                            <Typography sx={cssDetailData}>MS24665 - 153</Typography>
                           </ItemColumnData>
                         </ItemRowDataList>
                       </ItemData>
                     </Grid>
-                    <Grid item xs={3}>
-                      <ItemData>Nomen</ItemData>
-                    </Grid>
-                    <Grid item xs={1.2}>
-                      <ItemData>UT</ItemData>
-                    </Grid>
-                    <Grid item xs={1.2}>
-                      <ItemData>TTL</ItemData>
-                    </Grid>
-                    <Grid item xs={1.2}>
-                      <ItemData>-MJP </ItemData>
-                    </Grid>
-                    <Grid item xs={1.2}>
-                      <Autocomplete
-                        disablePortal
-                        id="combo-box-demo"
-                        options={topQTY}
-                        sx={{ width: 120, bgcolor:"#F0F0F0" }}
-                        renderInput={(params) => <TextField {...params} placeholder="1" size="small" sx={{ fontSize: 13 }} />}
-                      />
-                    </Grid>
-                    <Grid item xs={1.2}>
-                      <img src="../home/delete.png" width="28" height="28" />
-                    </Grid>
-                  </Grid>
-
-                  <Typography sx={cssData}>互換性部品性情報あり</Typography>
-                  <Grid container spacing={0}>
                     <Grid item xs={3}>
                       <ItemData>
-                        <ItemRowDataList>
-                          <ItemColumnData>
-                            <SearchIcon color="disabled" onClick={handleClickOpenSearch} /> 
-                          </ItemColumnData>
-                          <ItemColumnData sx={{ ml:10 }}>
-                            <Typography sx={{ color:'#325381'}}>Parts Number</Typography>
-                          </ItemColumnData>
-                        </ItemRowDataList>
+                        <Typography sx={cssDetailData}>M*PIN COTTER</Typography>
                       </ItemData>
-
-                    </Grid>
-                    <Grid item xs={3}>
-                      <ItemData>Nomen</ItemData>
                     </Grid>
                     <Grid item xs={1.2}>
-                      <ItemData>UT</ItemData>
+                      <ItemData>
+                        <Typography sx={cssDetailData}>EA</Typography>
+                      </ItemData>
                     </Grid>
                     <Grid item xs={1.2}>
-                      <ItemData>TTL</ItemData>
+                      <ItemData>
+                        <Typography sx={cssDetailData}>5023</Typography>
+                      </ItemData>
                     </Grid>
                     <Grid item xs={1.2}>
-                      <ItemData>-MJP</ItemData>
+                      <ItemData>
+                        <Typography sx={cssDetailData}>218</Typography>
+                      </ItemData>
                     </Grid>
                     <Grid item xs={1.2}>
                       <Autocomplete
@@ -781,23 +749,30 @@ export default function Anal() {
                             <SearchIcon color="disabled" />
                           </ItemColumnData>
                           <ItemColumnData sx={{ ml:10 }}>
-                            <Typography sx={{ color:'#325381'}}>Parts Number</Typography>
+                            <Typography sx={cssDetailData}>MS24665 - 153</Typography>
                           </ItemColumnData>
                         </ItemRowDataList>
                       </ItemData>
-
                     </Grid>
                     <Grid item xs={3}>
-                      <ItemData>Nomen</ItemData>
+                      <ItemData>
+                        <Typography sx={cssDetailData}>M*PIN COTTER</Typography>
+                      </ItemData>
                     </Grid>
                     <Grid item xs={1.2}>
-                      <ItemData>UT</ItemData>
+                      <ItemData>
+                        <Typography sx={cssDetailData}>EA</Typography>
+                      </ItemData>
                     </Grid>
                     <Grid item xs={1.2}>
-                      <ItemData>TTL</ItemData>
+                      <ItemData>
+                        <Typography sx={cssDetailData}>5023</Typography>
+                      </ItemData>
                     </Grid>
                     <Grid item xs={1.2}>
-                      <ItemData>-MJP </ItemData>
+                      <ItemData>
+                        <Typography sx={cssDetailData}>218</Typography>
+                      </ItemData>
                     </Grid>
                     <Grid item xs={1.2}>
                       <Autocomplete
@@ -822,23 +797,78 @@ export default function Anal() {
                             <SearchIcon color="disabled" />
                           </ItemColumnData>
                           <ItemColumnData sx={{ ml:10 }}>
-                            <Typography sx={{ color:'#325381'}}>Parts Number</Typography>
+                            <Typography sx={cssDetailData}>MS24665 - 153</Typography>
                           </ItemColumnData>
                         </ItemRowDataList>
                       </ItemData>
-
                     </Grid>
                     <Grid item xs={3}>
-                      <ItemData>Nomen</ItemData>
+                      <ItemData>
+                        <Typography sx={cssDetailData}>M*PIN COTTER</Typography>
+                      </ItemData>
                     </Grid>
                     <Grid item xs={1.2}>
-                      <ItemData>UT</ItemData>
+                      <ItemData>
+                        <Typography sx={cssDetailData}>EA</Typography>
+                      </ItemData>
                     </Grid>
                     <Grid item xs={1.2}>
-                      <ItemData>TTL</ItemData>
+                      <ItemData>
+                        <Typography sx={cssDetailData}>5023</Typography>
+                      </ItemData>
                     </Grid>
                     <Grid item xs={1.2}>
-                      <ItemData>-MJP </ItemData>
+                      <ItemData>
+                        <Typography sx={cssDetailData}>218</Typography>
+                      </ItemData>
+                    </Grid>
+                    <Grid item xs={1.2}>
+                      <Autocomplete
+                        disablePortal
+                        id="combo-box-demo"
+                        options={topQTY}
+                        sx={{ width: 120, bgcolor:"#F0F0F0" }}
+                        renderInput={(params) => <TextField {...params} placeholder="1" size="small" sx={{ fontSize: 13 }} />}
+                      />
+                    </Grid>
+                    <Grid item xs={1.2}>
+                      <img src="../home/delete.png" width="28" height="28" />
+                    </Grid>
+                  </Grid>
+
+                  <Typography sx={cssData}>互換性部品性情報あり</Typography>
+                  <Grid container spacing={0}>
+                    <Grid item xs={3}>
+                      <ItemData>
+                        <ItemRowDataList>
+                          <ItemColumnData>
+                            <SearchIcon color="disabled" />
+                          </ItemColumnData>
+                          <ItemColumnData sx={{ ml:10 }}>
+                            <Typography sx={cssDetailData}>MS24665 - 153</Typography>
+                          </ItemColumnData>
+                        </ItemRowDataList>
+                      </ItemData>
+                    </Grid>
+                    <Grid item xs={3}>
+                      <ItemData>
+                        <Typography sx={cssDetailData}>M*PIN COTTER</Typography>
+                      </ItemData>
+                    </Grid>
+                    <Grid item xs={1.2}>
+                      <ItemData>
+                        <Typography sx={cssDetailData}>EA</Typography>
+                      </ItemData>
+                    </Grid>
+                    <Grid item xs={1.2}>
+                      <ItemData>
+                        <Typography sx={cssDetailData}>5023</Typography>
+                      </ItemData>
+                    </Grid>
+                    <Grid item xs={1.2}>
+                      <ItemData>
+                        <Typography sx={cssDetailData}>218</Typography>
+                      </ItemData>
                     </Grid>
                     <Grid item xs={1.2}>
                       <Autocomplete
@@ -1106,7 +1136,7 @@ export default function Anal() {
           }}
         >
         </Box>
-        
+
         <Box
           sx={{
             flexGrow: 1,
