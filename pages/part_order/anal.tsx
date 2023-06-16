@@ -471,25 +471,27 @@ export default function Anal() {
           <Box sx={{height: '100%',margin:'auto', mt: { xs:0, md: 2}, width: { xs:'100%', md:'90%' } }} backgroundColor="#FFFFFF">
           {/*----------HEADER----------*/}
             { isMobile ? 
+              //----------HEADER REPONSIVE----------
               <div>
-                <Typography color="#3A5075" sx={{ p: { xs: 2, md: 4 }  }}>
+                <Typography color="#3A5075" sx={{ p: { xs: 0, md: 4 }, ml:2  }}>
                   <strong>Part Order</strong>
                     <IconButton
                       size="large"
                       edge="start"
                       color="inherit"
                       aria-label="menu"
-                      sx={{ ml:20 }}
+                      sx={{ ml:18, }}
                     >
 
                     <FormGroup>
                        <FormControlLabel control={<Checkbox defaultChecked />} label="Label" />
                     </FormGroup>
-                    <MenuIcon />
+                    <img src="../menu/iconmenu.png" width="20" height="20" />
                   </IconButton>
                 </Typography>
               </div>
               : 
+              //----------HEADER PC----------
               <div>
                <Grid container spacing={2} sx={{ p: { xs: 2, md: 0 }  }}>
                   <ItemFrame>
