@@ -945,9 +945,11 @@ export default function Anal() {
                       </Button>
                     </Grid>
                     <Grid item xs={1.3}>
-                      <Button variant="contained" sx={{ width:150, fontSize:11,backgroundColor: '#325381' }}><img src="../home/order.png" width="24" height="24" />
-                        <Typography sx={{ color:'#FFFFFF', fontSize:12}}>Direct Order</Typography>
-                      </Button>
+                      <Link  href="../request_for_part_and_material">
+                        <Button variant="contained" sx={{ width:150, fontSize:11,backgroundColor: '#325381' }}><img src="../home/order.png" width="24" height="24" />
+                          <Typography sx={{ color:'#FFFFFF', fontSize:12}}>Direct Order</Typography>
+                        </Button>
+                      </Link>
                     </Grid>
                     <Grid item xs={1.3}>
                       <Button variant="contained" sx={{ width:150, fontSize:11,backgroundColor: '#325381' }}><img src="../home/hozon.png" width="24" height="24" />

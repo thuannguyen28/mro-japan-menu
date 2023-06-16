@@ -183,6 +183,69 @@ export default function RequestPartMaterials() {
         </Grid>
       </Grid>
 
+      <Grid container spacing={2} sx={{ display: 'flex', alignItems:'right', justifyContent:'right' }}>
+        <Grid item xs={12} md={3}>
+          <Grid container spacing={2}>
+            <Grid item xs={6}>
+              <Box sx={cssBox2}>
+                <Grid container spacing={1}>
+                  <Grid item xs={12}>
+                    <CardMedia
+                      sx={{ width: 97 , height: 97, margin: 'auto' }}
+                      image="../qr_code/QR 1.png"
+                      title="ANA"
+                    />
+                  </Grid>
+                </Grid>
+              </Box>
+            </Grid>
+            <Grid item xs={6}>
+              <Box sx={cssBox2}>
+                <Grid container spacing={1}>
+                  <Grid item xs={12}>
+                    <CardMedia
+                      sx={{ width: 97 , height: 97, margin: 'auto' }}
+                      image="../qr_code/QR 4-1.png"
+                      title="ANA"
+                    />
+                  </Grid>
+                </Grid>
+              </Box>
+            </Grid>
+          </Grid>
+        </Grid>
+        <Grid item xs={12} md={3}>
+          <Grid container spacing={2}>
+            <Grid item xs={6}>
+              <Box sx={cssBox2}>
+                <Grid container spacing={1}>
+                  <Grid item xs={12}>
+                    <CardMedia
+                      sx={{ width: 97 , height: 97, margin: 'auto' }}
+                      image="../qr_code/QR 4-2.png"
+                      title="ANA"
+                    />
+                  </Grid>
+                </Grid>
+              </Box>
+            </Grid>
+            <Grid item xs={6}>
+              <Box sx={cssBox2}>
+                <Grid container spacing={1}>
+                  <Grid item xs={12}>
+                    <CardMedia
+                      sx={{ width: 97 , height: 97, margin: 'auto' }}
+                      image="../qr_code/QR 4-3.png"
+                      title="ANA"
+                    />
+                  </Grid>
+                </Grid>
+              </Box>
+            </Grid>
+          </Grid>
+        </Grid>
+      </Grid>
+
       <ListPart />
 
       <Grid container spacing={2} sx={{ mt : '5px' }}>
