@@ -141,22 +141,24 @@ export default function Parts() {
 					    <Item>
 					    	<ItemTitle>
 					    		<Typography color="#3A5075" sx={{ textDecoration: 'underline', fontSize: 13 }}>
-							      <strong>Parts Order</strong>
+							      <strong>Parts Kit</strong>
 							    </Typography>
 					    	</ItemTitle>
 						    <ItemRow>
-						    	<ItemFrame>
-						    		<ItemAvatar>
-						    			<CardMedia
-						    				sx={cardMedia}
-											 	image="home/main 1-13.png"/>
-						    		</ItemAvatar>
-						    		<ItemText>
-						    			<Typography color="#3A5075" textAlign="center" sx={{ fontSize: 11 }}>
-												Parts kit
-											</Typography>
-						    		</ItemText>
-						    	</ItemFrame>	    	
+							    <Link href="/part_kit" sx={cssLink}>
+							    	<ItemFrame>
+							    		<ItemAvatar>
+							    			<CardMedia
+							    				sx={cardMedia}
+												 	image="home/main 1-13.png"/>
+							    		</ItemAvatar>
+							    		<ItemText>
+							    			<Typography color="#3A5075" textAlign="center" sx={{ fontSize: 11 }}>
+													Parts kit
+												</Typography>
+							    		</ItemText>
+							    	</ItemFrame>	 
+							    </Link>	   	
 					    	</ItemRow>
 					    </Item>
 
