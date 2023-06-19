@@ -57,7 +57,7 @@ export default function RequestPartMaterials() {
           </Typography>
         </Grid>
         <Grid item xs={5} md={3} sx={{ position: 'relative' }}>  
-          <Link href="https://www.mrojpn.co.jp" underline="none" target="_blank">
+          <Link href="/part_kit/part_kit_insert" underline="none" target="_blank">
             <Button variant="contained"sx={cssMro}>
             <img src="../part-kit/Search.png" width="20" height="20"/>
               <Typography sx={{ ml:2 }}>
@@ -275,7 +275,7 @@ export default function RequestPartMaterials() {
           mt: { xs: 4, md: 2 },
         }}>
         
-         <Grid container spacing={2} sx={{ pt: 2 }}>
+      <Grid container spacing={2} sx={{ pt: 2 }}>
         <Grid item xs={12} md={7.5}>
         <Typography sx={cssMroTitle}>
             <strong>Parts Kit List : </strong>
