@@ -35,6 +35,7 @@ import DialogTitle from '@mui/material/DialogTitle';
 import TextareaAutosize from '@mui/base/TextareaAutosize';
 import InputBase from '@mui/material/InputBase';
 import CloseIcon from '@mui/icons-material/Close';
+
 // table
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -45,132 +46,106 @@ import TableRow from '@mui/material/TableRow';
 import TextField from '@mui/material/TextField';
 import Autocomplete, { createFilterOptions } from '@mui/material/Autocomplete';
 
-const ItemCSS = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-  ...theme.typography.body2,
-  padding: theme.spacing(0),
-  color: theme.palette.text.secondary,
-  boxShadow:'none',
-}));
+// Css PC
+const cssMro = { width: '100%', color: '#325381', textAlign: 'right', fontSize: '13px', position: 'absolute', right: 0, bottom: 0 };
+const cssBox = { background : {xs:'#FFFFFF', md:'#F5F5F5'}, px: 1, py: 1, borderRadius: '5px'};
+const cssBox2 = { height:18};
 
-const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#FBFBFB',
-  ...theme.typography.body2,
-  padding: theme.spacing(1),
-  textAlign: 'left',
-  height:60,
-  marginRight:8,
-  color: theme.palette.text.secondary,
-  boxShadow:'none',
-  [theme.breakpoints.up('sm')]: {
-          padding: theme.spacing(1),
-          textAlign: 'left',
-          height:10,
-          marginRight:8,
-          color: theme.palette.text.secondary,
-          boxShadow:'none',
-        },
-}));
+const cssBox3 = { px: 1, py: 1, borderRadius: '5px'};
+const font12Center = { fontSize: '12px', textAlign: 'center' };
+const font12Left = { fontSize: '12px', textAlign: 'left' };
+const font12 = { fontSize: '12px', ml:4};
+const cssOder = { width: '100%', textAlign: 'right', fontSize: '12px', fontWeight: 700, mb: '5px' };
+const font13Bold = { fontSize: '13px', textAlign: 'center', py: 2, fontWeight: 700 };
 
-const ItemFrame = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#FFFFFF',
-  ...theme.typography.body2, 
-  width: 235,
-  height:70,
-  marginRight:20,
-  padding: theme.spacing(0),
-  textAlign: 'center',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  color: theme.palette.text.secondary,
-  boxShadow:'none',
-}));
+const cssTitle = { color : '#325381', fontSize:14, mt:{xs: 0, md:5}, };
+const cssTitle1 = { color : '#325381', fontSize:14, mt:{xs: 0, md:5}, ml:{xs: 0, md:2} };
+const cssDetailTitle = { color:'#325381', whiteSpace: 'nowrap', fontSize:{xs:11, md:16}};
+const cssDetail = { color:'#DE0606', fontSize:'11px' };
+const cssDetailData = { color:'#325381',fontSize:{ xs:11, md:16 } , textAlign: 'center', height:25 };
+const cssData = { ml:2, display:'flex', alignItems:'center', fontSize:12, color:'#DE0606' };
+const cssEnd = { textAlign:'center', fontSize:12, color:'#DE0606', mt:1 };
 
-// dọc
-const ItemColumn = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#FBFBFB',
-  ...theme.typography.body2,
-  marginRight:4,
-  marginLeft:4,
-  textAlign: 'left',
-  display: 'flex',
-  flexDirection: 'column',
-  color: theme.palette.text.secondary,
-  boxShadow:'none',
-}));
-// ngang
-const ItemRow = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#FBFBFB',
-  ...theme.typography.body2,
-  padding: theme.spacing(0),
-  textAlign: 'center',
-  display: 'flex',
-   // flexWrap: 'wrap',
-  flexDirection: 'row',
-  color: theme.palette.text.secondary,
-  boxShadow:'none',
-  [theme.breakpoints.up('sm')]: {
-        textAlign: 'center',
-        display: 'flex',
-        flexDirection: 'row',
-        color: theme.palette.text.secondary,
-        boxShadow:'none',
-      },
-}));
+const cssTitleReponsive = { color : '#325381', fontSize:13, ml: 1 };
+const cssBoxReponsive = { background : {xs:'#FFFFFF', md:'#F5F5F5'}, px: 1, py: 1, borderRadius: '5px'};
+const cssBoxre = { background : {xs:'#FFFFFF', md:'#F5F5F5'}, width:'100%', borderRadius: '5px'};
 
-const ItemData = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#F0F0F0',
-  ...theme.typography.body2,
-  padding: theme.spacing(1),
-  marginBottom:20,
-  marginRight:8,
-  color: theme.palette.text.secondary,
-  boxShadow:'none',
-  [theme.breakpoints.up('sm')]: {
-          padding: theme.spacing(1),
-          textAlign: 'center',
-          marginRight:8,
-          height:40,
-          color: theme.palette.text.secondary,
-          boxShadow:'none',
-        },
-}));
+function BootstrapDialogTitle(props: DialogTitleProps) {
+  const { children, onClose, ...other } = props;
 
-// ngang
-const ItemRowData = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#FFFFFF',
-  ...theme.typography.body2,
-  textAlign: 'center',
-  display: 'flex',
-  flexWrap: "wrap",
-  flexDirection: 'row',
-  color: theme.palette.text.secondary,
-  boxShadow:'none',
-}));
+  return (
+    <DialogTitle sx={{ m: 0, p: 2 }} {...other}>
+      {children}
+      {onClose ? (
+        <IconButton
+          aria-label="close"
+          onClick={onClose}
+          sx={{
+            position: 'absolute',
+            right: 8,
+            top: 2,
+            color: (theme) => theme.palette.grey[500],
+          }}
+        >
+          <CloseIcon />
+        </IconButton>
+      ) : null}
+    </DialogTitle>
+  );
+}
 
-// ngang
-const ItemRowDataList = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#F0F0F0',
-  ...theme.typography.body2,
-  textAlign: 'center',
-  display: 'flex',
-  alignItems: 'center',
-  flexDirection: 'row',
-  color: theme.palette.text.secondary,
-  boxShadow:'none',
-}));
+//textarea
+  const blue = {
+    100: '#DAECFF',
+    200: '#b6daff',
+    400: '#3399FF',
+    500: '#007FFF',
+    600: '#0072E5',
+    900: '#003A75',
+  };
 
-const ItemColumnData = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#F0F0F0',
-  ...theme.typography.body2,
-  marginRight:4,
-  marginLeft:4,
-  display: 'flex',
-  flexDirection: 'column',
-  color: theme.palette.text.secondary,
-  boxShadow:'none',
-}));
+  const grey = {
+    50: '#f6f8fa',
+    100: '#eaeef2',
+    200: '#d0d7de',
+    300: '#afb8c1',
+    400: '#8c959f',
+    500: '#6e7781',
+    600: '#57606a',
+    700: '#424a53',
+    800: '#32383f',
+    900: '#24292f',
+  };
+
+  const StyledTextarea = styled(TextareaAutosize)(
+    ({ theme }) => `
+    width: 500px;
+    font-family: IBM Plex Sans, sans-serif;
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 6;
+    padding: 12px;
+    border-radius: 12px 12px 0 12px;
+    color: ${theme.palette.mode === 'dark' ? grey[300] : grey[900]};
+    background: ${theme.palette.mode === 'dark' ? grey[900] : '#F0F0F0'};
+    border: 1px solid ${theme.palette.mode === 'dark' ? grey[700] : grey[200]};
+    box-shadow: 0px 2px 2px ${theme.palette.mode === 'dark' ? grey[900] : grey[50]};
+
+    &:hover {
+      border-color: ${blue[400]};
+    }
+
+    &:focus {
+      border-color: ${blue[400]};
+      box-shadow: 0 0 0 3px ${theme.palette.mode === 'dark' ? blue[500] : blue[200]};
+    }
+
+    // firefox
+    &:focus-visible {
+      outline: 0;
+    }
+  `,
+  );
 
 // search
 const Search = styled('div')(({ theme }) => ({
@@ -217,46 +192,34 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-function BootstrapDialogTitle(props: DialogTitleProps) {
-  const { children, onClose, ...other } = props;
+const ItemCSS = styled(Paper)(({ theme }) => ({
+  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+  ...theme.typography.body2,
+  padding: theme.spacing(0),
+  color: theme.palette.text.secondary,
+  boxShadow:'none',
+}));
 
-  return (
-    <DialogTitle sx={{ m: 0, p: 2 }} {...other}>
-      {children}
-      {onClose ? (
-        <IconButton
-          aria-label="close"
-          onClick={onClose}
-          sx={{
-            position: 'absolute',
-            right: 8,
-            top: 2,
-            color: (theme) => theme.palette.grey[500],
-          }}
-        >
-          <CloseIcon />
-        </IconButton>
-      ) : null}
-    </DialogTitle>
-  );
-}
-// end search
+const ItemFrame = styled(Paper)(({ theme }) => ({
+  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#FFFFFF',
+  ...theme.typography.body2, 
+  width: 235,
+  height:70,
+  marginRight:20,
+  padding: theme.spacing(0),
+  textAlign: 'center',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  color: theme.palette.text.secondary,
+  boxShadow:'none',
+}));
 
 const cardMedia = { margin: 'auto', width: { xs: 138, md: 235 }, height: { xs: 68, md: 92 }, mt:2, ml:2 };
-const cssTitle = { color : '#325381', fontSize:14, mt:{xs: 0, md:5} };
-const cssCombobox = { color : '#325381', fontSize:14, textAlign:'center', ml:1 };
-const cssData = { display:'flex', alignItems:'center', fontSize:12, color:'#DE0606' };
-const cssEnd = { textAlign:'center', fontSize:12, color:'#DE0606' };
 const cssSearchData = { fontSize:16,color:'#325381' };
-const cssDetailData = { color:'#325381' };
-
-const filterOptions = createFilterOptions({
-  matchFrom: 'start',
-  stringify: (option: FilmOptionType) => option.title,
-});
-
-
+  //endtextarea
 // List Data Search
+
 function createData(
   id: number,
   partNumber: string,
@@ -359,30 +322,7 @@ const rows = [
   ),
 ];
 
-function preventDefault(event: React.MouseEvent) {
-  event.preventDefault();
-}
-
 export default function Anal() {
-  const [width, setWidth] = React.useState(0);
-
-  const handleWindowSizeChange = () => {
-    setWidth(window.innerWidth);
-  };
-
-  React.useEffect(() => {
-      setWidth(window.innerWidth);
-      window.addEventListener('resize', handleWindowSizeChange);
-      return () => {
-          window.removeEventListener('resize', handleWindowSizeChange);
-      }
-  }, []);
-
-  const [age, setAge] = React.useState('');
-
-  const handleChange = (event: SelectChangeEvent) => {
-    setAge(event.target.value);
-  };
 
   // Dialog Memo
   const [open, setOpen] = React.useState(false);
@@ -408,562 +348,1227 @@ export default function Anal() {
   };
   // END Dialog Search
 
-  //textarea
-  const blue = {
-    100: '#DAECFF',
-    200: '#b6daff',
-    400: '#3399FF',
-    500: '#007FFF',
-    600: '#0072E5',
-    900: '#003A75',
+  // Mobile
+
+  const [width, setWidth] = React.useState(0);
+
+  const handleWindowSizeChange = () => {
+    setWidth(window.innerWidth);
   };
 
-  const grey = {
-    50: '#f6f8fa',
-    100: '#eaeef2',
-    200: '#d0d7de',
-    300: '#afb8c1',
-    400: '#8c959f',
-    500: '#6e7781',
-    600: '#57606a',
-    700: '#424a53',
-    800: '#32383f',
-    900: '#24292f',
+  React.useEffect(() => {
+      setWidth(window.innerWidth);
+      window.addEventListener('resize', handleWindowSizeChange);
+      return () => {
+          window.removeEventListener('resize', handleWindowSizeChange);
+      }
+  }, []);
+
+  const [age, setAge] = React.useState('');
+
+  const handleChange = (event: SelectChangeEvent) => {
+    setAge(event.target.value);
   };
-
-  const StyledTextarea = styled(TextareaAutosize)(
-    ({ theme }) => `
-    width: 500px;
-    font-family: IBM Plex Sans, sans-serif;
-    font-size: 0.875rem;
-    font-weight: 400;
-    line-height: 6;
-    padding: 12px;
-    border-radius: 12px 12px 0 12px;
-    color: ${theme.palette.mode === 'dark' ? grey[300] : grey[900]};
-    background: ${theme.palette.mode === 'dark' ? grey[900] : '#F0F0F0'};
-    border: 1px solid ${theme.palette.mode === 'dark' ? grey[700] : grey[200]};
-    box-shadow: 0px 2px 2px ${theme.palette.mode === 'dark' ? grey[900] : grey[50]};
-
-    &:hover {
-      border-color: ${blue[400]};
-    }
-
-    &:focus {
-      border-color: ${blue[400]};
-      box-shadow: 0 0 0 3px ${theme.palette.mode === 'dark' ? blue[500] : blue[200]};
-    }
-
-    // firefox
-    &:focus-visible {
-      outline: 0;
-    }
-  `,
-  );
-  //endtextarea
 
   const isMobile = width <= 768;
+
   return (
   <div>
-    <Box sx={{ width: '100%',}}>
-      <Grid container spacing={1}>
-        <Grid item xs={12}>
-          <Box sx={{height: '100%',margin:'auto', mt: { xs:0, md: 2}, width: { xs:'100%', md:'90%' } }} backgroundColor="#FFFFFF">
-          {/*----------HEADER----------*/}
-            { isMobile ? 
-              //----------HEADER REPONSIVE----------
-              <div>
-                <Typography color="#3A5075" sx={{ p: { xs: 0, md: 4 }, ml:2  }}>
+    <Box sx={{ color: '#325381', mx: { xs: 2, md: 4 }, my: { xs: 3, md: 4 } }}>
+    {/*----------HEADER----------*/}
+      <Grid container spacing={2}>
+        <Grid item xs={7} md={9}>
+        { isMobile ? 
+          <Typography color="#3A5075" sx={{ p: { xs: 0, md: 4 }, ml:2  }}>
                   <strong>Part Order</strong>
-                    <IconButton
-                      size="large"
-                      edge="start"
-                      color="inherit"
-                      aria-label="menu"
-                      sx={{ ml:18, }}
-                    >
+          </Typography>
+          :
+          <CardMedia
+            sx={{ width: { xs: 150, md: 222} , height: { xs: 40, md: 58}}}
+            image="../part-order/anal_1.png"
+            title="ANA"
+          />
+        }
+        </Grid>
+        <Grid item xs={5} md={3} sx={{ position: 'relative' }}>  
+          <Link href="https://www.mrojpn.co.jp" underline="none" target="_blank">
+          { isMobile ? 
 
-                    <FormGroup>
-                       <FormControlLabel control={<Checkbox defaultChecked />} label="Label" />
-                    </FormGroup>
-                    <img src="../menu/iconmenu.png" width="20" height="20" />
-                  </IconButton>
+              <IconButton
+                  size="large"
+                  edge="start"
+                  color="inherit"
+                  aria-label="menu"
+                  sx={{height:20}}
+                >
+                <FormGroup>
+                   <FormControlLabel control={<Checkbox defaultChecked />} label="Label" />
+                </FormGroup>
+                <img src="../menu/iconmenu.png" width="20" height="20" />
+              </IconButton>
+            :
+            <Typography sx={cssMro}>
+            https://www.mrojpn.co.jp
+            </Typography>
+          }
+          </Link>
+        </Grid>
+      </Grid>
+      <Divider sx={{ my: 1}} />
+
+      <Grid container spacing={2} sx={{ pt: 2 }}>
+        <Grid item xs={12} md={12}>
+          <Box sx={cssBox}>
+            <Grid container>
+              <Grid item xs={1.7} md={0.5}>
+                <Avatar alt="Travis Howard" 
+                src="/avatar/avatar.png"
+                sx={{ width: 35, height: 35,ml:{xs:1, md:2}, display: 'flex' }} />
+              </Grid>
+              <Grid item xs>
+                <Typography sx={{ color : '#325381', mt:1, fontSize:14, display: 'flex' }} >
+                  桃太郎 桃太郎
                 </Typography>
-              </div>
-              : 
-              //----------HEADER PC----------
-              <div>
-               <Grid container spacing={2} sx={{ p: { xs: 2, md: 0 }  }}>
-                  <ItemFrame>
-                    <CardMedia
-                      sx={cardMedia}
-                      image="../part-order/anal.png"/>  
-                  </ItemFrame> 
+              </Grid>
+            </Grid>
+            {isMobile ?
+            <div>
+              <Grid container>
+                <Grid item xs={3.5} md={2.7}>
+                  <Grid container>
+                    <Grid item xs>
+                      <Typography sx={cssTitle} > Work Order </Typography>
+                    </Grid>
+                  </Grid>
                 </Grid>
-                <Typography color="#325381" sx={{ mr:15 }} textAlign="right">
-                https://www.mrojpn.co.jp
-                </Typography>
-                <Divider sx={{ my: 1}} />
-              </div>
-            }
 
-            {/*----------END HEADER----------*/}
+                <Grid item xs={3.5} md={2.6}>
+                  <Grid container>
+                    <Grid item xs>
+                      <Typography sx={cssTitle} > Task Card </Typography>
+                    </Grid>
+                  </Grid>
+                </Grid>
 
-            {/*----------CONTENT1----------*/}
-             <Grid container spacing={0} sx={{ mr:2, p: { xs: 2, md: 0 }  }} alignItems="center" backgroundColor="#FBFBFB">
-              <Avatar alt="Travis Howard" 
-              src="/avatar/avatar.png"
-              sx={{ width: 35, height: 35, mr:2, ml:2, display: { xs: 'none', md: 'flex' } }} />
-              <Typography sx={{ color : '#325381', mr:2, mt:1, fontSize:14, display: { xs: 'none', md: 'flex' }}} >
-                桃太郎 桃太郎
-              </Typography>
+                <Grid item xs={2.5} md={1.2}>
+                  <Grid container>
+                    <Grid item xs>
+                      <Typography sx={cssTitle} > Zone </Typography>
+                    </Grid>
+                  </Grid>
+                </Grid>
+
+                <Grid item xs={2.5} md={1.2}>
+                  <Grid container>
+                    <Grid item xs>
+                      <Typography sx={cssTitle} > RSN </Typography>
+                    </Grid>
+                  </Grid>
+                </Grid>
+
+                <Paper sx={cssBoxre}>
+                <Grid container>
+                  <Grid item xs={3.5} md={2.7}>
+                    <Grid container>
+                      <Grid item xs>
+                          <Autocomplete
+                            disableClearable
+                            id="free-solo-demo"
+                            sx={{
+                              '& .MuiOutlinedInput-notchedOutline': {
+                                border: 'none',
+                              },
+                            }}
+                            freeSolo
+                            options={topWorkOrderFilms}
+                            renderInput={(params) => <TextField {...params} placeholder="10023866" size="small" />}
+                          />
+                      </Grid>
+                    </Grid>
+                  </Grid>
+
+                  <Grid item xs={3.5} md={2.6}>
+                    <Grid container>
+                      <Grid item xs> 
+                        <Autocomplete
+                          disableClearable
+                          id="free-solo-demo"
+                          sx={{
+                            '& .MuiOutlinedInput-notchedOutline': {
+                              border: 'none',
+                            },
+                          }}
+                          freeSolo
+                          options={topCardFilms}
+                          renderInput={(params) => <TextField {...params} placeholder="ANA - 1230006" size="small" sx={{ fontSize: 13 }}/>}
+                        />
+                      </Grid>
+                    </Grid> 
+                  </Grid>
+
+                  <Grid item xs={2.5} md={1.2}>
+                    <Grid container>
+                      <Grid item xs>
+                        <Autocomplete
+                          disableClearable
+                          id="free-solo-demo"
+                          sx={{
+                              '& .MuiOutlinedInput-notchedOutline': {
+                                border: 'none',
+                              },
+                            }}
+                          freeSolo
+                          options={topZoneFilms}
+                          renderInput={(params) => <TextField {...params} placeholder="EXT2" size="small" sx={{ fontSize: 13 }}/>}
+                        />
+                      </Grid>
+                    </Grid> 
+                  </Grid>
+
+                  <Grid item xs={2.5} md={1.2}>
+                    <Grid container>
+                      <Grid item xs>
+                        {isMobile ?
+                        <Autocomplete
+                          disableClearable
+                          id="free-solo-demo"
+                          sx={{
+                              '& .MuiOutlinedInput-notchedOutline': {
+                                border: 'none',
+                              },
+                            }}
+                          freeSolo
+                          options={topZoneFilms}
+                          renderInput={(params) => <TextField {...params} placeholder="EXT2" size="small" sx={{ fontSize: 13 }}/>}
+                        />
+                        :
+                        <Autocomplete
+                          disableClearable
+                          id="combo-box-demo"
+                          options={topZoneFilms}
+                          sx={{ width: {xs:70 , md: 140}, bgcolor:"#F0F0F0" }}
+                          renderInput={(params) => <TextField {...params} placeholder="EXT2" size="small" sx={{ fontSize: 13 }} />}
+                        />
+                      }
+                      </Grid>
+                    </Grid>   
+                  </Grid>
+                </Grid>
+              </Paper>
+
+              <Grid item xs sx={{ mt:2 }}>
+                  <Paper sx={cssBox}>
+                    <Grid container>
+                      <Grid item xs={3} md={2.7}>
+                        <Grid container>
+                          <Grid item xs>
+                            <Typography sx={cssTitleReponsive}>AC Number</Typography>
+                            <Typography sx={cssTitleReponsive}>出庫資村</Typography>
+                          </Grid>
+                          <Divider orientation="vertical" flexItem />
+                        </Grid>
+                      </Grid>
+
+                      <Grid item xs={3} md={2.6}>
+                        <Grid container>
+                          <Grid item xs>
+                            <Typography sx={cssTitleReponsive}>要求者</Typography>
+                            <Typography sx={cssTitleReponsive}>出庫資村</Typography>
+                          </Grid>
+                          <Divider orientation="vertical" flexItem />
+                        </Grid> 
+                      </Grid>
+
+                      <Grid item xs={3} md={1.2}>
+                        <Grid container>
+                          <Grid item xs>
+                            <Typography sx={cssTitleReponsive}>Date</Typography>
+                            <Typography sx={cssTitleReponsive}>出庫資村</Typography>
+                          </Grid>
+                          <Divider orientation="vertical" flexItem />
+                        </Grid> 
+                      </Grid>
+
+                      <Grid item xs={3} md={1.2}>
+                        <Grid container>
+                          <Grid item xs>
+                            <Typography sx={cssTitleReponsive}>Time</Typography>
+                            <Typography sx={cssTitleReponsive}>出庫資村</Typography>
+                          </Grid>
+                        </Grid>   
+                      </Grid>
+                    </Grid>
+                  </Paper>
+                </Grid>
+              </Grid>
+            </div>
+            :
+            <div>
+            <Grid container>
+              <Grid item xs={2.7}>
+                <Typography sx={cssTitle1} > Work Order Number </Typography>
+              </Grid>
+
+              <Grid item xs={2.6}>
+                <Typography sx={cssTitle} > Task Card Number </Typography>
+              </Grid>
+
+              <Grid item xs={1.2}>
+                <Typography sx={cssTitle} > Zone </Typography>
+              </Grid>
+
+              <Grid item xs={1.2}>
+                <Typography sx={cssTitle} > RSN </Typography>
+              </Grid>
+
+              <Grid item xs>
+                <Grid container>
+                  <Grid item xs={5}>
+                    <Grid item xs>
+                      <Grid container spacing={0} sx={{ mt: '10px' }}>
+                        <Grid item xs={12}>
+                          <Typography sx={font12}>Date</Typography>
+                          <Grid container>
+                            <Grid item xs={3}>
+                              <CalendarMonth sx={{ ml:4 }} />
+                            </Grid>
+                            <Grid item xs>
+                              <Typography sx={{ color : '#325381', fontSize:14, display:'flex', alignItems:'flex-end'}}>2023/05/18</Typography>
+                            </Grid>
+                          </Grid>
+
+                        </Grid>
+                      </Grid>
+                    </Grid>
+                  </Grid>
+
+                  <Grid item xs={5}>
+                    <Grid item xs>
+                      <Grid container spacing={0} sx={{ mt: '10px' }}>
+                        <Grid item xs={12}>
+                          <Typography sx={font12}>Time</Typography>
+                          <Grid container>
+                            <Grid item xs={3}>
+                              <AccessTime sx={{ ml:4 }} />
+                            </Grid>
+                            <Grid item xs>
+                              <Typography sx={{ color : '#325381', fontSize:14, display:'flex', alignItems:'flex-end'}}>14:00</Typography>
+                            </Grid>
+                          </Grid>
+                        </Grid>
+                      </Grid>
+                    </Grid>
+                  </Grid>
+                </Grid>
+                <Divider sx={{ my: '2px', mr:25}} />
+              </Grid>
             </Grid>
 
-            <Paper
-              elevation={0}
-              sx={{
-                display: 'flex',
-                flexDirection: 'column',
-                height: '100%',
-              }}
-            >
-              <Paper
-                elevation={0}
-                sx={{
-                  height: '100%',
-                  backgroundColor: '#FBFBFB' ,
-                  mb:4,
-                }}>
+            <Grid container>
+              <Grid item xs={2.7}>
+                <Autocomplete
+                  disablePortal
+                  id="combo-box-demo"
+                  options={topWorkOrderFilms}
+                  sx={{ width: 320, bgcolor:"#F0F0F0", ml:2 }}
+                  renderInput={(params) => <TextField {...params} placeholder="10023866" size="small" sx={{ fontSize: 13 }} />}
+                />
+              </Grid>
 
-                <ItemRow>
-                  <Item>
-                    <Typography sx={cssTitle} >
-                      Work Order Number
-                    </Typography>
-                    <Autocomplete
-                      disablePortal
-                      id="combo-box-demo"
-                      options={topWorkOrderFilms}
-                      sx={{ width: 350, bgcolor:"#F0F0F0" }}
-                      renderInput={(params) => <TextField {...params} placeholder="10023866" size="small" sx={{ fontSize: 13 }} />}
-                    />
-                  </Item>
-                  <Item>
-                    <Typography sx={cssTitle} >
-                      Task Card Number
-                    </Typography>
-                    <Autocomplete
-                      disablePortal
-                      id="combo-box-demo"
-                      options={topCardFilms}
-                      sx={{ width: 350, bgcolor:"#F0F0F0" }}
-                      renderInput={(params) => <TextField {...params} placeholder="ANA - 1230006" size="small" sx={{ fontSize: 13 }} />}
-                    />
-                  </Item>
-                  <Item>
-                    <Typography sx={cssTitle} >
-                      Zone
-                    </Typography>
-                    <Autocomplete
-                      disablePortal
-                      id="combo-box-demo"
-                      options={topZoneFilms}
-                      sx={{ width: 150, bgcolor:"#F0F0F0" }}
-                      renderInput={(params) => <TextField {...params} placeholder="EXT2" size="small" sx={{ fontSize: 13 }} />}
-                    />
-                  </Item>
-                  <Item>
-                    <Typography sx={cssTitle} >
-                      RSN
-                    </Typography>
-                    <Autocomplete
-                      disablePortal
-                      id="combo-box-demo"
-                      options={topRSNFilms}
-                      sx={{ width: 150, bgcolor:"#F0F0F0" }}
-                      renderInput={(params) => <TextField {...params} placeholder="TC" size="small" sx={{ fontSize: 13 }} />}
-                    />
-                  </Item>
+              <Grid item xs={2.6}>
+                <Autocomplete
+                  disablePortal
+                  id="combo-box-demo"
+                  options={topCardFilms}
+                  sx={{ width: 320, bgcolor:"#F0F0F0" }}
+                  renderInput={(params) => <TextField {...params} placeholder="ANA - 1230006" size="small" sx={{ fontSize: 13 }} />}
+                />
+              </Grid>
 
-                  <Item>
-                    <ItemRow>
-                      <ItemColumn>
-                        <ItemRow>
-                          <ItemColumn sx={{ mr:1 }}>
-                            <ItemColumn>          
-                              <Typography sx={{ color : '#325381', fontSize:14, ml:1}} >
-                                Date
-                              </Typography>
-                            </ItemColumn>
-                            <ItemColumn>
-                              <ItemRow>
-                                <CalendarMonth />
-                                <Typography sx={{ color : '#325381', fontSize:14, display:'flex', alignItems:'flex-end'}} >
-                                  2023/05/18
-                                </Typography>
-                              </ItemRow>
-                            </ItemColumn>
-                          </ItemColumn>
+              <Grid item xs={1.2}>
+                <Autocomplete
+                  disablePortal
+                  id="combo-box-demo"
+                  options={topZoneFilms}
+                  sx={{ width: 140, bgcolor:"#F0F0F0" }}
+                  renderInput={(params) => <TextField {...params} placeholder="EXT2" size="small" sx={{ fontSize: 13 }} />}
+                />
+              </Grid>
 
-                          <ItemColumn>
-                            <Typography sx={{ color : '#325381', fontSize:14, ml:9}} >
-                              Time
-                            </Typography>
-                            <ItemColumn>
-                              <ItemRow sx={{ ml:8}} >
-                                <AccessTime />
-                                <Typography sx={{ color : '#325381', fontSize:14, display:'flex', alignItems:'flex-end'}} >
-                                  14:00
-                                </Typography>
-                              </ItemRow>
-                            </ItemColumn>
-                          </ItemColumn>
-                        </ItemRow>
+              <Grid item xs={1.2}>
+                <Autocomplete
+                  disablePortal
+                  id="combo-box-demo"
+                  options={topZoneFilms}
+                  sx={{ width: 140, bgcolor:"#F0F0F0" }}
+                  renderInput={(params) => <TextField {...params} placeholder="EXT2" size="small" sx={{ fontSize: 13 }} />}
+                />
+              </Grid>
 
-                        <Divider sx={{ my:1 }}/>
-
-                        <ItemRow>
-                          <ItemColumn sx={{ mr:10 }}>
-                            <ItemColumn>
-                              <Typography sx={cssCombobox} >
-                                  AC Number
-                              </Typography>
-                            </ItemColumn>
-                            <ItemColumn>
-                              <ItemRow>
-                                <Typography sx={cssCombobox} >
-                                  <strong>JA219A</strong>
-                                </Typography>
-                              </ItemRow>
-                            </ItemColumn>
-                          </ItemColumn>
-
-                          <ItemColumn>
-                            <ItemColumn>
-                              <Typography sx={cssCombobox} >
-                                要求者
-                              </Typography>
-                            </ItemColumn>
-                            <ItemColumn>
-                              <Typography sx={cssCombobox} >
-                                <strong>70075</strong>
-                              </Typography>
-                            </ItemColumn>
-                            <ItemColumn>
-                              <Typography sx={cssCombobox} >
-                                中嶋
-                              </Typography>
-                            </ItemColumn>
-                          </ItemColumn>
-                        </ItemRow>
-
-                      </ItemColumn>
-                    </ItemRow>
-                  </Item>
-                </ItemRow>
-
-              </Paper>
-              {/*----------ENDCONTENT1----------*/}
-                <Box sx={{ flexGrow: 1 }}>
-                  <Grid container spacing={0} sx={{ mb:2 }}>
-                    <Grid item xs={3}>
-                        <Typography sx={cssDetailData}>Parts Number</Typography>
-                    </Grid>
-                    <Grid item xs={3}>
-                        <Typography sx={cssDetailData}>Nomen</Typography>
-                    </Grid>
-                    <Grid item xs={1.2}>
-                      <Typography sx={cssDetailData}>UT</Typography>
-                    </Grid>
-                    <Grid item xs={1.2}>
-                      <ItemRowData>
-                        <Typography sx={{ color:'#325381', mr:1, display:'flex', alignItems:'center' }}>TTL</Typography>
-                        <img src="../home/ana.png" width="60" height="24" />
-                      </ItemRowData>
-                    </Grid>
-                    <Grid item xs={1.2}>
-                      <ItemRowData>
-                        <Typography sx={{ color:'#325381', mr:1, display:'flex', alignItems:'center' }}>TTL</Typography>
-                        <img src="../home/ana.png" width="60" height="24" />
-                      </ItemRowData>
-                    </Grid>
-                    <Grid item xs={1.2}>
-                      <Typography sx={{ color:'#325381' }}>QTY 要求</Typography>
-                    </Grid>
-                    <Grid item xs={1.2}>
+              <Grid item xs>
+                  
+                <Grid container>
+                  <Grid item xs={5}>
+                    <Grid item xs>
+                      <Grid container spacing={0} sx={{ mt: '10px' }}>
+                        <Grid item xs={12}>
+                          <Typography sx={font12}>AC Number</Typography>
+                          
+                          <Typography sx={font12} ><strong>JA219A</strong></Typography>
+                        </Grid>
+                      </Grid>
                     </Grid>
                   </Grid>
 
-                  <Typography sx={cssData}>互換性部品性情報あり</Typography>
-                  <Grid container spacing={0}>
-                    <Grid item xs={3}>
-                      <ItemData>
-                        <ItemRowDataList>
-                          <ItemColumnData>
-                            <SearchIcon color="disabled" onClick={handleClickOpenSearch} sx={{ cursor:'pointer' }} /> 
-                          </ItemColumnData>
-                          <ItemColumnData sx={{ ml:10 }}>
-                            <Typography sx={{ color:'#325381'}}>Parts Number</Typography>
-                          </ItemColumnData>
-                        </ItemRowDataList>
-                      </ItemData>
-                    </Grid>
-                    <Grid item xs={3}>
-                      <ItemData>
-                        <Typography sx={cssDetailData}>M*PIN COTTER</Typography>
-                      </ItemData>
-                    </Grid>
-                    <Grid item xs={1.2}>
-                      <ItemData>
-                        <Typography sx={cssDetailData}>EA</Typography>
-                      </ItemData>
-                    </Grid>
-                    <Grid item xs={1.2}>
-                      <ItemData>
-                        <Typography sx={cssDetailData}>5023</Typography>
-                      </ItemData>
-                    </Grid>
-                    <Grid item xs={1.2}>
-                      <ItemData>
-                        <Typography sx={cssDetailData}>218</Typography>
-                      </ItemData>
-                    </Grid>
-                    <Grid item xs={1.2}>
-                      <Autocomplete
-                        disablePortal
-                        id="combo-box-demo"
-                        options={topQTY}
-                        sx={{ width: 120, bgcolor:"#F0F0F0" }}
-                        renderInput={(params) => <TextField {...params} placeholder="1" size="small" sx={{ fontSize: 13 }} />}
-                      />
-                    </Grid>
-                    <Grid item xs={1.2}>
-                      <img src="../home/delete.png" width="28" height="28" />
+                  <Grid item xs={5}>
+                    <Grid item xs>
+                      <Grid container spacing={0} sx={{ mt: '10px' }}>
+                        <Grid item xs={12}>
+                          <Typography sx={font12}>要求者</Typography>
+                          <Typography sx={font12} ><strong>70075</strong></Typography>
+                          <Typography sx={font12}>中嶋</Typography>
+                        </Grid>
+                      </Grid>
                     </Grid>
                   </Grid>
+                </Grid>
 
-                  <Typography sx={cssData}>互換性部品性情報あり</Typography>
-                  <Grid container spacing={0}>
-                    <Grid item xs={3}>
-                      <ItemData>
-                        <ItemRowDataList>
-                          <ItemColumnData>
-                            <SearchIcon color="disabled" onClick={handleClickOpenSearch} sx={{ cursor:'pointer' }} /> 
-                          </ItemColumnData>
-                          <ItemColumnData sx={{ ml:10 }}>
-                            <Typography sx={{ color:'#325381'}}>Parts Number</Typography>
-                          </ItemColumnData>
-                        </ItemRowDataList>
-                      </ItemData>
-                    </Grid>
-                    <Grid item xs={3}>
-                      <ItemData>
-                        <Typography sx={cssDetailData}>M*PIN COTTER</Typography>
-                      </ItemData>
-                    </Grid>
-                    <Grid item xs={1.2}>
-                      <ItemData>
-                        <Typography sx={cssDetailData}>EA</Typography>
-                      </ItemData>
-                    </Grid>
-                    <Grid item xs={1.2}>
-                      <ItemData>
-                        <Typography sx={cssDetailData}>5023</Typography>
-                      </ItemData>
-                    </Grid>
-                    <Grid item xs={1.2}>
-                      <ItemData>
-                        <Typography sx={cssDetailData}>218</Typography>
-                      </ItemData>
-                    </Grid>
-                    <Grid item xs={1.2}>
-                      <Autocomplete
-                        disablePortal
-                        id="combo-box-demo"
-                        options={topQTY}
-                        sx={{ width: 120, bgcolor:"#F0F0F0" }}
-                        renderInput={(params) => <TextField {...params} placeholder="1" size="small" sx={{ fontSize: 13 }} />}
-                      />
-                    </Grid>
-                    <Grid item xs={1.2}>
-                      <img src="../home/delete.png" width="28" height="28" />
-                    </Grid>
-                  </Grid>
-
-                  <Typography sx={cssData}>互換性部品性情報あり</Typography>
-                  <Grid container spacing={0}>
-                    <Grid item xs={3}>
-                      <ItemData>
-                        <ItemRowDataList>
-                          <ItemColumnData>
-                            <SearchIcon color="disabled" onClick={handleClickOpenSearch} sx={{ cursor:'pointer' }} /> 
-                          </ItemColumnData>
-                          <ItemColumnData sx={{ ml:10 }}>
-                            <Typography sx={{ color:'#325381'}}>Parts Number</Typography>
-                          </ItemColumnData>
-                        </ItemRowDataList>
-                      </ItemData>
-                    </Grid>
-                    <Grid item xs={3}>
-                      <ItemData>
-                        <Typography sx={cssDetailData}>M*PIN COTTER</Typography>
-                      </ItemData>
-                    </Grid>
-                    <Grid item xs={1.2}>
-                      <ItemData>
-                        <Typography sx={cssDetailData}>EA</Typography>
-                      </ItemData>
-                    </Grid>
-                    <Grid item xs={1.2}>
-                      <ItemData>
-                        <Typography sx={cssDetailData}>5023</Typography>
-                      </ItemData>
-                    </Grid>
-                    <Grid item xs={1.2}>
-                      <ItemData>
-                        <Typography sx={cssDetailData}>218</Typography>
-                      </ItemData>
-                    </Grid>
-                    <Grid item xs={1.2}>
-                      <Autocomplete
-                        disablePortal
-                        id="combo-box-demo"
-                        options={topQTY}
-                        sx={{ width: 120, bgcolor:"#F0F0F0" }}
-                        renderInput={(params) => <TextField {...params} placeholder="1" size="small" sx={{ fontSize: 13 }} />}
-                      />
-                    </Grid>
-                    <Grid item xs={1.2}>
-                      <img src="../home/delete.png" width="28" height="28" />
-                    </Grid>
-                  </Grid>
-
-                  <Typography sx={cssData}>互換性部品性情報あり</Typography>
-                  <Grid container spacing={0}>
-                    <Grid item xs={3}>
-                      <ItemData>
-                        <ItemRowDataList>
-                          <ItemColumnData>
-                            <SearchIcon color="disabled" onClick={handleClickOpenSearch} sx={{ cursor:'pointer' }} /> 
-                          </ItemColumnData>
-                          <ItemColumnData sx={{ ml:10 }}>
-                            <Typography sx={{ color:'#325381'}}>Parts Number</Typography>
-                          </ItemColumnData>
-                        </ItemRowDataList>
-                      </ItemData>
-                    </Grid>
-                    <Grid item xs={3}>
-                      <ItemData>
-                        <Typography sx={cssDetailData}>M*PIN COTTER</Typography>
-                      </ItemData>
-                    </Grid>
-                    <Grid item xs={1.2}>
-                      <ItemData>
-                        <Typography sx={cssDetailData}>EA</Typography>
-                      </ItemData>
-                    </Grid>
-                    <Grid item xs={1.2}>
-                      <ItemData>
-                        <Typography sx={cssDetailData}>5023</Typography>
-                      </ItemData>
-                    </Grid>
-                    <Grid item xs={1.2}>
-                      <ItemData>
-                        <Typography sx={cssDetailData}>218</Typography>
-                      </ItemData>
-                    </Grid>
-                    <Grid item xs={1.2}>
-                      <Autocomplete
-                        disablePortal
-                        id="combo-box-demo"
-                        options={topQTY}
-                        sx={{ width: 120, bgcolor:"#F0F0F0" }}
-                        renderInput={(params) => <TextField {...params} placeholder="1" size="small" sx={{ fontSize: 13 }} />}
-                      />
-                    </Grid>
-                    <Grid item xs={1.2}>
-                      <img src="../home/delete.png" width="28" height="28" />
-                    </Grid>
-                  </Grid>
-
-                  <Grid container spacing={0} sx={{ mt:2}}>
-                    <Grid item xs={3}>
-                      <ItemData>
-                        <ItemRowDataList>
-                          <ItemColumnData>
-                            <SearchIcon color="disabled" onClick={handleClickOpenSearch} sx={{ cursor:'pointer' }} /> 
-                          </ItemColumnData>
-                          <ItemColumnData sx={{ ml:10 }}>
-                            <Typography sx={{ color:'#325381'}}>Parts Number</Typography>
-                          </ItemColumnData>
-                        </ItemRowDataList>
-                      </ItemData>
-
-                    </Grid>
-                    <Grid item xs={3}>
-                      <ItemData></ItemData>
-                    </Grid>
-                    <Grid item xs={1.2}>
-                      <ItemData></ItemData>
-                    </Grid>
-                    <Grid item xs={1.2}>
-                      <ItemData></ItemData>
-                    </Grid>
-                    <Grid item xs={1.2}>
-                      <ItemData></ItemData>
-                    </Grid>
-                    <Grid item xs={1.2}>
-                      <Autocomplete
-                        disablePortal
-                        id="combo-box-demo"
-                        options={topQTY}
-                        sx={{ width: 120, bgcolor:"#F0F0F0" }}
-                        renderInput={(params) => <TextField {...params} placeholder="" size="small" sx={{ fontSize: 13 }} />}
-                      />
-                    </Grid>
-                    <Grid item xs={1.2}>
-                      <img src="../home/delete.png" width="28" height="28" />
-                    </Grid>
-                  </Grid>
-                  <Typography sx={cssEnd}>危険物コードが表示されている　商品は取り寄せに時間を要す可能性があります</Typography>
-
-                  <Grid container spacing={2} sx={{ mt:2}}>
-                    <Grid item xs={1.3}>
-                       <Button sx={{ width:150, fontSize:11,backgroundColor: '#325381' }}><img src="../home/print.png" width="24" height="24"/>
-                        <Typography sx={{ color:'#FFFFFF', fontSize:12}}>Printer</Typography>
-                       </Button>
-                    </Grid>
-                    <Grid item xs={1.3}>
-                      <Button variant="contained" sx={{ width:150, fontSize:11,backgroundColor: '#325381' }} onClick={handleClickOpen}><img src="../home/memo.png" width="24" height="24" />
-                        <Typography sx={{ color:'#FFFFFF', fontSize:12}}>メモ</Typography>
-                      </Button>
-                    </Grid>
-                    <Grid item xs={4}></Grid>
-                    <Grid item xs={1.3}>
-                      <Button variant="contained" sx={{ width:150, fontSize:11,backgroundColor: '#325381' }}><img src="../home/spr.png" width="24" height="24" />
-                        <Typography sx={{ color:'#FFFFFF', fontSize:12}}>SPR 起票</Typography>
-                      </Button>
-                    </Grid>
-                    <Grid item xs={1.3}>
-                      <Link  href="../request_for_part_and_material">
-                        <Button variant="contained" sx={{ width:150, fontSize:11,backgroundColor: '#325381' }}><img src="../home/order.png" width="24" height="24" />
-                          <Typography sx={{ color:'#FFFFFF', fontSize:12}}>Direct Order</Typography>
-                        </Button>
-                      </Link>
-                    </Grid>
-                    <Grid item xs={1.3}>
-                      <Button variant="contained" sx={{ width:150, fontSize:11,backgroundColor: '#325381' }}><img src="../home/hozon.png" width="24" height="24" />
-                        <Typography sx={{ color:'#FFFFFF', fontSize:12}}>保存</Typography>
-                      </Button>
-                    </Grid>
-                  </Grid>
-                </Box>
-              {/*----------*/}
-            </Paper>
- 
+              </Grid>
+            </Grid>
+            </div>
+            }
+            
           </Box>
-         </Grid>
+        </Grid>
       </Grid>
+
+      {/*header 2*/}
+
+      <Grid container spacing={2} sx={{ pt: 2,  }}>
+        <Grid item xs={3} md={2.8}>
+          <Box sx={cssBox3}>
+            <Grid container>
+              <Grid item xs>
+                <Typography sx={cssDetailTitle}>Parts Number</Typography>
+              </Grid>
+            </Grid>
+          </Box>
+        </Grid>
+
+        <Grid item xs={2} md={2.8}>
+          <Box sx={cssBox3}>
+            <Grid container>
+              <Grid item xs>
+                <Typography sx={cssDetailTitle}>Nomen</Typography>
+              </Grid>
+            </Grid>
+          </Box>
+        </Grid>
+
+        <Grid item xs={1} md={1.3}>
+          <Box sx={cssBox3}>
+            <Grid container>
+              <Grid item xs>
+                <Typography sx={cssDetailTitle}>UT</Typography>
+              </Grid>
+            </Grid>
+          </Box>
+        </Grid>
+
+        <Grid item xs={1} md={1.3}>
+          <Box sx={cssBox3}>
+            <Grid container>
+              <Grid item xs>
+                <Grid container>
+                  <Grid item xs={3}>
+                    <Typography sx={cssDetailTitle}>TTL</Typography>
+                  </Grid>
+                {isMobile ?
+                  ''
+                  :
+                  <Grid item xs>
+                    <img src="../home/ana.png" width="60" height="24" />
+                  </Grid>
+                }
+                </Grid>
+              </Grid>
+            </Grid>
+          </Box>
+        </Grid>
+
+        <Grid item xs={2} md={1.3}>
+          <Box sx={cssBox3}>
+            <Grid container>
+              <Grid item xs>
+                <Grid container>
+                  <Grid item xs={3.5}>
+                    <Typography sx={cssDetailTitle}>MJP</Typography>
+                  </Grid>
+                {isMobile ?
+                  ''
+                  :
+                  <Grid item xs>
+                    <img src="../home/ana.png" width="60" height="24" />
+                  </Grid>
+                }
+                </Grid>
+              </Grid>
+            </Grid>
+          </Box>
+        </Grid>
+
+        <Grid item xs={2} md={1.3}>
+          <Box sx={cssBox3}>
+            <Grid container>
+              <Grid item xs>
+                {isMobile ? 
+                <Typography sx={{ color:'#D31D1D', whiteSpace: 'nowrap', fontSize:{xs:11, md:16} }}>要求数</Typography>
+                :
+                <Typography sx={{ color:'#D31D1D', fontSize:{xs:11, md:16} }}>QTY 要求</Typography>
+                }
+              </Grid>
+            </Grid>
+          </Box>
+        </Grid>
+
+      </Grid>
+
+    {/*--------------------------------Detail-------------------------------*/}
+
+      {/*titleDetailRED*/}
+      {isMobile ?
+        ''
+      :
+      <Grid container spacing={2} sx={{ pl:{xs:0, md:2}, pr:{xs:0, md:2} }}>
+        <Grid item xs={12} md={2.8}>
+          <Box sx={cssBox2}>
+            <Grid container>
+              <Grid item xs>
+                <Typography sx={cssDetail}>互換性部品性情報あり</Typography>
+              </Grid>
+            </Grid>
+          </Box>
+        </Grid>
+
+        <Grid item xs={12} md={2.8}>
+          <Box sx={cssBox2}>
+            <Grid container>
+              <Grid item xs>
+                <Typography sx={cssDetail}></Typography>
+              </Grid>
+            </Grid>
+          </Box>
+        </Grid>
+
+        <Grid item xs={12} md={1.3}>
+          <Box sx={cssBox2}>
+            <Grid container>
+              <Grid item xs>
+                <Typography sx={cssDetail}></Typography>
+              </Grid>
+            </Grid>
+          </Box>
+        </Grid>
+
+        <Grid item xs={12} md={1.3}>
+          <Box sx={cssBox2}>
+            <Grid container>
+              <Grid item xs>
+                <Typography sx={cssDetail}></Typography>
+              </Grid>
+            </Grid>
+          </Box>
+        </Grid>
+
+        <Grid item xs={12} md={1.3}>
+          <Box sx={cssBox2}>
+            <Grid container>
+              <Grid item xs>
+                <Typography sx={cssDetail}></Typography>
+              </Grid>
+            </Grid>
+          </Box>
+        </Grid>
+
+        <Grid item xs={12} md={1.3}>
+          <Box sx={cssBox2}>
+            <Grid container>
+              <Grid item xs>
+                <Typography sx={cssDetail}></Typography>
+              </Grid>
+            </Grid>
+          </Box>
+        </Grid>
+      </Grid>
+      }
+      {/*End titleDetailRED*/}
+
+      <Grid container spacing={2} sx={{ pl:{xs:0, md:2}, pr:{xs:0, md:2} }}>
+        <Grid item xs={3} md={2.8}>
+          <Box sx={cssBox}>
+            <Grid container>
+              <Grid item xs>
+                <Grid container sx={{ height:24 }}>
+                  <Grid item xs={6}>
+                    <SearchIcon color="disabled" onClick={handleClickOpenSearch} sx={{ cursor:'pointer' }} /> 
+                  </Grid>
+                  <Grid item xs={6}>
+                    <Typography sx={{ color:'#325381', fontSize:{xs:11,md:16}, }}>MS24665 - 153</Typography>
+                  </Grid>
+                </Grid>
+              </Grid>
+            </Grid>
+          </Box>
+        </Grid>
+
+        <Grid item xs={2} md={2.8}>
+          <Box sx={cssBox}>
+            <Grid container>
+              <Grid item xs>
+                <Typography sx={cssDetailData}>M*PIN COTTER</Typography>
+              </Grid>
+            </Grid>
+          </Box>
+        </Grid>
+
+        <Grid item xs={1} md={1.3}>
+          <Box sx={cssBox}>
+            <Grid container>
+              <Grid item xs>
+                <Typography sx={cssDetailData}>EA</Typography>
+              </Grid>
+            </Grid>
+          </Box>
+        </Grid>
+
+        <Grid item xs={1} md={1.3}>
+          <Box sx={cssBox}>
+            <Grid container>
+              <Grid item xs>
+                <Typography sx={cssDetailData}>5023</Typography>
+              </Grid>
+            </Grid>
+          </Box>
+        </Grid>
+
+        <Grid item xs={2} md={1.3}>
+          <Box sx={cssBox}>
+            <Grid container>
+              <Grid item xs>
+                <Typography sx={cssDetailData}>10023631</Typography>
+              </Grid>
+            </Grid>
+          </Box>
+        </Grid>
+
+        <Grid item xs={2} md={1.3}>
+          <Autocomplete
+            disableClearable
+            id="combo-box-demo"
+            options={topQTY}
+            sx={{ width: {xs:60, md:150}, 
+                  bgcolor:"#F0F0F0", 
+                  '& .MuiOutlinedInput-notchedOutline': {
+                    border: 'none',
+                  }, 
+                }}
+            renderInput={(params) => <TextField {...params} placeholder="1" size="small" sx={{ fontSize: 13 }} />}
+          />
+        </Grid>
+
+        <Grid item xs={1} md={1.2}>
+          {isMobile ?
+          <img src="../home/delete.png" width="20" height="20" />
+          :
+          <img src="../home/delete.png" width="28" height="28" />
+          }
+        </Grid>
+      </Grid>
+    {/*---------------------------Detail------------------------------*/}
+
+    {/*--------------------------------Detail1-------------------------------*/}
+
+      {/*titleDetailRED*/}
+      {isMobile ?
+        ''
+      :
+      <Grid container spacing={2} sx={{ pl:{xs:0, md:2}, pr:{xs:0, md:2} }}>
+        <Grid item xs={12} md={2.8}>
+          <Box sx={cssBox2}>
+            <Grid container>
+              <Grid item xs>
+                <Typography sx={cssDetail}>互換性部品性情報あり</Typography>
+              </Grid>
+            </Grid>
+          </Box>
+        </Grid>
+
+        <Grid item xs={12} md={2.8}>
+          <Box sx={cssBox2}>
+            <Grid container>
+              <Grid item xs>
+                <Typography sx={cssDetail}>NH0000</Typography>
+              </Grid>
+              <Grid item xs>
+                <Typography sx={cssDetail}>16-27C</Typography>
+              </Grid>
+            </Grid>
+          </Box>
+        </Grid>
+
+        <Grid item xs={12} md={1.3}>
+          <Box sx={cssBox2}>
+            <Grid container>
+              <Grid item xs>
+                <Typography sx={cssDetail}></Typography>
+              </Grid>
+            </Grid>
+          </Box>
+        </Grid>
+
+        <Grid item xs={12} md={1.3}>
+          <Box sx={cssBox2}>
+            <Grid container>
+              <Grid item xs>
+                <Typography sx={cssDetail}></Typography>
+              </Grid>
+            </Grid>
+          </Box>
+        </Grid>
+
+        <Grid item xs={12} md={1.3}>
+          <Box sx={cssBox2}>
+            <Grid container>
+              <Grid item xs>
+                <Typography sx={cssDetail}></Typography>
+              </Grid>
+            </Grid>
+          </Box>
+        </Grid>
+
+        <Grid item xs={12} md={1.3}>
+          <Box sx={cssBox2}>
+            <Grid container>
+              <Grid item xs>
+                <Typography sx={cssDetail}></Typography>
+              </Grid>
+            </Grid>
+          </Box>
+        </Grid>
+      </Grid>
+      }
+      {/*End titleDetailRED*/}
+
+      <Grid container spacing={2} sx={{ pl:{xs:0, md:2}, pr:{xs:0, md:2} }}>
+        <Grid item xs={3} md={2.8}>
+          <Box sx={cssBox}>
+            <Grid container>
+              <Grid item xs>
+                <Grid container sx={{ height:24 }}>
+                  <Grid item xs={6}>
+                    <SearchIcon color="disabled" onClick={handleClickOpenSearch} sx={{ cursor:'pointer' }} /> 
+                  </Grid>
+                  <Grid item xs={6}>
+                    <Typography sx={{ color:'#325381', fontSize:{xs:11,md:16}, }}>MS24665 - 153</Typography>
+                  </Grid>
+                </Grid>
+              </Grid>
+            </Grid>
+          </Box>
+        </Grid>
+
+        <Grid item xs={2} md={2.8}>
+          <Box sx={cssBox}>
+            <Grid container>
+              <Grid item xs>
+                <Typography sx={cssDetailData}>M*PIN COTTER</Typography>
+              </Grid>
+            </Grid>
+          </Box>
+        </Grid>
+
+        <Grid item xs={1} md={1.3}>
+          <Box sx={cssBox}>
+            <Grid container>
+              <Grid item xs>
+                <Typography sx={cssDetailData}>EA</Typography>
+              </Grid>
+            </Grid>
+          </Box>
+        </Grid>
+
+        <Grid item xs={1} md={1.3}>
+          <Box sx={cssBox}>
+            <Grid container>
+              <Grid item xs>
+                <Typography sx={cssDetailData}>5023</Typography>
+              </Grid>
+            </Grid>
+          </Box>
+        </Grid>
+
+        <Grid item xs={2} md={1.3}>
+          <Box sx={cssBox}>
+            <Grid container>
+              <Grid item xs>
+                <Typography sx={cssDetailData}>10023631</Typography>
+              </Grid>
+            </Grid>
+          </Box>
+        </Grid>
+
+        <Grid item xs={2} md={1.3}>
+          <Autocomplete
+            disableClearable
+            id="combo-box-demo"
+            options={topQTY}
+            sx={{ width: {xs:60, md:150}, 
+                  bgcolor:"#F0F0F0", 
+                  '& .MuiOutlinedInput-notchedOutline': {
+                    border: 'none',
+                  }, 
+                }}
+            renderInput={(params) => <TextField {...params} placeholder="1" size="small" sx={{ fontSize: 13 }} />}
+          />
+        </Grid>
+
+        <Grid item xs={1} md={1.2}>
+          {isMobile ?
+          <img src="../home/delete.png" width="20" height="20" />
+          :
+          <img src="../home/delete.png" width="28" height="28" />
+          }
+        </Grid>
+      </Grid>
+    {/*---------------------------Detail1------------------------------*/}
+
+    {/*--------------------------------Detail2-------------------------------*/}
+
+      {/*titleDetailRED*/}
+      {isMobile ?
+        ''
+      :
+      <Grid container spacing={2} sx={{ pl:{xs:0, md:2}, pr:{xs:0, md:2} }}>
+        <Grid item xs={12} md={2.8}>
+          <Box sx={cssBox2}>
+            <Grid container>
+              <Grid item xs>
+                <Typography sx={cssDetail}>互換性部品性情報あり</Typography>
+              </Grid>
+            </Grid>
+          </Box>
+        </Grid>
+
+        <Grid item xs={12} md={2.8}>
+          <Box sx={cssBox2}>
+            <Grid container>
+              <Grid item xs>
+                <Typography sx={cssDetail}></Typography>
+              </Grid>
+            </Grid>
+          </Box>
+        </Grid>
+
+        <Grid item xs={12} md={1.3}>
+          <Box sx={cssBox2}>
+            <Grid container>
+              <Grid item xs>
+                <Typography sx={cssDetail}></Typography>
+              </Grid>
+            </Grid>
+          </Box>
+        </Grid>
+
+        <Grid item xs={12} md={1.3}>
+          <Box sx={cssBox2}>
+            <Grid container>
+              <Grid item xs>
+                <Typography sx={cssDetail}></Typography>
+              </Grid>
+            </Grid>
+          </Box>
+        </Grid>
+
+        <Grid item xs={12} md={1.3}>
+          <Box sx={cssBox2}>
+            <Grid container>
+              <Grid item xs>
+                <Typography sx={cssDetail}></Typography>
+              </Grid>
+            </Grid>
+          </Box>
+        </Grid>
+
+        <Grid item xs={12} md={1.3}>
+          <Box sx={cssBox2}>
+            <Grid container>
+              <Grid item xs>
+                <Typography sx={cssDetail}></Typography>
+              </Grid>
+            </Grid>
+          </Box>
+        </Grid>
+      </Grid>
+      }
+      {/*End titleDetailRED*/}
+
+      <Grid container spacing={2} sx={{ pl:{xs:0, md:2}, pr:{xs:0, md:2} }}>
+        <Grid item xs={3} md={2.8}>
+          <Box sx={cssBox}>
+            <Grid container>
+              <Grid item xs>
+                <Grid container sx={{ height:24 }}>
+                  <Grid item xs={6}>
+                    <SearchIcon color="disabled" onClick={handleClickOpenSearch} sx={{ cursor:'pointer' }} /> 
+                  </Grid>
+                  <Grid item xs={6}>
+                    <Typography sx={{ color:'#325381', fontSize:{xs:11,md:16}, }}>MS24665 - 153</Typography>
+                  </Grid>
+                </Grid>
+              </Grid>
+            </Grid>
+          </Box>
+        </Grid>
+
+        <Grid item xs={2} md={2.8}>
+          <Box sx={cssBox}>
+            <Grid container>
+              <Grid item xs>
+                <Typography sx={cssDetailData}>M*PIN COTTER</Typography>
+              </Grid>
+            </Grid>
+          </Box>
+        </Grid>
+
+        <Grid item xs={1} md={1.3}>
+          <Box sx={cssBox}>
+            <Grid container>
+              <Grid item xs>
+                <Typography sx={cssDetailData}>EA</Typography>
+              </Grid>
+            </Grid>
+          </Box>
+        </Grid>
+
+        <Grid item xs={1} md={1.3}>
+          <Box sx={cssBox}>
+            <Grid container>
+              <Grid item xs>
+                <Typography sx={cssDetailData}>5023</Typography>
+              </Grid>
+            </Grid>
+          </Box>
+        </Grid>
+
+        <Grid item xs={2} md={1.3}>
+          <Box sx={cssBox}>
+            <Grid container>
+              <Grid item xs>
+                <Typography sx={cssDetailData}>10023631</Typography>
+              </Grid>
+            </Grid>
+          </Box>
+        </Grid>
+
+        <Grid item xs={2} md={1.3}>
+          <Autocomplete
+            disableClearable
+            id="combo-box-demo"
+            options={topQTY}
+            sx={{ width: {xs:60, md:150}, 
+                  bgcolor:"#F0F0F0", 
+                  '& .MuiOutlinedInput-notchedOutline': {
+                    border: 'none',
+                  }, 
+                }}
+            renderInput={(params) => <TextField {...params} placeholder="1" size="small" sx={{ fontSize: 13 }} />}
+          />
+        </Grid>
+
+        <Grid item xs={1} md={1.2}>
+          {isMobile ?
+          <img src="../home/delete.png" width="20" height="20" />
+          :
+          <img src="../home/delete.png" width="28" height="28" />
+          }
+        </Grid>
+      </Grid>
+    {/*---------------------------Detail2------------------------------*/}
+
+    {/*--------------------------------Detail3-------------------------------*/}
+
+      {/*titleDetailRED*/}
+      {isMobile ?
+        ''
+      :
+      <Grid container spacing={2} sx={{ pl:{xs:0, md:2}, pr:{xs:0, md:2} }}>
+        <Grid item xs={12} md={2.8}>
+          <Box sx={cssBox2}>
+            <Grid container>
+              <Grid item xs>
+                <Typography sx={cssDetail}>互換性部品性情報あり</Typography>
+              </Grid>
+            </Grid>
+          </Box>
+        </Grid>
+
+        <Grid item xs={12} md={2.8}>
+          <Box sx={cssBox2}>
+            <Grid container>
+              <Grid item xs>
+                <Typography sx={cssDetail}></Typography>
+              </Grid>
+            </Grid>
+          </Box>
+        </Grid>
+
+        <Grid item xs={12} md={1.3}>
+          <Box sx={cssBox2}>
+            <Grid container>
+              <Grid item xs>
+                <Typography sx={cssDetail}></Typography>
+              </Grid>
+            </Grid>
+          </Box>
+        </Grid>
+
+        <Grid item xs={12} md={1.3}>
+          <Box sx={cssBox2}>
+            <Grid container>
+              <Grid item xs>
+                <Typography sx={cssDetail}></Typography>
+              </Grid>
+            </Grid>
+          </Box>
+        </Grid>
+
+        <Grid item xs={12} md={1.3}>
+          <Box sx={cssBox2}>
+            <Grid container>
+              <Grid item xs>
+                <Typography sx={cssDetail}></Typography>
+              </Grid>
+            </Grid>
+          </Box>
+        </Grid>
+
+        <Grid item xs={12} md={1.3}>
+          <Box sx={cssBox2}>
+            <Grid container>
+              <Grid item xs>
+                <Typography sx={cssDetail}></Typography>
+              </Grid>
+            </Grid>
+          </Box>
+        </Grid>
+      </Grid>
+      }
+      {/*End titleDetailRED*/}
+
+      <Grid container spacing={2} sx={{ pl:{xs:0, md:2}, pr:{xs:0, md:2} }}>
+        <Grid item xs={3} md={2.8}>
+          <Box sx={cssBox}>
+            <Grid container>
+              <Grid item xs>
+                <Grid container sx={{ height:24 }}>
+                  <Grid item xs={6}>
+                    <SearchIcon color="disabled" onClick={handleClickOpenSearch} sx={{ cursor:'pointer' }} /> 
+                  </Grid>
+                  <Grid item xs={6}>
+                    <Typography sx={{ color:'#325381', fontSize:{xs:11,md:16}, }}>MS24665 - 153</Typography>
+                  </Grid>
+                </Grid>
+              </Grid>
+            </Grid>
+          </Box>
+        </Grid>
+
+        <Grid item xs={2} md={2.8}>
+          <Box sx={cssBox}>
+            <Grid container>
+              <Grid item xs>
+                <Typography sx={cssDetailData}>M*PIN COTTER</Typography>
+              </Grid>
+            </Grid>
+          </Box>
+        </Grid>
+
+        <Grid item xs={1} md={1.3}>
+          <Box sx={cssBox}>
+            <Grid container>
+              <Grid item xs>
+                <Typography sx={cssDetailData}>EA</Typography>
+              </Grid>
+            </Grid>
+          </Box>
+        </Grid>
+
+        <Grid item xs={1} md={1.3}>
+          <Box sx={cssBox}>
+            <Grid container>
+              <Grid item xs>
+                <Typography sx={cssDetailData}>5023</Typography>
+              </Grid>
+            </Grid>
+          </Box>
+        </Grid>
+
+        <Grid item xs={2} md={1.3}>
+          <Box sx={cssBox}>
+            <Grid container>
+              <Grid item xs>
+                <Typography sx={cssDetailData}>10023631</Typography>
+              </Grid>
+            </Grid>
+          </Box>
+        </Grid>
+
+        <Grid item xs={2} md={1.3}>
+          <Autocomplete
+            disableClearable
+            id="combo-box-demo"
+            options={topQTY}
+            sx={{ width: {xs:60, md:150}, 
+                  bgcolor:"#F0F0F0", 
+                  '& .MuiOutlinedInput-notchedOutline': {
+                    border: 'none',
+                  }, 
+                }}
+            renderInput={(params) => <TextField {...params} placeholder="1" size="small" sx={{ fontSize: 13 }} />}
+          />
+        </Grid>
+
+        <Grid item xs={1} md={1.2}>
+          {isMobile ?
+          <img src="../home/delete.png" width="20" height="20" />
+          :
+          <img src="../home/delete.png" width="28" height="28" />
+          }
+        </Grid>
+      </Grid>
+    {/*---------------------------Detail3------------------------------*/}  
+      
+
+      {/*--------------------------------Detail Plus-------------------------------*/}
+      {
+        isMobile ?
+        ''
+        :
+      <Grid container spacing={2} sx={{ pl:2, pr:2, pt:4 }}>
+        <Grid item xs={12} md={2.8}>
+          <Box sx={cssBox}>
+            <Grid container>
+              <Grid item xs>
+                <Grid container sx={{ height:24 }}>
+                  <Grid item xs={4}>
+                    <img src="../part-kit/plus.png" width="28" height="28" onClick={handleClickOpenSearch} sx={{ cursor:'pointer' }} />
+                  </Grid>
+                  <Grid item xs>
+                    <Typography sx={{ color:'#A7A7A7',}}>Add rows...</Typography>
+                  </Grid>
+                </Grid>
+              </Grid>
+            </Grid>
+          </Box>
+        </Grid>
+
+        <Grid item xs={12} md={2.8}>
+          <Box sx={cssBox}>
+            <Grid container>
+              <Grid item xs>
+                <Typography sx={cssDetailData}></Typography>
+              </Grid>
+            </Grid>
+          </Box>
+        </Grid>
+
+        <Grid item xs={12} md={1.3}>
+          <Box sx={cssBox}>
+            <Grid container>
+              <Grid item xs>
+                <Typography sx={cssDetailData}></Typography>
+              </Grid>
+            </Grid>
+          </Box>
+        </Grid>
+
+        <Grid item xs={12} md={1.3}>
+          <Box sx={cssBox}>
+            <Grid container>
+              <Grid item xs>
+                <Typography sx={cssDetailData}></Typography>
+              </Grid>
+            </Grid>
+          </Box>
+        </Grid>
+
+        <Grid item xs={12} md={1.3}>
+          <Box sx={cssBox}>
+            <Grid container>
+              <Grid item xs>
+                <Typography sx={cssDetailData}></Typography>
+              </Grid>
+            </Grid>
+          </Box>
+        </Grid>
+
+        <Grid item xs={12} md={1.3}>
+          <Autocomplete
+            disablePortal
+            id="combo-box-demo"
+            options={topQTY}
+            sx={{ width: 150, bgcolor:"#F0F0F0" }}
+            renderInput={(params) => <TextField {...params} placeholder="1" size="small" sx={{ fontSize: 13 }} />}
+          />
+        </Grid>
+
+        <Grid item xs={12} md={1.2}>
+          <img src="../home/delete.png" width="28" height="28" />
+        </Grid>
+      </Grid>
+    }
+      {/*---------------------------Detail------------------------------*/}
+      {isMobile ? 
+        ''
+        :
+        <Typography sx={cssEnd}>危険物コードが表示されている　商品は取り寄せに時間を要す可能性があります</Typography>
+      }
+
+    {isMobile ? 
+      ''
+      :
+      <Grid container spacing={2} sx={{ mt:2, ml:2}}>
+        <Grid item xs={1.3}>
+           <Button variant="contained" sx={{ width:150, fontSize:11,backgroundColor: '#325381' }}><img src="../home/print.png" width="24" height="24"/>
+            <Typography sx={{ color:'#FFFFFF', fontSize:12}}>Printer</Typography>
+           </Button>
+        </Grid>
+        <Grid item xs={1.3}>
+          <Button variant="contained" sx={{ width:150, fontSize:11,backgroundColor: '#325381' }} onClick={handleClickOpen}><img src="../home/memo.png" width="24" height="24" />
+            <Typography sx={{ color:'#FFFFFF', fontSize:12}}>メモ</Typography>
+          </Button>
+        </Grid>
+        <Grid item xs={4}></Grid>
+        <Grid item xs={1.3}>
+          <Button variant="contained" sx={{ width:150, fontSize:11,backgroundColor: '#325381' }}><img src="../home/spr.png" width="24" height="24" />
+            <Typography sx={{ color:'#FFFFFF', fontSize:12}}>SPR 起票</Typography>
+          </Button>
+        </Grid>
+        <Grid item xs={1.3}>
+          <Link  href="../request_for_part_and_material">
+            <Button variant="contained" sx={{ width:150, fontSize:11,backgroundColor: '#325381' }}><img src="../home/order.png" width="24" height="24" />
+              <Typography sx={{ color:'#FFFFFF', fontSize:12}}>Direct Order</Typography>
+            </Button>
+          </Link>
+        </Grid>
+        <Grid item xs={1.3}>
+          <Button variant="contained" sx={{ width:150, fontSize:11,backgroundColor: '#325381' }}><img src="../home/hozon.png" width="24" height="24" />
+            <Typography sx={{ color:'#FFFFFF', fontSize:12}}>保存</Typography>
+          </Button>
+        </Grid>
+      </Grid>
+    } 
+      {/*end header 2*/}
     </Box>
 
     {/*Dialog memo*/}
@@ -1139,33 +1744,14 @@ export default function Anal() {
     {/*----------End Dialog search----------*/}
 
     {/*----------Footer----------*/}
-    <Paper sx={{marginTop: 'calc(10% + 60px)', bottom: 0}} component="footer" square variant="outlined">
-      <Container maxWidth="xl">
-        <Box
-          sx={{
-            flexGrow: 1,
-            justifyContent: "left",
-            display: "flex",
-            my:1
-          }}
-        >
-        </Box>
-
-        <Box
-          sx={{
-            flexGrow: 1,
-            justifyContent: "left",
-            display: "flex",
-            mb: 2,
-          }}
-        >
-          <Typography variant="caption" color="initial">
-            Copyright © 2023 OCC
-          </Typography>
-        </Box>
-      </Container>
-    </Paper>
+    <Divider />
+    <Box component="footer">   
+      <Typography sx={{ color:"#9AA1A9", fontSize:13, ml:4 }}>
+        Copyright © 2023 OCC
+      </Typography>
+    </Box>
     {/*----------Footer----------*/}
+
   </div>
   );
 }

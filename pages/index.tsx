@@ -22,7 +22,7 @@ const Item = styled(Paper)(({ theme }) => ({
   boxShadow:'none',
 }));
 // dọc
-const ItemTitle = styled(Paper)(({ theme }) => ({
+const ItemColumn = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
   ...theme.typography.body2,
   
