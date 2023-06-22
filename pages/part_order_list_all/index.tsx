@@ -332,14 +332,18 @@ export default function Parts() {
                         '& .MuiInputBase-root': {
                           border: 'none',
                           fontSize: 13,
-                          position:'static',
+                          paddingRight:1,            
                         },
                         '& .MuiOutlinedInput-root': {
                           border: 'none',
                           fontSize: 13,
                           height: 40,
-                          position:'static',
                         },
+
+                        '& .MuiOutlinedInput-notchedOutline': {
+                          borderWidth: 0,
+                        },
+                        //MuiIconButton-root
                         // '& .MuiFormControl-root': {
                         // position: 'static',
                         // },
