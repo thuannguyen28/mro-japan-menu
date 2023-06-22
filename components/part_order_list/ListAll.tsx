@@ -102,7 +102,7 @@ export default function ListAll(props) {
   	<div>
 	  {/*----------Title----------*/}
 	    <Grid container spacing={0} sx={{ mt:2 }}>
-	      <Grid item xs={0.2}>
+	      <Grid item xs={0.5}>
 	        <Typography sx={cssTitle} >
 	         
 	        </Typography>
@@ -150,7 +150,7 @@ export default function ListAll(props) {
 	        </Typography>
 	      </Grid>
 
-	      <Grid item xs={1}>
+	      <Grid item xs={0.7}>
 	        <Typography sx={cssTitle} >
 	          <strong>RSN</strong>
 	        </Typography>
@@ -174,7 +174,7 @@ export default function ListAll(props) {
 	        </Typography>
 	      </Grid>
 
-	      <Grid item xs={0.8}>
+	      <Grid item xs={0.5}>
 	        <Typography sx={cssTitle} >
 	          <strong>航空会社</strong>
 	        </Typography>
@@ -185,7 +185,7 @@ export default function ListAll(props) {
 	  {/*----------Data----------*/}
 	    <Grid container spacing={1}>
 
-	      <Grid item xs={0.2}>
+	      <Grid item xs={0.5}>
 	          <Button
 	            id="basic-button"
 	            aria-controls={open ? 'basic-menu' : undefined}
@@ -290,11 +290,11 @@ export default function ListAll(props) {
 	        </FormControl>
 	      </Grid>
 
-	      <Grid item xs={1}>
+	      <Grid item xs={0.7}>
 	        <Autocomplete
 	          disableClearable
 	          id="combo-box-demo"
-	          options={top100Films}
+	          options={topRSNN}
 	          sx={{ width: '100%', 
 	                '& .MuiOutlinedInput-notchedOutline': {
 	                      border: 'none',
@@ -349,7 +349,7 @@ export default function ListAll(props) {
 	        </FormControl>
 	      </Grid>
 
-	      <Grid item xs={0.8} textAlign="center" sx={{ mt:1,}}>
+	      <Grid item xs={0.5} textAlign="center" sx={{ mt:1,}}>
 	        <img src="../part-order/anal_1.png" width="60" height="22" />
 	      </Grid>
 	    </Grid>
@@ -364,4 +364,10 @@ const top100Films = [
   { label: 'The Shawshank Redemption', year: 1994 },
   { label: 'The Godfather', year: 1972 },
   { label: 'The Godfather: Part II', year: 1974 },
+];
+
+const topRSNN = [
+  { label: 'TC' },
+  { label: 'EO'},
+  { label: 'RC'},
 ];
