@@ -10,6 +10,7 @@ import Checkbox from '@mui/material/Checkbox';
 import Paper from '@mui/material/Paper';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
+import IconButton from '@mui/material/IconButton';
 
 import Autocomplete, { createFilterOptions } from '@mui/material/Autocomplete';
 import SearchIcon from '@mui/icons-material/Search';
@@ -27,17 +28,20 @@ const filterOptions = createFilterOptions({
 // CSS
 const cssLink = { textDecoration: 'none', color: 'inherit' };
 const cssMro = { backgroundColor: '#325381', color:'#FFFFFF', fontSize: '13px', position: 'absolute', right: 0, bottom: 0 };
-const cssMroTitle = { color: '#325381', fontSize: '20px'};
+const cssMroTitle = { color: '#325381', fontSize: '16px'};
 const cssBox = { py: 1, borderRadius: '5px'};
 const cssBox2 = { background : '#F5F5F5', px: 1, py: '19px', borderRadius: '5px'};
-const cssBox3 = { color: '#325381', backgroundColor: '#F5F5F5',py: 1, borderRadius: '5px', overflowY:'scroll', height:490};
-const cssBox4 = { color: '#325381', backgroundColor: '#F5F5F5',py: 1, borderRadius: '5px', overflowY:'scroll', height:280};
-const font12Center = { fontSize: '15px', display: 'flex', alignItems:'center', justifyContent: 'center' };
-const font12Left = { fontSize: '15px', display: 'flex', alignItems:'center', justifyContent: 'left' };
+const cssBox3 = { color: '#325381', backgroundColor: '#F5F5F5',py: 1, borderRadius: '5px', overflowY:'scroll', maxHeight:490};
+const cssBox4 = { color: '#325381', backgroundColor: '#F5F5F5',py: 1, borderRadius: '5px', overflowY:'scroll', maxHeight:280};
+const font12Center = { fontSize: '12px', display: 'flex', alignItems:'center', justifyContent: 'center', textAlign: 'center', height: '100%' };
+const font12Left = { fontSize: '12px', display: 'flex', alignItems:'center', justifyContent: 'left', height: '100%' };
 const font12 = { fontSize: '12px'};
 const cssOderLeft = { width: '100%', fontSize: '14px', color: '#325381', fontWeight: 700, mb: '5px'};
-const cssOderRight = { width: '100%',cursor: 'pointer', fontSize: '14px', color: '#325381', fontWeight: 700, mb: '5px', pr:15, display: 'flex', alignItems:'center', justifyContent: 'flex-end' };
+const cssOderRight = { width: '100%',cursor: 'pointer', fontSize: '14px', color: '#325381', fontWeight: 700, mb: '5px', display: 'flex', alignItems:'center', justifyContent: 'flex-end' };
 const font13Bold = { fontSize: '13px', textAlign: 'center', py: 2, fontWeight: 700 };
+const font12CenterCursor = { fontSize: '15px', display: 'flex', alignItems:'center', justifyContent: 'center', cursor: 'pointer', height: '100%' };
+const cursor = { cursor: 'pointer' };
+
 
 export default function RequestPartMaterials() {
   
@@ -49,7 +53,7 @@ export default function RequestPartMaterials() {
 
   return (
   <div>
-    <Box sx={{ color: '#325381', mx: { xs: 2, md: 4 }, my: { xs: 3, md: 2 } }}>
+    <Box sx={{ color: '#325381', mx: { xs: 2, md: 4 }, my: { xs: 3, md: 4 } }}>
       <Grid container spacing={2}>
         <Grid item xs={7} md={9}>
           <Typography sx={cssMroTitle}>
@@ -84,186 +88,171 @@ export default function RequestPartMaterials() {
       </Grid>
     {/*Header 1*/}
       <Grid container spacing={2}>
-          <Grid item xs={12} md={2} sx={{ mt:2, ml:{sx:0, md:3} }}>
-              <Typography sx={{ fontSize: '16px', color: '#325381' }}><strong>AC Type</strong></Typography>
+          <Grid item xs={12} md={2} sx={{ mt:2 }}>
+              <Typography sx={{ fontSize: '13px', color: '#325381' }}><strong>AC Type</strong></Typography>
               <Box sx={cssBox}>
                 <Grid container sx={{ height: '58px' }}>
                   <Grid item xs>
                     <Autocomplete
-                    disablePortal
-              id="filter-demo"
-              options={top100Films}
-              getOptionLabel={(option) => option.title}
-              filterOptions={filterOptions}
-              sx={{ width: 234, bgcolor:"#F0F0F0" }}
-              renderInput={(params) => <TextField {...params} size="small" label="すべて" />}
-              />
+                      disablePortal
+                      id="filter-demo"
+                      options={top100Films}
+                      getOptionLabel={(option) => option.title}
+                      filterOptions={filterOptions}
+                      sx={{ bgcolor:"#F0F0F0" }}
+                      renderInput={(params) => <TextField {...params} size="small" label="すべて" />}
+                    />
                   </Grid>   
                 </Grid>
               </Box>
           </Grid>
 
           <Grid item xs={12} md={2} sx={{ mt:2 }}>
-              <Typography sx={{ fontSize: '16px', color: '#325381' }}><strong>Zone</strong></Typography>
+              <Typography sx={{ fontSize: '13px', color: '#325381' }}><strong>Zone</strong></Typography>
               <Box sx={cssBox}>
                 <Grid container sx={{ height: '58px' }}>
                   <Grid item xs>
                     <Autocomplete
-                    disablePortal
-              id="filter-demo"
-              options={top100Films}
-              getOptionLabel={(option) => option.title}
-              filterOptions={filterOptions}
-              sx={{ width: 234, bgcolor:"#F0F0F0" }}
-              renderInput={(params) => <TextField {...params} size="small" label="すべて" />}
-              />
+                      disablePortal
+                      id="filter-demo"
+                      options={top100Films}
+                      getOptionLabel={(option) => option.title}
+                      filterOptions={filterOptions}
+                      sx={{bgcolor:"#F0F0F0" }}
+                      renderInput={(params) => <TextField {...params} size="small" label="すべて" />}
+                    />
                   </Grid>   
                 </Grid>
               </Box>
           </Grid>
 
           <Grid item xs={12} md={2} sx={{ mt:2 }}>
-              <Typography sx={{ fontSize: '16px', color: '#325381' }}><strong>ATA</strong></Typography>
+              <Typography sx={{ fontSize: '13px', color: '#325381' }}><strong>ATA</strong></Typography>
               <Box sx={cssBox}>
                 <Grid container sx={{ height: '58px' }}>
                   <Grid item xs>
                     <Autocomplete
                     disablePortal
-              id="filter-demo"
-              options={top100Films}
-              getOptionLabel={(option) => option.title}
-              filterOptions={filterOptions}
-              sx={{ width: 234, bgcolor:"#F0F0F0" }}
-              renderInput={(params) => <TextField {...params} size="small" label="すべて" />}
-              />
+                    id="filter-demo"
+                    options={top100Films}
+                    getOptionLabel={(option) => option.title}
+                    filterOptions={filterOptions}
+                    sx={{ bgcolor:"#F0F0F0" }}
+                    renderInput={(params) => <TextField {...params} size="small" label="すべて" />}
+                    />
                   </Grid>   
                 </Grid>
               </Box>
           </Grid>
 
           <Grid item xs={12} md={2} sx={{ mt:2 }}>
-              <Typography sx={{ fontSize: '16px', color: '#325381' }}><strong>Customer</strong></Typography>
+              <Typography sx={{ fontSize: '13px', color: '#325381' }}><strong>Customer</strong></Typography>
               <Box sx={cssBox}>
                 <Grid container sx={{ height: '58px' }}>
                   <Grid item xs>
                     <Autocomplete
                     disablePortal
-              id="filter-demo"
-              options={top100Films}
-              getOptionLabel={(option) => option.title}
-              filterOptions={filterOptions}
-              sx={{ width: 234, bgcolor:"#F0F0F0" }}
-              renderInput={(params) => <TextField {...params} size="small" label="すべて" />}
-              />
+                    id="filter-demo"
+                    options={top100Films}
+                    getOptionLabel={(option) => option.title}
+                    filterOptions={filterOptions}
+                    sx={{ bgcolor:"#F0F0F0" }}
+                    renderInput={(params) => <TextField {...params} size="small" label="すべて" />}
+                    />
                   </Grid>   
                 </Grid>
               </Box>
           </Grid>
 
           <Grid item xs={12} md={2} sx={{ mt:2 }}>
-              <Typography sx={{ fontSize: '16px', color: '#325381' }}><strong>Author</strong></Typography>
+              <Typography sx={{ fontSize: '13px', color: '#325381' }}><strong>Author</strong></Typography>
               <Box sx={cssBox}>
                 <Grid container sx={{ height: '58px' }}>
                   <Grid item xs>
                     <Autocomplete
                     disablePortal
-              id="filter-demo"
-              options={top100Films}
-              getOptionLabel={(option) => option.title}
-              filterOptions={filterOptions}
-              sx={{ width: 234, bgcolor:"#F0F0F0" }}
-              renderInput={(params) => <TextField {...params} size="small" label="すべて" />}
-              />
+                    id="filter-demo"
+                    options={top100Films}
+                    getOptionLabel={(option) => option.title}
+                    filterOptions={filterOptions}
+                    sx={{ bgcolor:"#F0F0F0" }}
+                    renderInput={(params) => <TextField {...params} size="small" label="すべて" />}
+                    />
                   </Grid>   
                 </Grid>
               </Box>
           </Grid>
-  {showText && (
-          <Grid item xs={12} md={1.5} sx={{ mt:2 }}>
-              <Typography sx={{ fontSize: '16px', color: '#FFFFFF' }}><strong>Author</strong></Typography>
-              <Box sx={cssBox}>
-                <Grid container sx={{ height: '58px' }}>
-                  <Grid item xs>
-            <Link href="https://www.mrojpn.co.jp" underline="none" target="_blank">
-                  <Button variant="contained" sx={{ bgcolor:"#325381" }}>
-                  <SearchIcon /> 
-                    <Typography sx={{ ml:2 }}>
-                    検索
-                  </Typography>
-                  </Button>
-                </Link>
-                  </Grid>   
-                  <Link href="#" underline="none">
-                    <img src="../part-kit/reset.png" width="30" height="30"/>
-                  </Link>
-                </Grid>
-              </Box>
+          <Grid item xs={12} md={2} sx={{ mt:5 }} justifyContent="flex-end">
+              <Button variant="contained" startIcon={<SearchIcon />}>
+                検索
+              </Button>
+              <IconButton sx={{ ml:2 }} aria-label="reset">
+                <img src="../part-kit/reset.png" width="30" height="30"/>
+              </IconButton>
+              
           </Grid>
-    )}
         </Grid>  
     {/*Header 2*/}
-    {showText && (
         <Grid container spacing={2}>
-          <Grid item xs={12} md={2.5} sx={{ mt:2, ml:{sx:0, md:3} }}>
-              <Typography sx={{ fontSize: '16px', color: '#325381' }}>Task Card</Typography>
+          <Grid item xs={12} md={2.5}>
+              <Typography sx={{ fontSize: '13px', color: '#325381', fontWeight: 700 }}>Task Card</Typography>
               <Box sx={cssBox}>
-                <Grid container sx={{ height: '58px' }}>
-                  <Grid item xs>
-                    <TextField id="filled-basic" size="small" variant="filled" sx={{ width:300 }}/>
+                <Grid container>
+                  <Grid item xs sx={{ height: '30px' }}>
+                    <TextField id="filled-basic" size="small" variant="filled"/>
                   </Grid>   
                 </Grid>
               </Box>
           </Grid>
 
-          <Grid item xs={12} md={2.5} sx={{ mt:2 }}>
-              <Typography sx={{ fontSize: '16px', color: '#325381' }}>Category</Typography>
+          <Grid item xs={12} md={2.5}>
+              <Typography sx={{ fontSize: '13px', color: '#325381', fontWeight: 700 }}>Category</Typography>
               <Box sx={cssBox}>
-                <Grid container sx={{ height: '58px' }}>
+                <Grid container>
                   <Grid item xs>
-                    <TextField id="filled-basic" size="small" variant="filled" sx={{ width:300 }}/>
+                    <TextField id="filled-basic" size="small" variant="filled"/>
                   </Grid>   
                 </Grid>
               </Box>
           </Grid>
 
-          <Grid item xs={12} md={2.5} sx={{ mt:2 }}>
-              <Typography sx={{ fontSize: '16px', color: '#325381' }}>AMM</Typography>
+          <Grid item xs={12} md={2.5}>
+              <Typography sx={{ fontSize: '13px', color: '#325381', fontWeight: 700 }}>AMM</Typography>
               <Box sx={cssBox}>
-                <Grid container sx={{ height: '58px' }}>
+                <Grid container>
                   <Grid item xs>
-                    <TextField id="filled-basic" size="small" variant="filled" sx={{ width:300 }}/>
+                    <TextField id="filled-basic" size="small" variant="filled"/>
                   </Grid>   
                 </Grid>
               </Box>
           </Grid>
 
-          <Grid item xs={12} md={2.5} sx={{ mt:2 }}>
-              <Typography sx={{ fontSize: '16px', color: '#325381' }}>Kit 名/作業名</Typography>
+          <Grid item xs={12} md={2.5}>
+              <Typography sx={{ fontSize: '13px', color: '#325381', fontWeight: 700 }}>Kit 名/作業名</Typography>
               <Box sx={cssBox}>
-                <Grid container sx={{ height: '58px' }}>
+                <Grid container>
                   <Grid item xs>
-                    <TextField id="filled-basic" size="small" variant="filled" sx={{ width:300 }}/>
+                    <TextField id="filled-basic" size="small" variant="filled"/>
                   </Grid>   
                 </Grid>
               </Box>
           </Grid>
         </Grid>
-    )}
-      <Grid container spacing={2} justifyContent="flex-end">
-        <Grid item xs={12} md={2}>
-          {showText ?
-          <Typography sx={cssOderRight} onClick={handleClick}>
-            閉じる
-            <ExpandLessIcon sx={{ ml: 1,cursor:'pointer' }} />
-          </Typography>
-          :
-          <Typography sx={cssOderRight} onClick={handleClick}>
-            全て検索
-            <ExpandMoreIcon sx={{ ml: 1,cursor:'pointer' }} />
-          </Typography>
-          }
+        <Grid container spacing={2} justifyContent="flex-end">
+          <Grid item xs={12} md={12}>
+            {showText ?
+            <Typography sx={cssOderRight} onClick={handleClick}>
+              閉じる
+              <ExpandLessIcon sx={{ ml: 1,cursor:'pointer' }} />
+            </Typography>
+            :
+            <Typography sx={cssOderRight} onClick={handleClick}>
+              全て検索
+              <ExpandMoreIcon sx={{ ml: 1,cursor:'pointer' }} />
+            </Typography>
+            }
+          </Grid>
         </Grid>
-      </Grid>
       </Paper>
 
        <Paper
@@ -275,7 +264,7 @@ export default function RequestPartMaterials() {
           mt: { xs: 4, md: 2 },
         }}>
         
-      <Grid container spacing={2} sx={{ pt: 2 }}>
+      <Grid container spacing={2}>
         <Grid item xs={12} md={7.5}>
         <Typography sx={cssMroTitle}>
             <strong>Parts Kit List : </strong>
@@ -317,7 +306,7 @@ export default function RequestPartMaterials() {
 
             <Grid container>
               <Grid item xs={0.5}>
-                <Typography sx={font12Center}>
+                <Typography sx={font12CenterCursor}>
                   <img src="../part-kit/upload.png" width="17" height="17"/>
                 </Typography>
               </Grid>
@@ -326,13 +315,11 @@ export default function RequestPartMaterials() {
               </Grid>
               <Divider orientation="vertical" flexItem />
               <Grid item xs={1.5}>
-                <Typography sx={font12Center}>B737</Typography>
-                <Typography sx={font12Center}>ANA</Typography>
+                <Typography sx={font12Center}>B737<br/>ANA</Typography>
               </Grid>
               <Divider orientation="vertical" flexItem />
               <Grid item xs={1.5}>
-                <Typography sx={font12Center}>LINE</Typography>
-                <Typography sx={font12Center}>夜間定例LINE</Typography>
+                <Typography sx={font12Center}>LINE <br/> 夜間定例LINE</Typography>
               </Grid>
               <Divider orientation="vertical" flexItem />
               <Grid item xs={1}>
@@ -348,14 +335,14 @@ export default function RequestPartMaterials() {
               </Grid>
               <Divider orientation="vertical" />
               <Grid item xs={1}>
-                <Typography sx={font12Center}>編集</Typography>
+                <Typography sx={font12CenterCursor}>編集</Typography>
               </Grid>
             </Grid>
             <Divider sx={{ my: '3px'}} />
 
             <Grid container>
               <Grid item xs={0.5}>
-                <Typography sx={font12Center}>
+                <Typography sx={font12CenterCursor}>
                   <img src="../part-kit/upload.png" width="17" height="17"/>
                 </Typography>
               </Grid>
@@ -364,13 +351,11 @@ export default function RequestPartMaterials() {
               </Grid>
               <Divider orientation="vertical" flexItem />
               <Grid item xs={1.5}>
-                <Typography sx={font12Center}>B737</Typography>
-                <Typography sx={font12Center}>ANA</Typography>
+                <Typography sx={font12Center}>B737<br/>ANA</Typography>
               </Grid>
               <Divider orientation="vertical" flexItem />
               <Grid item xs={1.5}>
-                <Typography sx={font12Center}>LINE</Typography>
-                <Typography sx={font12Center}>夜間定例LINE</Typography>
+                <Typography sx={font12Center}>LINE <br/> 夜間定例LINE</Typography>
               </Grid>
               <Divider orientation="vertical" flexItem />
               <Grid item xs={1}>
@@ -386,14 +371,14 @@ export default function RequestPartMaterials() {
               </Grid>
               <Divider orientation="vertical" />
               <Grid item xs={1}>
-                <Typography sx={font12Center}>編集</Typography>
+                <Typography sx={font12CenterCursor}>編集</Typography>
               </Grid>
             </Grid>
             <Divider sx={{ my: '3px'}} />
 
             <Grid container>
               <Grid item xs={0.5}>
-                <Typography sx={font12Center}>
+                <Typography sx={font12CenterCursor}>
                   <img src="../part-kit/upload.png" width="17" height="17"/>
                 </Typography>
               </Grid>
@@ -402,13 +387,11 @@ export default function RequestPartMaterials() {
               </Grid>
               <Divider orientation="vertical" flexItem />
               <Grid item xs={1.5}>
-                <Typography sx={font12Center}>B737</Typography>
-                <Typography sx={font12Center}>ANA</Typography>
+                <Typography sx={font12Center}>B737<br/>ANA</Typography>
               </Grid>
               <Divider orientation="vertical" flexItem />
               <Grid item xs={1.5}>
-                <Typography sx={font12Center}>LINE</Typography>
-                <Typography sx={font12Center}>夜間定例LINE</Typography>
+                <Typography sx={font12Center}>LINE <br/> 夜間定例LINE</Typography>
               </Grid>
               <Divider orientation="vertical" flexItem />
               <Grid item xs={1}>
@@ -424,14 +407,14 @@ export default function RequestPartMaterials() {
               </Grid>
               <Divider orientation="vertical" />
               <Grid item xs={1}>
-                <Typography sx={font12Center}>編集</Typography>
+                <Typography sx={font12CenterCursor}>編集</Typography>
               </Grid>
             </Grid>
             <Divider sx={{ my: '3px'}} />
 
             <Grid container>
               <Grid item xs={0.5}>
-                <Typography sx={font12Center}>
+                <Typography sx={font12CenterCursor}>
                   <img src="../part-kit/upload.png" width="17" height="17"/>
                 </Typography>
               </Grid>
@@ -440,13 +423,11 @@ export default function RequestPartMaterials() {
               </Grid>
               <Divider orientation="vertical" flexItem />
               <Grid item xs={1.5}>
-                <Typography sx={font12Center}>B737</Typography>
-                <Typography sx={font12Center}>ANA</Typography>
+                <Typography sx={font12Center}>B737<br/>ANA</Typography>
               </Grid>
               <Divider orientation="vertical" flexItem />
               <Grid item xs={1.5}>
-                <Typography sx={font12Center}>LINE</Typography>
-                <Typography sx={font12Center}>夜間定例LINE</Typography>
+                <Typography sx={font12Center}>LINE <br/> 夜間定例LINE</Typography>
               </Grid>
               <Divider orientation="vertical" flexItem />
               <Grid item xs={1}>
@@ -462,14 +443,14 @@ export default function RequestPartMaterials() {
               </Grid>
               <Divider orientation="vertical" />
               <Grid item xs={1}>
-                <Typography sx={font12Center}>編集</Typography>
+                <Typography sx={font12CenterCursor}>編集</Typography>
               </Grid>
             </Grid>
             <Divider sx={{ my: '3px'}} />
 
             <Grid container>
               <Grid item xs={0.5}>
-                <Typography sx={font12Center}>
+                <Typography sx={font12CenterCursor}>
                   <img src="../part-kit/upload.png" width="17" height="17"/>
                 </Typography>
               </Grid>
@@ -478,13 +459,11 @@ export default function RequestPartMaterials() {
               </Grid>
               <Divider orientation="vertical" flexItem />
               <Grid item xs={1.5}>
-                <Typography sx={font12Center}>B737</Typography>
-                <Typography sx={font12Center}>ANA</Typography>
+                <Typography sx={font12Center}>B737<br/>ANA</Typography>
               </Grid>
               <Divider orientation="vertical" flexItem />
               <Grid item xs={1.5}>
-                <Typography sx={font12Center}>LINE</Typography>
-                <Typography sx={font12Center}>夜間定例LINE</Typography>
+                <Typography sx={font12Center}>LINE <br/> 夜間定例LINE</Typography>
               </Grid>
               <Divider orientation="vertical" flexItem />
               <Grid item xs={1}>
@@ -500,7 +479,7 @@ export default function RequestPartMaterials() {
               </Grid>
               <Divider orientation="vertical" />
               <Grid item xs={1}>
-                <Typography sx={font12Center}>編集</Typography>
+                <Typography sx={font12CenterCursor}>編集</Typography>
               </Grid>
             </Grid>
             <Divider sx={{ my: '3px'}} />
@@ -536,8 +515,7 @@ export default function RequestPartMaterials() {
                 <Typography sx={font12Center}>1</Typography>
               </Grid>
               <Grid item xs={4.5}>
-                <Typography sx={font12Left}>KITB3-7IDGFILTER</Typography>
-                <Typography sx={font12Left}>KITIDG FILTERSERVICE</Typography>
+               <Typography sx={font12Left}>KITB3-7IDGFILTER<br/>KITIDG FILTERSERVICE</Typography>
               </Grid>
               <Divider orientation="vertical" />
               <Grid item xs={2}>
@@ -556,8 +534,7 @@ export default function RequestPartMaterials() {
                 <Typography sx={font12Center}>2</Typography>
               </Grid>
               <Grid item xs={4.5}>
-                <Typography sx={font12Left}>KITB3-7IDGFILTER</Typography>
-                <Typography sx={font12Left}>KITIDG FILTERSERVICE</Typography>
+                <Typography sx={font12Left}>KITB3-7IDGFILTER<br/>KITIDG FILTERSERVICE</Typography>
               </Grid>
               <Divider orientation="vertical" />
               <Grid item xs={2}>
@@ -576,8 +553,7 @@ export default function RequestPartMaterials() {
                 <Typography sx={font12Center}>3</Typography>
               </Grid>
               <Grid item xs={4.5}>
-                <Typography sx={font12Left}>KITB3-7IDGFILTER</Typography>
-                <Typography sx={font12Left}>KITIDG FILTERSERVICE</Typography>
+                <Typography sx={font12Left}>KITB3-7IDGFILTER<br/>KITIDG FILTERSERVICE</Typography>
               </Grid>
               <Divider orientation="vertical" />
               <Grid item xs={2}>

@@ -40,7 +40,6 @@ import CloseIcon from '@mui/icons-material/Close';
 
 import ListPart from '../../components/request_for_part_and_material/ListPart';
 
-
 const filterOptions = createFilterOptions({
   matchFrom: 'start',
   stringify: (option: FilmOptionType) => option.title,
@@ -50,21 +49,21 @@ const cssLink = { textDecoration: 'none', color: 'inherit' };
 const cssMro = { backgroundColor: '#325381', color:'#FFFFFF', fontSize: '13px', position: 'absolute', right: 0, bottom: 0 };
 const cssMroTitle = { color: '#325381', fontSize: '20px'};
 const cssBox = { py: 1, borderRadius: '5px', backgroundColor: '#F5F5F5', height:60};
-const cssBox2 = { py: 1, borderRadius: '5px', backgroundColor: '#F5F5F5', height:597};
+const cssBox2 = { py: 2, px : 2, borderRadius: '5px', backgroundColor: '#F5F5F5', height:597};
 const cssBox3 = { color: '#325381', backgroundColor: '#F5F5F5',py: 1, borderRadius: '5px', overflowY:'scroll', height:490};
 const cssBox4 = { color: '#325381', backgroundColor: '#F5F5F5',py: 1, borderRadius: '5px', overflowY:'scroll', height:670};
-const font12Center = { fontSize: '15px', display: 'flex', alignItems:'center', justifyContent: 'center' };
-const font12Left = { fontSize: '15px', display: 'flex', alignItems:'center', justifyContent: 'left', ml:4 };
+const font12Center = { fontSize: '12px', display: 'flex', alignItems:'center', justifyContent: 'center' };
+const font12Left = { fontSize: '12px', display: 'flex', alignItems:'center', justifyContent: 'left', ml:4 };
 const font11 = { color:'#B8B8B8', fontSize: '11px', display: 'flex', alignItems:'center', justifyContent: 'center', ml:10};
-const font11Right = { color:'#B8B8B8', fontSize: '11px', display: 'flex', alignItems:'center', justifyContent: 'right'  };
+const font11Right = { color:'#B8B8B8', fontSize: '11px', display: 'flex', alignItems:'center', justifyContent: 'right', mr:'3px'  };
 const font11Center = { color:'#B8B8B8', fontSize: '11px', display: 'flex', alignItems:'center', justifyContent: 'center' };
 const font12 = { fontSize: '12px'};
 const cssOderLeft = { width: '100%', fontSize: '14px', color: '#325381', fontWeight: 700, mb: '5px'};
 const cssOderRight = { width: '100%',cursor: 'pointer', fontSize: '14px', color: '#325381', fontWeight: 700, mb: '5px', pr:15, display: 'flex', alignItems:'center', justifyContent: 'flex-end' };
 const font13Bold = { fontSize: '13px', textAlign: 'center', py: 2, fontWeight: 700 };
 
-const cssText = { m: 1, ml:4, width:780, backgroundColor:'#FFF', '& .MuiOutlinedInput-notchedOutline': {border: 'none'}, };
-const cssText1 = { width:130, backgroundColor:'#FFF', '& .MuiOutlinedInput-notchedOutline': {border: 'none'},  };
+const cssText = {backgroundColor:'#FFF', '& .MuiOutlinedInput-notchedOutline': {border: 'none'}, };
+const cssText1 = { backgroundColor:'#FFF', '& .MuiOutlinedInput-notchedOutline': {border: 'none'},  };
 const cssText2 = { width:170, backgroundColor:'#FFF', '& .MuiOutlinedInput-notchedOutline': {border: 'none'}, };
 const ml4mt1 = { ml:4, mt:1 };
 const ml4mt2 = { ml:4, mt:2 };
@@ -153,7 +152,7 @@ export default function RequestPartMaterials() {
             
             <Box sx={cssBox}>
               <FormGroup>
-                <Grid container>
+                <Grid container spacing={1}>
                   <Grid item xs={1.5}>
                     <FormControlLabel control={<Checkbox defaultChecked />} label="Parts" labelPlacement="start" sx={font12Center} />
                   </Grid>
@@ -163,25 +162,13 @@ export default function RequestPartMaterials() {
                   <Grid item xs={1.5}>
                    <FormControlLabel control={<Checkbox />} label="Trax" labelPlacement="start" sx={font12Center} />
                   </Grid>
-                  <Grid item xs={1.5}>
+                  <Grid item xs={2.5}>
                     <FormControlLabel control={<Checkbox />} label="Knowledge" labelPlacement="start" sx={font12Center} />
                   </Grid>
-                  <Grid item xs={6}>
-                    <Grid container>
-                      <Grid item xs>
-                        <Typography sx={font11Right}>作成者 : 70075</Typography>
-                      </Grid>
-                      <Grid item xs>
-                        <Typography sx={font11Center}>2023/05/19  14:00:00</Typography>
-                      </Grid>
-                    </Grid>
-                    <Grid container>
-                      <Grid item xs>
-                        <Typography sx={font11}>BD13793F-E0EE-024E-B282-E721B932BF45</Typography>
-                      </Grid>
-                    </Grid>
+                  <Grid item xs={5}>
+                    <Typography sx={font11Right}><span>作成者 : 70075</span> <span>2023/05/19  14:00:00</span></Typography>
+                    <Typography sx={font11Right}>BD13793F-E0EE-024E-B282-E721B932BF45</Typography>
                   </Grid>
-
                 </Grid>
               </FormGroup>
             </Box>
@@ -191,19 +178,19 @@ export default function RequestPartMaterials() {
           <Grid item xs={12} md={12} sx={{ mt:2, }}>
             
             <Box sx={cssBox2}>
-                <Grid container sx={ml4mt2}>
+                <Grid container>
                   <Typography>
                   <strong>作業名 (KIT名)</strong>
                   </Typography>
                 </Grid>
 
-                <Grid container>
+                <Grid container sx={{ py : '5px'}}>
                   <Grid item xs={12}>
-                    <TextField id="outlined-basic" size='small' sx={cssText} />
+                    <TextField id="outlined-basic" fullWidth  size='small' sx={cssText} />
                   </Grid>
                 </Grid>
 
-                <Grid container sx={ml4mt2}>
+                <Grid container spacing={2} sx={{ py : '5px'}}>
                   <Grid item xs={2}>
                     <Typography>Zone</Typography>
                   </Grid>
@@ -224,7 +211,7 @@ export default function RequestPartMaterials() {
                   </Grid>
                 </Grid>
 
-                <Grid container sx={ml4mt1}>
+                <Grid container spacing={2}>
                   <Grid item xs={2}>
                     <TextField id="outlined-basic" size='small' sx={cssText1} />
                   </Grid>
@@ -240,12 +227,12 @@ export default function RequestPartMaterials() {
                   <Grid item xs={2}>
                     <TextField id="outlined-basic" size='small' sx={cssText1} />
                   </Grid>
-                  <Grid item xs>
+                  <Grid item xs={4}>
                     <TextField id="outlined-basic" size='small' sx={cssText2} />
                   </Grid>
                 </Grid>
 
-                <Grid container sx={ml4mt2}>
+                <Grid container sx={{ py : '5px'}}>
                   <Grid item xs={5}>
                     <Typography>Task Card</Typography>
                   </Grid>
@@ -255,8 +242,7 @@ export default function RequestPartMaterials() {
                   </Grid>
                 </Grid>
 
-                <Grid container sx={ml4mt1}>
-                {/*Task Card*/}
+                <Grid container spacing={1}>
                   <Grid item xs={3}>
                     <TextField  id="outlined-basic" 
                                 size='small' 
@@ -268,7 +254,7 @@ export default function RequestPartMaterials() {
                                 }}/>
                   </Grid>
 
-                  <Grid item xs={1}>
+                  <Grid item xs={2}>
                     <TextField  id="outlined-basic" 
                                 size='small' 
                                 placeholder="Item" 
@@ -288,8 +274,8 @@ export default function RequestPartMaterials() {
                   </Grid>
 
                   {/*AMM*/}
-                  <Grid item xs={4.7}>
-                  <FormControl sx={{ width: 350 }}>
+                  <Grid item xs={4}>
+                  <FormControl>
                     <TextField  id="outlined-basic" 
                                 size='small' 
                                 placeholder="AMM No." 
@@ -300,7 +286,7 @@ export default function RequestPartMaterials() {
                   </FormControl>
                   </Grid>
 
-                  <Grid item xs={2.3}>
+                  <Grid item xs={2}>
                    <Paper elevation={0} sx={{ width:40, height:40}}>
                       <IconButton aria-label="menu" onClick={handleClickOpen}>
                         <MenuIcon sx={{ width:25, height:30, color:"#D9D9D9" }} />
@@ -309,18 +295,19 @@ export default function RequestPartMaterials() {
                   </Grid>
                 </Grid>
 
-                <Grid container sx={ml4mt2}>
+                <Grid container sx={{ py : '5px'}}>
                   <Typography>
                   <strong>Memo</strong>
                   </Typography>
                 </Grid>
-                <Grid container sx={{ ml:4 }}>
+                <Grid container>
                   <Grid item xs={12}>
                     <TextField
                       placeholder="記入してください..."
                       multiline
+                      fullWidth
                       rows={7}
-                      sx={{ width:780, bgcolor:"#FFF", 
+                      sx={{ bgcolor:"#FFF", 
                       '& .MuiOutlinedInput-notchedOutline': {
                         border: 'none',
                       }, }}
@@ -330,9 +317,9 @@ export default function RequestPartMaterials() {
                   </Grid>
                 </Grid>
 
-              <Grid container sx={cssButtonFrame}>
-                <Grid item xs={6} md={3}>
-                  <Grid container spacing={2}>
+              <Grid container spacing={2} sx={{ py : '30px' , textAlign: 'center'}}>
+                <Grid item xs={6} md={2}></Grid>
+                <Grid item xs={6} md={4}>
                     <Link href="/part_kit/part_kit_insert" underline="none" target="_blank">
                       <Button variant="contained" sx={cssButton}>
                       <img src="../part-kit/public.png" width="20" height="20"/>
@@ -341,11 +328,9 @@ export default function RequestPartMaterials() {
                         </Typography>
                       </Button>
                     </Link>
-                  </Grid>
                 </Grid>
 
-                <Grid item xs={6} md={3}>
-                  <Grid container spacing={2}>
+                <Grid item xs={6} md={4}>
                     <Link href="/part_kit/part_kit_insert" underline="none" target="_blank">
                       <Button variant="contained" sx={cssButton1}>
                       <img src="../part-kit/delete.png" width="20" height="20"/>
@@ -354,8 +339,8 @@ export default function RequestPartMaterials() {
                         </Typography>
                       </Button>
                     </Link>
-                  </Grid>
                 </Grid>
+                <Grid item xs={6} md={2}></Grid>
               </Grid>
 
             </Box>
