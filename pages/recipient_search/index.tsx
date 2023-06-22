@@ -11,106 +11,56 @@ import Box from '@mui/material/Box';
 import CardMedia from '@mui/material/CardMedia';
 import Link from '@mui/material/Link';
 import IconButton from '@mui/material/IconButton';
-
+import FormGroup from '@mui/material/FormGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
 import MenuIcon from '@mui/icons-material/Menu';
+import Checkbox from '@mui/material/Checkbox';
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
 
-const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-  ...theme.typography.body2,
-  padding: theme.spacing(0),
-  marginLeft:20,
-  textAlign: 'center',
-  color: theme.palette.text.secondary,
-  boxShadow:'none',
-  [theme.breakpoints.up('sm')]: {
-            marginLeft:100,
-            textAlign: 'center',
-            color: theme.palette.text.secondary,
-            boxShadow:'none',
-        },
-}));
-// dọc
-const ItemColumn = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-  ...theme.typography.body2,
-  
-  textAlign: 'left',
-  marginLeft:8,
-  display: 'flex',
-  flexDirection: 'column',
-  color: theme.palette.text.secondary,
-  boxShadow:'none',
-}));
-// ngang
-const ItemRow = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-  ...theme.typography.body2,
-  padding: theme.spacing(1),
-  textAlign: 'center',
-  display: 'flex',
-  flexDirection: 'row',
-  color: theme.palette.text.secondary,
-  boxShadow:'none',
-}));
+// Css TextField
+const CssTextField = styled(TextField)({
 
-const ItemFrame = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-  ...theme.typography.body2, 
-  width:175,
-  height:95,
-  marginBottom:10,
-  boxShadow:'0px 0px 10px rgba(0, 0, 0, 0.2)',
-  transition: 'box-shadow 0.3s ease-in-out',
-  '&:hover': {
-  boxShadow: '0px 0px 20px rgba(50, 83, 129, 100)',
+  '& label.Mui-focused': {
+    color: '#A0AAB4',
   },
-  [theme.breakpoints.up('sm')]: {
-          width: 466,
-          height:138,
-          marginRight:20,
-          padding: theme.spacing(0),
-          textAlign: 'center',
-          color: theme.palette.text.secondary,
-          borderRadius: '10px',
-          boxShadow:'0px 0px 10px rgba(1, 1, 1, 0.2)',
-          transition: 'box-shadow 0.3s ease-in-out',
-          '&:hover': {
-          boxShadow: '0px 0px 20px rgba(50, 83, 129, 100)',
-          },
-        },
-}));
+  '& .MuiInput-underline:after': {
+    borderBottomColor: 'transparent',
+  },
+  '& .MuiOutlinedInput-root': {
+    '& fieldset': {
+      borderColor: 'transparent',
+    },
+    '&:hover fieldset': {
+      borderColor: 'transparent',
+    },
+    '&.Mui-focused fieldset': {
+      borderColor: 'transparent',
+    },
+    '&.Mui-focused': {
+      backgroundColor: '#fff',
+      color:"#325381",
+      textAlign:'center',
+    },
+    '& input': {
+      textAlign:'center',
+      color:"#325381",
+      backgroundColor: '#fff',
+    },
+  },
 
-const ItemAvatar = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-  ...theme.typography.body2, 
-  width:160,
-  height:68,
-  margin: 'auto',
-  padding: theme.spacing(1),
-  boxShadow:'none',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  [theme.breakpoints.up('sm')]: {
-          width: 300,
-          height:126,
-          padding: theme.spacing(1),
-          margin: 'auto',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          textAlign: 'center',
-          color: theme.palette.text.secondary,
-          boxShadow:'none',
-        },
-}));
+});
 
-const cardMedia = { margin: 'auto', width: { xs: 138, md: 224 }, height: { xs: 68, md: 126 } };
-const cardMedia1 = { margin: 'auto', mt:2 ,width: { xs: 160, md: 320 }, height: { xs: 36, md: 72 } };
-const cardMedia2 = { margin: 'auto', mt:2 , width: { xs: 120, md: 232 }, height: { xs: 36, md: 72 } };
+// ccs
+const cssMro = { width: '100%', color: '#325381', textAlign: 'right', fontSize: '13px', position: 'absolute', right: 0, bottom: 0 };
+const cssOder = { width: '100%', textAlign: 'right', fontSize: '12px', fontWeight: 700, mb: '5px' };
+const cssBox = { background : '#F5F5F5', px: 1, py: 1, borderRadius: '5px'};
+const font12 = { fontSize: '12px'};
+const font12Center = { fontSize: '12px', textAlign: 'center' };
+const cssBox2 = { background : '#F5F5F5', px: 1, py: '19px', borderRadius: '5px'};
 
-const cssLink = { textDecoration: 'none', color: 'inherit' };
-
+const cssTitle = { color: '#325381', textAlign:'center' };
+const cssDivider = {my:1, ml:2, mr:2 };
 
 export default function Parts() {
   const [width, setWidth] = React.useState(0);
@@ -130,7 +80,98 @@ export default function Parts() {
   const isMobile = width <= 768;
   return (
   <div>
-    
+    <Box sx={{
+          width: '100%',}}>
+      <Grid container spacing={0} sx={{ pl: 2, pr: 2, pt:2  }}>
+
+        <Grid item xs={6}>
+          <Typography color="#325381" >
+            <strong>受領者検索 / Recipient search</strong>
+          </Typography>
+        </Grid>
+        <Grid item xs={6} sx={{ position: 'relative', justifyContent:"flex-end", textAlign:"right"}}>  
+          <Button variant="contained" sx={{ width:150,height:40, fontSize:11,backgroundColor: '#325381', mr:4 }}>
+            <Typography sx={{ color:'#FFFFFF', fontSize:12}}>検索実行</Typography>
+          </Button>
+
+          <Button variant="contained" sx={{ width:150,height:40, fontSize:11,backgroundColor: '#325381' }}>
+            <Typography sx={{ color:'#FFFFFF', fontSize:12}}>リセット</Typography>
+          </Button>
+        </Grid>
+
+        <Grid item xs={12}>
+          <Box sx={{ width: '100%', height: 700,overflow: 'auto', mt:2}} backgroundColor="#F5F5F5">
+            <Grid container spacing={2} sx={{ mt:2 }}>
+              <Grid item xs={3}>
+                <Typography sx={cssTitle} >
+                  <strong>ID</strong>
+                </Typography>
+              </Grid>
+
+              <Grid item xs={3}>
+                <Typography sx={cssTitle} >
+                  <strong>STS</strong>
+                </Typography>
+              </Grid>
+
+              <Grid item xs={3}>
+                <Typography sx={cssTitle} >
+                  <strong>受領日</strong>
+                </Typography>
+              </Grid>
+
+              <Grid item xs={3}>
+                <Typography sx={cssTitle} >
+                  <strong>受領者</strong>
+                </Typography>
+              </Grid>
+
+            </Grid>
+            <Divider sx={cssDivider} />
+            <Grid container spacing={2}>
+              <Grid item xs={3} sx={cssTitle}>
+                <CssTextField  size="small" placeholder="ID" />
+              </Grid>
+
+              <Grid item xs={3}>
+                
+              </Grid>
+
+              <Grid item xs={3}>
+                
+              </Grid>
+
+              <Grid item xs={3}>
+               
+              </Grid>
+
+            </Grid>
+            <Divider sx={cssDivider} />
+          </Box>
+        </Grid>
+
+
+      </Grid>
+    </Box>
+
+    {/*----------Footer----------*/}
+    <Divider sx={cssDivider} />
+    <Box component="footer">
+      <Grid container>
+        <Grid xs={6}>
+          <Typography sx={{ color:"#9AA1A9", fontSize:13, ml:4 }}>
+            Copyright © 2023 OCC
+          </Typography>
+        </Grid>
+        <Grid xs={6}>
+          <Typography sx={{ color:"#9AA1A9", fontSize:13, mr:4, textAlign:'right' }}>
+            Design by Codingdung
+          </Typography>
+        </Grid>
+      </Grid>
+      
+    </Box>
+    {/*----------Footer----------*/}
   </div>
   );
 }

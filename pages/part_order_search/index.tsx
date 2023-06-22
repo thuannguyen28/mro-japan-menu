@@ -1,4 +1,5 @@
 import * as React from 'react';
+import ListSearch from '../../components/part_order_list/ListSearch';
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
@@ -11,108 +12,52 @@ import Box from '@mui/material/Box';
 import CardMedia from '@mui/material/CardMedia';
 import Link from '@mui/material/Link';
 import IconButton from '@mui/material/IconButton';
-
+import TextField from '@mui/material/TextField';
 import MenuIcon from '@mui/icons-material/Menu';
+import Button from '@mui/material/Button';
 
-const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-  ...theme.typography.body2,
-  padding: theme.spacing(0),
-  marginLeft:20,
-  textAlign: 'center',
-  color: theme.palette.text.secondary,
-  boxShadow:'none',
-  [theme.breakpoints.up('sm')]: {
-            marginLeft:100,
-            textAlign: 'center',
-            color: theme.palette.text.secondary,
-            boxShadow:'none',
-        },
-}));
-// dọc
-const ItemColumn = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-  ...theme.typography.body2,
-  
-  textAlign: 'left',
-  marginLeft:8,
-  display: 'flex',
-  flexDirection: 'column',
-  color: theme.palette.text.secondary,
-  boxShadow:'none',
-}));
-// ngang
-const ItemRow = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-  ...theme.typography.body2,
-  padding: theme.spacing(1),
-  textAlign: 'center',
-  display: 'flex',
-  flexDirection: 'row',
-  color: theme.palette.text.secondary,
-  boxShadow:'none',
-}));
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 
-const ItemFrame = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-  ...theme.typography.body2, 
-  width:175,
-  height:95,
-  marginBottom:10,
-  boxShadow:'0px 0px 10px rgba(0, 0, 0, 0.2)',
-  transition: 'box-shadow 0.3s ease-in-out',
-  '&:hover': {
-  boxShadow: '0px 0px 20px rgba(50, 83, 129, 100)',
+// Css TextField
+const CssTextField = styled(TextField)({
+
+  // '& label.Mui-focused': {
+  //   color: '#A0AAB4',
+  // },
+  // '& .MuiInput-underline:after': {
+  //   borderBottomColor: 'transparent',
+  // },
+
+  '& .MuiOutlinedInput-root': {
+    '& fieldset': {
+      borderColor: 'transparent',
+    },
+    '&.Mui-focused fieldset': {
+      borderColor: 'transparent',
+    },
+    '&:hover fieldset': {
+      borderColor: 'transparent',
+    },
+    '&.Mui-focused': {
+      backgroundColor: '#fff',
+      color:"#325381",
+      textAlign:'left',
+      borderWidth: 0,
+    },
+    '& input': {
+      backgroundColor: '#fff',
+      textAlign:'left',
+      color:"#325381",
+      width: 300,
+    },
   },
-  [theme.breakpoints.up('sm')]: {
-          width: 466,
-          height:138,
-          marginRight:20,
-          padding: theme.spacing(0),
-          textAlign: 'center',
-          color: theme.palette.text.secondary,
-          borderRadius: '10px',
-          boxShadow:'0px 0px 10px rgba(1, 1, 1, 0.2)',
-          transition: 'box-shadow 0.3s ease-in-out',
-          '&:hover': {
-          boxShadow: '0px 0px 20px rgba(50, 83, 129, 100)',
-          },
-        },
-}));
 
-const ItemAvatar = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-  ...theme.typography.body2, 
-  width:160,
-  height:68,
-  margin: 'auto',
-  padding: theme.spacing(1),
-  boxShadow:'none',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  [theme.breakpoints.up('sm')]: {
-          width: 300,
-          height:126,
-          padding: theme.spacing(1),
-          margin: 'auto',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          textAlign: 'center',
-          color: theme.palette.text.secondary,
-          boxShadow:'none',
-        },
-}));
-
-const cardMedia = { margin: 'auto', width: { xs: 138, md: 224 }, height: { xs: 68, md: 126 } };
-const cardMedia1 = { margin: 'auto', mt:2 ,width: { xs: 160, md: 320 }, height: { xs: 36, md: 72 } };
-const cardMedia2 = { margin: 'auto', mt:2 , width: { xs: 120, md: 232 }, height: { xs: 36, md: 72 } };
-
-const cssLink = { textDecoration: 'none', color: 'inherit' };
-
+});
 
 export default function Parts() {
+  //mobile
   const [width, setWidth] = React.useState(0);
 
   const handleWindowSizeChange = () => {
@@ -130,7 +75,112 @@ export default function Parts() {
   const isMobile = width <= 768;
   return (
   <div>
-  
+    <Box sx={{
+          width: '100%',}}>
+      <Grid container spacing={0} sx={{ p: 4,  }}>
+        <Grid item xs={12} sx={{ mb:2 }}>
+          <Typography color="#325381" >
+            <strong>Part Order Search</strong>
+          </Typography>
+        </Grid>
+
+        <Box sx={{ width: '100%', height: 700, overflow: 'auto'}} backgroundColor="#F5F5F5">
+          <Grid container spacing={0} sx={{ pl: 5, pr:5, pt:2  }}>
+            <Grid item xs={3}>
+              <Grid container>
+                <Typography color="#325381" >
+                  <strong>Part Number</strong>
+                </Typography>
+              </Grid>
+              <Grid container>
+                 <CssTextField  size="small" placeholder="Part Number Search" />
+              </Grid>
+            </Grid>
+
+            <Grid item xs={9}>
+              <Grid container>
+                <Typography color="#325381" >
+                  <strong>Part Number</strong>
+                </Typography>
+              </Grid>
+              <Grid container>
+                <Grid item xs={4}>
+                  <LocalizationProvider dateAdapter={AdapterDayjs}>
+                    <DatePicker sx={{  
+                          '& .MuiInputBase-root': {
+                            border: 'none',
+                            paddingRight:1,
+                            backgroundColor:"#FFF"       
+                          },
+                          '& .MuiOutlinedInput-root': {
+                            height: 40,
+                            width:300
+                          },
+
+                          '& .MuiOutlinedInput-notchedOutline': {
+                            borderWidth: 0,
+                          },
+
+                        }} />
+                  </LocalizationProvider>
+                </Grid>
+
+                <Grid item xs={4}>
+                  <LocalizationProvider dateAdapter={AdapterDayjs}>
+                    <DatePicker sx={{  
+                          '& .MuiInputBase-root': {
+                            border: 'none',
+                            paddingRight:1,
+                            backgroundColor:"#FFF"       
+                          },
+                          '& .MuiOutlinedInput-root': {
+                            height: 40,
+                            width:300
+                          },
+
+                          '& .MuiOutlinedInput-notchedOutline': {
+                            borderWidth: 0,
+                          },
+
+                        }} />
+                  </LocalizationProvider>
+                </Grid>
+
+                <Grid item xs={4}>
+                  <Button variant="contained" sx={{ width:150,height:40, fontSize:11,backgroundColor: '#325381' }}>
+                    <Typography sx={{ color:'#FFFFFF', fontSize:12}}>検索</Typography>
+                  </Button>
+                </Grid>
+              </Grid>
+            </Grid>
+          </Grid>
+
+          <ListSearch />
+
+        </Box>
+
+      </Grid>
+    </Box>
+    
+
+    {/*----------Footer----------*/}
+    <Divider />
+    <Box component="footer">
+      <Grid container>
+        <Grid xs={6}>
+          <Typography sx={{ color:"#9AA1A9", fontSize:13, ml:4 }}>
+            Copyright © 2023 OCC
+          </Typography>
+        </Grid>
+        <Grid xs={6}>
+          <Typography sx={{ color:"#9AA1A9", fontSize:13, mr:4, textAlign:'right' }}>
+            Design by Codingdung
+          </Typography>
+        </Grid>
+      </Grid>
+      
+    </Box>
+    {/*----------Footer----------*/}
   </div>
   );
 }
