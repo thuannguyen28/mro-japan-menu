@@ -180,43 +180,53 @@ export default function Parts() {
 												Parts Order List (Zone)
 											</Typography>
 						    		</ItemText>
-						    	</ItemFrame>	    	
-						    	<ItemFrame>
-						    		<ItemAvatar>
-						    			<CardMedia
-						    				sx={cardMedia}
-											 	image="home/main 1-11.png"/>
-						    		</ItemAvatar>
-						    		<ItemText>
-						    			<Typography color="#3A5075" textAlign="center" sx={{ fontSize: 11 }}>
-												Parts Order List Search
-											</Typography>
-						    		</ItemText>
-						    	</ItemFrame>	
-						    	<ItemFrame>
-						    		<ItemAvatar>
-						    			<CardMedia
-						    				sx={cardMedia}
-											 	image="home/main 1-10.png"/>
-						    		</ItemAvatar>
-						    		<ItemText>
-						    			<Typography color="#3A5075" textAlign="center" sx={{ fontSize: 11 }}>
-												Parts Order List (All)
-											</Typography>
-						    		</ItemText>
-						    	</ItemFrame>	
-						    	<ItemFrame>
-						    		<ItemAvatar>
-						    			<CardMedia
-						    				sx={cardMedia}
-											 	image="home/main 1-12.png"/>
-						    		</ItemAvatar>
-						    		<ItemText>
-						    			<Typography color="#3A5075" textAlign="center" sx={{ fontSize: 11 }}>
-												受領者検索
-											</Typography>
-						    		</ItemText>
-						    	</ItemFrame>	
+						    	</ItemFrame>
+
+						    	<Link href="/part_order_search" sx={cssLink}>	    	
+							    	<ItemFrame>
+							    		<ItemAvatar>
+							    			<CardMedia
+							    				sx={cardMedia}
+												 	image="home/main 1-11.png"/>
+							    		</ItemAvatar>
+							    		<ItemText>
+							    			<Typography color="#3A5075" textAlign="center" sx={{ fontSize: 11 }}>
+													Parts Order List Search
+												</Typography>
+							    		</ItemText>
+							    	</ItemFrame>
+							    </Link>
+
+						    	<Link href="/part_order_list_all" sx={cssLink}>	
+							    	<ItemFrame>
+							    		<ItemAvatar>
+							    			<CardMedia
+							    				sx={cardMedia}
+												 	image="home/main 1-10.png"/>
+							    		</ItemAvatar>
+							    		<ItemText>
+							    			<Typography color="#3A5075" textAlign="center" sx={{ fontSize: 11 }}>
+													Parts Order List (All)
+												</Typography>
+							    		</ItemText>
+							    	</ItemFrame>
+							    </Link>
+
+							    <Link href="/recipient_search" sx={cssLink}>	
+							    	<ItemFrame>
+							    		<ItemAvatar>
+							    			<CardMedia
+							    				sx={cardMedia}
+												 	image="home/main 1-12.png"/>
+							    		</ItemAvatar>
+							    		<ItemText>
+							    			<Typography color="#3A5075" textAlign="center" sx={{ fontSize: 11 }}>
+													受領者検索
+												</Typography>
+							    		</ItemText>
+							    	</ItemFrame>
+							    </Link>
+
 					    	</ItemRow>
 					    </Item>
 
