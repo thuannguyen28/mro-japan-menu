@@ -124,24 +124,33 @@ export default function NestedList(props) {
 		          </ListItemIcon>
 		          <ListItemText primaryTypographyProps={{ style: cssMenuLink }} primary="Parts Order List (Zone)" />
 		        </ListItemButton>
-            <ListItemButton sx={{ pl: 4 }}>
-              <ListItemIcon>
-                <StarBorder sx={color} />
-              </ListItemIcon>
-              <ListItemText primaryTypographyProps={{ style: cssMenuLink }} primary="Parts Order List Search" />
-            </ListItemButton>
-            <ListItemButton sx={{ pl: 4 }}>
-              <ListItemIcon>
-                <StarBorder sx={color} />
-              </ListItemIcon>
-              <ListItemText primaryTypographyProps={{ style: cssMenuLink }} primary="Parts Order List (All)" />
-            </ListItemButton>
-            <ListItemButton sx={{ pl: 4 }}>
-              <ListItemIcon>
-                <StarBorder sx={color} />
-              </ListItemIcon>
-              <ListItemText primaryTypographyProps={{ style: cssMenuLink }} primary="受領者検索" />
-            </ListItemButton>
+
+		        <Link  href="/part_order_search" sx={cssLink}>
+	            <ListItemButton sx={{ pl: 4 }}>
+	              <ListItemIcon>
+	                <StarBorder sx={color} />
+	              </ListItemIcon>
+	              <ListItemText primaryTypographyProps={{ style: cssMenuLink }} primary="Parts Order List Search" />
+	            </ListItemButton>
+            </Link>
+
+            <Link  href="/part_order_list_all" sx={cssLink}>
+	            <ListItemButton sx={{ pl: 4 }}>
+	              <ListItemIcon>
+	                <StarBorder sx={color} />
+	              </ListItemIcon>
+	              <ListItemText primaryTypographyProps={{ style: cssMenuLink }} primary="Parts Order List (All)" />
+	            </ListItemButton>
+            </Link> 
+
+            <Link  href="/recipient_search" sx={cssLink}>
+	            <ListItemButton sx={{ pl: 4 }}>
+	              <ListItemIcon>
+	                <StarBorder sx={color} />
+	              </ListItemIcon>
+	              <ListItemText primaryTypographyProps={{ style: cssMenuLink }} primary="受領者検索" />
+	            </ListItemButton>
+            </Link>
 		      </List>
 		    </Collapse>
 
