@@ -236,7 +236,7 @@ export default function ListAll(props) {
 	            aria-expanded={open ? 'true' : undefined}
 	            onClick={handleClick}
 	          >
-	            <MoreVertIcon />
+	            <MoreVertIcon style={{ color: '#9C9C9C' }} />
 	          </Button>
 	          <Menu
 	            id="basic-menu"
