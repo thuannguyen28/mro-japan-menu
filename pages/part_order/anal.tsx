@@ -358,6 +358,9 @@ const rows = [
   ),
 ];
 
+//CSS
+const cssCombobox= {width: '90%', bgcolor:"#F0F0F0", ml:2, '& .MuiAutocomplete-input':{textAlign:'center'},};
+
 export default function Anal() {
 
   // Dialog Memo
@@ -703,41 +706,45 @@ export default function Anal() {
             <Grid container>
               <Grid item xs={2.8}>
                 <Autocomplete
-                  disablePortal
+                  disableClearable
                   id="combo-box-demo"
                   options={topWorkOrderFilms}
-                  sx={{ width: '90%', bgcolor:"#F0F0F0", ml:2 }}
-                  renderInput={(params) => <TextField {...params} placeholder="10023866" size="small" sx={{ fontSize: 13 }} />}
+                  defaultValue="10023822"
+                  sx={cssCombobox}
+                  renderInput={(params) => <TextField {...params} size="small" sx={{ fontSize: 13 }} />}
                 />
               </Grid>
 
               <Grid item xs={2.7}>
                 <Autocomplete
-                  disablePortal
+                  disableClearable
                   id="combo-box-demo"
                   options={topCardFilms}
-                  sx={{ width: '95%', bgcolor:"#F0F0F0" }}
-                  renderInput={(params) => <TextField {...params} placeholder="ANA - 1230006" size="small" sx={{ fontSize: 13 }} />}
+                  defaultValue="ANA - 1230007"
+                  sx={cssCombobox}
+                  renderInput={(params) => <TextField {...params} size="small" sx={{ fontSize: 13 }} />}
                 />
               </Grid>
 
               <Grid item xs={1.2}>
                 <Autocomplete
-                  disablePortal
+                  disableClearable
                   id="combo-box-demo"
                   options={topZoneFilms}
-                  sx={{ width: '90%', bgcolor:"#F0F0F0" }}
-                  renderInput={(params) => <TextField {...params} placeholder="EXT2" size="small" sx={{ fontSize: 13 }} />}
+                  defaultValue="EXT2"
+                  sx={cssCombobox}
+                  renderInput={(params) => <TextField {...params} size="small" sx={{ fontSize: 13 }} />}
                 />
               </Grid>
 
               <Grid item xs={1.2}>
                 <Autocomplete
-                  disablePortal
+                  disableClearable
                   id="combo-box-demo"
-                  options={topZoneFilms}
-                  sx={{ width: '90%', bgcolor:"#F0F0F0" }}
-                  renderInput={(params) => <TextField {...params} placeholder="EXT2" size="small" sx={{ fontSize: 13 }} />}
+                  options={topRSNFilms}
+                  defaultValue="TC"
+                  sx={cssCombobox}
+                  renderInput={(params) => <TextField {...params} size="small" sx={{ fontSize: 13 }} />}
                 />
               </Grid>
 
@@ -1008,7 +1015,9 @@ export default function Anal() {
           {isMobile ?
           <img src="../home/delete.png" width="20" height="20" />
           :
-          <img src="../home/delete.png" width="28" height="28" />
+          <Link sx={{ cursor:'pointer' }}>
+            <img src="../home/delete.png" width="28" height="28" />
+          </Link>
           }
         </Grid>
       </Grid>
@@ -1169,7 +1178,9 @@ export default function Anal() {
           {isMobile ?
           <img src="../home/delete.png" width="20" height="20" />
           :
-          <img src="../home/delete.png" width="28" height="28" />
+          <Link sx={{ cursor:'pointer' }}>
+            <img src="../home/delete.png" width="28" height="28" />
+          </Link>
           }
         </Grid>
       </Grid>
@@ -1330,7 +1341,9 @@ export default function Anal() {
           {isMobile ?
           <img src="../home/delete.png" width="20" height="20" />
           :
-          <img src="../home/delete.png" width="28" height="28" />
+          <Link sx={{ cursor:'pointer' }}>
+            <img src="../home/delete.png" width="28" height="28" />
+          </Link>
           }
         </Grid>
       </Grid>
@@ -1491,7 +1504,9 @@ export default function Anal() {
           {isMobile ?
           <img src="../home/delete.png" width="20" height="20" />
           :
-          <img src="../home/delete.png" width="28" height="28" />
+          <Link sx={{ cursor:'pointer' }}>
+            <img src="../home/delete.png" width="28" height="28" />
+          </Link>
           }
         </Grid>
       </Grid>
@@ -1588,7 +1603,9 @@ export default function Anal() {
           {isMobile ?
           <img src="../home/delete.png" width="20" height="20" />
           :
-          <img src="../home/delete.png" width="28" height="28" />
+          <Link sx={{ cursor:'pointer' }}>
+            <img src="../home/delete.png" width="28" height="28" />
+          </Link>
           }
         </Grid>
       </Grid>
@@ -1870,6 +1887,7 @@ const topZoneFilms = [
 const topRSNFilms = [
   { label: 'HC'},
   { label: 'VC'},
+  { label: 'TC'},
   { label: 'AC'},
 ];
 
