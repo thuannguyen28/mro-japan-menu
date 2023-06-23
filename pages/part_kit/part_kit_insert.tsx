@@ -40,6 +40,41 @@ import CloseIcon from '@mui/icons-material/Close';
 
 import ListPart from '../../components/request_for_part_and_material/ListPart';
 
+// Css TextField
+const CssTextField = styled(TextField)({
+
+  '& label.Mui-focused': {
+    color: '#A0AAB4',
+  },
+  '& .MuiInput-underline:after': {
+    borderBottomColor: 'transparent',
+  },
+  '& .MuiOutlinedInput-root': {
+    '& fieldset': {
+      borderColor: 'transparent',
+    },
+    '&:hover fieldset': {
+      borderColor: 'transparent',
+    },
+    '&.Mui-focused fieldset': {
+      borderColor: 'transparent',
+    },
+    '&.Mui-focused': {
+      backgroundColor: '#fff',
+      color:"#325381",
+      textAlign:'left',
+    },
+    '& input': {
+      height:20,
+      textAlign:'left',
+      color:"#325381",
+      backgroundColor: "#f5f5f5",
+      fontSize: '12px'
+    },
+  },
+
+});
+
 const filterOptions = createFilterOptions({
   matchFrom: 'start',
   stringify: (option: FilmOptionType) => option.title,
@@ -64,7 +99,7 @@ const font13Bold = { fontSize: '13px', textAlign: 'center', py: 2, fontWeight: 7
 
 const cssText = {backgroundColor:'#FFF', '& .MuiOutlinedInput-notchedOutline': {border: 'none'}, };
 const cssText1 = { backgroundColor:'#FFF', '& .MuiOutlinedInput-notchedOutline': {border: 'none'},  };
-const cssText2 = { width:170, backgroundColor:'#FFF', '& .MuiOutlinedInput-notchedOutline': {border: 'none'}, };
+const cssText2 = { backgroundColor:'#FFF', '& .MuiOutlinedInput-notchedOutline': {border: 'none'}, };
 const ml4mt1 = { ml:4, mt:1 };
 const ml4mt2 = { ml:4, mt:2 };
 const cssButtonFrame = { display: 'flex', alignItems:'center', justifyContent:'center', ml:4, mt:4 };
@@ -125,6 +160,16 @@ export default function RequestPartMaterials() {
   };
   // END Dialog Memo
 
+  const [openModalDelete, setOpenModalDelete] = React.useState(false);
+
+  const handleOpenModalDelete = () => {
+    setOpenModalDelete(true);
+  };
+
+  const handleCloseModalDelete = () => {
+    setOpenModalDelete(false);
+  };  
+
   return (
   <div>
     <Box sx={{ color: '#325381', mx: { xs: 2, md: 4 }, my: { xs: 3, md: 2 } }}>
@@ -184,18 +229,18 @@ export default function RequestPartMaterials() {
                   </Typography>
                 </Grid>
 
-                <Grid container sx={{ py : '5px'}}>
+                <Grid container spacing={2} sx={{ py : '5px'}}>
                   <Grid item xs={12}>
                     <TextField id="outlined-basic" fullWidth  size='small' sx={cssText} />
                   </Grid>
                 </Grid>
 
                 <Grid container spacing={2} sx={{ py : '5px'}}>
-                  <Grid item xs={2}>
+                  <Grid item xs={2.5}>
                     <Typography>Zone</Typography>
                   </Grid>
 
-                  <Grid item xs={2}>
+                  <Grid item xs={2.5}>
                     <Typography>AC Type</Typography>
                   </Grid>
 
@@ -206,38 +251,38 @@ export default function RequestPartMaterials() {
                   <Grid item xs={2}>
                     <Typography>ATA</Typography>
                   </Grid>
-                  <Grid item xs={4}>
+                  <Grid item xs={3}>
                     <Typography>Category</Typography>
                   </Grid>
                 </Grid>
 
                 <Grid container spacing={2}>
-                  <Grid item xs={2}>
-                    <TextField id="outlined-basic" size='small' sx={cssText1} />
+                  <Grid item xs={2.5}>
+                    <TextField id="outlined-basic" fullWidth size='small' sx={cssText1} />
+                  </Grid>
+
+                  <Grid item xs={2.5}>
+                    <TextField id="outlined-basic" fullWidth size='small' sx={cssText1} />
                   </Grid>
 
                   <Grid item xs={2}>
-                    <TextField id="outlined-basic" size='small' sx={cssText1} />
+                    <TextField id="outlined-basic" fullWidth size='small' sx={cssText1} />
                   </Grid>
 
                   <Grid item xs={2}>
-                    <TextField id="outlined-basic" size='small' sx={cssText1} />
+                    <TextField id="outlined-basic" fullWidth size='small' sx={cssText1} />
                   </Grid>
-
-                  <Grid item xs={2}>
-                    <TextField id="outlined-basic" size='small' sx={cssText1} />
-                  </Grid>
-                  <Grid item xs={4}>
-                    <TextField id="outlined-basic" size='small' sx={cssText2} />
+                  <Grid item xs={3}>
+                    <TextField id="outlined-basic" fullWidth size='small' sx={cssText2} />
                   </Grid>
                 </Grid>
 
-                <Grid container sx={{ py : '5px'}}>
-                  <Grid item xs={5}>
+                <Grid container spacing={2} sx={{ py : '5px'}}>
+                  <Grid item xs={6}>
                     <Typography>Task Card</Typography>
                   </Grid>
 
-                  <Grid item xs={7}>
+                  <Grid item xs={6}>
                     <Typography>AMM</Typography>
                   </Grid>
                 </Grid>
@@ -274,7 +319,7 @@ export default function RequestPartMaterials() {
                   </Grid>
 
                   {/*AMM*/}
-                  <Grid item xs={4}>
+                  <Grid item xs={3}>
                   <FormControl>
                     <TextField  id="outlined-basic" 
                                 size='small' 
@@ -331,14 +376,12 @@ export default function RequestPartMaterials() {
                 </Grid>
 
                 <Grid item xs={6} md={4}>
-                    <Link href="/part_kit/part_kit_insert" underline="none" target="_blank">
-                      <Button variant="contained" sx={cssButton1}>
+                      <Button variant="contained" onClick={handleOpenModalDelete} sx={cssButton1}>
                       <img src="../part-kit/delete.png" width="20" height="20"/>
                         <Typography sx={{ ml:2, fontSize:12 }}>
                         Tool Kit削除
                         </Typography>
                       </Button>
-                    </Link>
                 </Grid>
                 <Grid item xs={6} md={2}></Grid>
               </Grid>
@@ -733,7 +776,7 @@ export default function RequestPartMaterials() {
      <Dialog open={openTask} onClose={handleCloseTask} maxWidth="xl">
         <DialogTitle>
           <BootstrapDialogTitle id="customized-dialog-title" onClose={handleCloseTask}> 
-            <Typography color="#325381" sx={{ fontSize:20, display:'flex', justifyContent:'center' }}>
+            <Typography color="#325381" sx={{ fontSize:20, display:'flex', justifyContent:'center' , px: 0, py: 0 }}>
               <strong>AMM (最大10件)</strong>
             </Typography>
           </BootstrapDialogTitle>
@@ -854,6 +897,100 @@ export default function RequestPartMaterials() {
 
       </Dialog>
     {/*----------End Dialog AMM----------*/}
+
+
+    {/*Dialog Delete*/}
+     <Dialog open={openModalDelete} onClose={handleCloseModalDelete} maxWidth="xl">
+        <DialogTitle>
+          <BootstrapDialogTitle id="del-customized-dialog-title" onClose={handleCloseModalDelete}>             
+          </BootstrapDialogTitle>
+        </DialogTitle>
+        <DialogContent>
+          <DialogContentText>
+            <Box sx={{color : '#325381', fontSize: '11px', px: 4, width: '600px'}}>
+                <Grid container spacing={2} sx={{ py : '5px'}}>
+                  <Grid item xs={6}>
+                    <Typography sx={{ fontSize: '11px' }}>PART NUMBER :</Typography>
+                  </Grid>
+
+                  <Grid item xs={6}>
+                    <Typography sx={{ fontSize: '11px' }}>SORT No. :</Typography>
+                  </Grid>
+                </Grid>
+
+                <Grid container spacing={2} sx={{ py : '5px'}}>
+                  <Grid item xs={6}>
+                    <CssTextField defaultValue="PR1428A2" size="small" placeholder="" fullWidth/>
+                  </Grid>
+
+                  <Grid item xs={6}>
+                    <CssTextField defaultValue="" size="small" placeholder="" fullWidth/>
+                  </Grid>
+                </Grid>
+
+                <Grid container spacing={2} sx={{ py : '5px'}}>
+                  <Grid item xs={6}>
+                    <Typography sx={{ fontSize: '12px' }}>NOMEN :</Typography>
+                  </Grid>
+
+                  <Grid item xs={6}>
+                    <Typography sx={{ fontSize: '12px' }}>QUANTITY :</Typography>
+                  </Grid>
+                </Grid>
+
+                <Grid container spacing={2} sx={{ py : '5px'}}>
+                  <Grid item xs={6}>
+                    <CssTextField defaultValue="S*SEALANT" size="small"  fullWidth placeholder="" />
+                  </Grid>
+
+                  <Grid item xs={6}>
+                    <CssTextField defaultValue="6" size="small" fullWidth placeholder="" />
+                  </Grid>
+                </Grid>
+
+                <Grid container spacing={2} sx={{ py : '5px'}}>
+                  <Grid item xs={12}>
+                    <Typography sx={{ fontSize: '12px' }}>NOTE :</Typography>
+                  </Grid>
+                </Grid>
+
+                <Grid container spacing={2} sx={{ py : '5px'}}>
+                  <Grid item xs={12}>
+                    <CssTextField fullWidth defaultValue="" size="small" placeholder="" />
+                  </Grid>
+                </Grid>
+
+                <Grid container spacing={2} sx={{ py : '5px'}}>
+                  <Grid item xs={6}>
+                    <Typography sx={{ fontSize: '12px' }}>REF :</Typography>
+                  </Grid>
+                </Grid>
+
+                <Grid container spacing={2} sx={{ py : '5px'}}>
+                  <Grid item xs={12}>
+                    <CssTextField fullWidth defaultValue="CML 06EA1" size="small" placeholder="" />
+                  </Grid>
+                </Grid> 
+
+                <Grid container spacing={2} sx={{ py : '5px'}}>
+                  <Grid item xs={12}>
+                    <Button fullWidth variant="contained" startIcon={<SearchIcon />}>
+                      検索
+                    </Button>
+                  </Grid>
+                </Grid>
+
+                <Grid container spacing={2} sx={{ pt : '15px'}}>
+                  <Grid item xs={12}>
+                <Typography sx={{ fontSize: '11px', color: '#CF2121', textAlign: 'center' }}>※ 編集可能頂目　QTY / SORT No / REF / NOTE</Typography>
+                   </Grid>
+                </Grid>
+            </Box>
+          </DialogContentText>
+        </DialogContent>
+
+      </Dialog>
+    {/*----------End Dialog Delete----------*/}    
 
   </div>
   );

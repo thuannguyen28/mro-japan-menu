@@ -12,6 +12,8 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 
+import Collapse from '@mui/material/Collapse';
+
 import Autocomplete, { createFilterOptions } from '@mui/material/Autocomplete';
 import SearchIcon from '@mui/icons-material/Search';
 import RestartAltIcon from '@mui/icons-material/RestartAlt';
@@ -19,6 +21,42 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 
 import ListPart from '../../components/request_for_part_and_material/ListPart';
+
+
+// Css TextField
+const CssTextField = styled(TextField)({
+
+  '& label.Mui-focused': {
+    color: '#A0AAB4',
+  },
+  '& .MuiInput-underline:after': {
+    borderBottomColor: 'transparent',
+  },
+  '& .MuiOutlinedInput-root': {
+    '& fieldset': {
+      borderColor: 'transparent',
+    },
+    '&:hover fieldset': {
+      borderColor: 'transparent',
+    },
+    '&.Mui-focused fieldset': {
+      borderColor: 'transparent',
+    },
+    '&.Mui-focused': {
+      backgroundColor: '#fff',
+      color:"#325381",
+      textAlign:'left',
+    },
+    '& input': {
+      height:20,
+      textAlign:'center',
+      color:"#325381",
+      backgroundColor: "#f5f5f5",
+      fontSize: '12px'
+    },
+  },
+
+});
 
 
 const filterOptions = createFilterOptions({
@@ -44,11 +82,12 @@ const cursor = { cursor: 'pointer' };
 
 
 export default function RequestPartMaterials() {
-  
-  const [showText, setShowText] = React.useState(false);
 
-  const handleClick = () => {
-    setShowText(!showText);
+  const [collapseOpen, setCollapseOpen] = React.useState(false);
+
+
+  const collapseClick = () => {
+    setCollapseOpen(!collapseOpen);
   };
 
   return (
@@ -192,61 +231,64 @@ export default function RequestPartMaterials() {
               
           </Grid>
         </Grid>  
-    {/*Header 2*/}
-        <Grid container spacing={2}>
-          <Grid item xs={12} md={2.5}>
-              <Typography sx={{ fontSize: '13px', color: '#325381', fontWeight: 700 }}>Task Card</Typography>
-              <Box sx={cssBox}>
-                <Grid container>
-                  <Grid item xs sx={{ height: '30px' }}>
-                    <TextField id="filled-basic" size="small" variant="filled"/>
-                  </Grid>   
-                </Grid>
-              </Box>
-          </Grid>
+    {/*Header 2*/}    
+       <Collapse in={collapseOpen} timeout="auto"
+                        unmountOnExit>
+          <Grid open={collapseOpen} container spacing={2}>
+            <Grid item xs={12} md={2}>
+                <Typography sx={{ fontSize: '13px', color: '#325381', fontWeight: 700 }}>Task Card</Typography>
+                <Box sx={cssBox}>
+                  <Grid container>
+                    <Grid item xs>
+                      <CssTextField fullWidth defaultValue="" size="small" placeholder="" />
+                    </Grid>   
+                  </Grid>
+                </Box>
+            </Grid>
 
-          <Grid item xs={12} md={2.5}>
-              <Typography sx={{ fontSize: '13px', color: '#325381', fontWeight: 700 }}>Category</Typography>
-              <Box sx={cssBox}>
-                <Grid container>
-                  <Grid item xs>
-                    <TextField id="filled-basic" size="small" variant="filled"/>
-                  </Grid>   
-                </Grid>
-              </Box>
-          </Grid>
+            <Grid item xs={12} md={2}>
+                <Typography sx={{ fontSize: '13px', color: '#325381', fontWeight: 700 }}>Category</Typography>
+                <Box sx={cssBox}>
+                  <Grid container>
+                    <Grid item xs>
+                      <CssTextField fullWidth defaultValue="" size="small" placeholder="" />
+                    </Grid>   
+                  </Grid>
+                </Box>
+            </Grid>
 
-          <Grid item xs={12} md={2.5}>
-              <Typography sx={{ fontSize: '13px', color: '#325381', fontWeight: 700 }}>AMM</Typography>
-              <Box sx={cssBox}>
-                <Grid container>
-                  <Grid item xs>
-                    <TextField id="filled-basic" size="small" variant="filled"/>
-                  </Grid>   
-                </Grid>
-              </Box>
-          </Grid>
+            <Grid item xs={12} md={2}>
+                <Typography sx={{ fontSize: '13px', color: '#325381', fontWeight: 700 }}>AMM</Typography>
+                <Box sx={cssBox}>
+                  <Grid container>
+                    <Grid item xs>
+                      <CssTextField fullWidth defaultValue="" size="small" placeholder="" />
+                    </Grid>   
+                  </Grid>
+                </Box>
+            </Grid>
 
-          <Grid item xs={12} md={2.5}>
-              <Typography sx={{ fontSize: '13px', color: '#325381', fontWeight: 700 }}>Kit 名/作業名</Typography>
-              <Box sx={cssBox}>
-                <Grid container>
-                  <Grid item xs>
-                    <TextField id="filled-basic" size="small" variant="filled"/>
-                  </Grid>   
-                </Grid>
-              </Box>
+            <Grid item xs={12} md={2}>
+                <Typography sx={{ fontSize: '13px', color: '#325381', fontWeight: 700 }}>Kit 名/作業名</Typography>
+                <Box sx={cssBox}>
+                  <Grid container>
+                    <Grid item xs>
+                      <CssTextField fullWidth defaultValue="" size="small" placeholder="" />
+                    </Grid>   
+                  </Grid>
+                </Box>
+            </Grid>
           </Grid>
-        </Grid>
+         </Collapse>
         <Grid container spacing={2} justifyContent="flex-end">
           <Grid item xs={12} md={12}>
-            {showText ?
-            <Typography sx={cssOderRight} onClick={handleClick}>
+            {collapseOpen ?
+            <Typography sx={cssOderRight} onClick={collapseClick}>
               閉じる
               <ExpandLessIcon sx={{ ml: 1,cursor:'pointer' }} />
             </Typography>
             :
-            <Typography sx={cssOderRight} onClick={handleClick}>
+            <Typography sx={cssOderRight} onClick={collapseClick}>
               全て検索
               <ExpandMoreIcon sx={{ ml: 1,cursor:'pointer' }} />
             </Typography>
