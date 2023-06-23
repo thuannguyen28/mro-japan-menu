@@ -72,13 +72,16 @@ export default function RequestPartMaterials() {
 
   const handleClick = () => {
     setShowText(!showText);
-    console.log(showText);
+
+
     if(showText)
     {
       setnumberColumn(5);
+    
     }
     else{
-      setnumberColumn(5.8);
+      setnumberColumn(12/2.1);
+    
     }
   };
   
@@ -235,15 +238,15 @@ export default function RequestPartMaterials() {
 
         
   {showText && (
-          <Grid item >
+          <Grid item xs={1.5}>
               <Typography sx={{ fontSize: '16px', color: '#FFFFFF' }}><strong>Author</strong></Typography>
               <Box sx={cssBox}>
                 <Grid container sx={{ height: '58px' }} spacing={2}  justifyContent={'flex-start'}>
                   <Grid item xs={10}>
             <Link href="https://www.mrojpn.co.jp" underline="none" target="_blank">
                   <Button fullWidth variant="contained" sx={{ bgcolor:"#325381"}}>
-                  <SearchIcon sx={{}}/> 
-                    <Typography >
+                  <SearchIcon style={{width:"20px"}} /> 
+                    <Typography fontSize={{xs:"14px",}} >
                     検索
                   </Typography>
                   </Button>

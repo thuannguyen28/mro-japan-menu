@@ -466,7 +466,7 @@ export default function RequestPartMaterials() {
 
             {
  listNote.map((e,index)=>(<>
-  <Grid container key={{index}}>
+  <Grid container >
   <Grid item xs={6}>
     <Typography sx={font13Bold}></Typography>
   </Grid>
