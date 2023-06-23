@@ -67,7 +67,7 @@ export default function NestedList(props) {
             }
 		      </ListItemIcon>
 
-		      <ListItemText className="cssMenuLink" primary="Parts Order" />
+		      <ListItemText primaryTypographyProps={{ style: cssMenuLink }} primary="Parts Order" />
 		      {open[0] ? <ExpandMore sx={color} /> : <ChevronRightIcon sx={color} />}
 		    </ListItemButton>
 		    <Collapse in={open[0]} timeout="auto" unmountOnExit>
@@ -77,7 +77,7 @@ export default function NestedList(props) {
 			          <ListItemIcon>
 			            <StarBorder sx={color} />
 			          </ListItemIcon>
-			          <ListItemText className="cssMenuLink" primary="Parts Order" />
+			          <ListItemText primaryTypographyProps={{ style: cssMenuLink }} primary="Parts Order" />
 			        </ListItemButton>
 			      </Link>  
 		      </List>
@@ -90,7 +90,7 @@ export default function NestedList(props) {
               (open[1] ? <ExpandMore sx={color} /> : <ChevronRightIcon sx={color} />) : ('')
             }		        
 		      </ListItemIcon>
-		      <ListItemText className="cssMenuLink" primary="Parts Kit" />
+		      <ListItemText primaryTypographyProps={{ style: cssMenuLink }} primary="Parts Kit" />
 		      {open[1] ? <ExpandMore sx={color} /> : <ChevronRightIcon sx={color} />}
 		    </ListItemButton>
 		    <Collapse in={open[1]} timeout="auto" unmountOnExit>
@@ -100,7 +100,7 @@ export default function NestedList(props) {
 			          <ListItemIcon>
 			            <StarBorder sx={color} />
 			          </ListItemIcon>
-			          <ListItemText className="cssMenuLink" primary="Parts Kit" />
+			          <ListItemText primaryTypographyProps={{ style: cssMenuLink }} primary="Parts Kit" />
 			        </ListItemButton>
 			      </Link> 
 		      </List>
@@ -113,7 +113,7 @@ export default function NestedList(props) {
               (open[2] ? <ExpandMore sx={color} /> : <ChevronRightIcon sx={color} />) : ('')
             }		        
 		      </ListItemIcon>
-		      <ListItemText className="cssMenuLink" primary="Order Confirmation" />
+		      <ListItemText primaryTypographyProps={{ style: cssMenuLink }} primary="Order Confirmation" />
 		      {open[2] ? <ExpandMore sx={color} /> : <ChevronRightIcon sx={color} />}
 		    </ListItemButton>
 		    <Collapse in={open[2]} timeout="auto" unmountOnExit>
@@ -122,26 +122,35 @@ export default function NestedList(props) {
 		          <ListItemIcon>
 		            <StarBorder sx={color} />
 		          </ListItemIcon>
-		          <ListItemText className="cssMenuLink" primary="Parts Order List (Zone)" />
+		          <ListItemText primaryTypographyProps={{ style: cssMenuLink }} primary="Parts Order List (Zone)" />
 		        </ListItemButton>
-            <ListItemButton sx={{ pl: 4 }}>
-              <ListItemIcon>
-                <StarBorder sx={color} />
-              </ListItemIcon>
-              <ListItemText className="cssMenuLink" primary="Parts Order List Search" />
-            </ListItemButton>
-            <ListItemButton sx={{ pl: 4 }}>
-              <ListItemIcon>
-                <StarBorder sx={color} />
-              </ListItemIcon>
-              <ListItemText className="cssMenuLink" primary="Parts Order List (All)" />
-            </ListItemButton>
-            <ListItemButton sx={{ pl: 4 }}>
-              <ListItemIcon>
-                <StarBorder sx={color} />
-              </ListItemIcon>
-              <ListItemText className="cssMenuLink" primary="受領者検索" />
-            </ListItemButton>
+
+		        <Link  href="/part_order_search" sx={cssLink}>
+	            <ListItemButton sx={{ pl: 4 }}>
+	              <ListItemIcon>
+	                <StarBorder sx={color} />
+	              </ListItemIcon>
+	              <ListItemText primaryTypographyProps={{ style: cssMenuLink }} primary="Parts Order List Search" />
+	            </ListItemButton>
+            </Link>
+
+            <Link  href="/part_order_list_all" sx={cssLink}>
+	            <ListItemButton sx={{ pl: 4 }}>
+	              <ListItemIcon>
+	                <StarBorder sx={color} />
+	              </ListItemIcon>
+	              <ListItemText primaryTypographyProps={{ style: cssMenuLink }} primary="Parts Order List (All)" />
+	            </ListItemButton>
+            </Link> 
+
+            <Link  href="/recipient_search" sx={cssLink}>
+	            <ListItemButton sx={{ pl: 4 }}>
+	              <ListItemIcon>
+	                <StarBorder sx={color} />
+	              </ListItemIcon>
+	              <ListItemText primaryTypographyProps={{ style: cssMenuLink }} primary="受領者検索" />
+	            </ListItemButton>
+            </Link>
 		      </List>
 		    </Collapse>
 
@@ -152,7 +161,7 @@ export default function NestedList(props) {
               (open[3] ? <ExpandMore sx={color} /> : <ChevronRightIcon sx={color} />) : ('')
             }		        
 		      </ListItemIcon>
-		      <ListItemText className="cssMenuLink" primary="Document Drafting Assistance" />
+		      <ListItemText primaryTypographyProps={{ style: cssMenuLink }} primary="Document Drafting Assistance" />
 		      {open[3] ? <ExpandMore sx={color} /> : <ChevronRightIcon sx={color} />}
 		    </ListItemButton>
 		    <Collapse in={open[3]} timeout="auto" unmountOnExit>
@@ -161,13 +170,13 @@ export default function NestedList(props) {
 		          <ListItemIcon>
 		            <StarBorder sx={color} />
 		          </ListItemIcon>
-		          <ListItemText className="cssMenuLink" primary="SPR" />
+		          <ListItemText primaryTypographyProps={{ style: cssMenuLink }} primary="SPR" />
 		        </ListItemButton>
             <ListItemButton sx={{ pl: 4 }}>
               <ListItemIcon>
                 <StarBorder sx={color} />
               </ListItemIcon>
-              <ListItemText className='cssMenuLink'  primary="良品票添付台紙" />
+              <ListItemText primaryTypographyProps={{ style: cssMenuLink }} primary="良品票添付台紙" />
             </ListItemButton>
 		      </List>
 		    </Collapse>
@@ -179,7 +188,7 @@ export default function NestedList(props) {
               (open[4] ? <ExpandMore sx={color} /> : <ChevronRightIcon sx={color} />) : ('')
             }		        
 		      </ListItemIcon>
-		      <ListItemText className='cssMenuLink'  primary="Parts Supply Department" />
+		      <ListItemText primaryTypographyProps={{ style: cssMenuLink }} primary="Parts Supply Department" />
 		      {open[4] ? <ExpandMore sx={color} /> : <ChevronRightIcon sx={color} />}
 		    </ListItemButton>
 		    <Collapse in={open[4]} timeout="auto" unmountOnExit>
@@ -188,7 +197,7 @@ export default function NestedList(props) {
 		          <ListItemIcon>
 		            <StarBorder sx={color} />
 		          </ListItemIcon>
-		          <ListItemText className='cssMenuLink'  primary="Parts Supply Department Menu" />
+		          <ListItemText primaryTypographyProps={{ style: cssMenuLink }} primary="Parts Supply Department Menu" />
 		        </ListItemButton>
 		      </List>
 		    </Collapse>
@@ -219,7 +228,7 @@ export default function NestedList(props) {
               (open[5] ? <ExpandMore sx={color} /> : <ChevronRightIcon sx={color} />) : ('')
             }		        
 		      </ListItemIcon>
-		      <ListItemText className="cssMenuLink" primary="Task Card" />
+		      <ListItemText primaryTypographyProps={{ style: cssMenuLink }} primary="Task Card" />
 		      {open[5] ? <ExpandMore sx={color} /> : <ChevronRightIcon sx={color} />}
 		    </ListItemButton>
 		    <Collapse in={open[5]} timeout="auto" unmountOnExit>
@@ -228,7 +237,7 @@ export default function NestedList(props) {
 		          <ListItemIcon>
 		            <StarBorder sx={color} />
 		          </ListItemIcon>
-		          <ListItemText className="cssMenuLink" primary="Task Card Status" />
+		          <ListItemText primaryTypographyProps={{ style: cssMenuLink }} primary="Task Card Status" />
 		        </ListItemButton>
 		      </List>
 		    </Collapse>
@@ -238,7 +247,7 @@ export default function NestedList(props) {
 		          <ListItemIcon>
 		            <StarBorder sx={color} />
 		          </ListItemIcon>
-		          <ListItemText className="cssMenuLink" primary="N/R Task Card Status" />
+		          <ListItemText primaryTypographyProps={{ style: cssMenuLink }} primary="N/R Task Card Status" />
 		        </ListItemButton>
 		      </List>
 		    </Collapse>
@@ -250,7 +259,7 @@ export default function NestedList(props) {
               (open[6] ? <ExpandMore sx={color} /> : <ChevronRightIcon sx={color} />) : ('')
             }		        
 		      </ListItemIcon>
-		      <ListItemText className="cssMenuLink" primary="Line Maintenance" />
+		      <ListItemText primaryTypographyProps={{ style: cssMenuLink }} primary="Line Maintenance" />
 		      {open[6] ? <ExpandMore sx={color} /> : <ChevronRightIcon sx={color} />}
 		    </ListItemButton>
 		    <Collapse in={open[6]} timeout="auto" unmountOnExit>
@@ -259,7 +268,7 @@ export default function NestedList(props) {
 		          <ListItemIcon>
 		            <StarBorder sx={color} />
 		          </ListItemIcon>
-		          <ListItemText className="cssMenuLink" primary="LINE定例作業" />
+		          <ListItemText primaryTypographyProps={{ style: cssMenuLink }} primary="LINE定例作業" />
 		        </ListItemButton>
 		      </List>
 		    </Collapse>
@@ -290,7 +299,7 @@ export default function NestedList(props) {
               (open[7] ? <ExpandMore sx={color} /> : <ChevronRightIcon sx={color} />) : ('')
             }		        
 		      </ListItemIcon>
-		      <ListItemText className="cssMenuLink" primary="Tools Order" />
+		      <ListItemText primaryTypographyProps={{ style: cssMenuLink }} primary="Tools Order" />
 		      {open[7] ? <ExpandMore sx={color} /> : <ChevronRightIcon sx={color} />}
 		    </ListItemButton>
 		    <Collapse in={open[7]} timeout="auto" unmountOnExit>
@@ -299,7 +308,7 @@ export default function NestedList(props) {
 		          <ListItemIcon>
 		            <StarBorder sx={color} />
 		          </ListItemIcon>
-		          <ListItemText className="cssMenuLink" primary="Tools Order" />
+		          <ListItemText primaryTypographyProps={{ style: cssMenuLink }} primary="Tools Order" />
 		        </ListItemButton>
 		      </List>
 		    </Collapse>
@@ -311,7 +320,7 @@ export default function NestedList(props) {
               (open[8] ? <ExpandMore sx={color} /> : <ChevronRightIcon sx={color} />) : ('')
             }		        
 		      </ListItemIcon>
-		      <ListItemText className="cssMenuLink" primary="Tools Check" />
+		      <ListItemText primaryTypographyProps={{ style: cssMenuLink }} primary="Tools Check" />
 		      {open[8] ? <ExpandMore sx={color} /> : <ChevronRightIcon sx={color} />}
 		    </ListItemButton>
 		    <Collapse in={open[8]} timeout="auto" unmountOnExit>
@@ -320,13 +329,13 @@ export default function NestedList(props) {
 		          <ListItemIcon>
 		            <StarBorder sx={color} />
 		          </ListItemIcon>
-		          <ListItemText className="cssMenuLink" primary="Tool Inventory" />
+		          <ListItemText primaryTypographyProps={{ style: cssMenuLink }} primary="Tool Inventory" />
 		        </ListItemButton>
             <ListItemButton sx={{ pl: 4 }}>
               <ListItemIcon>
                 <StarBorder sx={color} />
               </ListItemIcon>
-              <ListItemText className="cssMenuLink" primary="Flash Light" />
+              <ListItemText primaryTypographyProps={{ style: cssMenuLink }} primary="Flash Light" />
             </ListItemButton>
 		      </List>
 		    </Collapse>
@@ -335,13 +344,13 @@ export default function NestedList(props) {
       <Link  href="#" sx={ cssLink }>
           <ListItemButton>
             <ListItemIcon> <Icon><img src="../menu/information.png" width={widthIcon} height={heightIcon} /></Icon> </ListItemIcon>
-            <ListItemText className="cssMenuLink" primary="Help & information" />
+            <ListItemText primaryTypographyProps={{ style: cssMenuLink }} primary="Help & information" />
           </ListItemButton>
       </Link>
       <Link  href="#" sx={ cssLink }>
           <ListItemButton>
             <ListItemIcon> <Icon><img src="../menu/logout.png" width={widthIcon} height={heightIcon} /></Icon> </ListItemIcon>
-            <ListItemText className="cssMenuLink" primary="Logout" />
+            <ListItemText primaryTypographyProps={{ style: cssMenuLink }} primary="Logout" />
           </ListItemButton>
       </Link>
     </div>

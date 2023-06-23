@@ -51,9 +51,9 @@ const cssLink = { textDecoration: 'none', color: 'inherit' };
 const cssMro = { backgroundColor: '#325381', color: '#FFFFFF', fontSize: '13px', position: 'absolute', right: 0, bottom: 0 };
 const cssMroTitle = { color: '#325381', fontSize: '20px' };
 const cssBox = { py: 1, borderRadius: '5px', backgroundColor: '#F5F5F5', height: 60 };
-const cssBox2 = { paddingX: "40px", paddingTop: "50px", borderRadius: '5px', backgroundColor: '#F5F5F5', height: 670  };
+const cssBox2 = { paddingX: "40px", paddingTop: "50px", borderRadius: '5px', backgroundColor: '#F5F5F5', height: 670 };
 const cssBox3 = { color: '#325381', backgroundColor: '#F5F5F5', py: 1, borderRadius: '5px', overflowY: 'scroll', height: 490 };
-const cssBox4 = { color: '#325381', backgroundColor: '#F5F5F5', py: 1, borderRadius: '5px', overflowY: 'scroll', height:750 };
+const cssBox4 = { color: '#325381', backgroundColor: '#F5F5F5', py: 1, borderRadius: '5px', overflowY: 'scroll', height: 750 };
 const font12Center = { fontSize: '15px', display: 'flex', alignItems: 'center', justifyContent: 'center' };
 const font12Left = { fontSize: '15px', display: 'flex', alignItems: 'center', justifyContent: 'left', ml: 4 };
 const font11 = { color: '#B8B8B8', fontSize: '11px', display: 'flex', alignItems: 'center', justifyContent: 'center', };
@@ -116,15 +116,15 @@ export default function RequestPartMaterials() {
   const [open, setOpen] = React.useState(false);
   const [listNote, setListNote] = React.useState(
     [new Note(1, 1, "ddd"), new Note(1, 1, "ddd"),
-     new Note(1, 1, "ddd"), new Note(1, 1, "ddd"),
-      new Note(1, 1, "ddd"), new Note(1, 1, "ddd"),
-       new Note(1, 1, "ddd"), new Note(1, 1, "ddd"),
-        new Note(1, 1, "ddd"),  new Note(1, 1, "ddd"),
-        new Note(1, 1, "ddd"),  new Note(1, 1, "ddd"),
-        new Note(1, 1, "ddd"),  new Note(1, 1, "ddd"),
-        new Note(1, 1, "ddd"),  new Note(1, 1, "ddd"),
-        new Note(1, 1, "ddd"),  new Note(1, 1, "ddd"),
-        new Note(1, 1, "ddd"),  new Note(1, 1, "ddd")]);
+    new Note(1, 1, "ddd"), new Note(1, 1, "ddd"),
+    new Note(1, 1, "ddd"), new Note(1, 1, "ddd"),
+    new Note(1, 1, "ddd"), new Note(1, 1, "ddd"),
+    new Note(1, 1, "ddd"), new Note(1, 1, "ddd"),
+    new Note(1, 1, "ddd"), new Note(1, 1, "ddd"),
+    new Note(1, 1, "ddd"), new Note(1, 1, "ddd"),
+    new Note(1, 1, "ddd"), new Note(1, 1, "ddd"),
+    new Note(1, 1, "ddd"), new Note(1, 1, "ddd"),
+    new Note(1, 1, "ddd"), new Note(1, 1, "ddd")]);
   const handleClickOpen = () => {
     setOpen(true);
   };
@@ -179,68 +179,29 @@ export default function RequestPartMaterials() {
           <Grid item xs={12} md={7}>
             <Grid item xs={12} md={12}>
 
-              <Box sx={cssBox}>
-                <FormGroup sx={{ paddingX: "40px" }}>
-                  <Grid container flexDirection={'row'} alignItems={'center'}>
-                    <Grid item xs={7}>
-                      <Grid container>
-
-                        <FormControlLabel control={<Checkbox defaultChecked />} label={<Typography fontSize={15}>Parts</Typography>} labelPlacement="start" sx={font12Center} />
-
-
-                        <FormControlLabel control={<Checkbox />} label={<Typography fontSize={15}>Tools</Typography>} labelPlacement="start" sx={font12Center} />
-
-
-                        <FormControlLabel control={<Checkbox />} label={<Typography fontSize={15}>Trax</Typography>} labelPlacement="start" sx={font12Center} />
-
-
-                        <FormControlLabel control={<Checkbox />} label={<Typography fontSize={15}>Knowledge</Typography>} labelPlacement="start" sx={font12Center} />
-                      </Grid>
-
-                    </Grid>
-
-
-                    <Grid item xs={5} >
-                      <Grid container alignItems={'space-between'}  >
-                        <Grid container justifyContent={'flex-end'} >
-                          <Grid item xs={4}>
-                            <Grid container spacing={1}
-                            >
-                              <Grid item                             >
-                                <Typography sx={font11Right}>作成者 : </Typography>
-
-                              </Grid>
-                              <Grid item >
-                                <Typography sx={font11Right}>70075 </Typography>
-                              </Grid>
-
-                            </Grid>
-                          </Grid>
-                          <Grid item >
-                            <Typography sx={font11Center}>2023/05/19  14:00:00</Typography>
-                          </Grid>
-
-                        </Grid>
-                        <Grid container justifyContent={'flex-end'} >
-                          <Typography sx={font11}>BD13793F-E0EE-024E-B282-E721B932BF45</Typography>
-
-
-
-
-                        </Grid>
-                      </Grid>
-
-
-
-                    </Grid>
-
-
+            <Box sx={cssBox}>
+              <FormGroup>
+                <Grid container spacing={1} sx={{padding:"5px"}}>
+                  <Grid item xs={1.5}>
+                    <FormControlLabel control={<Checkbox defaultChecked />} label="Parts" labelPlacement="start" sx={font12Center} />
                   </Grid>
+                  <Grid item xs={1.5}>
+                    <FormControlLabel control={<Checkbox />} label="Tools" labelPlacement="start" sx={font12Center} />
+                  </Grid>
+                  <Grid item xs={1.5}>
+                   <FormControlLabel control={<Checkbox />} label="Trax" labelPlacement="start" sx={font12Center} />
+                  </Grid>
+                  <Grid item xs={2.5}>
+                    <FormControlLabel control={<Checkbox />} label="Knowledge" labelPlacement="start" sx={font12Center} />
+                  </Grid>
+                  <Grid item xs={5}>
+                    <Typography sx={font11Right}><span>作成者 : 70075</span> <span>2023/05/19  14:00:00</span></Typography>
+                    <Typography sx={font11Right}>BD13793F-E0EE-024E-B282-E721B932BF45</Typography>
+                  </Grid>
+                </Grid>
+              </FormGroup>
+            </Box>
 
-
-
-                </FormGroup>
-              </Box>
 
             </Grid>
 
@@ -464,26 +425,26 @@ export default function RequestPartMaterials() {
               </Grid>
               <Divider sx={{ my: '3px' }} />
 
-            {
- listNote.map((e,index)=>(<>
-  <Grid container >
-  <Grid item xs={6}>
-    <Typography sx={font13Bold}></Typography>
-  </Grid>
-  <Divider orientation="vertical" />
-  <Grid item xs={2}>
-    <Typography sx={font13Bold}></Typography>
-  </Grid>
-  <Divider orientation="vertical" />
-  <Grid item xs={3}>
-    <Typography sx={font13Bold}></Typography>
-  </Grid>
-  <Divider orientation="vertical" />
-</Grid>
-<Divider sx={{ my: '3px' }} /></>))
-            }
+              {
+                listNote.map((e, index) => (<>
+                  <Grid container >
+                    <Grid item xs={6}>
+                      <Typography sx={font13Bold}></Typography>
+                    </Grid>
+                    <Divider orientation="vertical" />
+                    <Grid item xs={2}>
+                      <Typography sx={font13Bold}></Typography>
+                    </Grid>
+                    <Divider orientation="vertical" />
+                    <Grid item xs={3}>
+                      <Typography sx={font13Bold}></Typography>
+                    </Grid>
+                    <Divider orientation="vertical" />
+                  </Grid>
+                  <Divider sx={{ my: '3px' }} /></>))
+              }
 
-           
+
 
             </Box>
 
