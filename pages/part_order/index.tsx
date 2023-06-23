@@ -58,11 +58,12 @@ const ItemFrame = styled(Paper)(({ theme }) => ({
   ...theme.typography.body2, 
   width:175,
   height:95,
+
   marginBottom:10,
-  boxShadow:'0px 0px 10px rgba(0, 0, 0, 0.2)',
+  boxShadow:'0px 0px 5px rgba(0, 0, 0, 0.2)',
   transition: 'box-shadow 0.3s ease-in-out',
   '&:hover': {
-  boxShadow: '0px 0px 20px rgba(50, 83, 129, 100)',
+  boxShadow: '0px 0px 10px rgba(50, 83, 129, 100)',
   },
   [theme.breakpoints.up('sm')]: {
           width: 466,
@@ -72,10 +73,10 @@ const ItemFrame = styled(Paper)(({ theme }) => ({
           textAlign: 'center',
           color: theme.palette.text.secondary,
           borderRadius: '10px',
-          boxShadow:'0px 0px 10px rgba(1, 1, 1, 0.2)',
+          boxShadow:'0px 0px 5px rgba(1, 1, 1, 0.2)',
           transition: 'box-shadow 0.3s ease-in-out',
           '&:hover': {
-          boxShadow: '0px 0px 20px rgba(50, 83, 129, 100)',
+          boxShadow: '0px 0px 10px rgba(50, 83, 129, 100)',
           },
         },
 }));
@@ -108,6 +109,8 @@ const ItemAvatar = styled(Paper)(({ theme }) => ({
 const cardMedia = { margin: 'auto', width: { xs: 138, md: 224 }, height: { xs: 68, md: 126 } };
 const cardMedia1 = { margin: 'auto', mt:2 ,width: { xs: 160, md: 320 }, height: { xs: 36, md: 72 } };
 const cardMedia2 = { margin: 'auto', mt:2 , width: { xs: 120, md: 232 }, height: { xs: 36, md: 72 } };
+
+const FrameCenter = { display: 'flex',alignItems: 'center',justifyContent: 'center' };
 
 const cssLink = { textDecoration: 'none', color: 'inherit' };
 
@@ -151,59 +154,56 @@ export default function Parts() {
             <Typography color="#3A5075" sx={{ mb:{xs:6, md:0}, ml:{xs:2, md:0}}}>
               <strong>{ isMobile ? 'Customer select' : ''}</strong>
             </Typography>
-            <Grid container spacing={2}>
-              <Item>
-                <ItemRow>
-                  <Link  href="/part_order/anal" sx={cssLink}>
-                    <ItemFrame>
-                      <ItemAvatar>
-                        <CardMedia
-                          sx={cardMedia}
-                          image="part-order/anal.png"/>
-                      </ItemAvatar>
-                    </ItemFrame>
-                  </Link>
-                </ItemRow>
+            <Grid container spacing={2} >
+              <Grid item xs={6} sx={FrameCenter}>
+                <Link  href="/part_order/anal" sx={cssLink}>
+                  <ItemFrame>
+                    <ItemAvatar>
+                      <CardMedia
+                        sx={cardMedia}
+                        image="part-order/anal.png"/>
+                    </ItemAvatar>
+                  </ItemFrame>
+                </Link>
+              </Grid>
 
-                <ItemRow>
-                  <Link  href="/part_order" sx={cssLink}>
-                    <ItemFrame>
-                      <ItemAvatar>
-                        <CardMedia
-                          sx={cardMedia1}
-                          image="part-order/solaseed.png"/>
-                      </ItemAvatar>
-                    </ItemFrame>
-                  </Link>
-                </ItemRow>
-              </Item>
+              <Grid item xs={6} >
+                <Link  href="/part_order" sx={cssLink}>
+                  <ItemFrame>
+                    <ItemAvatar>
+                      <CardMedia
+                        sx={cardMedia1}
+                        image="part-order/solaseed.png"/>
+                    </ItemAvatar>
+                  </ItemFrame>
+                </Link>
+              </Grid>
+            </Grid>
 
-              <Item>
-                <ItemRow>
-                  <Link  href="/part_order" sx={cssLink}>
-                    <ItemFrame>
-                      <ItemAvatar>
-                        <CardMedia
-                          sx={cardMedia2}
-                          image="part-order/peach.png"/>
-                      </ItemAvatar>
-                    </ItemFrame>
-                  </Link>
-                </ItemRow>
+            <Grid container spacing={2} sx={{ mt:4 }}>
+              <Grid item xs={6} sx={FrameCenter}>
+                <Link  href="/part_order" sx={cssLink}>
+                  <ItemFrame>
+                    <ItemAvatar>
+                      <CardMedia
+                        sx={cardMedia2}
+                        image="part-order/peach.png"/>
+                    </ItemAvatar>
+                  </ItemFrame>
+                </Link>
+              </Grid>
 
-                <ItemRow>
-                  <Link  href="/part_order" sx={cssLink}>
-                    <ItemFrame>
-                      <ItemAvatar>
-                        <CardMedia
-                          sx={cardMedia}
-                          image="part-order/starflyer.png"/>
-                      </ItemAvatar>
-                    </ItemFrame>
-                  </Link>
-                </ItemRow>
-
-              </Item>
+              <Grid item xs={6}>
+                <Link  href="/part_order" sx={cssLink}>
+                  <ItemFrame>
+                    <ItemAvatar>
+                      <CardMedia
+                        sx={cardMedia}
+                        image="part-order/starflyer.png"/>
+                    </ItemAvatar>
+                  </ItemFrame>
+                </Link>
+              </Grid>
             </Grid>
           </Box>
          </Grid>
