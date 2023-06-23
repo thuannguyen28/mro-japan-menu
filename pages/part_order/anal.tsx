@@ -46,6 +46,39 @@ import TableRow from '@mui/material/TableRow';
 import TextField from '@mui/material/TextField';
 import Autocomplete, { createFilterOptions } from '@mui/material/Autocomplete';
 
+// Css TextField
+const CssTextField = styled(TextField)({
+
+  '& label.Mui-focused': {
+    color: '#A0AAB4',
+  },
+  '& .MuiInput-underline:after': {
+    borderBottomColor: 'transparent',
+  },
+  '& .MuiOutlinedInput-root': {
+    '& fieldset': {
+      borderColor: 'transparent',
+    },
+    '&:hover fieldset': {
+      borderColor: 'transparent',
+    },
+    '&.Mui-focused fieldset': {
+      borderColor: 'transparent',
+    },
+    '&.Mui-focused': {
+      backgroundColor: '#fff',
+      color:"#325381",
+      textAlign:'left',
+    },
+    '& input': {
+      height:10,
+      textAlign:'left',
+      color:"#325381",
+    },
+  },
+
+});
+
 // Css PC
 const cssMro = { width: '100%', color: '#325381', textAlign: 'right', fontSize: '13px', position: 'absolute', right: 0, bottom: 0 };
 const cssBox = { background : {xs:'#FFFFFF', md:'#F5F5F5'}, px: 1, py: 1, borderRadius: '5px'};
@@ -54,13 +87,14 @@ const cssBox2 = { height:18};
 const cssBox3 = { px: 1, py: 1, borderRadius: '5px'};
 const font12Center = { fontSize: '12px', textAlign: 'center' };
 const font12Left = { fontSize: '12px', textAlign: 'left' };
-const font12 = { fontSize: '12px', ml:4};
+const font12 = { fontSize: '12px'};
 const cssOder = { width: '100%', textAlign: 'right', fontSize: '12px', fontWeight: 700, mb: '5px' };
 const font13Bold = { fontSize: '13px', textAlign: 'center', py: 2, fontWeight: 700 };
 
 const cssTitle = { color : '#325381', fontSize:14, mt:{xs: 0, md:5}, };
 const cssTitle1 = { color : '#325381', fontSize:14, mt:{xs: 0, md:5}, ml:{xs: 0, md:2} };
 const cssDetailTitle = { color:'#325381', whiteSpace: 'nowrap', fontSize:{xs:11, md:16}};
+const cssDetailTitle1 = { color:'#325381', whiteSpace: 'nowrap', fontSize:{xs:11, md:16}, ml:1};
 const cssDetail = { color:'#DE0606', fontSize:'11px' };
 const cssDetailData = { color:'#325381',fontSize:{ xs:11, md:16 } , textAlign: 'center', height:25 };
 const cssData = { ml:2, display:'flex', alignItems:'center', fontSize:12, color:'#DE0606' };
@@ -69,6 +103,8 @@ const cssEnd = { textAlign:'center', fontSize:12, color:'#DE0606', mt:1 };
 const cssTitleReponsive = { color : '#325381', fontSize:13, ml: 1 };
 const cssBoxReponsive = { background : {xs:'#FFFFFF', md:'#F5F5F5'}, px: 1, py: 1, borderRadius: '5px'};
 const cssBoxre = { background : {xs:'#FFFFFF', md:'#F5F5F5'}, width:'100%', borderRadius: '5px'};
+
+const CssText={color:'#325381', fontSize:{xs:11,md:16},};
 
 function BootstrapDialogTitle(props: DialogTitleProps) {
   const { children, onClose, ...other } = props;
@@ -605,11 +641,11 @@ export default function Anal() {
             :
             <div>
             <Grid container>
-              <Grid item xs={2.7}>
+              <Grid item xs={2.8}>
                 <Typography sx={cssTitle1} > Work Order Number </Typography>
               </Grid>
 
-              <Grid item xs={2.6}>
+              <Grid item xs={2.7}>
                 <Typography sx={cssTitle} > Task Card Number </Typography>
               </Grid>
 
@@ -621,19 +657,19 @@ export default function Anal() {
                 <Typography sx={cssTitle} > RSN </Typography>
               </Grid>
 
-              <Grid item xs>
-                <Grid container>
-                  <Grid item xs={5}>
+              <Grid item xs={3.5}>
+                <Grid container sx={{ ml:5 }}>
+                  <Grid item xs={6}>
                     <Grid item xs>
                       <Grid container spacing={0} sx={{ mt: '10px' }}>
                         <Grid item xs={12}>
                           <Typography sx={font12}>Date</Typography>
-                          <Grid container>
-                            <Grid item xs={3}>
-                              <CalendarMonth sx={{ ml:4 }} />
+                          <Grid container alignItems="center" justifyContent="center">
+                            <Grid item xs={2} sx={{ display:"flex", alignItems:"left", justifyContent:"left" }}>
+                              <CalendarMonth />
                             </Grid>
                             <Grid item xs>
-                              <Typography sx={{ color : '#325381', fontSize:14, display:'flex', alignItems:'flex-end'}}>2023/05/18</Typography>
+                              <Typography sx={{ color : '#325381', fontSize:14}}>2023/05/18</Typography>
                             </Grid>
                           </Grid>
 
@@ -642,17 +678,17 @@ export default function Anal() {
                     </Grid>
                   </Grid>
 
-                  <Grid item xs={5}>
+                  <Grid item xs={6}>
                     <Grid item xs>
                       <Grid container spacing={0} sx={{ mt: '10px' }}>
                         <Grid item xs={12}>
                           <Typography sx={font12}>Time</Typography>
-                          <Grid container>
-                            <Grid item xs={3}>
-                              <AccessTime sx={{ ml:4 }} />
+                          <Grid container alignItems="center" justifyContent="center">
+                            <Grid item xs={2} sx={{ display:"flex", alignItems:"left", justifyContent:"left" }}>
+                              <AccessTime />
                             </Grid>
                             <Grid item xs>
-                              <Typography sx={{ color : '#325381', fontSize:14, display:'flex', alignItems:'flex-end'}}>14:00</Typography>
+                              <Typography sx={{ color : '#325381', fontSize:14}}>14:00</Typography>
                             </Grid>
                           </Grid>
                         </Grid>
@@ -660,27 +696,27 @@ export default function Anal() {
                     </Grid>
                   </Grid>
                 </Grid>
-                <Divider sx={{ my: '2px', mr:25}} />
+                <Divider sx={{ my: 1, mr:10}} />
               </Grid>
             </Grid>
 
             <Grid container>
-              <Grid item xs={2.7}>
+              <Grid item xs={2.8}>
                 <Autocomplete
                   disablePortal
                   id="combo-box-demo"
                   options={topWorkOrderFilms}
-                  sx={{ width: 320, bgcolor:"#F0F0F0", ml:2 }}
+                  sx={{ width: '90%', bgcolor:"#F0F0F0", ml:2 }}
                   renderInput={(params) => <TextField {...params} placeholder="10023866" size="small" sx={{ fontSize: 13 }} />}
                 />
               </Grid>
 
-              <Grid item xs={2.6}>
+              <Grid item xs={2.7}>
                 <Autocomplete
                   disablePortal
                   id="combo-box-demo"
                   options={topCardFilms}
-                  sx={{ width: 320, bgcolor:"#F0F0F0" }}
+                  sx={{ width: '95%', bgcolor:"#F0F0F0" }}
                   renderInput={(params) => <TextField {...params} placeholder="ANA - 1230006" size="small" sx={{ fontSize: 13 }} />}
                 />
               </Grid>
@@ -690,7 +726,7 @@ export default function Anal() {
                   disablePortal
                   id="combo-box-demo"
                   options={topZoneFilms}
-                  sx={{ width: 140, bgcolor:"#F0F0F0" }}
+                  sx={{ width: '90%', bgcolor:"#F0F0F0" }}
                   renderInput={(params) => <TextField {...params} placeholder="EXT2" size="small" sx={{ fontSize: 13 }} />}
                 />
               </Grid>
@@ -700,36 +736,23 @@ export default function Anal() {
                   disablePortal
                   id="combo-box-demo"
                   options={topZoneFilms}
-                  sx={{ width: 140, bgcolor:"#F0F0F0" }}
+                  sx={{ width: '90%', bgcolor:"#F0F0F0" }}
                   renderInput={(params) => <TextField {...params} placeholder="EXT2" size="small" sx={{ fontSize: 13 }} />}
                 />
               </Grid>
 
-              <Grid item xs>
+              <Grid item xs={3.5} sx={{ ml:5 }}>
                   
                 <Grid container>
-                  <Grid item xs={5}>
-                    <Grid item xs>
-                      <Grid container spacing={0} sx={{ mt: '10px' }}>
-                        <Grid item xs={12}>
-                          <Typography sx={font12}>AC Number</Typography>
-                          
-                          <Typography sx={font12} ><strong>JA219A</strong></Typography>
-                        </Grid>
-                      </Grid>
-                    </Grid>
+                  <Grid item xs={6}>
+                    <Typography sx={font12}>AC Number</Typography>
+                    <Typography sx={font12} ><strong>JA219A</strong></Typography>
                   </Grid>
 
-                  <Grid item xs={5}>
-                    <Grid item xs>
-                      <Grid container spacing={0} sx={{ mt: '10px' }}>
-                        <Grid item xs={12}>
-                          <Typography sx={font12}>要求者</Typography>
-                          <Typography sx={font12} ><strong>70075</strong></Typography>
-                          <Typography sx={font12}>中嶋</Typography>
-                        </Grid>
-                      </Grid>
-                    </Grid>
+                  <Grid item xs={6}>
+                    <Typography sx={font12}>要求者</Typography>
+                    <Typography sx={font12} ><strong>70075</strong></Typography>
+                    <Typography sx={font12}>中嶋</Typography>
                   </Grid>
                 </Grid>
 
@@ -744,12 +767,12 @@ export default function Anal() {
 
       {/*header 2*/}
 
-      <Grid container spacing={2} sx={{ pt: 2,  }}>
+      <Grid container spacing={2} sx={{ pt: 2, pr:{xs:0, md:2}  }}>
         <Grid item xs={3} md={2.8}>
           <Box sx={cssBox3}>
             <Grid container>
               <Grid item xs>
-                <Typography sx={cssDetailTitle}>Parts Number</Typography>
+                <Typography sx={cssDetailTitle1}>Parts Number</Typography>
               </Grid>
             </Grid>
           </Box>
@@ -909,11 +932,11 @@ export default function Anal() {
             <Grid container>
               <Grid item xs>
                 <Grid container sx={{ height:24 }}>
-                  <Grid item xs={6}>
+                  <Grid item xs={3}>
                     <SearchIcon color="disabled" onClick={handleClickOpenSearch} sx={{ cursor:'pointer' }} /> 
                   </Grid>
-                  <Grid item xs={6}>
-                    <Typography sx={{ color:'#325381', fontSize:{xs:11,md:16}, }}>MS24665 - 153</Typography>
+                  <Grid item xs={9}>
+                    <Typography sx={{ color:'#325381', fontSize:{xs:11,md:16}, ml:2 }}>MS24665 - 153</Typography>
                   </Grid>
                 </Grid>
               </Grid>
@@ -966,17 +989,22 @@ export default function Anal() {
             disableClearable
             id="combo-box-demo"
             options={topQTY}
-            sx={{ width: {xs:60, md:150}, 
-                  bgcolor:"#F0F0F0", 
+            sx={{ width: "100%", 
+                  bgcolor:"#F0F0F0",
                   '& .MuiOutlinedInput-notchedOutline': {
                     border: 'none',
+                  }, 
+                  
+                  '& .MuiAutocomplete-input': {
+                   textAlign:"center",
+                   color:"#325381",
                   }, 
                 }}
             renderInput={(params) => <TextField {...params} placeholder="1" size="small" sx={{ fontSize: 13 }} />}
           />
         </Grid>
 
-        <Grid item xs={1} md={1.2}>
+        <Grid item xs={1} md={1}>
           {isMobile ?
           <img src="../home/delete.png" width="20" height="20" />
           :
@@ -1065,11 +1093,11 @@ export default function Anal() {
             <Grid container>
               <Grid item xs>
                 <Grid container sx={{ height:24 }}>
-                  <Grid item xs={6}>
+                  <Grid item xs={3}>
                     <SearchIcon color="disabled" onClick={handleClickOpenSearch} sx={{ cursor:'pointer' }} /> 
                   </Grid>
-                  <Grid item xs={6}>
-                    <Typography sx={{ color:'#325381', fontSize:{xs:11,md:16}, }}>MS24665 - 153</Typography>
+                  <Grid item xs={9}>
+                    <CssTextField sx={CssText} size="small" placeholder="" />
                   </Grid>
                 </Grid>
               </Grid>
@@ -1122,17 +1150,22 @@ export default function Anal() {
             disableClearable
             id="combo-box-demo"
             options={topQTY}
-            sx={{ width: {xs:60, md:150}, 
-                  bgcolor:"#F0F0F0", 
+            sx={{ width: "100%", 
+                  bgcolor:"#F0F0F0",
                   '& .MuiOutlinedInput-notchedOutline': {
                     border: 'none',
+                  }, 
+                  
+                  '& .MuiAutocomplete-input': {
+                   textAlign:"center",
+                   color:"#325381",
                   }, 
                 }}
             renderInput={(params) => <TextField {...params} placeholder="1" size="small" sx={{ fontSize: 13 }} />}
           />
         </Grid>
 
-        <Grid item xs={1} md={1.2}>
+        <Grid item xs={1} md={1}>
           {isMobile ?
           <img src="../home/delete.png" width="20" height="20" />
           :
@@ -1165,6 +1198,9 @@ export default function Anal() {
               <Grid item xs>
                 <Typography sx={cssDetail}></Typography>
               </Grid>
+              <Grid item xs>
+                <Typography sx={cssDetail}></Typography>
+              </Grid>
             </Grid>
           </Box>
         </Grid>
@@ -1218,11 +1254,11 @@ export default function Anal() {
             <Grid container>
               <Grid item xs>
                 <Grid container sx={{ height:24 }}>
-                  <Grid item xs={6}>
+                  <Grid item xs={3}>
                     <SearchIcon color="disabled" onClick={handleClickOpenSearch} sx={{ cursor:'pointer' }} /> 
                   </Grid>
-                  <Grid item xs={6}>
-                    <Typography sx={{ color:'#325381', fontSize:{xs:11,md:16}, }}>MS24665 - 153</Typography>
+                  <Grid item xs={9}>
+                    <CssTextField sx={CssText} size="small" placeholder="" />
                   </Grid>
                 </Grid>
               </Grid>
@@ -1275,17 +1311,22 @@ export default function Anal() {
             disableClearable
             id="combo-box-demo"
             options={topQTY}
-            sx={{ width: {xs:60, md:150}, 
-                  bgcolor:"#F0F0F0", 
+            sx={{ width: "100%", 
+                  bgcolor:"#F0F0F0",
                   '& .MuiOutlinedInput-notchedOutline': {
                     border: 'none',
+                  }, 
+                  
+                  '& .MuiAutocomplete-input': {
+                   textAlign:"center",
+                   color:"#325381",
                   }, 
                 }}
             renderInput={(params) => <TextField {...params} placeholder="1" size="small" sx={{ fontSize: 13 }} />}
           />
         </Grid>
 
-        <Grid item xs={1} md={1.2}>
+        <Grid item xs={1} md={1}>
           {isMobile ?
           <img src="../home/delete.png" width="20" height="20" />
           :
@@ -1318,6 +1359,9 @@ export default function Anal() {
               <Grid item xs>
                 <Typography sx={cssDetail}></Typography>
               </Grid>
+              <Grid item xs>
+                <Typography sx={cssDetail}></Typography>
+              </Grid>
             </Grid>
           </Box>
         </Grid>
@@ -1371,11 +1415,11 @@ export default function Anal() {
             <Grid container>
               <Grid item xs>
                 <Grid container sx={{ height:24 }}>
-                  <Grid item xs={6}>
+                  <Grid item xs={3}>
                     <SearchIcon color="disabled" onClick={handleClickOpenSearch} sx={{ cursor:'pointer' }} /> 
                   </Grid>
-                  <Grid item xs={6}>
-                    <Typography sx={{ color:'#325381', fontSize:{xs:11,md:16}, }}>MS24665 - 153</Typography>
+                  <Grid item xs={9}>
+                    <CssTextField sx={CssText} size="small" placeholder="" />
                   </Grid>
                 </Grid>
               </Grid>
@@ -1428,17 +1472,22 @@ export default function Anal() {
             disableClearable
             id="combo-box-demo"
             options={topQTY}
-            sx={{ width: {xs:60, md:150}, 
-                  bgcolor:"#F0F0F0", 
+            sx={{ width: "100%", 
+                  bgcolor:"#F0F0F0",
                   '& .MuiOutlinedInput-notchedOutline': {
                     border: 'none',
+                  }, 
+                  
+                  '& .MuiAutocomplete-input': {
+                   textAlign:"center",
+                   color:"#325381",
                   }, 
                 }}
             renderInput={(params) => <TextField {...params} placeholder="1" size="small" sx={{ fontSize: 13 }} />}
           />
         </Grid>
 
-        <Grid item xs={1} md={1.2}>
+        <Grid item xs={1} md={1}>
           {isMobile ?
           <img src="../home/delete.png" width="20" height="20" />
           :
@@ -1446,7 +1495,7 @@ export default function Anal() {
           }
         </Grid>
       </Grid>
-    {/*---------------------------Detail3------------------------------*/}  
+    {/*---------------------------Detail3------------------------------*/}
       
 
       {/*--------------------------------Detail Plus-------------------------------*/}
@@ -1460,11 +1509,13 @@ export default function Anal() {
             <Grid container>
               <Grid item xs>
                 <Grid container sx={{ height:24 }}>
-                  <Grid item xs={4}>
-                    <img src="../part-kit/plus.png" width="28" height="28" onClick={handleClickOpenSearch} sx={{ cursor:'pointer' }} />
+                  <Grid item xs={3}>
+                    <Link onClick={handleClickOpenSearch} sx={{ cursor:'pointer' }}>
+                      <img src="../part-kit/plus.png" width="28" height="28"   />
+                    </Link>
                   </Grid>
-                  <Grid item xs>
-                    <Typography sx={{ color:'#A7A7A7',}}>Add rows...</Typography>
+                  <Grid item xs={9}>
+                    <CssTextField sx={CssText} size="small" placeholder="Add rows..." />
                   </Grid>
                 </Grid>
               </Grid>
@@ -1512,18 +1563,33 @@ export default function Anal() {
           </Box>
         </Grid>
 
-        <Grid item xs={12} md={1.3}>
+        <Grid item xs={2} md={1.3}>
           <Autocomplete
-            disablePortal
+            disableClearable
             id="combo-box-demo"
             options={topQTY}
-            sx={{ width: 150, bgcolor:"#F0F0F0" }}
+            sx={{ width: "100%", 
+                  bgcolor:"#F0F0F0",
+                  '& .MuiOutlinedInput-notchedOutline': {
+                    border: 'none',
+                  }, 
+                  
+                  '& .MuiAutocomplete-input': {
+                   textAlign:"center",
+                   color:"#325381",
+                  },
+
+                }}
             renderInput={(params) => <TextField {...params} placeholder="1" size="small" sx={{ fontSize: 13 }} />}
           />
         </Grid>
 
-        <Grid item xs={12} md={1.2}>
+        <Grid item xs={1} md={1}>
+          {isMobile ?
+          <img src="../home/delete.png" width="20" height="20" />
+          :
           <img src="../home/delete.png" width="28" height="28" />
+          }
         </Grid>
       </Grid>
     }
@@ -1537,36 +1603,58 @@ export default function Anal() {
     {isMobile ? 
       ''
       :
-      <Grid container spacing={2} sx={{ mt:2, ml:2}}>
-        <Grid item xs={1.3}>
-           <Button variant="contained" sx={{ width:150, fontSize:11,backgroundColor: '#325381' }}><img src="../home/print.png" width="24" height="24"/>
-            <Typography sx={{ color:'#FFFFFF', fontSize:12}}>Printer</Typography>
-           </Button>
-        </Grid>
-        <Grid item xs={1.3}>
-          <Button variant="contained" sx={{ width:150, fontSize:11,backgroundColor: '#325381' }} onClick={handleClickOpen}><img src="../home/memo.png" width="24" height="24" />
-            <Typography sx={{ color:'#FFFFFF', fontSize:12}}>メモ</Typography>
-          </Button>
-        </Grid>
-        <Grid item xs={4}></Grid>
-        <Grid item xs={1.3}>
-          <Button variant="contained" sx={{ width:150, fontSize:11,backgroundColor: '#325381' }}><img src="../home/spr.png" width="24" height="24" />
-            <Typography sx={{ color:'#FFFFFF', fontSize:12}}>SPR 起票</Typography>
-          </Button>
-        </Grid>
-        <Grid item xs={1.3}>
-          <Link  href="../request_for_part_and_material">
-            <Button variant="contained" sx={{ width:150, fontSize:11,backgroundColor: '#325381' }}><img src="../home/order.png" width="24" height="24" />
-              <Typography sx={{ color:'#FFFFFF', fontSize:12}}>Direct Order</Typography>
-            </Button>
-          </Link>
-        </Grid>
-        <Grid item xs={1.3}>
-          <Button variant="contained" sx={{ width:150, fontSize:11,backgroundColor: '#325381' }}><img src="../home/hozon.png" width="24" height="24" />
-            <Typography sx={{ color:'#FFFFFF', fontSize:12}}>保存</Typography>
-          </Button>
+      <Grid container spacing={2} sx={{ mt:1 }}>
+        <Grid item xs={12}>
+          <Grid container spacing={2}>
+            <Grid item xs={4}>
+              <Grid container spacing={2}>
+
+                <Grid item xs={4} sx={{ display:"flex" }}>
+                  <Button variant="contained" sx={{ width:135, fontSize:11,backgroundColor: '#325381' }}><img src="../home/print.png" width="24" height="24"/>
+                    <Typography sx={{ color:'#FFFFFF', fontSize:10}}>Printer</Typography>
+                  </Button>
+                </Grid>
+
+                <Grid item xs={4} sx={{ display:"flex" }}>
+                  <Button variant="contained" sx={{ width:135, fontSize:11,backgroundColor: '#325381' }} onClick={handleClickOpen}><img src="../home/memo.png" width="24" height="24" />
+                    <Typography sx={{ color:'#FFFFFF', fontSize:10}}>メモ</Typography>
+                  </Button>
+                </Grid>
+              </Grid>
+            </Grid>
+            <Grid item xs={8}>
+              <Grid container spacing={2}>
+                <Grid item xs={3}>
+                </Grid>
+
+                <Grid item xs={2.5} sx={{ display:"flex",alignItems:"right",justifyContent:"right" }}>
+                  <Button variant="contained" sx={{ width:135, fontSize:11,backgroundColor: '#325381' }}><img src="../home/spr.png" width="24" height="24" />
+                    <Typography sx={{ color:'#FFFFFF', fontSize:10}}>SPR 起票</Typography>
+                  </Button>
+                </Grid>
+
+                <Grid item xs={2.5} sx={{ display:"flex",alignItems:"right",justifyContent:"center" }}>
+                  <Link  href="../request_for_part_and_material">
+                    <Button variant="contained" sx={{ width:135, fontSize:11,backgroundColor: '#325381' }}><img src="../home/order.png" width="24" height="24" />
+                      <Typography sx={{ color:'#FFFFFF', fontSize:10}}>Direct Order</Typography>
+                    </Button>
+                  </Link>
+                </Grid>
+
+                <Grid item xs={2.5} >
+                  <Button variant="contained" sx={{ width:135, fontSize:11,backgroundColor: '#325381' }}><img src="../home/hozon.png" width="24" height="24" />
+                    <Typography sx={{ color:'#FFFFFF', fontSize:10}}>保存</Typography>
+                  </Button>
+                </Grid>
+                <Grid item xs={1}> 
+                </Grid>
+
+              </Grid>
+            </Grid>
+          </Grid>
         </Grid>
       </Grid>
+
     } 
       {/*end header 2*/}
     </Box>
