@@ -11,7 +11,10 @@ import '../styles/globals.css';
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();
 
-export interface MyAppProps extends AppProps {}
+export interface MyAppProps extends AppProps {
+ Component,
+ pageProps,
+}
 
 export default function MyApp(props: MyAppProps) {
   const { Component, pageProps } = props;

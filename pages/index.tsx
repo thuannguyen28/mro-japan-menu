@@ -41,7 +41,11 @@ export default function Home() {
           width: '100%',}}>
       <Grid container spacing={1}>
         <Grid item xs={12}>
+<<<<<<< Updated upstream
           <Box backgroundColor="#FFFFFF">
+=======
+          <Box component={Container}  sx={{ width: '100%', height: '100%',overflow: 'auto',backgroundColor:"#FFFFFF"}} >
+>>>>>>> Stashed changes
             <Paper
               elevation={0}
               sx={{

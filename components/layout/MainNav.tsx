@@ -119,11 +119,11 @@ export default function PersistentDrawerLeft(props) {
             <IconButton
               size="large"
               edge="start"
-              color="#9C9C9C"
+              
               aria-label="menu"
               style={{marginLeft: 50}}
               onClick={toggleDrawer}
-              sx={{ display: { xs: 'none', md: 'flex' } }}
+              sx={{ display: { xs: 'none', md: 'flex' ,backgroundColor:"#9C9C9C"} }}
             >
               <MenuIcon sx={color} />
             </IconButton>
