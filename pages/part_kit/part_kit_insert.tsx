@@ -28,6 +28,9 @@ import InputLabel from '@mui/material/InputLabel';
 import OutlinedInput from '@mui/material/OutlinedInput';
 import InputAdornment from '@mui/material/InputAdornment';
 
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+
 // Dialog
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
@@ -37,6 +40,9 @@ import DialogTitle from '@mui/material/DialogTitle';
 import TextareaAutosize from '@mui/base/TextareaAutosize';
 import InputBase from '@mui/material/InputBase';
 import CloseIcon from '@mui/icons-material/Close';
+import EmailIcon from '@mui/icons-material/Email';
+
+import MoreVertIcon from '@mui/icons-material/MoreVert';
 
 import ListPart from '../../components/request_for_part_and_material/ListPart';
 
@@ -83,7 +89,7 @@ const filterOptions = createFilterOptions({
 const cssLink = { textDecoration: 'none', color: 'inherit' };
 const cssMro = { backgroundColor: '#325381', color:'#FFFFFF', fontSize: '13px', position: 'absolute', right: 0, bottom: 0 };
 const cssMroTitle = { color: '#325381', fontSize: '20px'};
-const cssBox = { py: 1, borderRadius: '5px', backgroundColor: '#F5F5F5', height:60};
+const cssBox = { py: 1, borderRadius: '5px', backgroundColor: '#F5F5F5'};
 const cssBox2 = { py: 2, px : 2, borderRadius: '5px', backgroundColor: '#F5F5F5', height:597};
 const cssBox3 = { color: '#325381', backgroundColor: '#F5F5F5',py: 1, borderRadius: '5px', overflowY:'scroll', height:490};
 const cssBox4 = { color: '#325381', backgroundColor: '#F5F5F5',py: 1, borderRadius: '5px', overflowY:'scroll', height:670};
@@ -110,6 +116,7 @@ const cssTexts = { m: 1, ml:12, width:780, backgroundColor:'#F5F5F5', '& .MuiOut
 
 const cssTextTask1 = { m: 1, ml:12, width:640, backgroundColor:'#F5F5F5', '& .MuiOutlinedInput-notchedOutline': {border: 'none'}, };
 const cssTextTask2 = { m: 1, width:120, backgroundColor:'#F5F5F5', '& .MuiOutlinedInput-notchedOutline': {border: 'none'}, };
+const cssMenu = {minWidth: 100, textAlign:'center'};
 
 function BootstrapDialogTitle(props: DialogTitleProps) {
   const { children, onClose, ...other } = props;
@@ -136,15 +143,26 @@ function BootstrapDialogTitle(props: DialogTitleProps) {
 }
 
 export default function RequestPartMaterials() {
-  // Dialog AMM
-  const [open, setOpen] = React.useState(false);
 
-  const handleClickOpen = () => {
-    setOpen(true);
+  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
   };
 
-  const handleClose = () => {
-    setOpen(false);
+  // Dialog AMM
+  const [openAMM, setOpenAMM] = React.useState(false);
+
+
+  const handleClickOpenAMM = () => {
+    setOpenAMM(true);
+  };
+
+  const handleCloseAMM = () => {
+    setOpenAMM(false);
   };
   // END Dialog Memo
 
@@ -168,7 +186,18 @@ export default function RequestPartMaterials() {
 
   const handleCloseModalDelete = () => {
     setOpenModalDelete(false);
-  };  
+  };
+
+
+  const [openOrder, setOpenOrder] = React.useState(false);
+
+  const handleOpenOrder = () => {
+    setOpenOrder(true);
+  };
+
+  const handleCloseOrder = () => {
+    setOpenOrder(false);
+  };
 
   return (
   <div>
@@ -180,14 +209,12 @@ export default function RequestPartMaterials() {
           </Typography>
         </Grid>
         <Grid item xs={5} md={3} sx={{ position: 'relative' }}>  
-          <Link href="/part_kit/part_kit_insert" underline="none" target="_blank">
-            <Button variant="contained"sx={cssMro}>
+            <Button variant="contained" onClick={handleOpenOrder} sx={cssMro}>
             <img src="../part-kit/Search.png" width="20" height="20"/>
               <Typography sx={{ ml:2 }}>
               Partの追加
               </Typography>
             </Button>
-          </Link>
         </Grid>
       </Grid>
 
@@ -333,7 +360,7 @@ export default function RequestPartMaterials() {
 
                   <Grid item xs={2}>
                    <Paper elevation={0} sx={{ width:40, height:40}}>
-                      <IconButton aria-label="menu" onClick={handleClickOpen}>
+                      <IconButton aria-label="menu" onClick={handleClickOpenAMM}>
                         <MenuIcon sx={{ width:25, height:30, color:"#D9D9D9" }} />
                       </IconButton>
                     </Paper>
@@ -365,14 +392,12 @@ export default function RequestPartMaterials() {
               <Grid container spacing={2} sx={{ py : '30px' , textAlign: 'center'}}>
                 <Grid item xs={6} md={2}></Grid>
                 <Grid item xs={6} md={4}>
-                    <Link href="/part_kit/part_kit_insert" underline="none" target="_blank">
                       <Button variant="contained" sx={cssButton}>
                       <img src="../part-kit/public.png" width="20" height="20"/>
                         <Typography sx={{ ml:2, fontSize:12 }}>
                         公開
                         </Typography>
                       </Button>
-                    </Link>
                 </Grid>
 
                 <Grid item xs={6} md={4}>
@@ -681,9 +706,9 @@ export default function RequestPartMaterials() {
     {/*----------Footer----------*/}
 
     {/*Dialog AMM*/}
-     <Dialog open={open} onClose={handleClose} maxWidth="xl">
+     <Dialog open={openAMM} onClose={handleCloseAMM} maxWidth="xl">
         <DialogTitle>
-          <BootstrapDialogTitle id="customized-dialog-title" onClose={handleClose}> 
+          <BootstrapDialogTitle id="customized-dialog-title" onClose={handleCloseAMM}> 
             <Typography color="#325381" sx={{ fontSize:20, display:'flex', justifyContent:'center' }}>
               <strong>AMM (最大10件)</strong>
             </Typography>
@@ -990,7 +1015,341 @@ export default function RequestPartMaterials() {
         </DialogContent>
 
       </Dialog>
-    {/*----------End Dialog Delete----------*/}    
+    {/*----------End Dialog Delete----------*/}
+
+    {/*Dialog Order*/}
+     <Dialog open={openOrder} fullWidth onClose={handleCloseOrder} maxWidth="xl">
+        <DialogTitle>
+          <BootstrapDialogTitle id="order-customized-dialog-title" onClose={handleCloseOrder}>             
+          </BootstrapDialogTitle>
+        </DialogTitle>
+        <DialogContent>
+          <DialogContentText>
+            <Box sx={{color : '#325381', fontSize: '11px', px: 4}}>
+              <Grid container spacing={2} sx={{ pt: 2 }}>
+                <Grid item xs={12} md={6}>
+                  <Typography sx={{ color:"#325381", fontSize:13, mx:1, mb: 1, fontWeight: 700 }}>保存済 (末送信)</Typography>
+                  <Box sx={{ py: 1, borderRadius: '5px', backgroundColor: '#F5F5F5', minHeight: '200px' }}>                    
+                    <Grid container spacing={2}>
+                      <Grid item xs={0.5}>
+                        <Typography sx={font13Bold}></Typography>
+                      </Grid>
+                      <Grid item xs={1.5}>
+                        <Typography sx={font13Bold}>No.</Typography>
+                      </Grid>
+                      <Grid item xs={4}>
+                        <Typography sx={font13Bold}>Task Card</Typography>
+                      </Grid>
+                      <Grid item xs={1}>
+                        <Typography sx={font13Bold}>RSN</Typography>
+                      </Grid>                      
+                      <Grid item xs={2.5}>
+                        <Typography sx={font13Bold}>保存日時</Typography>
+                      </Grid>
+                      <Grid item xs={1.5}>
+                        <Typography sx={font13Bold}>EMP</Typography>
+                      </Grid>
+                      <Grid item xs={1}>
+                        <Typography sx={font13Bold}></Typography>
+                      </Grid>
+                    </Grid>
+                    <Divider sx={{ my: '3px'}} />
+                    <Grid container spacing={2}>
+                      <Grid item xs={0.5}>
+                        <Button
+                          id="basic-button"
+                          aria-controls={open ? 'basic-menu' : undefined}
+                          aria-haspopup="true"
+                          aria-expanded={open ? 'true' : undefined}
+                          onClick={handleClick}
+                        >
+                          <MoreVertIcon style={{ color: '#9C9C9C' }} />
+                        </Button>
+                        <Menu
+                          id="basic-menu"
+                          anchorEl={anchorEl}
+                          open={open}
+                          onClose={handleClose}
+                          MenuListProps={{
+                            'aria-labelledby': 'basic-button',
+                          }}
+                          sx={{ ml:4,}}
+                        >
+                          <MenuItem><Typography sx={cssMenu} >View</Typography></MenuItem>
+                        </Menu>
+                      </Grid>  
+                      <Grid item xs={1.5}>  
+                        <Typography sx={font12Center}>23-00992</Typography>
+                      </Grid>
+                      <Grid item xs={4}>
+                        <Typography sx={font12Center}>ANA-34-32144-001</Typography>
+                      </Grid>
+                      <Grid item xs={1}>
+                        <Typography sx={font12Center}>EO</Typography>
+                      </Grid>
+                      <Grid item xs={2.5}>
+                        <Typography sx={font12Center}>2023/05/19  14:00:00</Typography>
+                      </Grid>
+                       <Grid item xs={1.5}>
+                        <Typography sx={font12Center}>10051</Typography>
+                      </Grid>
+                      <Grid item xs={1}>
+                        <EmailIcon />
+                      </Grid>
+                    </Grid>
+                    <Divider sx={{ my: '3px'}} />
+                  </Box>
+                </Grid>
+
+                <Grid item xs={12} md={6}>
+                  <Typography sx={{ color:"#325381", fontSize:13, mx:1, mb: 1, fontWeight: 700 }}>差戻し</Typography>
+                  <Box sx={{ py: 1, borderRadius: '5px', backgroundColor: '#F5F5F5', minHeight: '200px' }}>                    
+                    <Grid container spacing={2}>
+                      <Grid item xs={1.5}>
+                        <Typography sx={font13Bold}>No.</Typography>
+                      </Grid>
+                      <Grid item xs={4}>
+                        <Typography sx={font13Bold}>Task Card</Typography>
+                      </Grid>
+                      <Grid item xs={1}>
+                        <Typography sx={font13Bold}>RSN</Typography>
+                      </Grid>                      
+                      <Grid item xs={2.5}>
+                        <Typography sx={font13Bold}>差戻し日時</Typography>
+                      </Grid>
+                      <Grid item xs={2}>
+                        <Typography sx={font13Bold}>EMP</Typography>
+                      </Grid>
+                      <Grid item xs={1}>
+                        <Typography sx={font13Bold}></Typography>
+                      </Grid>
+                    </Grid>
+                    <Divider sx={{ my: '3px'}} />
+                    <Grid container spacing={2}>
+                      <Grid item xs={1.5}>
+                        <Typography sx={font12Center}>23-00992</Typography>
+                      </Grid>
+                      <Grid item xs={4}>
+                        <Typography sx={font12Center}>AANA - 10166002</Typography>
+                      </Grid>
+                      <Grid item xs={1}>
+                        <Typography sx={font12Center}>TC</Typography>
+                      </Grid>
+                      <Grid item xs={2.5}>
+                        <Typography sx={font12Center}>2023/05/19  14:00:00</Typography>
+                      </Grid>
+                      <Grid item xs={2}>
+                        <Typography sx={font12Center}>10051</Typography>
+                      </Grid>
+                      <Grid item xs={1}></Grid>
+                    </Grid>
+                    <Divider sx={{ my: '3px'}} />
+                  </Box>
+                </Grid>
+
+              </Grid>
+
+              <Grid container spacing={2} sx={{ pt: 2 }}>
+                <Grid item xs={12} md={6}>
+                  <Typography sx={{ color:"#325381", fontSize:13, mx:1, mb: 1, fontWeight: 700 }}>送信済  (出庫待ち)</Typography>
+                  <Box sx={{ py: 1, borderRadius: '5px', backgroundColor: '#F5F5F5', minHeight: '200px' }}>                    
+                    <Grid container spacing={2}>
+                      <Grid item xs={1.5}>
+                        <Typography sx={font13Bold}>No.</Typography>
+                      </Grid>
+                      <Grid item xs={4}>
+                        <Typography sx={font13Bold}>Task Card</Typography>
+                      </Grid>
+                      <Grid item xs={1}>
+                        <Typography sx={font13Bold}>RSN</Typography>
+                      </Grid>                      
+                      <Grid item xs={2.5}>
+                        <Typography sx={font13Bold}>送信日時</Typography>
+                      </Grid>
+                      <Grid item xs={2}>
+                        <Typography sx={font13Bold}>EMP</Typography>
+                      </Grid>
+                      <Grid item xs={1}>
+                        <Typography sx={font13Bold}></Typography>
+                      </Grid>
+                    </Grid>
+                    <Divider sx={{ my: '3px'}} />
+                    <Grid container spacing={2}>
+                      <Grid item xs={1.5}>
+                        <Typography sx={font12Center}>&nbsp;</Typography>
+                      </Grid>
+                      <Grid item xs={4}>
+                        <Typography sx={font12Center}></Typography>
+                      </Grid>
+                      <Grid item xs={1}>
+                        <Typography sx={font12Center}></Typography>
+                      </Grid>
+                      <Grid item xs={2.5}>
+                        <Typography sx={font12Center}></Typography>
+                      </Grid>
+                       <Grid item xs={2}>
+                        <Typography sx={font12Center}></Typography>
+                      </Grid>
+                      <Grid item xs={1}>
+                       
+                      </Grid>
+                    </Grid>
+                    <Divider sx={{ my: '3px'}} />
+                  </Box>
+                </Grid>
+
+                <Grid item xs={12} md={6}>
+                  <Typography sx={{ color:"#325381", fontSize:13, mx:1, mb: 1, fontWeight: 700 }}>出庫済</Typography>
+                  <Box sx={{ py: 1, borderRadius: '5px', backgroundColor: '#F5F5F5', minHeight: '200px' }}>                    
+                    <Grid container spacing={2}>
+                      <Grid item xs={1.5}>
+                        <Typography sx={font13Bold}>No.</Typography>
+                      </Grid>
+                      <Grid item xs={4}>
+                        <Typography sx={font13Bold}>Task Card</Typography>
+                      </Grid>
+                      <Grid item xs={1}>
+                        <Typography sx={font13Bold}>RSN</Typography>
+                      </Grid>                      
+                      <Grid item xs={2.5}>
+                        <Typography sx={font13Bold}>出庫日時</Typography>
+                      </Grid>
+                      <Grid item xs={2}>
+                        <Typography sx={font13Bold}>EMP</Typography>
+                      </Grid>
+                      <Grid item xs={1}>
+                        <Typography sx={font13Bold}></Typography>
+                      </Grid>
+                    </Grid>
+                    <Divider sx={{ my: '3px'}} />
+                    <Grid container spacing={2}>
+                      <Grid item xs={1.5}>
+                        <Typography sx={font12Center}>23-00992</Typography>
+                      </Grid>
+                      <Grid item xs={4}>
+                        <Typography sx={font12Center}>AANA - 10166002</Typography>
+                      </Grid>
+                      <Grid item xs={1}>
+                        <Typography sx={font12Center}>TC</Typography>
+                      </Grid>
+                      <Grid item xs={2.5}>
+                        <Typography sx={font12Center}>2023/05/19  14:00:00</Typography>
+                      </Grid>
+                      <Grid item xs={2}>
+                        <Typography sx={font12Center}>10051</Typography>
+                      </Grid>
+                      <Grid item xs={1}></Grid>
+                    </Grid>
+                    <Divider sx={{ my: '3px'}} />
+                  </Box>
+                </Grid>
+
+              </Grid>
+
+
+              <Grid container spacing={2} sx={{ pt: 2 }}>
+                <Grid item xs={12} md={6}>
+                  <Typography sx={{ color:"#325381", fontSize:13, mx:1, mb: 1, fontWeight: 700 }}>キャンセル</Typography>
+                  <Box sx={{ py: 1, borderRadius: '5px', backgroundColor: '#F5F5F5', minHeight: '200px' }}>                    
+                    <Grid container spacing={2}>
+                      <Grid item xs={1.5}>
+                        <Typography sx={font13Bold}>No.</Typography>
+                      </Grid>
+                      <Grid item xs={4}>
+                        <Typography sx={font13Bold}>Task Card</Typography>
+                      </Grid>
+                      <Grid item xs={1}>
+                        <Typography sx={font13Bold}>RSN</Typography>
+                      </Grid>                      
+                      <Grid item xs={2.5}>
+                        <Typography sx={font13Bold}>キャンセル日時</Typography>
+                      </Grid>
+                      <Grid item xs={2}>
+                        <Typography sx={font13Bold}>EMP</Typography>
+                      </Grid>
+                      <Grid item xs={1}>
+                        <Typography sx={font13Bold}></Typography>
+                      </Grid>
+                    </Grid>
+                    <Divider sx={{ my: '3px'}} />
+                    <Grid container spacing={2}>
+                      <Grid item xs={1.5}>
+                        <Typography sx={font12Center}>23-00992</Typography>
+                      </Grid>
+                      <Grid item xs={4}>
+                        <Typography sx={font12Center}>ANA-34-32144-001</Typography>
+                      </Grid>
+                      <Grid item xs={1}>
+                        <Typography sx={font12Center}>EO</Typography>
+                      </Grid>
+                      <Grid item xs={2.5}>
+                        <Typography sx={font12Center}>2023/05/19  14:00:00</Typography>
+                      </Grid>
+                       <Grid item xs={2}>
+                        <Typography sx={font12Center}>10051</Typography>
+                      </Grid>
+                      <Grid item xs={1}>
+                        
+                      </Grid>
+                    </Grid>
+                    <Divider sx={{ my: '3px'}} />
+                  </Box>
+                </Grid>
+
+                <Grid item xs={12} md={6}>
+                  <Typography sx={{ color:"#325381", fontSize:13, mx:1, mb: 1, fontWeight: 700 }}>受領済</Typography>
+                  <Box sx={{ py: 1, borderRadius: '5px', backgroundColor: '#F5F5F5', minHeight: '200px' }}>                    
+                    <Grid container spacing={2}>
+                      <Grid item xs={1.5}>
+                        <Typography sx={font13Bold}>No.</Typography>
+                      </Grid>
+                      <Grid item xs={4}>
+                        <Typography sx={font13Bold}>Task Card</Typography>
+                      </Grid>
+                      <Grid item xs={1}>
+                        <Typography sx={font13Bold}>RSN</Typography>
+                      </Grid>                      
+                      <Grid item xs={2.5}>
+                        <Typography sx={font13Bold}>出庫日時</Typography>
+                      </Grid>
+                      <Grid item xs={2}>
+                        <Typography sx={font13Bold}>EMP</Typography>
+                      </Grid>
+                      <Grid item xs={1}>
+                        <Typography sx={font13Bold}></Typography>
+                      </Grid>
+                    </Grid>
+                    <Divider sx={{ my: '3px'}} />
+                    <Grid container spacing={2}>
+                      <Grid item xs={1.5}>
+                        <Typography sx={font12Center}>23-00992</Typography>
+                      </Grid>
+                      <Grid item xs={4}>
+                        <Typography sx={font12Center}>AANA - 10166002</Typography>
+                      </Grid>
+                      <Grid item xs={1}>
+                        <Typography sx={font12Center}>TC</Typography>
+                      </Grid>
+                      <Grid item xs={2.5}>
+                        <Typography sx={font12Center}>2023/05/19  14:00:00</Typography>
+                      </Grid>
+                      <Grid item xs={2}>
+                        <Typography sx={font12Center}>10051</Typography>
+                      </Grid>
+                      <Grid item xs={1}></Grid>
+                    </Grid>
+                    <Divider sx={{ my: '3px'}} />
+                  </Box>
+                </Grid>
+
+              </Grid>              
+
+            </Box>
+          </DialogContentText>
+        </DialogContent>
+
+      </Dialog>
+    {/*----------End Modal Order----------*/}
 
   </div>
   );
