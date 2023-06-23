@@ -227,7 +227,7 @@ export default function ListAll(props) {
 	        <Autocomplete
 	          disableClearable
 	          id="combo-box-demo"
-	          options={top100Films}
+	          options={top100Wo}
 	          sx={{ width: '100%', 
 	                '& .MuiOutlinedInput-notchedOutline': {
 	                      border: 'none',
@@ -257,7 +257,7 @@ export default function ListAll(props) {
 	        disableClearable
 	          freeSolo
 	          id="combo-box-demo"
-	          options={top100Films}
+	          options={top100Zone}
 	          sx={{ width: '100%', 
 	                '& .MuiOutlinedInput-notchedOutline': {
 	                      border: 'none',
@@ -272,6 +272,7 @@ export default function ListAll(props) {
 	                '&:hover .MuiAutocomplete-popupIndicator': {
 	                  visibility: 'visible',
 	                },
+	                '& .MuiAutocomplete-input':{textAlign:'center'},
 	              }}
 
 	          renderInput={(params) => (<TextField {...params} size="small" placeholder="Zone"  />)}
@@ -309,9 +310,10 @@ export default function ListAll(props) {
 	                '&:hover .MuiAutocomplete-popupIndicator': {
 	                  visibility: 'visible',
 	                },
+	                '& .MuiAutocomplete-input':{textAlign:'center'},
 	              }}
 
-	          renderInput={(params) => (<TextField {...params} size="small" placeholder="Zone"  />)}
+	          renderInput={(params) => (<TextField {...params} size="small" placeholder="TC"  />)}
 	        />
 	      </Grid>
 
@@ -360,14 +362,27 @@ export default function ListAll(props) {
   );
 }
 
-const top100Films = [
-  { label: 'The Shawshank Redemption', year: 1994 },
-  { label: 'The Godfather', year: 1972 },
-  { label: 'The Godfather: Part II', year: 1974 },
+const top100Wo = [
+  { label: '10023879 JA4 10023879 JA4' },
+  { label: '10023879 JA4 10023879 JA4' },
+  { label: '10023879 JA4 10023879 JA4' },
+  { label: '10023879 JA4 10023879 JA4' },
+  { label: '10023879 JA4 10023879 JA4' },
+];
+
+const top100Zone = [
+  { label: 'EXT1' },
+  { label: 'EXT2' },
+  { label: 'INT' },
+  { label: 'EEM' },
+  { label: 'MAM' },
 ];
 
 const topRSNN = [
   { label: 'TC' },
   { label: 'EO'},
   { label: 'RC'},
+  { label: 'TR' },
+  { label: 'RC'},
+  { label: 'OT'},
 ];
