@@ -550,9 +550,6 @@ export default function ListAll(props) {
                   <Grid item xs={12} md={3}>
                     <Typography sx={{ fontSize : '12px', textAlign: 'right', mt: 2 }}>MRO Japan Form - SD - 004C</Typography>
                   </Grid>
-                  <Grid item xs={12}>
-                    <Divider sx={{ my: 1}} />
-                  </Grid>
                 </Grid>
               </Paper>
             </Box>
