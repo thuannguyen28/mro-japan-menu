@@ -10,7 +10,7 @@ import Checkbox from '@mui/material/Checkbox';
 import Paper from '@mui/material/Paper';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-
+import {keyframes} from '@mui/material';
 import Autocomplete, { createFilterOptions } from '@mui/material/Autocomplete';
 import SearchIcon from '@mui/icons-material/Search';
 import RestartAltIcon from '@mui/icons-material/RestartAlt';
@@ -18,6 +18,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import ListPart from '../../components/request_for_part_and_material/ListPart';
+import theme from '../../src/theme';
 
 
 const filterOptions = createFilterOptions({
@@ -38,9 +39,39 @@ const font12 = { fontSize: '12px'};
 const cssOderLeft = { width: '100%', fontSize: '14px', color: '#325381', fontWeight: 700, mb: '5px'};
 const cssOderRight = { width: '100%',cursor: 'pointer', fontSize: '14px', color: '#325381', fontWeight: 700, mb: '5px', pr:'15px', display: 'flex', alignItems:'center', justifyContent: 'flex-end' };
 const font13Bold = { fontSize: '13px', textAlign: 'center', py: 2, fontWeight: 700 };
+const expand={
+  "@keyframes expand":{
+    "0%":{
+    
+      maxHeight:0},
+    "100%":{
+    
+      maxHeight:94}
+  },
+
+  overflow:"hidden",
+  animation:"expand 0.2s ease"
+}
+
+const shrink={
+  "@keyframes shrink":{
+    "0%":{
+     
+      maxHeight:120},
+
+    "100%":{
+    
+      maxHeight:0}
+  },
+  maxHeight:0,
+  overflow:"hidden",
+  animation:"shrink 0.3s ease"
+}
+
 
 
 const cssAutoComplete={ maxwidth: {lg:234}, bgcolor:"#F0F0F0" }
+
 
 
 
@@ -264,8 +295,10 @@ export default function RequestPartMaterials() {
     )}
         </Grid>  
     {/*Header 2*/}
-    {showText && (
-        <Grid container spacing={2} width={"86%"}>
+ 
+        <Grid  container spacing={2} width={"86%"} sx={
+       showText?expand:shrink
+         }>
           <Grid item xs={3} sx={{ mt:2 }} >
               <Typography sx={{ fontSize: '16px', color: '#325381' }}>Task Card</Typography>
               <Box sx={cssBox} >
@@ -297,7 +330,9 @@ export default function RequestPartMaterials() {
               </Box>
           </Grid>
         </Grid>
-    )}
+      
+       
+    
       <Grid container spacing={2} justifyContent="flex-end" mt={"12px"}>
       
           {showText ?
