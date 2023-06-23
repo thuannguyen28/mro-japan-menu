@@ -1804,7 +1804,7 @@ export default function Anal() {
                   </TableHead>
                   <TableBody>
                     {rows.map((row) => (
-                      <TableRow key={row.id}>
+                      <TableRow key={row.id} hover>
                         <TableCell>
                           <Link  href="/">
                             <img src="../home/upload.png" width="30" height="30" style={{ align:'left' }}/>
