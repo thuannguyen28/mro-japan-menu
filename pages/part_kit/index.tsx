@@ -16,7 +16,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import RestartAltIcon from '@mui/icons-material/RestartAlt';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
-
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import ListPart from '../../components/request_for_part_and_material/ListPart';
 
 
@@ -36,17 +36,52 @@ const font12Center = { fontSize: '15px', display: 'flex', alignItems:'center', j
 const font12Left = { fontSize: '15px', display: 'flex', alignItems:'center', justifyContent: 'left' };
 const font12 = { fontSize: '12px'};
 const cssOderLeft = { width: '100%', fontSize: '14px', color: '#325381', fontWeight: 700, mb: '5px'};
-const cssOderRight = { width: '100%',cursor: 'pointer', fontSize: '14px', color: '#325381', fontWeight: 700, mb: '5px', pr:15, display: 'flex', alignItems:'center', justifyContent: 'flex-end' };
+const cssOderRight = { width: '100%',cursor: 'pointer', fontSize: '14px', color: '#325381', fontWeight: 700, mb: '5px', pr:'15px', display: 'flex', alignItems:'center', justifyContent: 'flex-end' };
 const font13Bold = { fontSize: '13px', textAlign: 'center', py: 2, fontWeight: 700 };
+
+
+const cssAutoComplete={ maxwidth: {lg:234}, bgcolor:"#F0F0F0" }
+
+
+
+const CustomPopUpIcon = (props) => { 
+  return (
+    <>
+    <Box borderLeft={props.open?0:1} height={28} borderColor={'#E3E3E3'}></Box>
+
+          <ArrowDropDownIcon style={{color:'black'}}/>
+
+    </>
+ 
+      
+  )
+};
+
+
+
 
 export default function RequestPartMaterials() {
   
   const [showText, setShowText] = React.useState(false);
+  const [openAc, setOpenAc] = React.useState(false);
+  const [openZone, setOpenZone] = React.useState(false);
+  const [openAta, setOpenAta] = React.useState(false);
+  const [openCustomer, setOpenCustomer] = React.useState(false);
+  const [openAuthor, setOpenAuthor] = React.useState(false);
+  const [numberColumn,setnumberColumn]=React.useState(5);
 
   const handleClick = () => {
     setShowText(!showText);
+    console.log(showText);
+    if(showText)
+    {
+      setnumberColumn(5);
+    }
+    else{
+      setnumberColumn(5.8);
+    }
   };
-
+  
   return (
   <div>
     <Box sx={{ color: '#325381', mx: { xs: 2, md: 4 }, my: { xs: 3, md: 2 } }}>
@@ -78,24 +113,27 @@ export default function RequestPartMaterials() {
           mt: { xs: 4, md: 2 },
         }}>
         <Grid container spacing={2}>
-        <Grid item xs={12}>
+        <Grid item xs={'auto'}>
           <Typography sx={cssOderLeft}>全て検索</Typography>
         </Grid>
       </Grid>
     {/*Header 1*/}
-      <Grid container spacing={2}>
-          <Grid item xs={12} md={2} sx={{ mt:2, ml:{sx:0, md:3} }}>
+      <Grid container width={showText?"100%":"90%"} spacing={2}>
+          <Grid item  xs={12/numberColumn}>
               <Typography sx={{ fontSize: '16px', color: '#325381' }}><strong>AC Type</strong></Typography>
               <Box sx={cssBox}>
-                <Grid container sx={{ height: '58px' }}>
-                  <Grid item xs>
+                <Grid container >
+                  <Grid item xs={12} >
                     <Autocomplete
                     disablePortal
               id="filter-demo"
               options={top100Films}
               getOptionLabel={(option) => option.title}
               filterOptions={filterOptions}
-              sx={{ width: 234, bgcolor:"#F0F0F0" }}
+              sx={cssAutoComplete}
+             onOpen={(e)=>{setOpenAc(true)}}
+             onClose={(e)=>{setOpenAc(false)}}
+              popupIcon={<CustomPopUpIcon open={openAc} />}
               renderInput={(params) => <TextField {...params} size="small" label="すべて" />}
               />
                   </Grid>   
@@ -103,29 +141,36 @@ export default function RequestPartMaterials() {
               </Box>
           </Grid>
 
-          <Grid item xs={12} md={2} sx={{ mt:2 }}>
+          <Grid item   xs={12/numberColumn}>
               <Typography sx={{ fontSize: '16px', color: '#325381' }}><strong>Zone</strong></Typography>
+            
               <Box sx={cssBox}>
-                <Grid container sx={{ height: '58px' }}>
-                  <Grid item xs>
+                <Grid container>
+                  <Grid item xs={12}>
+                  
                     <Autocomplete
                     disablePortal
               id="filter-demo"
               options={top100Films}
               getOptionLabel={(option) => option.title}
               filterOptions={filterOptions}
-              sx={{ width: 234, bgcolor:"#F0F0F0" }}
+               sx={cssAutoComplete}
+               onOpen={(e)=>{setOpenZone(true)}}
+               onClose={(e)=>{setOpenZone(false)}}
+                popupIcon={<CustomPopUpIcon open={openZone} />}
               renderInput={(params) => <TextField {...params} size="small" label="すべて" />}
               />
+                 
+                   
                   </Grid>   
                 </Grid>
               </Box>
           </Grid>
 
-          <Grid item xs={12} md={2} sx={{ mt:2 }}>
+          <Grid item xs={12/numberColumn}>
               <Typography sx={{ fontSize: '16px', color: '#325381' }}><strong>ATA</strong></Typography>
               <Box sx={cssBox}>
-                <Grid container sx={{ height: '58px' }}>
+                <Grid container>
                   <Grid item xs>
                     <Autocomplete
                     disablePortal
@@ -133,7 +178,10 @@ export default function RequestPartMaterials() {
               options={top100Films}
               getOptionLabel={(option) => option.title}
               filterOptions={filterOptions}
-              sx={{ width: 234, bgcolor:"#F0F0F0" }}
+              sx={cssAutoComplete}
+              onOpen={(e)=>{setOpenAta(true)}}
+              onClose={(e)=>{setOpenAta(false)}}
+               popupIcon={<CustomPopUpIcon open={openAta} />}
               renderInput={(params) => <TextField {...params} size="small" label="すべて" />}
               />
                   </Grid>   
@@ -141,7 +189,7 @@ export default function RequestPartMaterials() {
               </Box>
           </Grid>
 
-          <Grid item xs={12} md={2} sx={{ mt:2 }}>
+          <Grid item xs={12/numberColumn}>
               <Typography sx={{ fontSize: '16px', color: '#325381' }}><strong>Customer</strong></Typography>
               <Box sx={cssBox}>
                 <Grid container sx={{ height: '58px' }}>
@@ -152,7 +200,10 @@ export default function RequestPartMaterials() {
               options={top100Films}
               getOptionLabel={(option) => option.title}
               filterOptions={filterOptions}
-              sx={{ width: 234, bgcolor:"#F0F0F0" }}
+              sx={cssAutoComplete}
+              onOpen={(e)=>{setOpenCustomer(true)}}
+              onClose={(e)=>{setOpenCustomer(false)}}
+               popupIcon={<CustomPopUpIcon open={openCustomer} />}
               renderInput={(params) => <TextField {...params} size="small" label="すべて" />}
               />
                   </Grid>   
@@ -160,7 +211,7 @@ export default function RequestPartMaterials() {
               </Box>
           </Grid>
 
-          <Grid item xs={12} md={2} sx={{ mt:2 }}>
+          <Grid item xs={12/numberColumn}>
               <Typography sx={{ fontSize: '16px', color: '#325381' }}><strong>Author</strong></Typography>
               <Box sx={cssBox}>
                 <Grid container sx={{ height: '58px' }}>
@@ -171,31 +222,39 @@ export default function RequestPartMaterials() {
               options={top100Films}
               getOptionLabel={(option) => option.title}
               filterOptions={filterOptions}
-              sx={{ width: 234, bgcolor:"#F0F0F0" }}
+              sx={cssAutoComplete}
+              onOpen={(e)=>{setOpenAuthor(true)}}
+              onClose={(e)=>{setOpenAuthor(false)}}
+               popupIcon={<CustomPopUpIcon open={openAuthor} />}
               renderInput={(params) => <TextField {...params} size="small" label="すべて" />}
               />
                   </Grid>   
                 </Grid>
               </Box>
           </Grid>
+
+        
   {showText && (
-          <Grid item xs={12} md={1.5} sx={{ mt:2 }}>
+          <Grid item >
               <Typography sx={{ fontSize: '16px', color: '#FFFFFF' }}><strong>Author</strong></Typography>
               <Box sx={cssBox}>
-                <Grid container sx={{ height: '58px' }}>
-                  <Grid item xs>
+                <Grid container sx={{ height: '58px' }} spacing={2}  justifyContent={'flex-start'}>
+                  <Grid item xs={10}>
             <Link href="https://www.mrojpn.co.jp" underline="none" target="_blank">
-                  <Button variant="contained" sx={{ bgcolor:"#325381" }}>
-                  <SearchIcon /> 
-                    <Typography sx={{ ml:2 }}>
+                  <Button fullWidth variant="contained" sx={{ bgcolor:"#325381"}}>
+                  <SearchIcon sx={{}}/> 
+                    <Typography >
                     検索
                   </Typography>
                   </Button>
                 </Link>
-                  </Grid>   
-                  <Link href="#" underline="none">
+                  </Grid>  
+                <Grid item xs={2}>
+                <Link href="#" underline="none">
                     <img src="../part-kit/reset.png" width="30" height="30"/>
                   </Link>
+                </Grid>
+                  
                 </Grid>
               </Box>
           </Grid>
@@ -203,54 +262,41 @@ export default function RequestPartMaterials() {
         </Grid>  
     {/*Header 2*/}
     {showText && (
-        <Grid container spacing={2}>
-          <Grid item xs={12} md={2.5} sx={{ mt:2, ml:{sx:0, md:3} }}>
+        <Grid container spacing={2} width={"86%"}>
+          <Grid item xs={3} sx={{ mt:2 }} >
               <Typography sx={{ fontSize: '16px', color: '#325381' }}>Task Card</Typography>
-              <Box sx={cssBox}>
-                <Grid container sx={{ height: '58px' }}>
-                  <Grid item xs>
-                    <TextField id="filled-basic" size="small" variant="filled" sx={{ width:300 }}/>
-                  </Grid>   
-                </Grid>
+              <Box sx={cssBox} >
+                 
+                    <TextField id="filled-basic" size="small" variant="filled" fullWidth />
+                
               </Box>
           </Grid>
 
-          <Grid item xs={12} md={2.5} sx={{ mt:2 }}>
+          <Grid item xs={3} sx={{ mt:2 }}>
               <Typography sx={{ fontSize: '16px', color: '#325381' }}>Category</Typography>
               <Box sx={cssBox}>
-                <Grid container sx={{ height: '58px' }}>
-                  <Grid item xs>
-                    <TextField id="filled-basic" size="small" variant="filled" sx={{ width:300 }}/>
-                  </Grid>   
-                </Grid>
+              <TextField id="filled-basic" size="small" variant="filled" fullWidth />
+                  
               </Box>
           </Grid>
 
-          <Grid item xs={12} md={2.5} sx={{ mt:2 }}>
+          <Grid item xs={3}  sx={{ mt:2 }}>
               <Typography sx={{ fontSize: '16px', color: '#325381' }}>AMM</Typography>
               <Box sx={cssBox}>
-                <Grid container sx={{ height: '58px' }}>
-                  <Grid item xs>
-                    <TextField id="filled-basic" size="small" variant="filled" sx={{ width:300 }}/>
-                  </Grid>   
-                </Grid>
+              <TextField id="filled-basic" size="small" variant="filled" fullWidth />
               </Box>
           </Grid>
 
-          <Grid item xs={12} md={2.5} sx={{ mt:2 }}>
+          <Grid item xs={3}  sx={{ mt:2 }}>
               <Typography sx={{ fontSize: '16px', color: '#325381' }}>Kit 名/作業名</Typography>
               <Box sx={cssBox}>
-                <Grid container sx={{ height: '58px' }}>
-                  <Grid item xs>
-                    <TextField id="filled-basic" size="small" variant="filled" sx={{ width:300 }}/>
-                  </Grid>   
-                </Grid>
+              <TextField id="filled-basic" size="small" variant="filled" fullWidth />
               </Box>
           </Grid>
         </Grid>
     )}
-      <Grid container spacing={2} justifyContent="flex-end">
-        <Grid item xs={12} md={2}>
+      <Grid container spacing={2} justifyContent="flex-end" mt={"12px"}>
+      
           {showText ?
           <Typography sx={cssOderRight} onClick={handleClick}>
             閉じる
@@ -262,7 +308,7 @@ export default function RequestPartMaterials() {
             <ExpandMoreIcon sx={{ ml: 1,cursor:'pointer' }} />
           </Typography>
           }
-        </Grid>
+       
       </Grid>
       </Paper>
 

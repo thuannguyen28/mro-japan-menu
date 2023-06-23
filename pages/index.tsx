@@ -41,7 +41,7 @@ export default function Home() {
           width: '100%',}}>
       <Grid container spacing={1}>
         <Grid item xs={12}>
-          <Box sx={{ width: '100%', height: '100%',overflow: 'auto'}} backgroundColor="#FFFFFF">
+          <Box backgroundColor="#FFFFFF">
             <Paper
               elevation={0}
               sx={{
