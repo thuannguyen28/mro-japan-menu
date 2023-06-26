@@ -50,7 +50,6 @@ const CssTextField = styled(TextField)({
       backgroundColor: '#fff',
       textAlign:'left',
       color:"#325381",
-      width: 300,
     },
   },
 
@@ -84,37 +83,36 @@ export default function Parts() {
           </Typography>
         </Grid>
 
-        <Box sx={{ width: '100%', height: 700, overflow: 'auto'}} backgroundColor="#F5F5F5">
-          <Grid container spacing={0} sx={{ pl: 5, pr:5, pt:2  }}>
-            <Grid item xs={3}>
+        <Box sx={{ width: '100%', height: 700, overflow: 'auto', p:2}} backgroundColor="#F5F5F5">
+          <Grid container spacing={0} sx={{ pl:4, }}>
+            <Grid item xs={4}>
               <Grid container>
                 <Typography color="#325381" >
                   <strong>Part Number</strong>
                 </Typography>
               </Grid>
               <Grid container>
-                 <CssTextField  size="small" placeholder="Part Number Search" />
+                 <CssTextField sx={{ width:"95%" }}  size="small" placeholder="Part Number Search" />
               </Grid>
             </Grid>
 
-            <Grid item xs={9}>
+            <Grid item xs={8}>
               <Grid container>
                 <Typography color="#325381" >
-                  <strong>Part Number</strong>
+                  <strong>期間</strong>
                 </Typography>
               </Grid>
               <Grid container>
-                <Grid item xs={4}>
+                <Grid item xs={3}>
                   <LocalizationProvider dateAdapter={AdapterDayjs}>
                     <DatePicker sx={{  
                           '& .MuiInputBase-root': {
                             border: 'none',
-                            paddingRight:1,
                             backgroundColor:"#FFF"       
                           },
                           '& .MuiOutlinedInput-root': {
                             height: 40,
-                            width:300
+                            width:"90%"
                           },
 
                           '& .MuiOutlinedInput-notchedOutline': {
@@ -125,7 +123,7 @@ export default function Parts() {
                   </LocalizationProvider>
                 </Grid>
 
-                <Grid item xs={4}>
+                <Grid item xs={3}>
                   <LocalizationProvider dateAdapter={AdapterDayjs}>
                     <DatePicker sx={{  
                           '& .MuiInputBase-root': {
@@ -135,7 +133,7 @@ export default function Parts() {
                           },
                           '& .MuiOutlinedInput-root': {
                             height: 40,
-                            width:300
+                            width:"90%"
                           },
 
                           '& .MuiOutlinedInput-notchedOutline': {
@@ -146,7 +144,7 @@ export default function Parts() {
                   </LocalizationProvider>
                 </Grid>
 
-                <Grid item xs={4}>
+                <Grid item xs={3}>
                   <Button variant="contained" sx={{ width:150,height:40, fontSize:11,backgroundColor: '#325381' }}>
                     <Typography sx={{ color:'#FFFFFF', fontSize:12}}>検索</Typography>
                   </Button>
