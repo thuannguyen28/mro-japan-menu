@@ -62,7 +62,7 @@ export default function RequestPartMaterials() {
                 <Grid item xs>
                   <Grid container spacing={0} sx={{ mt: '10px' }}>
                     <Grid item xs={4}>
-                      <Checkbox inputProps={{ 'aria-label': 'controlled' }} />
+                      <Checkbox inputProps={{ 'aria-label': 'controlled' }} sx={{ p:0 }} />
                     </Grid>
                     <Grid item xs={8}>
                       <Typography sx={font12}>MJP</Typography>
@@ -74,7 +74,7 @@ export default function RequestPartMaterials() {
                 <Grid item xs>
                   <Grid container spacing={0} sx={{ mt: '10px' }}>
                     <Grid item xs={4}>
-                      <Checkbox inputProps={{ 'aria-label': 'controlled' }} />
+                      <Checkbox inputProps={{ 'aria-label': 'controlled' }} sx={{ p:0 }}/>
                     </Grid>
                     <Grid item xs={8}>
                       <Typography sx={font12}>Customer</Typography>

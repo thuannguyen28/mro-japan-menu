@@ -359,7 +359,8 @@ const rows = [
 ];
 
 //CSS
-const cssCombobox= {width: '90%', bgcolor:"#F0F0F0", ml:2, '& .MuiAutocomplete-input':{textAlign:'center'},};
+const cssCombobox= {width: '90%', bgcolor:"#F0F0F0", '& .MuiAutocomplete-input':{textAlign:'center'},};
+const cssCombobox1= {width: '90%', ml:2, bgcolor:"#F0F0F0", '& .MuiAutocomplete-input':{textAlign:'center'},};
 
 export default function Anal() {
 
@@ -710,7 +711,7 @@ export default function Anal() {
                   id="combo-box-demo"
                   options={topWorkOrderFilms}
                   defaultValue="10023822"
-                  sx={cssCombobox}
+                  sx={cssCombobox1}
                   renderInput={(params) => <TextField {...params} size="small" sx={{ fontSize: 13 }} />}
                 />
               </Grid>
