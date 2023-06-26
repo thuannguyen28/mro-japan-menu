@@ -470,6 +470,11 @@ export default function Anal() {
                   桃太郎 桃太郎
                 </Typography>
               </Grid>
+              <Grid item xs sx={{ display:'flex', alignItems:'right', justifyContent:'right' }}>
+                <Link sx={{ cursor:'pointer' }}>
+                  <img src="../part-order/print.png" width="32" height="32"/>
+                </Link>
+              </Grid>
             </Grid>
             {isMobile ?
             <div>
