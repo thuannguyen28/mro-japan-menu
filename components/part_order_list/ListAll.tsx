@@ -225,10 +225,11 @@ export default function ListAll(props) {
 
 	      <Grid item xs={1}>
 	        <Autocomplete
-	          disableClearable
-	          id="combo-box-demo"
-	          options={top100Wo}
-	          sx={{ width: '100%', 
+		        id="free-solo-demo"
+		        freeSolo
+		        disableClearable
+		        options={top100Wo.map((option) => option.title)}
+		        sx={{ width: '100%', 
 	                '& .MuiOutlinedInput-notchedOutline': {
 	                      border: 'none',
 	                    },
@@ -239,13 +240,24 @@ export default function ListAll(props) {
 	                '& .MuiAutocomplete-popupIndicator': {
 	                  visibility: 'hidden',
 	                },
+	                '& .MuiAutocomplete-input': {
+	                  textOverflow:'inherit',
+	                  color:"#325381",
+	                },
+	                '& .MuiInputBase-sizeSmall': {
+	                  paddingLeft:0,
+	                },
+
+	                '& .MuiOutlinedInput-root': {
+							      paddingRight: 0,
+							    },
+	                
 	                '&:hover .MuiAutocomplete-popupIndicator': {
 	                  visibility: 'visible',
 	                },
 	              }}
-
-	          renderInput={(params) => (<TextField {...params} size="small" placeholder="Work Order"  />)}
-	        />
+		        renderInput={(params) => (<TextField {...params} size="small" placeholder="Work Order"  />)}
+		      />
 	      </Grid>
 
 	      <Grid item xs={1}>
@@ -363,11 +375,11 @@ export default function ListAll(props) {
 }
 
 const top100Wo = [
-  { label: '10023879 JA4 10023879 JA4' },
-  { label: '10023879 JA4 10023879 JA4' },
-  { label: '10023879 JA4 10023879 JA4' },
-  { label: '10023879 JA4 10023879 JA4' },
-  { label: '10023879 JA4 10023879 JA4' },
+  { title: '10023879 JA4' },
+  { title: '10023879 JA4' },
+  { title: '10023879 JA4' },
+  { title: '10023879 JA4' },
+  { title: '10023879 JA4' },
 ];
 
 const top100Zone = [
