@@ -267,6 +267,7 @@ export default function ListAll(props) {
 	      <Grid item xs>
 	        <Autocomplete
 	          disableClearable
+	          freeSolo
 	          id="combo-box-demo"
 	          options={topWo}
 	          sx={{ width: '100%', 
@@ -290,6 +291,7 @@ export default function ListAll(props) {
 	                '& .MuiAutocomplete-input': {
 	                  textOverflow: 'inherit',
 	                  color:"#325381",
+	                  textAlign:"center",
 	                },
 	                
 	              }}
