@@ -204,16 +204,17 @@ export default function RequestPartMaterials() {
   };
 
   // Dialog Search
-  const [openSearch, setOpenSearch] = React.useState(false);
+  const [openView, setOpenView] = React.useState(false);
 
-  const handleClickOpenSearch = () => {
-    setOpenSearch(true);
+  const handleClickOpenView = () => {
+    setOpenView(true);
   };
 
-  const handleCloseSearch = () => {
-    setOpenSearch(false);
+  const handleCloseView = () => {
+    setOpenView(false);
   };
   // END Dialog Memo'
+
 
   return (
   <div>
@@ -1166,7 +1167,7 @@ export default function RequestPartMaterials() {
                         </Menu>
                       </Grid>  
                       <Grid item xs={1.5}>  
-                        <Typography onClick={handleClickOpenSearch} sx={font12CenterBorder}>23-00992</Typography>
+                        <Typography  sx={font12CenterBorder}>23-00992</Typography>
                       </Grid>
                       <Grid item xs={4}>
                         <Typography sx={font12CenterBorder}>ANA-34-32144-001</Typography>
@@ -1521,7 +1522,7 @@ export default function RequestPartMaterials() {
                           }}
                           sx={{ ml:4}}
                         >
-                          <MenuItem><Typography sx={cssMenu} >View</Typography></MenuItem>
+                          <MenuItem onClick={handleClickOpenView}><Typography sx={cssMenu} >View</Typography></MenuItem>
                         </Menu>
                       </Grid>                    
                       <Grid item xs={1.5}>
@@ -1555,10 +1556,10 @@ export default function RequestPartMaterials() {
     {/*----------End Modal Order----------*/}
 
 
-    {/*Dialog memo*/}
-     <Dialog open={openSearch} onClose={handleCloseSearch} maxWidth="xl">
+      {/*Dialog memo*/}
+     <Dialog open={openView} onClose={handleCloseView} maxWidth="xl">
         <DialogTitle>
-          <BootstrapDialogTitle id="customized-dialog-title" onClose={handleCloseSearch}> 
+          <BootstrapDialogTitle id="customized-dialog-title" onClose={handleCloseView}> 
             <Grid container spacing={2}>
               <Grid item xs={7} md={9}>
                 <CardMedia
@@ -1599,127 +1600,8 @@ export default function RequestPartMaterials() {
                     <Typography sx={cssOder}>21 - 15292</Typography>
                   </Grid>
                 </Grid>
-                <Grid container spacing={2}>
-                  <Grid item xs={12} md={3}>
-                      <Typography sx={{ fontSize: '16px' }}>Request For Part And Materials</Typography>
-                      <Typography sx={{ fontSize: '14px', mt: 1, mb: 1 }}>資村出庫要求伝票</Typography>
-                      <Box sx={cssBox}>
-                        <Grid container sx={{ height: '58px' }}>
-                          <Grid item xs>
-                            <Typography sx={{ fontSize: '12px', ml: 1, mt: '10px' }}>Issued Parts</Typography>
-                            <Typography sx={{ fontSize: '12px', ml: 1 }}>出庫資村</Typography>
-                          </Grid>
-                          <Divider orientation="vertical" flexItem />
-                          <Grid item xs>
-                            <Grid container spacing={0} sx={{ mt: '10px' }}>
-                              <Grid item xs={4}>
-                                <Checkbox inputProps={{ 'aria-label': 'controlled' }} />
-                              </Grid>
-                              <Grid item xs={8}>
-                                <Typography sx={font12}>MJP</Typography>
-                                <Typography sx={font12}>自社資村</Typography>
-                              </Grid>
-                            </Grid>
-                          </Grid>
-                          <Divider orientation="vertical" flexItem />
-                          <Grid item xs>
-                            <Grid container spacing={0} sx={{ mt: '10px' }}>
-                              <Grid item xs={4}>
-                                <Checkbox inputProps={{ 'aria-label': 'controlled' }} />
-                              </Grid>
-                              <Grid item xs={8}>
-                                <Typography sx={font12}>Customer</Typography>
-                                <Typography sx={font12}>支給資村</Typography>
-                              </Grid>
-                            </Grid>
-                          </Grid>
-                        </Grid>
-                      </Box>
-                  </Grid>
-                  <Grid item xs={12} md={3}>
-                    <Box sx={cssBox}>
-                      <Typography sx={font12Center}>Requested by / 資村要求者</Typography>
-                      <Divider sx={{ my: '4px'}} />
-                      <Grid container>
-                        <Grid item xs>
-                          <Typography sx={font12Center}>Zone</Typography>
-                        </Grid>
-                        <Divider orientation="vertical" flexItem />
-                        <Grid item xs>
-                          <Typography sx={font12Center}>Name</Typography>
-                        </Grid>
-                      </Grid>
-                      <Divider sx={{ my: '4px'}} />
-                      <Grid container>
-                        <Grid item xs>
-                          <Typography sx={font12Center}></Typography>
-                        </Grid>
-                        <Divider orientation="vertical" flexItem />
-                        <Grid item xs>
-                          <Typography sx={{ fontSize: '12px', textAlign: 'center', height: '65px' }}></Typography>
-                        </Grid>
-                      </Grid>
-                    </Box>
-                  </Grid>
-                  <Grid item xs={12} md={3}>
-                    <Box sx={cssBox}>
-                      <Typography sx={font12Center}>Received By / 資村受領者</Typography>
-                      <Divider sx={{ my: '4px'}} />
-                      <Grid container>
-                        <Grid item xs>
-                          <Typography sx={font12Center}>Zone</Typography>
-                        </Grid>
-                        <Divider orientation="vertical" flexItem />
-                        <Grid item xs>
-                          <Typography sx={font12Center}>Name</Typography>
-                        </Grid>
-                      </Grid>
-                      <Divider sx={{ my: '4px'}} />
-                      <Grid container>
-                        <Grid item xs>
-                          <Typography sx={{ fontSize: '12px', textAlign: 'center', height: '65px' }}></Typography>
-                        </Grid>
-                        <Divider orientation="vertical" flexItem>
-                        </Divider>
-                        <Grid item xs>
-                          <Typography sx={{ fontSize: '12px', textAlign: 'center', height: '65px' }}></Typography>
-                        </Grid>
-                      </Grid>
-                    </Box>          
-                    
-                  </Grid>
-                  <Grid item xs={12} md={3}>
-                    <Grid container spacing={2}>
-                      <Grid item xs={6}>
-                        <Box sx={cssBox}>
-                          <Typography sx={font12Center}>Supply Section</Typography>
-                          <Typography sx={font12Center}>出庫担当者</Typography>
-                          <Divider sx={{ my: '13px'}} />
-                          <Grid container>
-                            <Grid item xs>
-                              <Typography sx={{ fontSize: '12px', textAlign: 'center', height: '56px' }}></Typography>
-                            </Grid>
-                          </Grid>
-                        </Box>
-                      </Grid>
-                      <Grid item xs={6}>
-                        <Box sx={cssBox5}>
-                          <Grid container spacing={1}>
-                            <Grid item xs={12}>
-                              <CardMedia
-                                sx={{ width: 97 , height: 97, margin: 'auto' }}
-                                image="../qr_code/QR 1.png"
-                                title="ANA"
-                              />
-                            </Grid>
-                          </Grid>
-                        </Box>
-                      </Grid>
-                    </Grid>
-                  </Grid>
-                </Grid>
+               
 
-                <ListPart />
 
                 <Grid container spacing={0} sx={{ mt : 2 }}>
                   <Grid item xs={12} md={9}>
@@ -1737,6 +1619,9 @@ export default function RequestPartMaterials() {
 
       </Dialog>
     {/*----------End Dialog memo----------*/}
+
+
+    
 
   </div>
   );
