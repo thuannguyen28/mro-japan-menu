@@ -1785,13 +1785,19 @@ export default function RequestPartMaterials() {
       {/*Dialog memo 2*/}
      <Dialog open={openView} onClose={handleCloseView} maxWidth="xl">
         <DialogTitle sx={{ py: 4, px: 0 }}>
-          <BootstrapDialogTitle sx={{ py: 1, px: 2 }} id="customized-dialog-title" onClose={handleCloseView}> 
+          <BootstrapDialogTitle sx={{ py: 1, px: 2 }} id="customized-dialog-title"> 
             <Grid container spacing={2}>
               <Grid item xs={10}>
-                    <Typography sx={{ width: '100%', color: '#325381', textAlign: 'left', fontSize: '12px', fontWeight: 700, mb: '5px', mt: 0 }}>資村出庫要求伝票  差戻し確認</Typography>
+                    <Typography sx={{ width: '100%', color: '#325381', textAlign: 'left', fontSize: '12px', fontWeight: 700, mb: '5px', mt: 0 }}>
+                      資村出庫要求伝票  差戻し確認
+                    </Typography>
               </Grid>
               <Grid item xs={2}>
-                    <Typography sx={{ width: '100%', color: '#325381', textAlign: 'right', fontSize: '12px', fontWeight: 700, mb: '5px', mt: 0 }}>資村出庫要求伝票  差戻し確認</Typography>
+                    <Typography sx={{ width: '100%', color: '#325381', textAlign: 'right', fontSize: '12px', fontWeight: 700, mb: '5px', mt: 0 }}>
+                    <Button variant="contained" sx={{ width:'50%', fontSize:13,backgroundColor: '#325381' }}>
+                      <Typography sx={{ color:'#FFFFFF', fontSize:13}}>確認</Typography>
+                    </Button>
+                    </Typography>
               </Grid>
               <Grid item xs={7} md={9}>
                 <CardMedia
@@ -1958,13 +1964,28 @@ export default function RequestPartMaterials() {
 
                 <Grid container spacing={0} sx={{ mt : 2 }}>
                   <Grid item xs={12} md={9}>
-                   <Typography sx={{ fontSize : '12px' }}>Note : 　① 　A/C-No. = Aircraft Registration No./ 機体登録　No.</Typography>
-                   <Typography sx={{ fontSize : '12px', ml: '50px' }}>②　RSN. = Reason Code / 部品消費理由コード (TC = MR TASK CARD / EO = EO 作業 / TR = TRP / RC = Discrepancy Repair 不具合修復 / MQ = Maintenance Quality 作業品質関連 / OT = Other その他)</Typography>          
+                   <Typography sx={{ fontSize : '12px', color: '#325381' }}>Note : 　① 　A/C-No. = Aircraft Registration No./ 機体登録　No.</Typography>
+                   <Typography sx={{ fontSize : '12px', ml: '50px', color: '#325381' }}>②　RSN. = Reason Code / 部品消費理由コード (TC = MR TASK CARD / EO = EO 作業 / TR = TRP / RC = Discrepancy Repair 不具合修復 / MQ = Maintenance Quality 作業品質関連 / OT = Other その他)</Typography>          
                   </Grid>
                   <Grid item xs={12} md={3}>
-                    <Typography sx={{ fontSize : '12px', textAlign: 'right', mt: 2 }}>MRO Japan Form - SD - 004C</Typography>
+                    <Typography sx={{ fontSize : '12px', textAlign: 'right', mt: 2, color: '#325381' }}>MRO Japan Form - SD - 004C</Typography>
                   </Grid>
                 </Grid>
+
+                <Grid container spacing={2} sx={{ mt : '5px', pb:'5px' }}>
+                  <Grid item xs={12}>
+                    <Typography sx={{ fontSize : '14px', mt: 2, color: '#325381' }}>補給コメント</Typography>
+                    <TextField
+                      multiline
+                      rows={4}
+                      variant="outlined"
+                      placeholder="出庫済み資村がありますので、そちらを使用願いします"
+                      fullWidth
+                      InputLabelProps={{style: {fontSize: '14px', color: '#325381'}}}
+                      inputProps={{style: {fontSize: '13px'}}}
+                    />
+                  </Grid>
+                </Grid>   
               </Paper>
             </Box>
           </DialogContentText>
