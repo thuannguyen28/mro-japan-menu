@@ -89,8 +89,9 @@ const filterOptions = createFilterOptions({
 // CSS
 const cssLink = { textDecoration: 'none', color: 'inherit' };
 const cssMro = { backgroundColor: '#325381', color:'#FFFFFF', fontSize: '13px', position: 'absolute', right: 0, bottom: 0 };
+const cssMro2 = { color:'#325381', fontSize: '13px', position: 'absolute', right: 0, bottom: 0 };
 const cssMroTitle = { color: '#325381', fontSize: '20px'};
-const cssOder = { width: '100%', textAlign: 'right', fontSize: '12px', fontWeight: 700, mb: '5px' };
+const cssOder = { width: '100%', textAlign: 'right', fontSize: '12px', fontWeight: 700, mb: '5px', mt: 0 };
 const cssBox = { py: 1, borderRadius: '5px', backgroundColor: '#F5F5F5'};
 const cssBox2 = { py: 2, px : 2, borderRadius: '5px', backgroundColor: '#F5F5F5', height:597};
 const cssBox3 = { color: '#325381', backgroundColor: '#F5F5F5',py: 1, borderRadius: '5px', overflowY:'scroll', height:490};
@@ -157,6 +158,42 @@ export default function RequestPartMaterials() {
     setAnchorEl(null);
   };
 
+  const [anchorEl1, setAnchorEl1] = React.useState<null | HTMLElement>(null);
+  const open1 = Boolean(anchorEl1);
+  const handleClick1 = (event: React.MouseEvent<HTMLButtonElement>) => {
+    setAnchorEl1(event.currentTarget);
+  };
+  const handleClose1 = () => {
+    setAnchorEl1(null);
+  };
+
+  const [anchorEl2, setAnchorEl2] = React.useState<null | HTMLElement>(null);
+  const open2 = Boolean(anchorEl2);
+  const handleClick2 = (event: React.MouseEvent<HTMLButtonElement>) => {
+    setAnchorEl2(event.currentTarget);
+  };
+  const handleClose2 = () => {
+    setAnchorEl2(null);
+  };
+
+  const [anchorEl3, setAnchorEl3] = React.useState<null | HTMLElement>(null);
+  const open3 = Boolean(anchorEl3);
+  const handleClick3 = (event: React.MouseEvent<HTMLButtonElement>) => {
+    setAnchorEl3(event.currentTarget);
+  };
+  const handleClose3 = () => {
+    setAnchorEl3(null);
+  };
+
+  const [anchorEl4, setAnchorEl4] = React.useState<null | HTMLElement>(null);
+  const open4 = Boolean(anchorEl4);
+  const handleClick4 = (event: React.MouseEvent<HTMLButtonElement>) => {
+    setAnchorEl4(event.currentTarget);
+  };
+  const handleClose4 = () => {
+    setAnchorEl4(null);
+  };
+
   // Dialog AMM
   const [openAMM, setOpenAMM] = React.useState(false);
 
@@ -214,6 +251,16 @@ export default function RequestPartMaterials() {
     setOpenView(false);
   };
   // END Dialog Memo'
+
+  const [openSearch, setOpenSearch] = React.useState(false);
+
+  const handleClickOpenSearch = () => {
+    setOpenSearch(true);
+  };
+
+  const handleCloseSearch = () => {
+    setOpenSearch(false);
+  };
 
 
   return (
@@ -1071,34 +1118,29 @@ export default function RequestPartMaterials() {
                               control={<Checkbox />}
                               label="EXT1"
                               checked={true}
-                              labelPlacement="EXT1"
                             />
                             <FormControlLabel
                               value="EXT2"
                               control={<Checkbox />}
                               label="EXT2"
-                              labelPlacement="EXT2"
                             />
 
                             <FormControlLabel
                               value="INT"
                               control={<Checkbox />}
                               label="INT"
-                              labelPlacement="INT"
                             />
 
                             <FormControlLabel
                               value="EEM"
                               control={<Checkbox />}
                               label="EEM"
-                              labelPlacement="EEM"
                             />
 
                             <FormControlLabel
                               value="MAM"
                               control={<Checkbox />}
-                              label="MAM"
-                              labelPlacement="MAM"
+                              label="MAM"                              
                             />
                             
                           </FormGroup>
@@ -1144,8 +1186,8 @@ export default function RequestPartMaterials() {
                     <Grid container spacing={2}>
                       <Grid item xs={0.5}>
                         <Button
-                          id="basic-button"
-                          aria-controls={open ? 'basic-menu' : undefined}
+                          id="basic-button-1"
+                          aria-controls={open ? 'basic-menu-1' : undefined}
                           aria-haspopup="true"
                           aria-expanded={open ? 'true' : undefined}
                           onClick={handleClick}
@@ -1154,20 +1196,20 @@ export default function RequestPartMaterials() {
                           <MoreVertIcon style={{ color: '#9C9C9C' }} />
                         </Button>
                         <Menu
-                          id="basic-menu"
+                          id="basic-menu-1"
                           anchorEl={anchorEl}
                           open={open}
                           onClose={handleClose}
                           MenuListProps={{
-                            'aria-labelledby': 'basic-button',
+                            'aria-labelledby': 'basic-button-1',
                           }}
                           sx={{ ml:4}}
                         >
-                          <MenuItem><Typography sx={cssMenu} >View</Typography></MenuItem>
+                          <MenuItem onClick={handleClickOpenSearch}><Typography sx={cssMenu} >View</Typography></MenuItem>
                         </Menu>
                       </Grid>  
                       <Grid item xs={1.5}>  
-                        <Typography  sx={font12CenterBorder}>23-00992</Typography>
+                        <Typography sx={font12CenterBorder}>23-00992</Typography>
                       </Grid>
                       <Grid item xs={4}>
                         <Typography sx={font12CenterBorder}>ANA-34-32144-001</Typography>
@@ -1226,26 +1268,26 @@ export default function RequestPartMaterials() {
                     <Grid container spacing={2}>
                       <Grid item xs={0.5}>
                         <Button
-                          id="basic-button"
-                          aria-controls={open ? 'basic-menu' : undefined}
+                          id="basic-button-2"
+                          aria-controls={open1 ? 'basic-menu-2' : undefined}
                           aria-haspopup="true"
-                          aria-expanded={open ? 'true' : undefined}
-                          onClick={handleClick}
+                          aria-expanded={open1 ? 'true' : undefined}
+                          onClick={handleClick1}
                           sx={{ minWidth: 'unset' }}
                         >
                           <MoreVertIcon style={{ color: '#9C9C9C' }} />
                         </Button>
                         <Menu
-                          id="basic-menu"
-                          anchorEl={anchorEl}
-                          open={open}
-                          onClose={handleClose}
+                          id="basic-menu-2"
+                          anchorEl={anchorEl1}
+                          open={open1}
+                          onClose={handleClose1}
                           MenuListProps={{
-                            'aria-labelledby': 'basic-button',
+                            'aria-labelledby': 'basic-button-2',
                           }}
                           sx={{ ml:4}}
                         >
-                          <MenuItem><Typography sx={cssMenu} >View</Typography></MenuItem>
+                          <MenuItem onClick={handleClickOpenSearch}><Typography sx={cssMenu} >View</Typography></MenuItem>
                         </Menu>
                       </Grid>
                       <Grid item xs={1.5}>
@@ -1357,22 +1399,22 @@ export default function RequestPartMaterials() {
                     <Grid container spacing={2}>
                       <Grid item xs={0.5}>
                         <Button
-                          id="basic-button"
-                          aria-controls={open ? 'basic-menu' : undefined}
+                          id="basic-button-3"
+                          aria-controls={open2 ? 'basic-menu-3' : undefined}
                           aria-haspopup="true"
-                          aria-expanded={open ? 'true' : undefined}
-                          onClick={handleClick}
+                          aria-expanded={open2 ? 'true' : undefined}
+                          onClick={handleClick2}
                           sx={{ minWidth: 'unset' }}
                         >
                           <MoreVertIcon style={{ color: '#9C9C9C' }} />
                         </Button>
                         <Menu
-                          id="basic-menu"
-                          anchorEl={anchorEl}
-                          open={open}
-                          onClose={handleClose}
+                          id="basic-menu-3"
+                          anchorEl={anchorEl2}
+                          open={open2}
+                          onClose={handleClose2}
                           MenuListProps={{
-                            'aria-labelledby': 'basic-button',
+                            'aria-labelledby': 'basic-button-3',
                           }}
                           sx={{ ml:4}}
                         >
@@ -1432,22 +1474,22 @@ export default function RequestPartMaterials() {
                     <Grid container spacing={2}>
                       <Grid item xs={0.5}>
                         <Button
-                          id="basic-button"
-                          aria-controls={open ? 'basic-menu' : undefined}
+                          id="basic-button-4"
+                          aria-controls={open3 ? 'basic-menu-4' : undefined}
                           aria-haspopup="true"
-                          aria-expanded={open ? 'true' : undefined}
-                          onClick={handleClick}
+                          aria-expanded={open3 ? 'true' : undefined}
+                          onClick={handleClick3}
                           sx={{ minWidth: 'unset' }}
                         >
                           <MoreVertIcon style={{ color: '#9C9C9C' }} />
                         </Button>
                         <Menu
-                          id="basic-menu"
-                          anchorEl={anchorEl}
-                          open={open}
-                          onClose={handleClose}
+                          id="basic-menu-4"
+                          anchorEl={anchorEl3}
+                          open={open3}
+                          onClose={handleClose3}
                           MenuListProps={{
-                            'aria-labelledby': 'basic-button',
+                            'aria-labelledby': 'basic-button-4',
                           }}
                           sx={{ ml:4}}
                         >
@@ -1503,26 +1545,26 @@ export default function RequestPartMaterials() {
                     <Grid container spacing={2}>
                       <Grid item xs={0.5}>
                         <Button
-                          id="basic-button"
-                          aria-controls={open ? 'basic-menu' : undefined}
+                          id="basic-button-5"
+                          aria-controls={open4 ? 'basic-menu-5' : undefined}
                           aria-haspopup="true"
-                          aria-expanded={open ? 'true' : undefined}
-                          onClick={handleClick}
+                          aria-expanded={open4 ? 'true' : undefined}
+                          onClick={handleClick4}
                           sx={{ minWidth: 'unset' }}
                         >
                           <MoreVertIcon style={{ color: '#9C9C9C' }} />
                         </Button>
                         <Menu
-                          id="basic-menu"
-                          anchorEl={anchorEl}
-                          open={open}
-                          onClose={handleClose}
+                          id="basic-menu-5"
+                          anchorEl={anchorEl4}
+                          open={open4}
+                          onClose={handleClose4}
                           MenuListProps={{
-                            'aria-labelledby': 'basic-button',
+                            'aria-labelledby': 'basic-button-5',
                           }}
                           sx={{ ml:4}}
                         >
-                          <MenuItem onClick={handleClickOpenView}><Typography sx={cssMenu} >View</Typography></MenuItem>
+                          <MenuItem><Typography sx={cssMenu} >View</Typography></MenuItem>
                         </Menu>
                       </Grid>                    
                       <Grid item xs={1.5}>
@@ -1557,9 +1599,9 @@ export default function RequestPartMaterials() {
 
 
       {/*Dialog memo*/}
-     <Dialog open={openView} onClose={handleCloseView} maxWidth="xl">
-        <DialogTitle>
-          <BootstrapDialogTitle id="customized-dialog-title" onClose={handleCloseView}> 
+     <Dialog open={openSearch} onClose={handleCloseSearch} maxWidth="xl">
+        <DialogTitle sx={{ py: 0, px: 0 }}>
+          <BootstrapDialogTitle sx={{ py: 1, px: 2 }} id="customized-dialog-title" onClose={handleCloseSearch}> 
             <Grid container spacing={2}>
               <Grid item xs={7} md={9}>
                 <CardMedia
@@ -1570,7 +1612,7 @@ export default function RequestPartMaterials() {
               </Grid>
               <Grid item xs={5} md={3} sx={{ position: 'relative' }}>  
                 <Link href="https://www.mrojpn.co.jp" underline="none" target="_blank">
-                  <Typography sx={cssMro}>
+                  <Typography sx={cssMro2}>
                   https://www.mrojpn.co.jp
                   </Typography>
                 </Link>
@@ -1586,6 +1628,7 @@ export default function RequestPartMaterials() {
               sx={{
                 display: 'flex',
                 flexWrap: 'wrap',
+                color: '#325381',
                 '& > :not(style)': {
                   width: 1200,
                   height: 700,
@@ -1600,8 +1643,128 @@ export default function RequestPartMaterials() {
                     <Typography sx={cssOder}>21 - 15292</Typography>
                   </Grid>
                 </Grid>
-               
 
+                <Grid container spacing={2}>
+                  <Grid item xs={12} md={3}>
+                      <Typography sx={{ fontSize: '16px' }}>Request For Part And Materials</Typography>
+                      <Typography sx={{ fontSize: '14px', mt: 1, mb: 1 }}>資村出庫要求伝票</Typography>
+                      <Box sx={cssBox}>
+                        <Grid container sx={{ height: '58px' }}>
+                          <Grid item xs>
+                            <Typography sx={{ fontSize: '12px', ml: 1, mt: '10px' }}>Issued Parts</Typography>
+                            <Typography sx={{ fontSize: '12px', ml: 1 }}>出庫資村</Typography>
+                          </Grid>
+                          <Divider orientation="vertical" flexItem />
+                          <Grid item xs>
+                            <Grid container spacing={0} sx={{ mt: '10px' }}>
+                              <Grid item xs={4}>
+                                <Checkbox inputProps={{ 'aria-label': 'controlled' }} />
+                              </Grid>
+                              <Grid item xs={8}>
+                                <Typography sx={font12}>MJP</Typography>
+                                <Typography sx={font12}>自社資村</Typography>
+                              </Grid>
+                            </Grid>
+                          </Grid>
+                          <Divider orientation="vertical" flexItem />
+                          <Grid item xs>
+                            <Grid container spacing={0} sx={{ mt: '10px' }}>
+                              <Grid item xs={4}>
+                                <Checkbox inputProps={{ 'aria-label': 'controlled' }} />
+                              </Grid>
+                              <Grid item xs={8}>
+                                <Typography sx={font12}>Customer</Typography>
+                                <Typography sx={font12}>支給資村</Typography>
+                              </Grid>
+                            </Grid>
+                          </Grid>
+                        </Grid>
+                      </Box>
+                  </Grid>
+                  <Grid item xs={12} md={3}>
+                    <Box sx={cssBox}>
+                      <Typography sx={font12Center}>Requested by / 資村要求者</Typography>
+                      <Divider sx={{ my: '4px'}} />
+                      <Grid container>
+                        <Grid item xs>
+                          <Typography sx={font12Center}>Zone</Typography>
+                        </Grid>
+                        <Divider orientation="vertical" flexItem />
+                        <Grid item xs>
+                          <Typography sx={font12Center}>Name</Typography>
+                        </Grid>
+                      </Grid>
+                      <Divider sx={{ my: '4px'}} />
+                      <Grid container>
+                        <Grid item xs>
+                          <Typography sx={font12Center}></Typography>
+                        </Grid>
+                        <Divider orientation="vertical" flexItem />
+                        <Grid item xs>
+                          <Typography sx={{ fontSize: '12px', textAlign: 'center', height: '65px' }}></Typography>
+                        </Grid>
+                      </Grid>
+                    </Box>
+                  </Grid>
+                  <Grid item xs={12} md={3}>
+                    <Box sx={cssBox}>
+                      <Typography sx={font12Center}>Received By / 資村受領者</Typography>
+                      <Divider sx={{ my: '4px'}} />
+                      <Grid container>
+                        <Grid item xs>
+                          <Typography sx={font12Center}>Zone</Typography>
+                        </Grid>
+                        <Divider orientation="vertical" flexItem />
+                        <Grid item xs>
+                          <Typography sx={font12Center}>Name</Typography>
+                        </Grid>
+                      </Grid>
+                      <Divider sx={{ my: '4px'}} />
+                      <Grid container>
+                        <Grid item xs>
+                          <Typography sx={{ fontSize: '12px', textAlign: 'center', height: '65px' }}></Typography>
+                        </Grid>
+                        <Divider orientation="vertical" flexItem>
+                        </Divider>
+                        <Grid item xs>
+                          <Typography sx={{ fontSize: '12px', textAlign: 'center', height: '65px' }}></Typography>
+                        </Grid>
+                      </Grid>
+                    </Box>          
+                    
+                  </Grid>
+                  <Grid item xs={12} md={3}>
+                    <Grid container spacing={2}>
+                      <Grid item xs={6}>
+                        <Box sx={cssBox}>
+                          <Typography sx={font12Center}>Supply Section</Typography>
+                          <Typography sx={font12Center}>出庫担当者</Typography>
+                          <Divider sx={{ my: '13px'}} />
+                          <Grid container>
+                            <Grid item xs>
+                              <Typography sx={{ fontSize: '12px', textAlign: 'center', height: '56px' }}></Typography>
+                            </Grid>
+                          </Grid>
+                        </Box>
+                      </Grid>
+                      <Grid item xs={6}>
+                        <Box sx={cssBox5}>
+                          <Grid container spacing={1}>
+                            <Grid item xs={12}>
+                              <CardMedia
+                                sx={{ width: 97 , height: 97, margin: 'auto' }}
+                                image="../qr_code/QR 1.png"
+                                title="ANA"
+                              />
+                            </Grid>
+                          </Grid>
+                        </Box>
+                      </Grid>
+                    </Grid>
+                  </Grid>
+                </Grid>
+               
+                <ListPart />
 
                 <Grid container spacing={0} sx={{ mt : 2 }}>
                   <Grid item xs={12} md={9}>
