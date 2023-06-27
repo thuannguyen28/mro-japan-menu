@@ -155,11 +155,12 @@ function BootstrapDialogTitle(props: DialogTitleProps) {
 
   const StyledTextarea = styled(TextareaAutosize)(
     ({ theme }) => `
-    width: 500px;
+    width: 1200px;
+    height:450px;
     font-family: IBM Plex Sans, sans-serif;
     font-size: 0.875rem;
     font-weight: 400;
-    line-height: 6;
+    line-height: 2;
     padding: 12px;
     border-radius: 12px 12px 0 12px;
     color: ${theme.palette.mode === 'dark' ? grey[300] : grey[900]};
@@ -359,7 +360,8 @@ const rows = [
 ];
 
 //CSS
-const cssCombobox= {width: '90%', bgcolor:"#F0F0F0", ml:2, '& .MuiAutocomplete-input':{textAlign:'center'},};
+const cssCombobox= {width: '90%', bgcolor:"#F0F0F0", '& .MuiAutocomplete-input':{textAlign:'center', color:"#325381"},};
+const cssCombobox1= {width: '90%', ml:2, bgcolor:"#F0F0F0", '& .MuiAutocomplete-input':{textAlign:'center' , color:"#325381"},};
 
 export default function Anal() {
 
@@ -468,6 +470,11 @@ export default function Anal() {
                 <Typography sx={{ color : '#325381', mt:1, fontSize:14, display: 'flex' }} >
                   桃太郎 桃太郎
                 </Typography>
+              </Grid>
+              <Grid item xs sx={{ display:'flex', alignItems:'right', justifyContent:'right' }}>
+                <Link sx={{ cursor:'pointer' }}>
+                  <img src="../part-order/print.png" width="32" height="32"/>
+                </Link>
               </Grid>
             </Grid>
             {isMobile ?
@@ -710,7 +717,7 @@ export default function Anal() {
                   id="combo-box-demo"
                   options={topWorkOrderFilms}
                   defaultValue="10023822"
-                  sx={cssCombobox}
+                  sx={cssCombobox1}
                   renderInput={(params) => <TextField {...params} size="small" sx={{ fontSize: 13 }} />}
                 />
               </Grid>
@@ -996,18 +1003,19 @@ export default function Anal() {
             disableClearable
             id="combo-box-demo"
             options={topQTY}
+            defaultValue="1"
             sx={{ width: "100%", 
-                  bgcolor:"#F0F0F0",
-                  '& .MuiOutlinedInput-notchedOutline': {
-                    border: 'none',
-                  }, 
-                  
-                  '& .MuiAutocomplete-input': {
-                   textAlign:"center",
-                   color:"#325381",
-                  }, 
-                }}
-            renderInput={(params) => <TextField {...params} placeholder="1" size="small" sx={{ fontSize: 13 }} />}
+            bgcolor:"#F0F0F0",
+              '& .MuiOutlinedInput-notchedOutline': {
+                border: 'none',
+              }, 
+              
+              '& .MuiAutocomplete-input': {
+               textAlign:"center",
+               color:"#325381",
+              }, 
+            }}
+            renderInput={(params) => <TextField {...params} size="small" sx={{ fontSize: 13 }} />}
           />
         </Grid>
 
@@ -1118,7 +1126,7 @@ export default function Anal() {
           <Box sx={cssBox}>
             <Grid container>
               <Grid item xs>
-                <Typography sx={cssDetailData}>M*PIN COTTER</Typography>
+                <Typography sx={cssDetailData}>S*LOCTITE 50CC</Typography>
               </Grid>
             </Grid>
           </Box>
@@ -1138,7 +1146,7 @@ export default function Anal() {
           <Box sx={cssBox}>
             <Grid container>
               <Grid item xs>
-                <Typography sx={cssDetailData}>5023</Typography>
+                <Typography sx={cssDetailData}>23</Typography>
               </Grid>
             </Grid>
           </Box>
@@ -1148,7 +1156,7 @@ export default function Anal() {
           <Box sx={cssBox}>
             <Grid container>
               <Grid item xs>
-                <Typography sx={cssDetailData}>10023631</Typography>
+                <Typography sx={cssDetailData}>0</Typography>
               </Grid>
             </Grid>
           </Box>
@@ -1159,18 +1167,19 @@ export default function Anal() {
             disableClearable
             id="combo-box-demo"
             options={topQTY}
+            defaultValue="1"
             sx={{ width: "100%", 
-                  bgcolor:"#F0F0F0",
-                  '& .MuiOutlinedInput-notchedOutline': {
-                    border: 'none',
-                  }, 
-                  
-                  '& .MuiAutocomplete-input': {
-                   textAlign:"center",
-                   color:"#325381",
-                  }, 
-                }}
-            renderInput={(params) => <TextField {...params} placeholder="1" size="small" sx={{ fontSize: 13 }} />}
+            bgcolor:"#F0F0F0",
+              '& .MuiOutlinedInput-notchedOutline': {
+                border: 'none',
+              }, 
+              
+              '& .MuiAutocomplete-input': {
+               textAlign:"center",
+               color:"#325381",
+              }, 
+            }}
+            renderInput={(params) => <TextField {...params} size="small" sx={{ fontSize: 13 }} />}
           />
         </Grid>
 
@@ -1281,7 +1290,7 @@ export default function Anal() {
           <Box sx={cssBox}>
             <Grid container>
               <Grid item xs>
-                <Typography sx={cssDetailData}>M*PIN COTTER</Typography>
+                <Typography sx={cssDetailData}>RESTRAINT ASSY - F/O</Typography>
               </Grid>
             </Grid>
           </Box>
@@ -1301,7 +1310,7 @@ export default function Anal() {
           <Box sx={cssBox}>
             <Grid container>
               <Grid item xs>
-                <Typography sx={cssDetailData}>5023</Typography>
+                <Typography sx={cssDetailData}>16</Typography>
               </Grid>
             </Grid>
           </Box>
@@ -1311,7 +1320,7 @@ export default function Anal() {
           <Box sx={cssBox}>
             <Grid container>
               <Grid item xs>
-                <Typography sx={cssDetailData}>10023631</Typography>
+                <Typography sx={cssDetailData}>0</Typography>
               </Grid>
             </Grid>
           </Box>
@@ -1322,18 +1331,19 @@ export default function Anal() {
             disableClearable
             id="combo-box-demo"
             options={topQTY}
+            defaultValue="1"
             sx={{ width: "100%", 
-                  bgcolor:"#F0F0F0",
-                  '& .MuiOutlinedInput-notchedOutline': {
-                    border: 'none',
-                  }, 
-                  
-                  '& .MuiAutocomplete-input': {
-                   textAlign:"center",
-                   color:"#325381",
-                  }, 
-                }}
-            renderInput={(params) => <TextField {...params} placeholder="1" size="small" sx={{ fontSize: 13 }} />}
+            bgcolor:"#F0F0F0",
+              '& .MuiOutlinedInput-notchedOutline': {
+                border: 'none',
+              }, 
+              
+              '& .MuiAutocomplete-input': {
+               textAlign:"center",
+               color:"#325381",
+              }, 
+            }}
+            renderInput={(params) => <TextField {...params} size="small" sx={{ fontSize: 13 }} />}
           />
         </Grid>
 
@@ -1444,7 +1454,7 @@ export default function Anal() {
           <Box sx={cssBox}>
             <Grid container>
               <Grid item xs>
-                <Typography sx={cssDetailData}>M*PIN COTTER</Typography>
+                <Typography sx={cssDetailData}>SEAT CAP</Typography>
               </Grid>
             </Grid>
           </Box>
@@ -1464,7 +1474,7 @@ export default function Anal() {
           <Box sx={cssBox}>
             <Grid container>
               <Grid item xs>
-                <Typography sx={cssDetailData}>5023</Typography>
+                <Typography sx={cssDetailData}>0</Typography>
               </Grid>
             </Grid>
           </Box>
@@ -1474,7 +1484,7 @@ export default function Anal() {
           <Box sx={cssBox}>
             <Grid container>
               <Grid item xs>
-                <Typography sx={cssDetailData}>10023631</Typography>
+                <Typography sx={cssDetailData}>0</Typography>
               </Grid>
             </Grid>
           </Box>
@@ -1485,18 +1495,19 @@ export default function Anal() {
             disableClearable
             id="combo-box-demo"
             options={topQTY}
+            defaultValue="1"
             sx={{ width: "100%", 
-                  bgcolor:"#F0F0F0",
-                  '& .MuiOutlinedInput-notchedOutline': {
-                    border: 'none',
-                  }, 
-                  
-                  '& .MuiAutocomplete-input': {
-                   textAlign:"center",
-                   color:"#325381",
-                  }, 
-                }}
-            renderInput={(params) => <TextField {...params} placeholder="1" size="small" sx={{ fontSize: 13 }} />}
+            bgcolor:"#F0F0F0",
+              '& .MuiOutlinedInput-notchedOutline': {
+                border: 'none',
+              }, 
+              
+              '& .MuiAutocomplete-input': {
+               textAlign:"center",
+               color:"#325381",
+              }, 
+            }}
+            renderInput={(params) => <TextField {...params} size="small" sx={{ fontSize: 13 }} />}
           />
         </Grid>
 
@@ -1583,19 +1594,19 @@ export default function Anal() {
             disableClearable
             id="combo-box-demo"
             options={topQTY}
+            defaultValue="1"
             sx={{ width: "100%", 
-                  bgcolor:"#F0F0F0",
-                  '& .MuiOutlinedInput-notchedOutline': {
-                    border: 'none',
-                  }, 
-                  
-                  '& .MuiAutocomplete-input': {
-                   textAlign:"center",
-                   color:"#325381",
-                  },
-
-                }}
-            renderInput={(params) => <TextField {...params} placeholder="1" size="small" sx={{ fontSize: 13 }} />}
+            bgcolor:"#F0F0F0",
+              '& .MuiOutlinedInput-notchedOutline': {
+                border: 'none',
+              }, 
+              
+              '& .MuiAutocomplete-input': {
+               textAlign:"center",
+               color:"#325381",
+              }, 
+            }}
+            renderInput={(params) => <TextField {...params} size="small" sx={{ fontSize: 13 }} />}
           />
         </Grid>
 
@@ -1703,10 +1714,9 @@ export default function Anal() {
             >
               <Paper elevation={0}>     
                 <StyledTextarea
+                  style={{ height:450 }}
                   aria-label="minimum height"
-                  minRows={5}
                   placeholder=""
-                  sx={{ width:1200 }}
                 />
               </Paper>
             </Box>

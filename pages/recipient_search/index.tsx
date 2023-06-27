@@ -84,7 +84,7 @@ export default function Parts() {
           width: '100%',}}>
       <Grid container spacing={0} sx={{ pl: 2, pr: 2, pt:2  }}>
 
-        <Grid item xs={6}>
+        <Grid item xs={6} sx={{ display:"flex", alignItems:"end" }}>
           <Typography color="#325381" >
             <strong>受領者検索 / Recipient search</strong>
           </Typography>
