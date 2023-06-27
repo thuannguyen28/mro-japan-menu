@@ -27,6 +27,7 @@ import FormControl from '@mui/material/FormControl';
 import InputLabel from '@mui/material/InputLabel';
 import OutlinedInput from '@mui/material/OutlinedInput';
 import InputAdornment from '@mui/material/InputAdornment';
+import Select from '@mui/material/Select';
 
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
@@ -89,11 +90,14 @@ const filterOptions = createFilterOptions({
 const cssLink = { textDecoration: 'none', color: 'inherit' };
 const cssMro = { backgroundColor: '#325381', color:'#FFFFFF', fontSize: '13px', position: 'absolute', right: 0, bottom: 0 };
 const cssMroTitle = { color: '#325381', fontSize: '20px'};
+const cssOder = { width: '100%', textAlign: 'right', fontSize: '12px', fontWeight: 700, mb: '5px' };
 const cssBox = { py: 1, borderRadius: '5px', backgroundColor: '#F5F5F5'};
 const cssBox2 = { py: 2, px : 2, borderRadius: '5px', backgroundColor: '#F5F5F5', height:597};
 const cssBox3 = { color: '#325381', backgroundColor: '#F5F5F5',py: 1, borderRadius: '5px', overflowY:'scroll', height:490};
 const cssBox4 = { color: '#325381', backgroundColor: '#F5F5F5',py: 1, borderRadius: '5px', overflowY:'scroll', height:670};
+const cssBox5 = { background : '#F5F5F5', px: 1, py: '19px', borderRadius: '5px'};
 const font12Center = { fontSize: '12px', display: 'flex', alignItems:'center', justifyContent: 'center' };
+const font12CenterBorder = { fontSize: '12px', display: 'flex', alignItems:'center', justifyContent: 'center', mt: '9px' };
 const font12Left = { fontSize: '12px', display: 'flex', alignItems:'center', justifyContent: 'left', ml:4 };
 const font11 = { color:'#B8B8B8', fontSize: '11px', display: 'flex', alignItems:'center', justifyContent: 'center', ml:10};
 const font11Right = { color:'#B8B8B8', fontSize: '11px', display: 'flex', alignItems:'center', justifyContent: 'right', mr:'3px'  };
@@ -116,7 +120,7 @@ const cssTexts = { m: 1, ml:12, width:780, backgroundColor:'#F5F5F5', '& .MuiOut
 
 const cssTextTask1 = { m: 1, ml:12, width:640, backgroundColor:'#F5F5F5', '& .MuiOutlinedInput-notchedOutline': {border: 'none'}, };
 const cssTextTask2 = { m: 1, width:120, backgroundColor:'#F5F5F5', '& .MuiOutlinedInput-notchedOutline': {border: 'none'}, };
-const cssMenu = {minWidth: 100, textAlign:'center'};
+const cssMenu = {minWidth: 100, textAlign:'center', fontSize: '12px'};
 
 function BootstrapDialogTitle(props: DialogTitleProps) {
   const { children, onClose, ...other } = props;
@@ -198,6 +202,18 @@ export default function RequestPartMaterials() {
   const handleCloseOrder = () => {
     setOpenOrder(false);
   };
+
+  // Dialog Search
+  const [openSearch, setOpenSearch] = React.useState(false);
+
+  const handleClickOpenSearch = () => {
+    setOpenSearch(true);
+  };
+
+  const handleCloseSearch = () => {
+    setOpenSearch(false);
+  };
+  // END Dialog Memo'
 
   return (
   <div>
@@ -1019,17 +1035,87 @@ export default function RequestPartMaterials() {
 
     {/*Dialog Order*/}
      <Dialog open={openOrder} fullWidth onClose={handleCloseOrder} maxWidth="xl">
-        <DialogTitle>
-          <BootstrapDialogTitle id="order-customized-dialog-title" onClose={handleCloseOrder}>             
+        <DialogTitle sx={{ py: 0, px: 0 }}>
+          <BootstrapDialogTitle id="order-customized-dialog-title" onClose={handleCloseOrder}>
           </BootstrapDialogTitle>
         </DialogTitle>
         <DialogContent>
           <DialogContentText>
-            <Box sx={{color : '#325381', fontSize: '11px', px: 4}}>
+            <Box sx={{color : '#325381', fontSize: '11px', px: 0}}>
+              <Grid container spacing={2} sx={{ pt: 2 }}>
+                <Grid item xs={12} md={6}>
+                  <Grid container spacing={2}>
+                    <Grid item xs={12} md={3}>
+                        <Typography sx={{ fontSize: '13px', color: '#325381' }}><strong>WO</strong></Typography>
+                        <FormControl sx={{ mb: 1 }} fullWidth size="small">
+                          <Select
+                            labelId="demo-select-small-label"
+                            id="demo-select-small"
+                            value={10024281}
+                            fullWidth
+                          >
+                            <MenuItem value={10024280}>10024280</MenuItem>
+                            <MenuItem value={10024281}>10024281</MenuItem>
+                            <MenuItem value={10024282}>10024282</MenuItem>
+                          </Select>
+                        </FormControl>
+                    </Grid>
+                    <Grid item xs={12} md={9}>
+                        <Typography sx={{ fontSize: '13px', color: '#325381' }}><strong>Zone</strong></Typography>
+                        <FormControl component="fieldset">
+                          <FormGroup aria-label="position" row>
+                            
+                            <FormControlLabel
+                              value="EXT1"
+                              control={<Checkbox />}
+                              label="EXT1"
+                              checked={true}
+                              labelPlacement="EXT1"
+                            />
+                            <FormControlLabel
+                              value="EXT2"
+                              control={<Checkbox />}
+                              label="EXT2"
+                              labelPlacement="EXT2"
+                            />
+
+                            <FormControlLabel
+                              value="INT"
+                              control={<Checkbox />}
+                              label="INT"
+                              labelPlacement="INT"
+                            />
+
+                            <FormControlLabel
+                              value="EEM"
+                              control={<Checkbox />}
+                              label="EEM"
+                              labelPlacement="EEM"
+                            />
+
+                            <FormControlLabel
+                              value="MAM"
+                              control={<Checkbox />}
+                              label="MAM"
+                              labelPlacement="MAM"
+                            />
+                            
+                          </FormGroup>
+                        </FormControl>                        
+                    </Grid>                    
+                  </Grid>
+                </Grid>
+                <Grid item xs={12} md={6}>
+                  <Typography sx={{ textAlign: 'right' }}>
+                    <img src="../logo.png"/>
+                  </Typography>
+                   
+                </Grid>
+              </Grid>  
               <Grid container spacing={2} sx={{ pt: 2 }}>
                 <Grid item xs={12} md={6}>
                   <Typography sx={{ color:"#325381", fontSize:13, mx:1, mb: 1, fontWeight: 700 }}>保存済 (末送信)</Typography>
-                  <Box sx={{ py: 1, borderRadius: '5px', backgroundColor: '#F5F5F5', minHeight: '200px' }}>                    
+                  <Box sx={{ py: 1, borderRadius: '5px', backgroundColor: '#F5F5F5', minHeight: '180px' }}>                    
                     <Grid container spacing={2}>
                       <Grid item xs={0.5}>
                         <Typography sx={font13Bold}></Typography>
@@ -1062,6 +1148,7 @@ export default function RequestPartMaterials() {
                           aria-haspopup="true"
                           aria-expanded={open ? 'true' : undefined}
                           onClick={handleClick}
+                          sx={{ minWidth: 'unset' }}
                         >
                           <MoreVertIcon style={{ color: '#9C9C9C' }} />
                         </Button>
@@ -1073,38 +1160,48 @@ export default function RequestPartMaterials() {
                           MenuListProps={{
                             'aria-labelledby': 'basic-button',
                           }}
-                          sx={{ ml:4,}}
+                          sx={{ ml:4}}
                         >
                           <MenuItem><Typography sx={cssMenu} >View</Typography></MenuItem>
                         </Menu>
                       </Grid>  
                       <Grid item xs={1.5}>  
-                        <Typography sx={font12Center}>23-00992</Typography>
+                        <Typography onClick={handleClickOpenSearch} sx={font12CenterBorder}>23-00992</Typography>
                       </Grid>
                       <Grid item xs={4}>
-                        <Typography sx={font12Center}>ANA-34-32144-001</Typography>
+                        <Typography sx={font12CenterBorder}>ANA-34-32144-001</Typography>
                       </Grid>
                       <Grid item xs={1}>
-                        <Typography sx={font12Center}>EO</Typography>
+                        <Typography sx={font12CenterBorder}>EO</Typography>
                       </Grid>
                       <Grid item xs={2.5}>
-                        <Typography sx={font12Center}>2023/05/19  14:00:00</Typography>
+                        <Typography sx={font12CenterBorder}>2023/05/19  14:00:00</Typography>
                       </Grid>
                        <Grid item xs={1.5}>
-                        <Typography sx={font12Center}>10051</Typography>
+                        <Typography sx={font12CenterBorder}>10051</Typography>
                       </Grid>
                       <Grid item xs={1}>
-                        <EmailIcon />
+                        <EmailIcon sx={{ mt : '5px'}} />
                       </Grid>
                     </Grid>
                     <Divider sx={{ my: '3px'}} />
                   </Box>
                 </Grid>
 
-                <Grid item xs={12} md={6}>
-                  <Typography sx={{ color:"#325381", fontSize:13, mx:1, mb: 1, fontWeight: 700 }}>差戻し</Typography>
-                  <Box sx={{ py: 1, borderRadius: '5px', backgroundColor: '#F5F5F5', minHeight: '200px' }}>                    
+                <Grid item xs={12} md={6}>                  
+                  <Grid container spacing={1}>
+                    <Grid item xs={2}>
+                      <Typography sx={{ color:"#325381", fontSize:13, mx:1, mb: 1, fontWeight: 700 }}>差戻し</Typography>
+                    </Grid>
+                    <Grid item xs={10}>
+                      <Typography sx={{ color:"#B91919", fontSize:10, mx:1, mb: 1, fontWeight: 700 }}>[CSの方へ]  : 捕給から差戻しがあった場合は早急に確認をして、[保存済]　にステータスを変更してください</Typography>
+                    </Grid>
+                  </Grid>   
+                  <Box sx={{ py: 1, borderRadius: '5px', backgroundColor: '#F5F5F5', minHeight: '180px' }}>                    
                     <Grid container spacing={2}>
+                     <Grid item xs={0.5}>
+                        <Typography sx={font13Bold}></Typography>
+                      </Grid>
                       <Grid item xs={1.5}>
                         <Typography sx={font13Bold}>No.</Typography>
                       </Grid>
@@ -1120,28 +1217,52 @@ export default function RequestPartMaterials() {
                       <Grid item xs={2}>
                         <Typography sx={font13Bold}>EMP</Typography>
                       </Grid>
-                      <Grid item xs={1}>
+                      <Grid item xs={0.5}>
                         <Typography sx={font13Bold}></Typography>
                       </Grid>
                     </Grid>
                     <Divider sx={{ my: '3px'}} />
                     <Grid container spacing={2}>
+                      <Grid item xs={0.5}>
+                        <Button
+                          id="basic-button"
+                          aria-controls={open ? 'basic-menu' : undefined}
+                          aria-haspopup="true"
+                          aria-expanded={open ? 'true' : undefined}
+                          onClick={handleClick}
+                          sx={{ minWidth: 'unset' }}
+                        >
+                          <MoreVertIcon style={{ color: '#9C9C9C' }} />
+                        </Button>
+                        <Menu
+                          id="basic-menu"
+                          anchorEl={anchorEl}
+                          open={open}
+                          onClose={handleClose}
+                          MenuListProps={{
+                            'aria-labelledby': 'basic-button',
+                          }}
+                          sx={{ ml:4}}
+                        >
+                          <MenuItem><Typography sx={cssMenu} >View</Typography></MenuItem>
+                        </Menu>
+                      </Grid>
                       <Grid item xs={1.5}>
-                        <Typography sx={font12Center}>23-00992</Typography>
+                        <Typography sx={font12CenterBorder}>23-00992</Typography>
                       </Grid>
                       <Grid item xs={4}>
-                        <Typography sx={font12Center}>AANA - 10166002</Typography>
+                        <Typography sx={font12CenterBorder}>AANA - 10166002</Typography>
                       </Grid>
                       <Grid item xs={1}>
-                        <Typography sx={font12Center}>TC</Typography>
+                        <Typography sx={font12CenterBorder}>TC</Typography>
                       </Grid>
                       <Grid item xs={2.5}>
-                        <Typography sx={font12Center}>2023/05/19  14:00:00</Typography>
+                        <Typography sx={font12CenterBorder}>2023/05/19  14:00:00</Typography>
                       </Grid>
                       <Grid item xs={2}>
-                        <Typography sx={font12Center}>10051</Typography>
+                        <Typography sx={font12CenterBorder}>10051</Typography>
                       </Grid>
-                      <Grid item xs={1}></Grid>
+                      <Grid item xs={0.5}></Grid>
                     </Grid>
                     <Divider sx={{ my: '3px'}} />
                   </Box>
@@ -1152,7 +1273,7 @@ export default function RequestPartMaterials() {
               <Grid container spacing={2} sx={{ pt: 2 }}>
                 <Grid item xs={12} md={6}>
                   <Typography sx={{ color:"#325381", fontSize:13, mx:1, mb: 1, fontWeight: 700 }}>送信済  (出庫待ち)</Typography>
-                  <Box sx={{ py: 1, borderRadius: '5px', backgroundColor: '#F5F5F5', minHeight: '200px' }}>                    
+                  <Box sx={{ py: 1, borderRadius: '5px', backgroundColor: '#F5F5F5', minHeight: '180px' }}>                    
                     <Grid container spacing={2}>
                       <Grid item xs={1.5}>
                         <Typography sx={font13Bold}>No.</Typography>
@@ -1198,10 +1319,20 @@ export default function RequestPartMaterials() {
                   </Box>
                 </Grid>
 
-                <Grid item xs={12} md={6}>
-                  <Typography sx={{ color:"#325381", fontSize:13, mx:1, mb: 1, fontWeight: 700 }}>出庫済</Typography>
-                  <Box sx={{ py: 1, borderRadius: '5px', backgroundColor: '#F5F5F5', minHeight: '200px' }}>                    
+                <Grid item xs={12} md={6}>                  
+                  <Grid container spacing={1}>
+                    <Grid item xs={2}>
+                      <Typography sx={{ color:"#325381", fontSize:13, mx:1, mb: 1, fontWeight: 700 }}>出庫済</Typography>
+                    </Grid>
+                    <Grid item xs={10}>
+                      <Typography sx={{ color:"#B91919", fontSize:11, mx:1, mb: 1, fontWeight: 700 }}>✪ Dock Out までに全て受領してください</Typography>
+                    </Grid>
+                  </Grid>
+                  <Box sx={{ py: 1, borderRadius: '5px', backgroundColor: '#F5F5F5', minHeight: '180px' }}>                    
                     <Grid container spacing={2}>
+                      <Grid item xs={0.5}>
+                        <Typography sx={font13Bold}></Typography>
+                      </Grid>                    
                       <Grid item xs={1.5}>
                         <Typography sx={font13Bold}>No.</Typography>
                       </Grid>
@@ -1217,28 +1348,52 @@ export default function RequestPartMaterials() {
                       <Grid item xs={2}>
                         <Typography sx={font13Bold}>EMP</Typography>
                       </Grid>
-                      <Grid item xs={1}>
+                      <Grid item xs={0.5}>
                         <Typography sx={font13Bold}></Typography>
                       </Grid>
                     </Grid>
                     <Divider sx={{ my: '3px'}} />
                     <Grid container spacing={2}>
+                      <Grid item xs={0.5}>
+                        <Button
+                          id="basic-button"
+                          aria-controls={open ? 'basic-menu' : undefined}
+                          aria-haspopup="true"
+                          aria-expanded={open ? 'true' : undefined}
+                          onClick={handleClick}
+                          sx={{ minWidth: 'unset' }}
+                        >
+                          <MoreVertIcon style={{ color: '#9C9C9C' }} />
+                        </Button>
+                        <Menu
+                          id="basic-menu"
+                          anchorEl={anchorEl}
+                          open={open}
+                          onClose={handleClose}
+                          MenuListProps={{
+                            'aria-labelledby': 'basic-button',
+                          }}
+                          sx={{ ml:4}}
+                        >
+                          <MenuItem><Typography sx={cssMenu} >View</Typography></MenuItem>
+                        </Menu>
+                      </Grid>                    
                       <Grid item xs={1.5}>
-                        <Typography sx={font12Center}>23-00992</Typography>
+                        <Typography sx={font12CenterBorder}>23-00992</Typography>
                       </Grid>
                       <Grid item xs={4}>
-                        <Typography sx={font12Center}>AANA - 10166002</Typography>
+                        <Typography sx={font12CenterBorder}>AANA - 10166002</Typography>
                       </Grid>
                       <Grid item xs={1}>
-                        <Typography sx={font12Center}>TC</Typography>
+                        <Typography sx={font12CenterBorder}>TC</Typography>
                       </Grid>
                       <Grid item xs={2.5}>
-                        <Typography sx={font12Center}>2023/05/19  14:00:00</Typography>
+                        <Typography sx={font12CenterBorder}>2023/05/19  14:00:00</Typography>
                       </Grid>
                       <Grid item xs={2}>
-                        <Typography sx={font12Center}>10051</Typography>
+                        <Typography sx={font12CenterBorder}>10051</Typography>
                       </Grid>
-                      <Grid item xs={1}></Grid>
+                      <Grid item xs={0.5}></Grid>
                     </Grid>
                     <Divider sx={{ my: '3px'}} />
                   </Box>
@@ -1250,8 +1405,9 @@ export default function RequestPartMaterials() {
               <Grid container spacing={2} sx={{ pt: 2 }}>
                 <Grid item xs={12} md={6}>
                   <Typography sx={{ color:"#325381", fontSize:13, mx:1, mb: 1, fontWeight: 700 }}>キャンセル</Typography>
-                  <Box sx={{ py: 1, borderRadius: '5px', backgroundColor: '#F5F5F5', minHeight: '200px' }}>                    
+                  <Box sx={{ py: 1, borderRadius: '5px', backgroundColor: '#F5F5F5', minHeight: '180px' }}>                    
                     <Grid container spacing={2}>
+                      <Grid item xs={0.5}></Grid>
                       <Grid item xs={1.5}>
                         <Typography sx={font13Bold}>No.</Typography>
                       </Grid>
@@ -1267,30 +1423,52 @@ export default function RequestPartMaterials() {
                       <Grid item xs={2}>
                         <Typography sx={font13Bold}>EMP</Typography>
                       </Grid>
-                      <Grid item xs={1}>
+                      <Grid item xs={0.5}>
                         <Typography sx={font13Bold}></Typography>
                       </Grid>
                     </Grid>
                     <Divider sx={{ my: '3px'}} />
                     <Grid container spacing={2}>
+                      <Grid item xs={0.5}>
+                        <Button
+                          id="basic-button"
+                          aria-controls={open ? 'basic-menu' : undefined}
+                          aria-haspopup="true"
+                          aria-expanded={open ? 'true' : undefined}
+                          onClick={handleClick}
+                          sx={{ minWidth: 'unset' }}
+                        >
+                          <MoreVertIcon style={{ color: '#9C9C9C' }} />
+                        </Button>
+                        <Menu
+                          id="basic-menu"
+                          anchorEl={anchorEl}
+                          open={open}
+                          onClose={handleClose}
+                          MenuListProps={{
+                            'aria-labelledby': 'basic-button',
+                          }}
+                          sx={{ ml:4}}
+                        >
+                          <MenuItem><Typography sx={cssMenu} >View</Typography></MenuItem>
+                        </Menu>
+                      </Grid>
                       <Grid item xs={1.5}>
-                        <Typography sx={font12Center}>23-00992</Typography>
+                        <Typography sx={font12CenterBorder}>23-00992</Typography>
                       </Grid>
                       <Grid item xs={4}>
-                        <Typography sx={font12Center}>ANA-34-32144-001</Typography>
+                        <Typography sx={font12CenterBorder}>ANA-34-32144-001</Typography>
                       </Grid>
                       <Grid item xs={1}>
-                        <Typography sx={font12Center}>EO</Typography>
+                        <Typography sx={font12CenterBorder}>EO</Typography>
                       </Grid>
                       <Grid item xs={2.5}>
-                        <Typography sx={font12Center}>2023/05/19  14:00:00</Typography>
+                        <Typography sx={font12CenterBorder}>2023/05/19  14:00:00</Typography>
                       </Grid>
                        <Grid item xs={2}>
-                        <Typography sx={font12Center}>10051</Typography>
+                        <Typography sx={font12CenterBorder}>10051</Typography>
                       </Grid>
-                      <Grid item xs={1}>
-                        
-                      </Grid>
+                      <Grid item xs={0.5}></Grid>
                     </Grid>
                     <Divider sx={{ my: '3px'}} />
                   </Box>
@@ -1298,8 +1476,9 @@ export default function RequestPartMaterials() {
 
                 <Grid item xs={12} md={6}>
                   <Typography sx={{ color:"#325381", fontSize:13, mx:1, mb: 1, fontWeight: 700 }}>受領済</Typography>
-                  <Box sx={{ py: 1, borderRadius: '5px', backgroundColor: '#F5F5F5', minHeight: '200px' }}>                    
+                  <Box sx={{ py: 1, borderRadius: '5px', backgroundColor: '#F5F5F5', minHeight: '180px' }}>                    
                     <Grid container spacing={2}>
+                      <Grid item xs={0.5}></Grid>
                       <Grid item xs={1.5}>
                         <Typography sx={font13Bold}>No.</Typography>
                       </Grid>
@@ -1315,28 +1494,52 @@ export default function RequestPartMaterials() {
                       <Grid item xs={2}>
                         <Typography sx={font13Bold}>EMP</Typography>
                       </Grid>
-                      <Grid item xs={1}>
+                      <Grid item xs={0.5}>
                         <Typography sx={font13Bold}></Typography>
                       </Grid>
                     </Grid>
                     <Divider sx={{ my: '3px'}} />
                     <Grid container spacing={2}>
+                      <Grid item xs={0.5}>
+                        <Button
+                          id="basic-button"
+                          aria-controls={open ? 'basic-menu' : undefined}
+                          aria-haspopup="true"
+                          aria-expanded={open ? 'true' : undefined}
+                          onClick={handleClick}
+                          sx={{ minWidth: 'unset' }}
+                        >
+                          <MoreVertIcon style={{ color: '#9C9C9C' }} />
+                        </Button>
+                        <Menu
+                          id="basic-menu"
+                          anchorEl={anchorEl}
+                          open={open}
+                          onClose={handleClose}
+                          MenuListProps={{
+                            'aria-labelledby': 'basic-button',
+                          }}
+                          sx={{ ml:4}}
+                        >
+                          <MenuItem><Typography sx={cssMenu} >View</Typography></MenuItem>
+                        </Menu>
+                      </Grid>                    
                       <Grid item xs={1.5}>
-                        <Typography sx={font12Center}>23-00992</Typography>
+                        <Typography sx={font12CenterBorder}>23-00992</Typography>
                       </Grid>
                       <Grid item xs={4}>
-                        <Typography sx={font12Center}>AANA - 10166002</Typography>
+                        <Typography sx={font12CenterBorder}>AANA - 10166002</Typography>
                       </Grid>
                       <Grid item xs={1}>
-                        <Typography sx={font12Center}>TC</Typography>
+                        <Typography sx={font12CenterBorder}>TC</Typography>
                       </Grid>
                       <Grid item xs={2.5}>
-                        <Typography sx={font12Center}>2023/05/19  14:00:00</Typography>
+                        <Typography sx={font12CenterBorder}>2023/05/19  14:00:00</Typography>
                       </Grid>
                       <Grid item xs={2}>
-                        <Typography sx={font12Center}>10051</Typography>
+                        <Typography sx={font12CenterBorder}>10051</Typography>
                       </Grid>
-                      <Grid item xs={1}></Grid>
+                      <Grid item xs={0.5}></Grid>
                     </Grid>
                     <Divider sx={{ my: '3px'}} />
                   </Box>
@@ -1351,6 +1554,190 @@ export default function RequestPartMaterials() {
       </Dialog>
     {/*----------End Modal Order----------*/}
 
+
+    {/*Dialog memo*/}
+     <Dialog open={openSearch} onClose={handleCloseSearch} maxWidth="xl">
+        <DialogTitle>
+          <BootstrapDialogTitle id="customized-dialog-title" onClose={handleCloseSearch}> 
+            <Grid container spacing={2}>
+              <Grid item xs={7} md={9}>
+                <CardMedia
+                  sx={{ width: { xs: 150, md: 222} , height: { xs: 40, md: 58}}}
+                  image="../part-order/anal_1.png"
+                  title="ANA"
+                />
+              </Grid>
+              <Grid item xs={5} md={3} sx={{ position: 'relative' }}>  
+                <Link href="https://www.mrojpn.co.jp" underline="none" target="_blank">
+                  <Typography sx={cssMro}>
+                  https://www.mrojpn.co.jp
+                  </Typography>
+                </Link>
+              </Grid>
+            </Grid>
+            <Divider sx={{ my: 1}} />
+          </BootstrapDialogTitle>
+        </DialogTitle>
+
+        <DialogContent>
+          <DialogContentText>
+            <Box
+              sx={{
+                display: 'flex',
+                flexWrap: 'wrap',
+                '& > :not(style)': {
+                  width: 1200,
+                  height: 700,
+                  ml:2,
+                  mr:1,
+                },
+              }}
+            >
+              <Paper elevation={0}>
+                <Grid container spacing={2}>
+                  <Grid item xs={12}>
+                    <Typography sx={cssOder}>21 - 15292</Typography>
+                  </Grid>
+                </Grid>
+                <Grid container spacing={2}>
+                  <Grid item xs={12} md={3}>
+                      <Typography sx={{ fontSize: '16px' }}>Request For Part And Materials</Typography>
+                      <Typography sx={{ fontSize: '14px', mt: 1, mb: 1 }}>資村出庫要求伝票</Typography>
+                      <Box sx={cssBox}>
+                        <Grid container sx={{ height: '58px' }}>
+                          <Grid item xs>
+                            <Typography sx={{ fontSize: '12px', ml: 1, mt: '10px' }}>Issued Parts</Typography>
+                            <Typography sx={{ fontSize: '12px', ml: 1 }}>出庫資村</Typography>
+                          </Grid>
+                          <Divider orientation="vertical" flexItem />
+                          <Grid item xs>
+                            <Grid container spacing={0} sx={{ mt: '10px' }}>
+                              <Grid item xs={4}>
+                                <Checkbox inputProps={{ 'aria-label': 'controlled' }} />
+                              </Grid>
+                              <Grid item xs={8}>
+                                <Typography sx={font12}>MJP</Typography>
+                                <Typography sx={font12}>自社資村</Typography>
+                              </Grid>
+                            </Grid>
+                          </Grid>
+                          <Divider orientation="vertical" flexItem />
+                          <Grid item xs>
+                            <Grid container spacing={0} sx={{ mt: '10px' }}>
+                              <Grid item xs={4}>
+                                <Checkbox inputProps={{ 'aria-label': 'controlled' }} />
+                              </Grid>
+                              <Grid item xs={8}>
+                                <Typography sx={font12}>Customer</Typography>
+                                <Typography sx={font12}>支給資村</Typography>
+                              </Grid>
+                            </Grid>
+                          </Grid>
+                        </Grid>
+                      </Box>
+                  </Grid>
+                  <Grid item xs={12} md={3}>
+                    <Box sx={cssBox}>
+                      <Typography sx={font12Center}>Requested by / 資村要求者</Typography>
+                      <Divider sx={{ my: '4px'}} />
+                      <Grid container>
+                        <Grid item xs>
+                          <Typography sx={font12Center}>Zone</Typography>
+                        </Grid>
+                        <Divider orientation="vertical" flexItem />
+                        <Grid item xs>
+                          <Typography sx={font12Center}>Name</Typography>
+                        </Grid>
+                      </Grid>
+                      <Divider sx={{ my: '4px'}} />
+                      <Grid container>
+                        <Grid item xs>
+                          <Typography sx={font12Center}></Typography>
+                        </Grid>
+                        <Divider orientation="vertical" flexItem />
+                        <Grid item xs>
+                          <Typography sx={{ fontSize: '12px', textAlign: 'center', height: '65px' }}></Typography>
+                        </Grid>
+                      </Grid>
+                    </Box>
+                  </Grid>
+                  <Grid item xs={12} md={3}>
+                    <Box sx={cssBox}>
+                      <Typography sx={font12Center}>Received By / 資村受領者</Typography>
+                      <Divider sx={{ my: '4px'}} />
+                      <Grid container>
+                        <Grid item xs>
+                          <Typography sx={font12Center}>Zone</Typography>
+                        </Grid>
+                        <Divider orientation="vertical" flexItem />
+                        <Grid item xs>
+                          <Typography sx={font12Center}>Name</Typography>
+                        </Grid>
+                      </Grid>
+                      <Divider sx={{ my: '4px'}} />
+                      <Grid container>
+                        <Grid item xs>
+                          <Typography sx={{ fontSize: '12px', textAlign: 'center', height: '65px' }}></Typography>
+                        </Grid>
+                        <Divider orientation="vertical" flexItem>
+                        </Divider>
+                        <Grid item xs>
+                          <Typography sx={{ fontSize: '12px', textAlign: 'center', height: '65px' }}></Typography>
+                        </Grid>
+                      </Grid>
+                    </Box>          
+                    
+                  </Grid>
+                  <Grid item xs={12} md={3}>
+                    <Grid container spacing={2}>
+                      <Grid item xs={6}>
+                        <Box sx={cssBox}>
+                          <Typography sx={font12Center}>Supply Section</Typography>
+                          <Typography sx={font12Center}>出庫担当者</Typography>
+                          <Divider sx={{ my: '13px'}} />
+                          <Grid container>
+                            <Grid item xs>
+                              <Typography sx={{ fontSize: '12px', textAlign: 'center', height: '56px' }}></Typography>
+                            </Grid>
+                          </Grid>
+                        </Box>
+                      </Grid>
+                      <Grid item xs={6}>
+                        <Box sx={cssBox5}>
+                          <Grid container spacing={1}>
+                            <Grid item xs={12}>
+                              <CardMedia
+                                sx={{ width: 97 , height: 97, margin: 'auto' }}
+                                image="../qr_code/QR 1.png"
+                                title="ANA"
+                              />
+                            </Grid>
+                          </Grid>
+                        </Box>
+                      </Grid>
+                    </Grid>
+                  </Grid>
+                </Grid>
+
+                <ListPart />
+
+                <Grid container spacing={0} sx={{ mt : 2 }}>
+                  <Grid item xs={12} md={9}>
+                   <Typography sx={{ fontSize : '12px' }}>Note : 　① 　A/C-No. = Aircraft Registration No./ 機体登録　No.</Typography>
+                   <Typography sx={{ fontSize : '12px', ml: '50px' }}>②　RSN. = Reason Code / 部品消費理由コード (TC = MR TASK CARD / EO = EO 作業 / TR = TRP / RC = Discrepancy Repair 不具合修復 / MQ = Maintenance Quality 作業品質関連 / OT = Other その他)</Typography>          
+                  </Grid>
+                  <Grid item xs={12} md={3}>
+                    <Typography sx={{ fontSize : '12px', textAlign: 'right', mt: 2 }}>MRO Japan Form - SD - 004C</Typography>
+                  </Grid>
+                </Grid>
+              </Paper>
+            </Box>
+          </DialogContentText>
+        </DialogContent>
+
+      </Dialog>
+    {/*----------End Dialog memo----------*/}
+
   </div>
   );
 }
@@ -1363,11 +1750,5 @@ interface FilmOptionType {
 
 // Top 100 films as rated by IMDb users. http://www.imdb.com/chart/top
 const top100Films = [
-  { title: 'The Shawshank Redemption', year: 1994 },
-  { title: 'The Godfather', year: 1972 },
-  { title: 'The Godfather: Part II', year: 1974 },
-  { title: 'The Dark Knight', year: 2008 },
-  { title: '12 Angry Men', year: 1957 },
-  { title: "Schindler's List", year: 1993 },
-  { title: 'Pulp Fiction', year: 1994 },
+  { title: '10024280', year: 1994 },
   ];
