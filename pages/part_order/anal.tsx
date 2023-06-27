@@ -155,11 +155,12 @@ function BootstrapDialogTitle(props: DialogTitleProps) {
 
   const StyledTextarea = styled(TextareaAutosize)(
     ({ theme }) => `
-    width: 500px;
+    width: 1200px;
+    height:450px;
     font-family: IBM Plex Sans, sans-serif;
     font-size: 0.875rem;
     font-weight: 400;
-    line-height: 6;
+    line-height: 2;
     padding: 12px;
     border-radius: 12px 12px 0 12px;
     color: ${theme.palette.mode === 'dark' ? grey[300] : grey[900]};
@@ -1713,10 +1714,9 @@ export default function Anal() {
             >
               <Paper elevation={0}>     
                 <StyledTextarea
+                  style={{ height:450 }}
                   aria-label="minimum height"
-                  minRows={5}
                   placeholder=""
-                  sx={{ width:1200 }}
                 />
               </Paper>
             </Box>
