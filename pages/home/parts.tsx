@@ -237,31 +237,34 @@ export default function Parts() {
 							    </Typography>
 					    	</ItemTitle>
 						    <ItemRow>
-						    	<ItemFrame>
-						    		<ItemAvatar>
-						    			<CardMedia
-						    				sx={cardMedia}
-											 	image="home/main 1-1.png"/>
-						    		</ItemAvatar>
-						    		<ItemText>
-						    			<Typography color="#3A5075" textAlign="center" sx={{ fontSize: 11 }}>
-												SPR
-											</Typography>
-						    		</ItemText>
-						    	</ItemFrame>	    	
-						    	<ItemFrame>
-						    		<ItemAvatar>
-						    			<CardMedia
-						    				sx={cardMedia}
-											 	image="home/main 1-2.png"/>
-						    		</ItemAvatar>
-						    		<ItemText>
-						    			<Typography color="#3A5075" textAlign="center" sx={{ fontSize: 11 }}>
-												良品票添付台紙
-											</Typography>
-						    		</ItemText>
-						    	</ItemFrame>	
-
+						      <Link href="/spr" sx={cssLink}>
+							    	<ItemFrame>
+							    		<ItemAvatar>
+							    			<CardMedia
+							    				sx={cardMedia}
+												 	image="home/main 1-1.png"/>
+							    		</ItemAvatar>
+							    		<ItemText>
+							    			<Typography color="#3A5075" textAlign="center" sx={{ fontSize: 11 }}>
+													SPR
+												</Typography>
+							    		</ItemText>
+							    	</ItemFrame>
+							   </Link>
+							   <Link href="/non_defective_product" sx={cssLink}>
+							    	<ItemFrame>
+							    		<ItemAvatar>
+							    			<CardMedia
+							    				sx={cardMedia}
+												 	image="home/main 1-2.png"/>
+							    		</ItemAvatar>
+							    		<ItemText>
+							    			<Typography color="#3A5075" textAlign="center" sx={{ fontSize: 11 }}>
+													良品票添付台紙
+												</Typography>
+							    		</ItemText>
+							    	</ItemFrame>
+							    </Link>	
 					    	</ItemRow>
 					    </Item>
 
