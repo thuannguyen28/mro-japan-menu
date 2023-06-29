@@ -23,7 +23,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 
-const cssBorderTable = { 'td, th': { border: 1, borderColor: '#D9D9D9', borderBottom: 0 } };
+const cssBorderTable = { 'td, th': { border: 1, borderColor: '#D9D9D9', borderBottom: 0, py: 1, height: '55px' } };
 const colorText = '#325381';
 
 export default function NotDetectiveProduct() {
@@ -86,7 +86,7 @@ export default function NotDetectiveProduct() {
                   <TableRow
                     sx={cssBorderTable}
                   >
-                    <TableCell sx={{ color: colorText, py: 0 }} align="left">
+                    <TableCell sx={{ color: colorText }} align="left">
                     <Button sx={{ mr: 2 }} variant="outlined" startIcon={<RemoveRedEyeOutlinedIcon />}>View</Button>
                     2023/04/25 11:43:43
                     </TableCell>
@@ -104,7 +104,7 @@ export default function NotDetectiveProduct() {
                   <TableRow
                     sx={cssBorderTable}
                   >
-                    <TableCell sx={{ color: colorText, py: 0 }} align="left"></TableCell>
+                    <TableCell sx={{ color: colorText }} align="left"></TableCell>
                     <TableCell sx={{ color: colorText }} align="center"></TableCell>
                     <TableCell sx={{ color: colorText }} align="center"></TableCell>
                     <TableCell sx={{ color: colorText }} align="center"></TableCell>
@@ -115,7 +115,7 @@ export default function NotDetectiveProduct() {
                   <TableRow
                     sx={cssBorderTable}
                   >
-                    <TableCell sx={{ color: colorText, py: 0 }} align="left"></TableCell>
+                    <TableCell sx={{ color: colorText }} align="left"></TableCell>
                     <TableCell sx={{ color: colorText }} align="center"></TableCell>
                     <TableCell sx={{ color: colorText }} align="center"></TableCell>
                     <TableCell sx={{ color: colorText }} align="center"></TableCell>
@@ -126,7 +126,7 @@ export default function NotDetectiveProduct() {
                   <TableRow
                     sx={cssBorderTable}
                   >
-                    <TableCell sx={{ color: colorText, py: 0 }} align="left"></TableCell>
+                    <TableCell sx={{ color: colorText }} align="left"></TableCell>
                     <TableCell sx={{ color: colorText }} align="center"></TableCell>
                     <TableCell sx={{ color: colorText }} align="center"></TableCell>
                     <TableCell sx={{ color: colorText }} align="center"></TableCell>
@@ -137,7 +137,7 @@ export default function NotDetectiveProduct() {
                   <TableRow
                     sx={cssBorderTable}
                   >
-                    <TableCell sx={{ color: colorText, py: 0 }} align="left"></TableCell>
+                    <TableCell sx={{ color: colorText }} align="left"></TableCell>
                     <TableCell sx={{ color: colorText }} align="center"></TableCell>
                     <TableCell sx={{ color: colorText }} align="center"></TableCell>
                     <TableCell sx={{ color: colorText }} align="center"></TableCell>
@@ -148,7 +148,7 @@ export default function NotDetectiveProduct() {
                   <TableRow
                     sx={cssBorderTable}
                   >
-                    <TableCell sx={{ color: colorText, py: 0 }} align="left"></TableCell>
+                    <TableCell sx={{ color: colorText }} align="left"></TableCell>
                     <TableCell sx={{ color: colorText }} align="center"></TableCell>
                     <TableCell sx={{ color: colorText }} align="center"></TableCell>
                     <TableCell sx={{ color: colorText }} align="center"></TableCell>
@@ -159,7 +159,7 @@ export default function NotDetectiveProduct() {
                   <TableRow
                     sx={cssBorderTable}
                   >
-                    <TableCell sx={{ color: colorText, py: 0 }} align="left"></TableCell>
+                    <TableCell sx={{ color: colorText }} align="left"></TableCell>
                     <TableCell sx={{ color: colorText }} align="center"></TableCell>
                     <TableCell sx={{ color: colorText }} align="center"></TableCell>
                     <TableCell sx={{ color: colorText }} align="center"></TableCell>
@@ -170,7 +170,7 @@ export default function NotDetectiveProduct() {
                   <TableRow
                     sx={cssBorderTable}
                   >
-                    <TableCell sx={{ color: colorText, py: 0 }} align="left"></TableCell>
+                    <TableCell sx={{ color: colorText }} align="left"></TableCell>
                     <TableCell sx={{ color: colorText }} align="center"></TableCell>
                     <TableCell sx={{ color: colorText }} align="center"></TableCell>
                     <TableCell sx={{ color: colorText }} align="center"></TableCell>
