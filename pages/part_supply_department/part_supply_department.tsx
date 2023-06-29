@@ -11,8 +11,6 @@ import Box from '@mui/material/Box';
 import CardMedia from '@mui/material/CardMedia';
 import Link from '@mui/material/Link';
 import IconButton from '@mui/material/IconButton';
-import FormGroup from '@mui/material/FormGroup';
-import FormControlLabel from '@mui/material/FormControlLabel';
 import MenuIcon from '@mui/icons-material/Menu';
 import Checkbox from '@mui/material/Checkbox';
 import TextField from '@mui/material/TextField';
@@ -31,226 +29,86 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import TableContainer from '@mui/material/TableContainer';
 
+//Switch
+import FormGroup from '@mui/material/FormGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Switch, { SwitchProps } from '@mui/material/Switch';
+
 import Autocomplete, { createFilterOptions } from '@mui/material/Autocomplete';
 
-// Css TextField
-const CssTextField = styled(TextField)({
-
-  '& label.Mui-focused': {
-    color: '#A0AAB4',
-  },
-  '& .MuiInput-underline:after': {
-    borderBottomColor: 'transparent',
-  },
-  '& .MuiOutlinedInput-root': {
-    '& fieldset': {
-      borderColor: 'transparent',
-    },
-    '&:hover fieldset': {
-      borderColor: 'transparent',
-    },
-    '&.Mui-focused fieldset': {
-      borderColor: 'transparent',
-    },
-    '&.Mui-focused': {
-      backgroundColor: '#fff',
-      color:"#325381",
-      textAlign:'left',
-    },
-    '& input': {
-      height:15,
-      textAlign:'left',
-      color:"#325381",
-      borderRadius:5,
-      backgroundColor: "#F1F1F1",
-      fontSize: '13px'
-    },
-  },
-
-});
-
-// ccs
+//css
 const cssAlignCenter = { display:'flex', justifyContent:'center',textAlign:'center' };
-const cssbtnColor = { color:'#FFFFFF', fontSize:13 };
-const cssSearchData = { fontSize:16,color:'#325381', textAlign:'center' };
+const cssCenter = { display:'flex', justifyContent:'center',alignItems:'center', };
+const cssText = { display:'flex', justifyContent:'left',alignItems:'left', };
+const cssRight = { display:'flex', justifyContent:'right' ,alignItems:'right' };
+const cssRight_ml_mt = { display:'flex', justifyContent:'right' ,alignItems:'right', ml:2, mt:1 };
+const pt3pl2 = { pt:3, pl:2 };
+const p2 ={ pt:2, pl:2, pb:2 };
+const fontSize13 = { ml:1, fontSize:13 };
+const Cssbtn = { width:'90%', backgroundColor: '#325381', ml:1, borderRadius:2 };
 
-const cssMenu = {minWidth: 100, textAlign:'center'};
-// Receive Order (送信済)
-function createData(
-  id: string,
-  AC: string,
-  taskCard: string,
-  Zone: string,
-  EMP: string,
-  Date: number,
-) {
-  return { id, AC, taskCard, Zone, EMP, Date };
-}
-
-const rows = [
-  createData(
-    '21-14496',
-    'JA851A',
-    'N/R-000198',
-    'EXT2',
-    '10079',
-    '2022/02/07  13:13:19',
-  ),
-  createData(
-    '21-14496',
-    'JA851A',
-    'N/R-000198',
-    'EXT2',
-    '10079',
-    '2022/02/07  13:13:19',
-  ),
-  createData(
-    '21-14496',
-    'JA851A',
-    'N/R-000198',
-    'EXT2',
-    '10079',
-    '2022/02/07  13:13:19',
-  ),
-  createData(
-    '21-14496',
-    'JA851A',
-    'N/R-000198',
-    'EXT2',
-    '10079',
-    '2022/02/07  13:13:19',
-  ),
-  createData(
-    '21-14496',
-    'JA851A',
-    'N/R-000198',
-    'EXT2',
-    '10079',
-    '2022/02/07  13:13:19',
-  ),
-  createData(
-    '21-14496',
-    'JA851A',
-    'N/R-000198',
-    'EXT2',
-    '10079',
-    '2022/02/07  13:13:19',
-  ),
-  createData(
-    '21-14496',
-    'JA851A',
-    'N/R-000198',
-    'EXT2',
-    '10079',
-    '2022/02/07  13:13:19',
-  ),
-  createData(
-    '21-14496',
-    'JA851A',
-    'N/R-000198',
-    'EXT2',
-    '10079',
-    '2022/02/07  13:13:19',
-  ),
-  createData(
-    '21-14496',
-    'JA851A',
-    'N/R-000198',
-    'EXT2',
-    '10079',
-    '2022/02/07  13:13:19',
-  ),
-  createData(
-    '21-14496',
-    'JA851A',
-    'N/R-000198',
-    'EXT2',
-    '10079',
-    '2022/02/07  13:13:19',
-  ),
-  createData(
-    '21-14496',
-    'JA851A',
-    'N/R-000198',
-    'EXT2',
-    '10079',
-    '2022/02/07  13:13:19',
-  ),
-  createData(
-    '21-14496',
-    'JA851A',
-    'N/R-000198',
-    'EXT2',
-    '10079',
-    '2022/02/07  13:13:19',
-  ),
-  
-];
-// 出庫済
-function createDatas(
-  id: string,
-  ACNO: string,
-  Zone1: string,
-  EMP1: string,
-  Date: number,
-) {
-  return { id, ACNO, Zone1, EMP1, Date };
-}
-
-const rows2 = [
-  createDatas(
-    '21-14491',
-    'JA851A',
-    'EXT1',
-    '10103',
-    '2022/02/07  11:39:28',
-  ),
-  createDatas(
-    '21-14491',
-    'JA851A',
-    'EXT1',
-    '10103',
-    '2022/02/07  11:39:28',
-  ),
-  createDatas(
-    '21-14491',
-    'JA851A',
-    'EXT1',
-    '10103',
-    '2022/02/07  11:39:28',
-  ),
-  createDatas(
-    '21-14491',
-    'JA851A',
-    'EXT1',
-    '10103',
-    '2022/02/07  11:39:28',
-  ),
-  createDatas(
-    '21-14491',
-    'JA851A',
-    'EXT1',
-    '10103',
-    '2022/02/07  11:39:28',
-  ),
-  createDatas(
-    '21-14491',
-    'JA851A',
-    'EXT1',
-    '10103',
-    '2022/02/07  11:39:28',
-  ),
-  createDatas(
-    '21-14491',
-    'JA851A',
-    'EXT1',
-    '10103',
-    '2022/02/07  11:39:28',
-  ),
-  
-];
+// Css Switch
+const CSSSwitch = styled((props: SwitchProps) => (
+  <Switch focusVisibleClassName=".Mui-focusVisible" disableRipple {...props} />
+))(({ theme }) => ({
+  width: 60,
+  height: 26,
+  padding: 0,
+  '& .MuiSwitch-switchBase': {
+    padding: 0,
+    margin: 2,
+    transitionDuration: '300ms',
+    '&.Mui-checked': {
+      transform: 'translateX(33px)',
+      color: '#fff',
+      '& + .MuiSwitch-track': {
+        backgroundColor: theme.palette.mode === 'dark' ? '#2ECA45' : '#65C466',
+        opacity: 1,
+        border: 0,
+      },
+      '&.Mui-disabled + .MuiSwitch-track': {
+        opacity: 0.5,
+      },
+    },
+    '&.Mui-focusVisible .MuiSwitch-thumb': {
+      color: '#33cf4d',
+      border: '6px solid #fff',
+    },
+    '&.Mui-disabled .MuiSwitch-thumb': {
+      color:
+        theme.palette.mode === 'light'
+          ? theme.palette.grey[100]
+          : theme.palette.grey[600],
+    },
+    '&.Mui-disabled + .MuiSwitch-track': {
+      opacity: theme.palette.mode === 'light' ? 0.7 : 0.3,
+    },
+  },
+  '& .MuiSwitch-thumb': {
+    boxSizing: 'border-box',
+    width: 22,
+    height: 22,
+  },
+  '& .MuiSwitch-track': {
+    borderRadius: 26 / 2,
+    backgroundColor: theme.palette.mode === 'light' ? '#E9E9EA' : '#39393D',
+    opacity: 1,
+    transition: theme.transitions.create(['background-color'], {
+      duration: 500,
+    }),
+  },
+}));
 
 export default function Parts() {
+  // Switch
+  const [checked, setChecked] = React.useState([]);
+
+  const handleChange = (index) => {
+
+    const newchecked = [...checked];
+    newchecked[index] = !newchecked[index];
+    setChecked(newchecked);
+  };
   //menu
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
@@ -281,570 +139,607 @@ export default function Parts() {
   <div>
     <Box sx={{
           width: '100%',}}>
-      <Grid container spacing={0} sx={{ p:1  }}>
-        <Grid item xs={12} sx={{ justifyContent:"flex-end", textAlign:"right" }}>
-          <img src="../part-order/setting.png" width="36" height="36" />
+      {/*Card 1*/}
+      <Grid container spacing={0} sx={{ p:2, pt:6 }}>
+        {/*ANAL*/}
+        <Grid item xs={4}>
+          <Box
+              sx={{
+                display: 'flex',
+                flexWrap: 'wrap',
+                '& > :not(style)': {
+                  m: 1,
+                  width: 469,
+                  height: 260,
+                },
+              }}
+            >
+            <Paper elevation={3}>
+              <Grid container spacing={0}>
+                {/*column 1*/}
+                <Grid item xs={2} sx={cssCenter}>
+                  <img src="../part-order/menu.png" width="36" height="25" />
+                </Grid>
+                <Grid item xs={8} sx={cssCenter}>
+                  <img src="../part-order/anal_department.png" width="169" height="62" />
+                </Grid>
+                <Grid item xs={2}>
+                  <Grid container>
+                    <Grid item xs={12} sx={cssRight_ml_mt}>
+                      <FormGroup>
+                        <FormControlLabel
+                          control={<CSSSwitch checked={checked[0]} onClick={() => handleChange(0)} sx={{ m: 1 }} />}
+                        />
+                      </FormGroup>
+                    </Grid>
+                    <Grid item xs={10} sx={cssRight}>
+                      <img src="../part-order/info.png" width="22" height="22" />
+                    </Grid>
+                  </Grid>
+                </Grid>
+              {/*column 2*/}
+                {
+                  checked[0] ?
+                    <Grid container sx={pt3pl2}>
+                      <Grid item xs={5} sx={cssText}>
+                        <Typography sx={{ color:"#325381"}}>ANA部品在庫 :</Typography>
+                      </Grid>
+                      <Grid item xs={3} sx={cssText}>
+                        <Typography sx={{ color:"#325381"}}>290656 件</Typography>
+                      </Grid>
+                      <Grid item xs={4}>
+                        <Typography sx={{ color:"#325381"}}>2022/02/07  07:05</Typography>
+                      </Grid>
+                    </Grid>
+                  :
+                    <Grid container sx={pt3pl2}>
+                      <Grid item xs={5} sx={cssText}>
+                        <Typography sx={{ color:"#E3E3E3"}}>ANA部品在庫 :</Typography>
+                      </Grid>
+                      <Grid item xs={3} sx={cssText}>
+                        <Typography sx={{ color:"#E3E3E3"}}>290656 件</Typography>
+                      </Grid>
+                      <Grid item xs={4}>
+                        <Typography sx={{ color:"#E3E3E3"}}>2022/02/07  07:05</Typography>
+                      </Grid>
+                    </Grid>
+                }
+                
+              {/*column 3*/}
+                {
+                  checked[0] ?
+                    <Grid container sx={p2}>
+                      <Grid item xs={5} sx={cssText}>
+                        <Typography sx={{ color:"#325381"}}>部品MJP倉庫 :</Typography>
+                      </Grid>
+                      <Grid item xs={3} sx={cssText}>
+                        <Typography sx={{ color:"#325381"}}>32114 件</Typography>
+                      </Grid>
+                      <Grid item xs={4}>
+                        <Typography sx={{ color:"#325381"}}>2022/02/07  07:00</Typography>
+                      </Grid>
+                    </Grid>
+                  :
+                    <Grid container sx={p2}>
+                      <Grid item xs={5} sx={cssText}>
+                        <Typography sx={{ color:"#E3E3E3"}}>部品MJP倉庫 :</Typography>
+                      </Grid>
+                      <Grid item xs={3} sx={cssText}>
+                        <Typography sx={{ color:"#E3E3E3"}}>32114 件</Typography>
+                      </Grid>
+                      <Grid item xs={4}>
+                        <Typography sx={{ color:"#E3E3E3"}}>2022/02/07  07:00</Typography>
+                      </Grid>
+                    </Grid>
+                }
+
+                <Grid container>
+                  <Grid item xs={12} sx={cssCenter}>
+                    <Button variant="contained" sx={Cssbtn}>
+                      <img src="../part-order/download.png" width="22" height="22" />
+                      <Typography sx={fontSize13}>ANA部品在庫情報更新</Typography>
+                    </Button>
+                  </Grid>
+                </Grid>
+
+              </Grid>
+            </Paper>
+          </Box>
         </Grid>
-      {/*Frame 1*/}
-        <Grid container spacing={0}>
-          <Grid item xs={2.4}>
-            <Box
+
+        {/*PEACH*/}
+        <Grid item xs={4}>
+          <Box
               sx={{
                 display: 'flex',
                 flexWrap: 'wrap',
                 '& > :not(style)': {
                   m: 1,
-                  width: 300,
-                  height: 90,
+                  width: 469,
+                  height: 260,
                 },
               }}
             >
-              <Paper elevation={3} sx={{ p:1 }}>
-                <Grid container spacing={0}>
-                  <Typography sx={{ color:'#325381' }}>
-                    出庫登録 :
-                  </Typography>
+            <Paper elevation={3}>
+              <Grid container spacing={0}>
+                {/*column 1*/}
+                <Grid item xs={2} sx={cssCenter}>
+                  <img src="../part-order/menu.png" width="36" height="25" />
                 </Grid>
-                <Grid container spacing={0} sx={{ mt:1 }}>
-                  <Grid item xs={8}>
-                    <CssTextField size="small" placeholder="ID 出庫済" fullWidth/>
+                <Grid item xs={8} sx={cssCenter}>
+                  <img src="../part-order/peach.png" width="198" height="62" />
+                </Grid>
+                <Grid item xs={2}>
+                  <Grid container>
+                    <Grid item xs={12} sx={cssRight_ml_mt}>
+                      <FormGroup>
+                        <FormControlLabel
+                          control={<CSSSwitch checked={checked[1]} onClick={() => handleChange(1)} sx={{ m: 1 }} />}
+                        />
+                      </FormGroup>
+                    </Grid>
+                    <Grid item xs={10} sx={cssRight}>
+                      <img src="../part-order/info.png" width="22" height="22" />
+                    </Grid>
                   </Grid>
-                  <Grid item xs={4} sx={cssAlignCenter}>
-                    <Button variant="contained" sx={{ width:'90%', backgroundColor: '#325381', ml:1 }}>
-                      <Typography sx={cssbtnColor}>登録</Typography>
+                </Grid>
+              {/*column 2*/}
+                {
+                  checked[1] ?
+                    <Grid container sx={pt3pl2}>
+                      <Grid item xs={5} sx={cssText}>
+                        <Typography sx={{ color:"#325381"}}>PEACH部品在庫 :</Typography>
+                      </Grid>
+                      <Grid item xs={3} sx={cssText}>
+                        <Typography sx={{ color:"#325381"}}>290656 件</Typography>
+                      </Grid>
+                      <Grid item xs={4}>
+                        <Typography sx={{ color:"#325381"}}>2022/02/07  07:05</Typography>
+                      </Grid>
+                    </Grid>
+                  :
+                    <Grid container sx={pt3pl2}>
+                      <Grid item xs={5} sx={cssText}>
+                        <Typography sx={{ color:"#E3E3E3"}}>PEACH部品在庫 :</Typography>
+                      </Grid>
+                      <Grid item xs={3} sx={cssText}>
+                        <Typography sx={{ color:"#E3E3E3"}}>290656 件</Typography>
+                      </Grid>
+                      <Grid item xs={4}>
+                        <Typography sx={{ color:"#E3E3E3"}}>2022/02/07  07:05</Typography>
+                      </Grid>
+                    </Grid>
+                }
+                
+              {/*column 3*/}
+                {
+                  checked[1] ?
+                    <Grid container sx={p2}>
+                      <Grid item xs={5} sx={cssText}>
+                        <Typography sx={{ color:"#325381"}}>部品MJP倉庫 :</Typography>
+                      </Grid>
+                      <Grid item xs={3} sx={cssText}>
+                        <Typography sx={{ color:"#325381"}}>32114 件</Typography>
+                      </Grid>
+                      <Grid item xs={4}>
+                        <Typography sx={{ color:"#325381"}}>2022/02/07  07:00</Typography>
+                      </Grid>
+                    </Grid>
+                  :
+                    <Grid container sx={p2}>
+                      <Grid item xs={5} sx={cssText}>
+                        <Typography sx={{ color:"#E3E3E3"}}>部品MJP倉庫 :</Typography>
+                      </Grid>
+                      <Grid item xs={3} sx={cssText}>
+                        <Typography sx={{ color:"#E3E3E3"}}>32114 件</Typography>
+                      </Grid>
+                      <Grid item xs={4}>
+                        <Typography sx={{ color:"#E3E3E3"}}>2022/02/07  07:00</Typography>
+                      </Grid>
+                    </Grid>
+                }
+
+                <Grid container>
+                  <Grid item xs={6} sx={cssCenter}>
+                    <Button variant="contained" sx={Cssbtn}>
+                      <img src="../part-order/download.png" width="22" height="22" />
+                      <Typography sx={fontSize13}>XLS データインポート</Typography>
                     </Button>
                   </Grid>
-                </Grid>
-              </Paper>
-            </Box>
-          </Grid>
-          <Grid item xs={2.4}>
-            <Box
-              sx={{
-                display: 'flex',
-                flexWrap: 'wrap',
-                '& > :not(style)': {
-                  m: 1,
-                  width: 300,
-                  height: 90,
-                },
-              }}
-            >
-              <Paper elevation={3} sx={{ p:1 }}>
-                <Grid container spacing={0}>
-                  <Typography sx={{ color:'#325381' }}>
-                    差戻し登録 :
-                  </Typography>
-                </Grid>
-                <Grid container spacing={0} sx={{ mt:1 }}>
-                  <Grid item xs={8}>
-                    <CssTextField size="small" placeholder="ID 差戻し" fullWidth/>
-                  </Grid>
-                  <Grid item xs={4} sx={cssAlignCenter}>
-                    <Button variant="contained" sx={{ width:'90%', backgroundColor: '#325381', ml:1  }}>
-                      <Typography sx={cssbtnColor}>登録</Typography>
+                  {
+                  checked[1] ?
+                  <Grid item xs={6} sx={cssCenter}>
+                    <Button variant="contained" sx={Cssbtn}>
+                      <img src="../part-order/delete.png" width="22" height="22" />
+                      <Typography sx={fontSize13}>XLS データ削除</Typography>
                     </Button>
                   </Grid>
-                </Grid>
-              </Paper>
-            </Box>
-          </Grid>
-          <Grid item xs={2.4}>
-            <Box
-              sx={{
-                display: 'flex',
-                flexWrap: 'wrap',
-                '& > :not(style)': {
-                  m: 1,
-                  width: 300,
-                  height: 90,
-                },
-              }}
-            >
-              <Paper elevation={3} sx={{ p:1 }}>
-                <Grid container spacing={0}>
-                  <Typography sx={{ color:'#325381' }}>
-                    STS確認
-                  </Typography>
-                </Grid>
-                <Grid container spacing={0} sx={{ mt:1 }}>
-                  <Grid item xs={8}>
-                    <CssTextField size="small" placeholder="ID STS確認" fullWidth/>
-                  </Grid>
-                  <Grid item xs={4} sx={cssAlignCenter}>
-                    <Button variant="contained" sx={{ width:'90%', backgroundColor: '#325381', ml:1  }}>
-                      <Typography sx={cssbtnColor}>登録</Typography>
+                  :
+                  <Grid item xs={6} sx={cssCenter}>
+                    <Button disabled variant="contained" sx={Cssbtn}>
+                      <img src="../part-order/delete.png" width="22" height="22" />
+                      <Typography sx={fontSize13}>XLS データ削除</Typography>
                     </Button>
                   </Grid>
+                  }
                 </Grid>
-              </Paper>
-            </Box>
-          </Grid>
-          <Grid item xs={2.4}>
-            <Box
-              sx={{
-                display: 'flex',
-                flexWrap: 'wrap',
-                '& > :not(style)': {
-                  m: 1,
-                  width: 300,
-                  height: 90,
-                },
-              }}
-            >
-              <Paper elevation={3} sx={{ p:1 }}>
-                <Grid container spacing={0}>
-                  <Typography sx={{ color:'#325381' }}>
-                    Parts Number 検索
-                  </Typography>
-                </Grid>
-                <Grid container spacing={0} sx={{ mt:1 }}>
-                  <Grid item xs={8}>
-                    <CssTextField size="small" placeholder="P/N 検索" fullWidth/>
-                  </Grid>
-                  <Grid item xs={4} sx={cssAlignCenter}>
-                    <Button variant="contained" sx={{ width:'90%', backgroundColor: '#325381', ml:1  }}>
-                      <Typography sx={cssbtnColor}>登録</Typography>
-                    </Button>
-                  </Grid>
-                </Grid>
-              </Paper>
-            </Box>
-          </Grid>
-          <Grid item xs={2.4}>
-            <Box
-              sx={{
-                display: 'flex',
-                flexWrap: 'wrap',
-                '& > :not(style)': {
-                  m: 1,
-                  width: 300,
-                  height: 90,
-                },
-              }}
-            >
-              <Paper elevation={3} sx={{ p:1, }}>
-                <Grid container spacing={0} sx={{ mt:3 }}>
-                  <Grid item xs={8} sx={{ color:"#325381", display:'flex', justifyContent:'center', alignItems:'center'}}>
-                    <Typography sx={{ color:"#325381"}}>ANA部品在庫情報更新</Typography>
-                  </Grid>
-                  <Grid item xs={4} sx={cssAlignCenter}>
-                    <Button variant="contained" sx={{ width:'90%', backgroundColor: '#325381', ml:1  }}>
-                      <Typography sx={cssbtnColor}>登録</Typography>
-                    </Button>
-                  </Grid>
-                </Grid>
-              </Paper>
-            </Box>
-          </Grid>
+
+              </Grid>
+            </Paper>
+          </Box>
         </Grid>
-      {/*End Frame 1*/}
 
-      {/*Data*/}
-        <Grid container sx={{ p:1 }}>
-          <Grid item xs={6.5} sx={{ p:1 }}>
-            <Typography sx={{ color:'#325381', fontSize:20 }}>
-              <strong>Receive Order (送信済)</strong>
-            </Typography>
-            <Grid sx={{ p:1, border:'2px solid #42B130', borderRadius:4 }}>
-              <TableContainer component={Paper}>
-                 <Table sx={{ minWidth: 650 }} size="small" stickyHeader aria-label="sticky table">
-                  <TableHead>
-                    <TableRow>
-                      <TableCell></TableCell>
-                      <TableCell>
-                        <Typography  sx={cssSearchData}>
-                          <strong>ID</strong>
-                        </Typography>
-                      </TableCell>
-                      <TableCell>
-                        <Typography sx={cssSearchData}>
-                          <strong>AC No.</strong>
-                        </Typography>
-                      </TableCell>
-                      <TableCell>
-                        <Typography sx={cssSearchData}>
-                          <strong>Task Card</strong>
-                        </Typography>
-                      </TableCell>
-                      <TableCell>
-                        <Typography sx={cssSearchData}>
-                          <strong>Zone</strong>
-                        </Typography>
-                      </TableCell>
-                      <TableCell>
-                        <Typography sx={cssSearchData}>
-                          <strong>EMP</strong>
-                        </Typography>
-                      </TableCell>
-                      <TableCell>
-                        <Typography sx={cssSearchData}>
-                          <strong>送信日時</strong>
-                        </Typography>
-                      </TableCell>
-                   
-                    </TableRow>
-                  </TableHead>
-                  <TableBody>
-                    {rows.map((row) => (
-                      <TableRow key={row.id} hover>
-                        <TableCell>
-                          <Button
-                            id="basic-button"
-                            aria-controls={open ? 'basic-menu' : undefined}
-                            aria-haspopup="true"
-                            aria-expanded={open ? 'true' : undefined}
-                            onClick={handleClick}
-                          >
-                            <MoreVertIcon style={{ color: '#9C9C9C', }} />
-                          </Button>
-                          <Menu
-                            id="basic-menu"
-                            anchorEl={anchorEl}
-                            open={open}
-                            onClose={handleClose}
-                            MenuListProps={{
-                              'aria-labelledby': 'basic-button',
-                            }}
-                            sx={{ ml:4,}}
-                          >
-                            <MenuItem><Typography sx={cssMenu} >View</Typography></MenuItem>
-                          </Menu>
-                        </TableCell>
-                        <TableCell>
-                          <Typography sx={cssSearchData}>
-                            <strong>{row.id}</strong>
-                          </Typography>
-                        </TableCell>
-                        <TableCell>
-                          <Typography sx={cssSearchData}>
-                            <strong>{row.AC}</strong>
-                          </Typography>
-                        </TableCell>
-                        <TableCell>
-                          <Typography sx={cssSearchData}>
-                            <strong>{row.taskCard}</strong>
-                          </Typography>
-                        </TableCell>
-                        <TableCell>
-                          <Typography sx={cssSearchData}>
-                            <strong>{row.Zone}</strong>
-                          </Typography>
-                        </TableCell>
-                         <TableCell>
-                        <Typography sx={cssSearchData}>
-                            <strong>{row.EMP}</strong>
-                          </Typography>
-                        </TableCell>
-                        <TableCell>
-                          <Typography sx={cssSearchData}>
-                            <strong>{row.Date}</strong>
-                          </Typography>
-                        </TableCell>
-                      </TableRow>
-                    ))}
-                  </TableBody>
-                </Table>
+        {/*Solaseed Air*/}
+        <Grid item xs={4}>
+          <Box
+              sx={{
+                display: 'flex',
+                flexWrap: 'wrap',
+                '& > :not(style)': {
+                  m: 1,
+                  width: 469,
+                  height: 260,
+                },
+              }}
+            >
+            <Paper elevation={3}>
+              <Grid container spacing={0}>
+                {/*column 1*/}
+                <Grid item xs={2} sx={cssCenter}>
+                  <img src="../part-order/menu.png" width="36" height="25" />
+                </Grid>
+                <Grid item xs={8} sx={cssCenter}>
+                  <img src="../part-order/solaseed.png" width="198" height="62" />
+                </Grid>
+                <Grid item xs={2}>
+                  <Grid container>
+                    <Grid item xs={12} sx={cssRight_ml_mt}>
+                      <FormGroup>
+                        <FormControlLabel
+                          control={<CSSSwitch checked={checked[2]} onClick={() => handleChange(2)} sx={{ m: 1 }} />}
+                        />
+                      </FormGroup>
+                    </Grid>
+                    <Grid item xs={10} sx={cssRight}>
+                      <img src="../part-order/info.png" width="22" height="22" />
+                    </Grid>
+                  </Grid>
+                </Grid>
+              {/*column 2*/}
+                {
+                  checked[2] ?
+                    <Grid container sx={pt3pl2}>
+                      <Grid item xs={5} sx={cssText}>
+                        <Typography sx={{ color:"#325381"}}>SOLA部品在庫 :</Typography>
+                      </Grid>
+                      <Grid item xs={3} sx={cssText}>
+                        <Typography sx={{ color:"#325381"}}>290656 件</Typography>
+                      </Grid>
+                      <Grid item xs={4}>
+                        <Typography sx={{ color:"#325381"}}>2022/02/07  07:05</Typography>
+                      </Grid>
+                    </Grid>
+                  :
+                    <Grid container sx={pt3pl2}>
+                      <Grid item xs={5} sx={cssText}>
+                        <Typography sx={{ color:"#E3E3E3"}}>SOLA部品在庫 :</Typography>
+                      </Grid>
+                      <Grid item xs={3} sx={cssText}>
+                        <Typography sx={{ color:"#E3E3E3"}}>290656 件</Typography>
+                      </Grid>
+                      <Grid item xs={4}>
+                        <Typography sx={{ color:"#E3E3E3"}}>2022/02/07  07:05</Typography>
+                      </Grid>
+                    </Grid>
+                }
+                
+              {/*column 3*/}
+                {
+                  checked[2] ?
+                    <Grid container sx={p2}>
+                      <Grid item xs={5} sx={cssText}>
+                        <Typography sx={{ color:"#325381"}}>部品MJP倉庫 :</Typography>
+                      </Grid>
+                      <Grid item xs={3} sx={cssText}>
+                        <Typography sx={{ color:"#325381"}}>32114 件</Typography>
+                      </Grid>
+                      <Grid item xs={4}>
+                        <Typography sx={{ color:"#325381"}}>2022/02/07  07:00</Typography>
+                      </Grid>
+                    </Grid>
+                  :
+                    <Grid container sx={p2}>
+                      <Grid item xs={5} sx={cssText}>
+                        <Typography sx={{ color:"#E3E3E3"}}>部品MJP倉庫 :</Typography>
+                      </Grid>
+                      <Grid item xs={3} sx={cssText}>
+                        <Typography sx={{ color:"#E3E3E3"}}>32114 件</Typography>
+                      </Grid>
+                      <Grid item xs={4}>
+                        <Typography sx={{ color:"#E3E3E3"}}>2022/02/07  07:00</Typography>
+                      </Grid>
+                    </Grid>
+                }
 
-              </TableContainer>
-            </Grid>
-          </Grid>
+                <Grid container>
+                  <Grid item xs={6} sx={cssCenter}>
+                    <Button variant="contained" sx={Cssbtn}>
+                      <img src="../part-order/download.png" width="22" height="22" />
+                      <Typography sx={fontSize13}>XLS データインポート</Typography>
+                    </Button>
+                  </Grid>
+                  {
+                  checked[2] ?
+                  <Grid item xs={6} sx={cssCenter}>
+                    <Button variant="contained" sx={Cssbtn}>
+                      <img src="../part-order/delete.png" width="22" height="22" />
+                      <Typography sx={fontSize13}>XLS データ削除</Typography>
+                    </Button>
+                  </Grid>
+                  :
+                  <Grid item xs={6} sx={cssCenter}>
+                    <Button disabled variant="contained" sx={Cssbtn}>
+                      <img src="../part-order/delete.png" width="22" height="22" />
+                      <Typography sx={fontSize13}>XLS データ削除</Typography>
+                    </Button>
+                  </Grid>
+                  }
+                </Grid>
 
-          <Grid item xs={5.5} sx={{ p:1 }}>
-            <Typography sx={{ color:'#325381', fontSize:20 }}>
-              <strong>出庫済</strong>
-            </Typography>
-            
-            <Grid sx={{ p:1, border:'2px solid #FFE500', borderRadius:4 }}>
-              <TableContainer component={Paper}>
-                 <Table sx={{ minWidth: 650 }} size="small" stickyHeader aria-label="sticky table" fullWidth>
-                  <TableHead>
-                    <TableRow>
-                      <TableCell></TableCell>
-                      <TableCell>
-                        <Typography  sx={cssSearchData}>
-                          <strong>ID</strong>
-                        </Typography>
-                      </TableCell>
-                      <TableCell>
-                        <Typography sx={cssSearchData}>
-                          <strong>AC No.</strong>
-                        </Typography>
-                      </TableCell>
-                      <TableCell>
-                        <Typography sx={cssSearchData}>
-                          <strong>Zone</strong>
-                        </Typography>
-                      </TableCell>
-                      <TableCell>
-                        <Typography sx={cssSearchData}>
-                          <strong>EMP</strong>
-                        </Typography>
-                      </TableCell>
-                      <TableCell>
-                        <Typography sx={cssSearchData}>
-                          <strong>送信日時</strong>
-                        </Typography>
-                      </TableCell>
-                   
-                    </TableRow>
-                  </TableHead>
-                  <TableBody>
-                    {rows2.map((row) => (
-                      <TableRow key={row.id} hover>
-                        <TableCell>
-                          <Button
-                            id="basic-button"
-                            aria-controls={open ? 'basic-menu' : undefined}
-                            aria-haspopup="true"
-                            aria-expanded={open ? 'true' : undefined}
-                            onClick={handleClick}
-                          >
-                            <MoreVertIcon style={{ color: '#9C9C9C', }} />
-                          </Button>
-                          <Menu
-                            id="basic-menu"
-                            anchorEl={anchorEl}
-                            open={open}
-                            onClose={handleClose}
-                            MenuListProps={{
-                              'aria-labelledby': 'basic-button',
-                            }}
-                            sx={{ ml:4,}}
-                          >
-                            <MenuItem><Typography sx={cssMenu} >View</Typography></MenuItem>
-                          </Menu>
-                        </TableCell>
-                        <TableCell>
-                          <Typography sx={cssSearchData}>
-                            <strong>{row.id}</strong>
-                          </Typography>
-                        </TableCell>
-                        <TableCell>
-                          <Typography sx={cssSearchData}>
-                            <strong>{row.ACNO}</strong>
-                          </Typography>
-                        </TableCell>
-                        <TableCell>
-                          <Typography sx={cssSearchData}>
-                            <strong>{row.Zone1}</strong>
-                          </Typography>
-                        </TableCell>
-                         <TableCell>
-                        <Typography sx={cssSearchData}>
-                            <strong>{row.EMP1}</strong>
-                          </Typography>
-                        </TableCell>
-                        <TableCell>
-                          <Typography sx={cssSearchData}>
-                            <strong>{row.Date}</strong>
-                          </Typography>
-                        </TableCell>
-                      </TableRow>
-                    ))}
-                  </TableBody>
-                </Table>
-
-              </TableContainer>
-            </Grid>
-
-            <Typography sx={{ color:'#325381', fontSize:20, mt:2 }}>
-              <strong>受領済</strong>
-            </Typography>
-
-            <Grid sx={{ p:1, border:'2px solid #8000FF', borderRadius:4 }}>
-              <TableContainer component={Paper}>
-                 <Table sx={{ minWidth: 650 }} size="small" stickyHeader aria-label="sticky table" fullWidth>
-                  <TableHead>
-                    <TableRow>
-                      <TableCell></TableCell>
-                      <TableCell>
-                        <Typography  sx={cssSearchData}>
-                          <strong>ID</strong>
-                        </Typography>
-                      </TableCell>
-                      <TableCell>
-                        <Typography sx={cssSearchData}>
-                          <strong>AC No.</strong>
-                        </Typography>
-                      </TableCell>
-                      <TableCell>
-                        <Typography sx={cssSearchData}>
-                          <strong>Zone</strong>
-                        </Typography>
-                      </TableCell>
-                      <TableCell>
-                        <Typography sx={cssSearchData}>
-                          <strong>EMP</strong>
-                        </Typography>
-                      </TableCell>
-                      <TableCell>
-                        <Typography sx={cssSearchData}>
-                          <strong>送信日時</strong>
-                        </Typography>
-                      </TableCell>
-                   
-                    </TableRow>
-                  </TableHead>
-                  <TableBody>
-                    {rows2.map((row) => (
-                      <TableRow key={row.id} hover>
-                        <TableCell>
-                          <Button
-                            id="basic-button"
-                            aria-controls={open ? 'basic-menu' : undefined}
-                            aria-haspopup="true"
-                            aria-expanded={open ? 'true' : undefined}
-                            onClick={handleClick}
-                          >
-                            <MoreVertIcon style={{ color: '#9C9C9C', }} />
-                          </Button>
-                          <Menu
-                            id="basic-menu"
-                            anchorEl={anchorEl}
-                            open={open}
-                            onClose={handleClose}
-                            MenuListProps={{
-                              'aria-labelledby': 'basic-button',
-                            }}
-                            sx={{ ml:4,}}
-                          >
-                            <MenuItem><Typography sx={cssMenu} >View</Typography></MenuItem>
-                          </Menu>
-                        </TableCell>
-                        <TableCell>
-                          <Typography sx={cssSearchData}>
-                            <strong>{row.id}</strong>
-                          </Typography>
-                        </TableCell>
-                        <TableCell>
-                          <Typography sx={cssSearchData}>
-                            <strong>{row.ACNO}</strong>
-                          </Typography>
-                        </TableCell>
-                        <TableCell>
-                          <Typography sx={cssSearchData}>
-                            <strong>{row.Zone1}</strong>
-                          </Typography>
-                        </TableCell>
-                         <TableCell>
-                        <Typography sx={cssSearchData}>
-                            <strong>{row.EMP1}</strong>
-                          </Typography>
-                        </TableCell>
-                        <TableCell>
-                          <Typography sx={cssSearchData}>
-                            <strong>{row.Date}</strong>
-                          </Typography>
-                        </TableCell>
-                      </TableRow>
-                    ))}
-                  </TableBody>
-                </Table>
-
-              </TableContainer>
-            </Grid>
-
-            <Typography sx={{ color:'#325381', fontSize:20, mt:2 }}>
-              <strong>差戻し</strong>
-            </Typography>
-            <Grid sx={{ p:1, border:'2px solid #FF0000', borderRadius:4 }}>
-              <TableContainer component={Paper}>
-                 <Table sx={{ minWidth: 650 }} size="small" stickyHeader aria-label="sticky table">
-                  <TableHead>
-                    <TableRow>
-                      <TableCell></TableCell>
-                      <TableCell>
-                        <Typography  sx={cssSearchData}>
-                          <strong>ID</strong>
-                        </Typography>
-                      </TableCell>
-                      <TableCell>
-                        <Typography sx={cssSearchData}>
-                          <strong>AC No.</strong>
-                        </Typography>
-                      </TableCell>
-                      <TableCell>
-                        <Typography sx={cssSearchData}>
-                          <strong>Zone</strong>
-                        </Typography>
-                      </TableCell>
-                      <TableCell>
-                        <Typography sx={cssSearchData}>
-                          <strong>EMP</strong>
-                        </Typography>
-                      </TableCell>
-                      <TableCell>
-                        <Typography sx={cssSearchData}>
-                          <strong>送信日時</strong>
-                        </Typography>
-                      </TableCell>
-                   
-                    </TableRow>
-                  </TableHead>
-                  <TableBody>
-                    {rows2.map((row) => (
-                      <TableRow key={row.id} hover>
-                        <TableCell>
-                          <Button
-                            id="basic-button"
-                            aria-controls={open ? 'basic-menu' : undefined}
-                            aria-haspopup="true"
-                            aria-expanded={open ? 'true' : undefined}
-                            onClick={handleClick}
-                          >
-                            <MoreVertIcon style={{ color: '#9C9C9C', }} />
-                          </Button>
-                          <Menu
-                            id="basic-menu"
-                            anchorEl={anchorEl}
-                            open={open}
-                            onClose={handleClose}
-                            MenuListProps={{
-                              'aria-labelledby': 'basic-button',
-                            }}
-                            sx={{ ml:4,}}
-                          >
-                            <MenuItem><Typography sx={cssMenu} >View</Typography></MenuItem>
-                          </Menu>
-                        </TableCell>
-                        <TableCell>
-                          <Typography sx={cssSearchData}>
-                            <strong>{row.id}</strong>
-                          </Typography>
-                        </TableCell>
-                        <TableCell>
-                          <Typography sx={cssSearchData}>
-                            <strong>{row.ACNO}</strong>
-                          </Typography>
-                        </TableCell>
-                        <TableCell>
-                          <Typography sx={cssSearchData}>
-                            <strong>{row.Zone1}</strong>
-                          </Typography>
-                        </TableCell>
-                         <TableCell>
-                        <Typography sx={cssSearchData}>
-                            <strong>{row.EMP1}</strong>
-                          </Typography>
-                        </TableCell>
-                        <TableCell>
-                          <Typography sx={cssSearchData}>
-                            <strong>{row.Date}</strong>
-                          </Typography>
-                        </TableCell>
-                      </TableRow>
-                    ))}
-                  </TableBody>
-                </Table>
-
-              </TableContainer>
-            </Grid>
-
-          </Grid>
+              </Grid>
+            </Paper>
+          </Box>
         </Grid>
-      {/*End Data*/}
       </Grid>
+
+      {/*Card 2*/}
+      <Grid container spacing={0} sx={{ p:2, pt:6 }}>
+        {/*STARFLYER*/}
+        <Grid item xs={4}>
+          <Box
+              sx={{
+                display: 'flex',
+                flexWrap: 'wrap',
+                '& > :not(style)': {
+                  m: 1,
+                  width: 469,
+                  height: 260,
+                },
+              }}
+            >
+            <Paper elevation={3}>
+              <Grid container spacing={0}>
+                {/*column 1*/}
+                <Grid item xs={2} sx={cssCenter}>
+                  <img src="../part-order/menu.png" width="36" height="25" />
+                </Grid>
+                <Grid item xs={8} sx={cssCenter}>
+                  <img src="../part-order/starflyer.png" width="169" height="62" />
+                </Grid>
+                <Grid item xs={2}>
+                  <Grid container>
+                    <Grid item xs={12} sx={cssRight_ml_mt}>
+                      <FormGroup>
+                        <FormControlLabel
+                          control={<CSSSwitch checked={checked[3]} onClick={() => handleChange(3)} sx={{ m: 1 }} />}
+                        />
+                      </FormGroup>
+                    </Grid>
+                    <Grid item xs={10} sx={cssRight}>
+                      <img src="../part-order/info.png" width="22" height="22" />
+                    </Grid>
+                  </Grid>
+                </Grid>
+              {/*column 2*/}
+                {
+                  checked[3] ?
+                    <Grid container sx={pt3pl2}>
+                      <Grid item xs={5} sx={cssText}>
+                        <Typography sx={{ color:"#325381"}}>STARFLYER部品在庫 :</Typography>
+                      </Grid>
+                      <Grid item xs={3} sx={cssText}>
+                        <Typography sx={{ color:"#325381"}}>290656 件</Typography>
+                      </Grid>
+                      <Grid item xs={4}>
+                        <Typography sx={{ color:"#325381"}}>2022/02/07  07:05</Typography>
+                      </Grid>
+                    </Grid>
+                  :
+                    <Grid container sx={pt3pl2}>
+                      <Grid item xs={5} sx={cssText}>
+                        <Typography sx={{ color:"#E3E3E3"}}>STARFLYER部品在庫 :</Typography>
+                      </Grid>
+                      <Grid item xs={3} sx={cssText}>
+                        <Typography sx={{ color:"#E3E3E3"}}>290656 件</Typography>
+                      </Grid>
+                      <Grid item xs={4}>
+                        <Typography sx={{ color:"#E3E3E3"}}>2022/02/07  07:05</Typography>
+                      </Grid>
+                    </Grid>
+                }
+                
+              {/*column 3*/}
+                {
+                  checked[3] ?
+                    <Grid container sx={p2}>
+                      <Grid item xs={5} sx={cssText}>
+                        <Typography sx={{ color:"#325381"}}>部品MJP倉庫 :</Typography>
+                      </Grid>
+                      <Grid item xs={3} sx={cssText}>
+                        <Typography sx={{ color:"#325381"}}>32114 件</Typography>
+                      </Grid>
+                      <Grid item xs={4}>
+                        <Typography sx={{ color:"#325381"}}>2022/02/07  07:00</Typography>
+                      </Grid>
+                    </Grid>
+                  :
+                    <Grid container sx={p2}>
+                      <Grid item xs={5} sx={cssText}>
+                        <Typography sx={{ color:"#E3E3E3"}}>部品MJP倉庫 :</Typography>
+                      </Grid>
+                      <Grid item xs={3} sx={cssText}>
+                        <Typography sx={{ color:"#E3E3E3"}}>32114 件</Typography>
+                      </Grid>
+                      <Grid item xs={4}>
+                        <Typography sx={{ color:"#E3E3E3"}}>2022/02/07  07:00</Typography>
+                      </Grid>
+                    </Grid>
+                }
+
+                <Grid container>
+                  <Grid item xs={6} sx={cssCenter}>
+                    <Button variant="contained" sx={Cssbtn}>
+                      <img src="../part-order/download.png" width="22" height="22" />
+                      <Typography sx={fontSize13}>XLS データインポート</Typography>
+                    </Button>
+                  </Grid>
+                  {
+                  checked[3] ?
+                  <Grid item xs={6} sx={cssCenter}>
+                    <Button variant="contained" sx={Cssbtn}>
+                      <img src="../part-order/delete.png" width="22" height="22" />
+                      <Typography sx={fontSize13}>XLS データ削除</Typography>
+                    </Button>
+                  </Grid>
+                  :
+                  <Grid item xs={6} sx={cssCenter}>
+                    <Button disabled variant="contained" sx={Cssbtn}>
+                      <img src="../part-order/delete.png" width="22" height="22" />
+                      <Typography sx={fontSize13}>XLS データ削除</Typography>
+                    </Button>
+                  </Grid>
+                  }
+                </Grid>
+
+              </Grid>
+            </Paper>
+          </Box>
+        </Grid>
+
+        {/*VANILLA AIR*/}
+        <Grid item xs={4}>
+          <Box
+              sx={{
+                display: 'flex',
+                flexWrap: 'wrap',
+                '& > :not(style)': {
+                  m: 1,
+                  width: 469,
+                  height: 260,
+                },
+              }}
+            >
+            <Paper elevation={3}>
+              <Grid container spacing={0}>
+                {/*column 1*/}
+                <Grid item xs={2} sx={cssCenter}>
+                  <img src="../part-order/menu.png" width="36" height="25" />
+                </Grid>
+                <Grid item xs={8} sx={cssCenter}>
+                  <img src="../part-order/vanilla.png" width="198" height="62" />
+                </Grid>
+                <Grid item xs={2}>
+                  <Grid container>
+                    <Grid item xs={12} sx={cssRight_ml_mt}>
+                      <FormGroup>
+                        <FormControlLabel
+                          control={<CSSSwitch checked={checked[4]} onClick={() => handleChange(4)} sx={{ m: 1 }} />}
+                        />
+                      </FormGroup>
+                    </Grid>
+                    <Grid item xs={10} sx={cssRight}>
+                      <img src="../part-order/info.png" width="22" height="22" />
+                    </Grid>
+                  </Grid>
+                </Grid>
+              {/*column 2*/}
+                {
+                  checked[4] ?
+                    <Grid container sx={pt3pl2}>
+                      <Grid item xs={5} sx={cssText}>
+                        <Typography sx={{ color:"#325381"}}>VANILLA部品在庫 :</Typography>
+                      </Grid>
+                      <Grid item xs={3} sx={cssText}>
+                        <Typography sx={{ color:"#325381"}}>290656 件</Typography>
+                      </Grid>
+                      <Grid item xs={4}>
+                        <Typography sx={{ color:"#325381"}}>2022/02/07  07:05</Typography>
+                      </Grid>
+                    </Grid>
+                  :
+                    <Grid container sx={pt3pl2}>
+                      <Grid item xs={5} sx={cssText}>
+                        <Typography sx={{ color:"#E3E3E3"}}>VANILLA部品在庫 :</Typography>
+                      </Grid>
+                      <Grid item xs={3} sx={cssText}>
+                        <Typography sx={{ color:"#E3E3E3"}}>290656 件</Typography>
+                      </Grid>
+                      <Grid item xs={4}>
+                        <Typography sx={{ color:"#E3E3E3"}}>2022/02/07  07:05</Typography>
+                      </Grid>
+                    </Grid>
+                }
+                
+              {/*column 3*/}
+                {
+                  checked[4] ?
+                    <Grid container sx={p2}>
+                      <Grid item xs={5} sx={cssText}>
+                        <Typography sx={{ color:"#325381"}}>部品MJP倉庫 :</Typography>
+                      </Grid>
+                      <Grid item xs={3} sx={cssText}>
+                        <Typography sx={{ color:"#325381"}}>32114 件</Typography>
+                      </Grid>
+                      <Grid item xs={4}>
+                        <Typography sx={{ color:"#325381"}}>2022/02/07  07:00</Typography>
+                      </Grid>
+                    </Grid>
+                  :
+                    <Grid container sx={p2}>
+                      <Grid item xs={5} sx={cssText}>
+                        <Typography sx={{ color:"#E3E3E3"}}>部品MJP倉庫 :</Typography>
+                      </Grid>
+                      <Grid item xs={3} sx={cssText}>
+                        <Typography sx={{ color:"#E3E3E3"}}>32114 件</Typography>
+                      </Grid>
+                      <Grid item xs={4}>
+                        <Typography sx={{ color:"#E3E3E3"}}>2022/02/07  07:00</Typography>
+                      </Grid>
+                    </Grid>
+                }
+
+                <Grid container>
+                  <Grid item xs={6} sx={cssCenter}>
+                    <Button variant="contained" sx={Cssbtn}>
+                      <img src="../part-order/download.png" width="22" height="22" />
+                      <Typography sx={fontSize13}>XLS データインポート</Typography>
+                    </Button>
+                  </Grid>
+                  {
+                  checked[4] ?
+                  <Grid item xs={6} sx={cssCenter}>
+                    <Button variant="contained" sx={Cssbtn}>
+                      <img src="../part-order/delete.png" width="22" height="22" />
+                      <Typography sx={fontSize13}>XLS データ削除</Typography>
+                    </Button>
+                  </Grid>
+                  :
+                  <Grid item xs={6} sx={cssCenter}>
+                    <Button disabled variant="contained" sx={Cssbtn}>
+                      <img src="../part-order/delete.png" width="22" height="22" />
+                      <Typography sx={fontSize13}>XLS データ削除</Typography>
+                    </Button>
+                  </Grid>
+                  }
+                </Grid>
+
+              </Grid>
+            </Paper>
+          </Box>
+        </Grid>
+
+      </Grid>
+
     </Box>
   </div>
   );
