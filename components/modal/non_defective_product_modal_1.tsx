@@ -32,11 +32,15 @@ const datePicker = {
         color: '#325381',
         fontSize: '13px',
         backgroundColor: '#fff',
-        padding: '8.5px 14px'
-    }, 
+        padding: '8.5px 14px',
+        paddingLeft: 4,
+        order: 2
+    },
+    '.MuiInputBase-formControl': {
+      backgroundColor: '#fff',
+    },    
     '& .MuiOutlinedInput-notchedOutline': {
         borderWidth: 0,
-        backgroundColor: 'transparent'
     },
 }
 
