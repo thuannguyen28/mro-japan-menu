@@ -197,12 +197,14 @@ export default function NestedList(props) {
 		    </ListItemButton>
 		    <Collapse in={open[4]} timeout="auto" unmountOnExit>
 		      <List component="div" disablePadding>
-		        <ListItemButton sx={{ pl: 4 }}>
-		          <ListItemIcon>
-		            <StarBorder sx={color} />
-		          </ListItemIcon>
-		          <ListItemText primaryTypographyProps={{ style: cssMenuLink }} primary="Parts Supply Department Menu" />
-		        </ListItemButton>
+			      <Link href="/part_supply_department" sx={cssLink}>
+			        <ListItemButton sx={{ pl: 4 }}>
+			          <ListItemIcon>
+			            <StarBorder sx={color} />
+			          </ListItemIcon>
+			          <ListItemText primaryTypographyProps={{ style: cssMenuLink }} primary="Parts Supply Department Menu" />
+			        </ListItemButton>
+			      </Link>
 		      </List>
 		    </Collapse>
 	    </List>
@@ -237,12 +239,14 @@ export default function NestedList(props) {
 		    </ListItemButton>
 		    <Collapse in={open[5]} timeout="auto" unmountOnExit>
 		      <List component="div" disablePadding>
-		        <ListItemButton sx={{ pl: 4 }}>
-		          <ListItemIcon>
-		            <StarBorder sx={color} />
-		          </ListItemIcon>
-		          <ListItemText primaryTypographyProps={{ style: cssMenuLink }} primary="Task Card Status" />
-		        </ListItemButton>
+		      	<Link href="/task_card_status" sx={cssLink}>
+			        <ListItemButton sx={{ pl: 4 }}>
+			          <ListItemIcon>
+			            <StarBorder sx={color} />
+			          </ListItemIcon>
+			          <ListItemText primaryTypographyProps={{ style: cssMenuLink }} primary="Task Card Status" />
+			        </ListItemButton>
+			      </Link>
 		      </List>
 		    </Collapse>
 		    <Collapse in={open[5]} timeout="auto" unmountOnExit>

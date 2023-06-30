@@ -118,6 +118,9 @@ export default function Parts() {
                           '& .MuiOutlinedInput-notchedOutline': {
                             borderWidth: 0,
                           },
+                          '& .MuiOutlinedInput-input': {
+                            order: 2,
+                          },
 
                         }} />
                   </LocalizationProvider>
@@ -138,6 +141,9 @@ export default function Parts() {
 
                           '& .MuiOutlinedInput-notchedOutline': {
                             borderWidth: 0,
+                          },
+                          '& .MuiOutlinedInput-input': {
+                            order: 2,
                           },
 
                         }} />
