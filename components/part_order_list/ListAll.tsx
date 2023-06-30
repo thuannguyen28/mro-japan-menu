@@ -347,6 +347,11 @@ export default function ListAll(props) {
 	                  borderWidth: 0,
 	                },
 
+	                '& .MuiOutlinedInput-input': {
+	                  order: 2,
+	                },
+	                
+
 	              }} />
 	        </LocalizationProvider>
 	      </Grid>
