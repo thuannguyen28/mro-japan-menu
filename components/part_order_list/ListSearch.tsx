@@ -359,6 +359,9 @@ export default function ListAll(props) {
 	                '& .MuiOutlinedInput-notchedOutline': {
 	                  borderWidth: 0,
 	                },
+	                '& .MuiOutlinedInput-input': {
+                    order: 2,
+                  },
 
 	              }} />
 	        </LocalizationProvider>
