@@ -27,6 +27,7 @@ import DialogTitle from '@mui/material/DialogTitle';
 import CloseIcon from '@mui/icons-material/Close';
 
 import NotDetectiveProductModal1 from '../../components/modal/non_defective_product_modal_1';
+import NotDetectiveProductModal2 from '../../components/modal/non_defective_product_modal_2';
 
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
@@ -78,14 +79,23 @@ export default function NotDetectiveProduct() {
     setAge(event.target.value);
   };
 
-  const [open, setOpen] = React.useState(false);
+  const [openModal1, setOpenModal1] = React.useState(false);
 
-  const handleClickOpen = () => {
-    setOpen(true);
+  const handleClickOpenModal1 = () => {
+    setOpenModal1(true);
   };
-  const handleClose = () => {
-    setOpen(false);
+  const handleCloseModal1 = () => {
+    setOpenModal1(false);
   };
+
+  const [openModal2, setOpenModal2] = React.useState(false);
+
+  const handleClickOpenModal2 = () => {
+    setOpenModal2(true);
+  };
+  const handleCloseModal2 = () => {
+    setOpenModal2(false);
+  };  
 
   return (
   <div>
@@ -119,7 +129,7 @@ export default function NotDetectiveProduct() {
           <Button sx={{ ml: 2, backgroundColor: colorText }} variant="contained">全て表示</Button>
         </Grid>
         <Grid item xs={6} sx={{ textAlign: 'right' }}>
-         <Button sx={{backgroundColor: colorText }} variant="contained" startIcon={<LibraryAddIcon />}>新規作成</Button>
+         <Button onClick={handleClickOpenModal2} sx={{backgroundColor: colorText }} variant="contained" startIcon={<LibraryAddIcon />}>新規作成</Button>
         </Grid>
 
 
@@ -142,7 +152,7 @@ export default function NotDetectiveProduct() {
                     sx={cssBorderTable}
                   >
                     <TableCell sx={{ color: colorText }} align="left">
-                    <Button onClick={handleClickOpen} sx={{ mr: 2 }} variant="outlined" startIcon={<RemoveRedEyeOutlinedIcon />}>View</Button>
+                    <Button onClick={handleClickOpenModal1} sx={{ mr: 2 }} variant="outlined" startIcon={<RemoveRedEyeOutlinedIcon />}>View</Button>
                     2023/04/25 11:43:43
                     </TableCell>
                     <TableCell sx={{ color: colorText }} align="center">10024285</TableCell>
@@ -241,15 +251,26 @@ export default function NotDetectiveProduct() {
       </Grid>
 
       <BootstrapDialog
-        onClose={handleClose}
+        onClose={handleCloseModal1}
         fullWidth
         aria-labelledby="customized-dialog-title"
-        open={open}
+        open={openModal1}
         maxWidth="xl"
       >
-        <BootstrapDialogTitle id="customized-dialog-title" onClose={handleClose}></BootstrapDialogTitle>
+        <BootstrapDialogTitle id="customized-dialog-title" onClose={handleCloseModal1}></BootstrapDialogTitle>
         <NotDetectiveProductModal1/>
       </BootstrapDialog>
+
+      <BootstrapDialog
+        onClose={handleCloseModal2}
+        fullWidth
+        aria-labelledby="customized-dialog-title-2"
+        open={openModal2}
+        maxWidth="xl"
+      >
+        <BootstrapDialogTitle id="customized-dialog-title-2" onClose={handleCloseModal2}></BootstrapDialogTitle>
+        <NotDetectiveProductModal2/>
+      </BootstrapDialog>      
 
     </Box>
   </div>
