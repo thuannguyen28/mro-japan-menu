@@ -1063,7 +1063,7 @@ export default function RequestPartMaterials() {
 
                 <Grid container spacing={2} sx={{ py : '5px'}}>
                   <Grid item xs={12}>
-                    <Button fullWidth variant="contained" startIcon={<SearchIcon />}>
+                    <Button fullWidth variant="contained" startIcon={<SearchIcon />} sx={{ backgroundColor:'#325381' }}>
                       検索
                     </Button>
                   </Grid>

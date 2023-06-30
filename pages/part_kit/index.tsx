@@ -222,7 +222,7 @@ export default function RequestPartMaterials() {
               </Box>
           </Grid>
           <Grid item xs={12} md={2} sx={{ mt:5 }} justifyContent="flex-end">
-              <Button variant="contained" startIcon={<SearchIcon />}>
+              <Button variant="contained" startIcon={<SearchIcon />} sx={{ backgroundColor:'#325381' }}>
                 検索
               </Button>
               <IconButton sx={{ ml:2 }} aria-label="reset">

@@ -1319,7 +1319,7 @@ export default function Parts() {
       </Dialog>
     {/*----------End Dialog----------*/}
 
-      {/*Dialog memo*/}
+    {/*Dialog memo*/}
      <Dialog open={openMemo} onClose={handleCloseMemo} maxWidth="xl">
         <DialogTitle>
           <BootstrapDialogTitle id="customized-dialog-title" onClose={handleCloseMemo}> 
