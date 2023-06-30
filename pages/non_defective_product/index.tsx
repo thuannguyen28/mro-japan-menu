@@ -22,6 +22,51 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import Dialog from '@mui/material/Dialog';
+import DialogTitle from '@mui/material/DialogTitle';
+import CloseIcon from '@mui/icons-material/Close';
+
+import NotDetectiveProductModal1 from '../../components/modal/non_defective_product_modal_1';
+
+
+const BootstrapDialog = styled(Dialog)(({ theme }) => ({
+  '& .MuiDialogContent-root': {
+    padding: theme.spacing(2),
+  },
+  '& .MuiDialogActions-root': {
+    padding: theme.spacing(1),
+  },
+}));
+
+export interface DialogTitleProps {
+  id: string;
+  children?: React.ReactNode;
+  onClose: () => void;
+}
+
+function BootstrapDialogTitle(props: DialogTitleProps) {
+  const { children, onClose, ...other } = props;
+
+  return (
+    <DialogTitle sx={{ m: 0, p: 0 }} {...other}>
+      {children}
+      {onClose ? (
+        <IconButton
+          aria-label="close"
+          onClick={onClose}
+          sx={{
+            position: 'absolute',
+            right: 2,
+            top: 0,
+            color: (theme) => theme.palette.grey[500],
+          }}
+        >
+          <CloseIcon />
+        </IconButton>
+      ) : null}
+    </DialogTitle>
+  );
+}
 
 const cssBorderTable = { 'td, th': { border: 1, borderColor: '#D9D9D9', borderBottom: 0, py: 1, height: '55px' } };
 const colorText = '#325381';
@@ -32,6 +77,16 @@ export default function NotDetectiveProduct() {
   const handleChange = (event: SelectChangeEvent) => {
     setAge(event.target.value);
   };
+
+  const [open, setOpen] = React.useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+  const handleClose = () => {
+    setOpen(false);
+  };
+
   return (
   <div>
     <Box sx={{ color: colorText, my: 2 , mx: 2}}>
@@ -87,7 +142,7 @@ export default function NotDetectiveProduct() {
                     sx={cssBorderTable}
                   >
                     <TableCell sx={{ color: colorText }} align="left">
-                    <Button sx={{ mr: 2 }} variant="outlined" startIcon={<RemoveRedEyeOutlinedIcon />}>View</Button>
+                    <Button onClick={handleClickOpen} sx={{ mr: 2 }} variant="outlined" startIcon={<RemoveRedEyeOutlinedIcon />}>View</Button>
                     2023/04/25 11:43:43
                     </TableCell>
                     <TableCell sx={{ color: colorText }} align="center">10024285</TableCell>
@@ -184,6 +239,18 @@ export default function NotDetectiveProduct() {
         </Grid> 
 
       </Grid>
+
+      <BootstrapDialog
+        onClose={handleClose}
+        fullWidth
+        aria-labelledby="customized-dialog-title"
+        open={open}
+        maxWidth="xl"
+      >
+        <BootstrapDialogTitle id="customized-dialog-title" onClose={handleClose}></BootstrapDialogTitle>
+        <NotDetectiveProductModal1/>
+      </BootstrapDialog>
+
     </Box>
   </div>
   );
