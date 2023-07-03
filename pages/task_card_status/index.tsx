@@ -81,9 +81,13 @@ const Item = styled(Paper)(({ theme }) => ({
 const cssRight = { display:'flex', justifyContent:'right' ,alignItems:'right' };
 const cssMR = { mr:4 };
 const cssSearchData = { fontSize:16,color:'#325381', textAlign:'center' };
-const cssTextModal ={ fontSize:16, ml:4, pt:3, pb:3 };
+const cssTextModal ={ fontSize:16, ml:4, pt:2, pb:2 };
+const cssTextTable ={ fontSize:16, pt:2, pb:2 };
+const cssTextTableDevide ={ fontSize:16, pt:2, pb:2, borderBottom:'1px solid #E0E0E0' };
 const cssText ={ fontSize:16, ml:4, pt:1, pb:1 };
 const cssTextRight ={ fontSize:16, ml:4, pt:1, pb:1, mr:4 };
+const cssTable={height:56, width:'100%', textAlign:'center'};
+const cssTableDevide={height:56, width:'100%', textAlign:'center', borderBottom:'1px solid #E0E0E0',};
 
 // ccs
 const cssAlignCenter = { display:'flex', justifyContent:'center',textAlign:'center' };
@@ -609,24 +613,23 @@ export default function Parts() {
                 display: 'flex',
                 flexWrap: 'wrap',
                 '& > :not(style)': {
-                  width: 1069,
-                  height: 500,
+                  width: 1250,
+                  height: 600,
                   ml:2,
                   mr:1,
                 },
               }}
             >
               <Paper elevation={0}>
-                <Box>
-                  <Grid container spacing={0} sx={{ border:'1px solid #E0E0E0', }}>
-                    <Grid item xs={2.5} sx={{ borderRight:'1px solid #E0E0E0' }}>
+                  <Grid container spacing={0} sx={{ border:'1px solid #C9C9C9', backgroundColor:"#D6DDE7" }}>
+                    <Grid item xs={2.5} sx={{ borderRight:'1px solid #C9C9C9' }}>
                       
                       <Typography color="#325381" sx={cssTextModal} >
                         <strong>10024280</strong>
                       </Typography>
                     </Grid>
 
-                    <Grid item xs={5} sx={{ borderRight:'1px solid #E0E0E0' }}>
+                    <Grid item xs={4} sx={{ borderRight:'1px solid #C9C9C9' }}>
                       <Typography color="#325381" sx={cssTextModal} >
                         <strong>ANA-20033474</strong>
                       </Typography>
@@ -638,35 +641,185 @@ export default function Parts() {
                       </Typography>
                     </Grid>
                   </Grid>
-                </Box>
-                <Box>
+                {/*table 1*/}
                   <Grid container spacing={0} sx={{ border:'1px solid #E0E0E0', }}>
-                    <Grid item xs={2.5} sx={{ borderRight:'1px solid #E0E0E0' }}>
-                      
-                      <Typography color="#325381" sx={cssTextModal} >
-                        <strong>1</strong>
-                      </Typography>
-                      <Typography color="#325381" sx={cssTextModal} >
-                        <strong>GCM</strong>
-                      </Typography>
+                    <Grid item xs={2.5}>
+                      <Grid container>
+                        <Grid item xs={12} sx={cssTable}>
+                          <Typography color="#325381" sx={cssTextTable} >
+                            1
+                          </Typography>      
+                        </Grid>
+                        <Grid item xs={12} sx={cssTable}>
+                          <Typography color="#325381" sx={cssTextTable} >
+                            GCM
+                          </Typography>
+                        </Grid>
+                      </Grid>
                     </Grid>
 
-                    <Grid item xs={5} sx={{ borderRight:'1px solid #E0E0E0' }}>
+                    <Grid item xs={4}>
                       <Typography color="#325381" sx={cssTextModal} >
-                        <strong>ANA-20033474</strong>
+                        EXAMINE - CONNECTORS AND BACKSHELLS 1.
+                        Do a prepare per AMM Bulletin 24-NE001, 3 
+                        Procedures, paragrah A and B.
                       </Typography>
                     </Grid>
 
                     <Grid item xs>
-                      <Typography color="#325381" sx={cssTextModal} >
-                        <strong>EXAMINE - CONNECTORS AND BACKSHELLS</strong>
-                      </Typography>
+                      <Grid container>
+                        <Grid item xs={8}>
+                        </Grid>
+                        <Grid item xs={4}>
+                          <Grid container>
+                            <Grid item xs={12} sx={cssTable}>           
+                            </Grid>
+                            <Grid item xs={12} sx={cssTable}>
+                              <Typography color="#325381" sx={cssTextTable} >
+                                1.0
+                              </Typography>
+                            </Grid>
+                          </Grid>
+                        </Grid>
+                      </Grid>
                     </Grid>
                   </Grid>
-                </Box>
-                
+                {/*End table 1*/}
 
+                {/*table 2*/}
+                  <Grid container spacing={0}>
+                    <Grid item xs={2.5} sx={{ borderRight:'1px solid #E0E0E0', borderLeft:'1px solid #E0E0E0' }}>
+                      <Grid container>
+                        <Grid item xs={12} sx={cssTable}>
+                          <Typography color="#325381" sx={cssTextTableDevide} >
+                            2
+                          </Typography>      
+                        </Grid>
+                        <Grid item xs={12} sx={cssTable}>
+                          <Typography color="#325381" sx={cssTextTable} >
+                            ECM
+                          </Typography>
+                        </Grid>
+                      </Grid>
+                    </Grid>
+
+                    <Grid item xs={4}>
+                      <Typography color="#325381" sx={cssTextModal} >
+                        EXAMINE - CONNECTORS AND BACKSHELLS 1.
+                        Do a prepare per AMM Bulletin 24-NE001, 3 
+                        Procedures, paragrah A and B.
+                      </Typography>
+                    </Grid>
+
+                    <Grid item xs>
+                      <Grid container>
+                        <Grid item xs={8} sx={{ borderRight:'1px solid #E0E0E0' }}>
+                        </Grid>
+                        <Grid item xs={4} sx={{ borderRight:'1px solid #E0E0E0' }}>
+                          <Grid container>
+                            <Grid item xs={12} sx={cssTableDevide}>          
+                            </Grid>
+                            <Grid item xs={12} sx={cssTable}>
+                              <Typography color="#325381" sx={cssTextTable} >
+                                2.0
+                              </Typography>
+                            </Grid>
+                          </Grid>
+                        </Grid>
+                      </Grid>
+                    </Grid>
+                  </Grid>
+                {/*End table 2*/}
+
+                {/*table 3*/}
+                  <Grid container spacing={0} sx={{ border:'1px solid #E0E0E0', }}>
+                    <Grid item xs={2.5}>
+                      <Grid container>
+                        <Grid item xs={12} sx={cssTable}>
+                          <Typography color="#325381" sx={cssTextTable} >
+                            3
+                          </Typography>      
+                        </Grid>
+                        <Grid item xs={12} sx={cssTable}>
+                          <Typography color="#325381" sx={cssTextTable} >
+                            GSYOP
+                          </Typography>
+                        </Grid>
+                      </Grid>
+                    </Grid>
+
+                    <Grid item xs={4}>
+                      <Typography color="#325381" sx={cssTextModal} >
+                        EXAMINE - CONNECTORS AND BACKSHELLS 1.
+                        Do a prepare per AMM Bulletin 24-NE001, 3 
+                        Procedures, paragrah A and B.
+                      </Typography>
+                    </Grid>
+
+                    <Grid item xs>
+                      <Grid container>
+                        <Grid item xs={8}>
+                        </Grid>
+                        <Grid item xs={4}>
+                          <Grid container>
+                            <Grid item xs={12} sx={cssTable}>           
+                            </Grid>
+                            <Grid item xs={12} sx={cssTable}>
+                              <Typography color="#325381" sx={cssTextTable} >
+                                9.0
+                              </Typography>
+                            </Grid>
+                          </Grid>
+                        </Grid>
+                      </Grid>
+                    </Grid>
+                  </Grid>
+                {/*End table 3*/}
                
+                {/*table 3*/}
+                  <Grid container spacing={0} sx={{ border:'1px solid #E0E0E0', borderTop:'none',}}>
+                    <Grid item xs={2.5}>
+                      <Grid container>
+                        <Grid item xs={12} sx={cssTable}>
+                          <Typography color="#325381" sx={cssTextTable} >
+                            4
+                          </Typography>      
+                        </Grid>
+                        <Grid item xs={12} sx={cssTable}>
+                          <Typography color="#325381" sx={cssTextTable} >
+                            W/M
+                          </Typography>
+                        </Grid>
+                      </Grid>
+                    </Grid>
+
+                    <Grid item xs={4}>
+                      <Typography color="#325381" sx={cssTextModal} >
+                        EXAMINE - CONNECTORS AND BACKSHELLS 1.
+                        Do a prepare per AMM Bulletin 24-NE001, 3 
+                        Procedures, paragrah A and B.
+                      </Typography>
+                    </Grid>
+
+                    <Grid item xs>
+                      <Grid container>
+                        <Grid item xs={8}>
+                        </Grid>
+                        <Grid item xs={4}>
+                          <Grid container>
+                            <Grid item xs={12} sx={cssTable}>           
+                            </Grid>
+                            <Grid item xs={12} sx={cssTable}>
+                              <Typography color="#325381" sx={cssTextTable} >
+                                1.0
+                              </Typography>
+                            </Grid>
+                          </Grid>
+                        </Grid>
+                      </Grid>
+                    </Grid>
+                  </Grid>
+                {/*End table 3*/}
               </Paper>
             </Box>
           </DialogContentText>
