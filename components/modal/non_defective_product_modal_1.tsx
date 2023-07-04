@@ -10,13 +10,17 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
-
+import IconButton from '@mui/material/IconButton';
 import TextField from '@mui/material/TextField';
 import FormControl from '@mui/material/FormControl';
 import InputLabel from '@mui/material/InputLabel';
 import LibraryAddIcon from '@mui/icons-material/LibraryAdd';
 import PrintOutlinedIcon from '@mui/icons-material/PrintOutlined';
 import Divider from '@mui/material/Divider';
+
+import Dialog from '@mui/material/Dialog';
+import DialogTitle from '@mui/material/DialogTitle';
+import CloseIcon from '@mui/icons-material/Close';
 
 import dayjs from 'dayjs';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
@@ -44,7 +48,56 @@ const datePicker = {
     },
 }
 
+const BootstrapDialog = styled(Dialog)(({ theme }) => ({
+  '& .MuiDialogContent-root': {
+    padding: theme.spacing(2),
+  },
+  '& .MuiDialogActions-root': {
+    padding: theme.spacing(1),
+  },
+}));
+
+export interface DialogTitleProps {
+  id: string;
+  children?: React.ReactNode;
+  onClose: () => void;
+}
+
+function BootstrapDialogTitle(props: DialogTitleProps) {
+  const { children, onClose, ...other } = props;
+
+  return (
+    <DialogTitle sx={{ m: 0, p: 0 }} {...other}>
+      {children}
+      {onClose ? (
+        <IconButton
+          aria-label="close"
+          onClick={onClose}
+          sx={{
+            position: 'absolute',
+            right: 2,
+            top: 0,
+            color: (theme) => theme.palette.grey[500],
+          }}
+        >
+          <CloseIcon />
+        </IconButton>
+      ) : null}
+    </DialogTitle>
+  );
+}
+
 export default function NotDetectiveProductModal() {
+
+  const [openModal, setOpenModal] = React.useState(false);
+
+  const handleClickOpenModal = () => {
+    setOpenModal(true);
+  };
+  const handleCloseModal = () => {
+    setOpenModal(false);
+  };
+
   return (
     <div>
 
@@ -108,7 +161,7 @@ export default function NotDetectiveProductModal() {
 	                  	<FormControlLabel sx={{ display: 'flex', '.MuiFormControlLabel-label': { width: '100%', fontSize: '14px' } }} control={<TextField sx={{ 'input': { color: colorText ,bgcolor: '#fff', textAlign: 'center', fontSize: '13px' }, '.MuiOutlinedInput-notchedOutline': {border: 'none'} }} fullWidth  size="small" value="ANA-20076170" />} label="Used Qty :" labelPlacement="top" />	                  	
 	                  </Grid>
 	                  <Grid item xs={2.5}>
-	                    <Button sx={{ backgroundColor: colorText, mt: '22px' }} fullWidth variant="contained">写真削除</Button>
+	                    <Button onClick={handleClickOpenModal} sx={{ backgroundColor: colorText, mt: '22px' }} fullWidth variant="contained">写真削除</Button>
 	                  </Grid>
 
 	                  <Grid item xs={2.7}>
@@ -158,7 +211,7 @@ export default function NotDetectiveProductModal() {
 	                  	<FormControlLabel sx={{ display: 'flex', '.MuiFormControlLabel-label': { width: '100%', fontSize: '14px' } }} control={<TextField sx={{ 'input': { color: colorText ,bgcolor: '#fff', textAlign: 'center', fontSize: '13px' }, '.MuiOutlinedInput-notchedOutline': {border: 'none'} }} fullWidth  size="small" value="ANA-20076170" />} label="Used Qty :" labelPlacement="top" />	                  	
 	                  </Grid>
 	                  <Grid item xs={2.5}>
-	                    <Button sx={{ backgroundColor: colorText, mt: '22px' }} fullWidth variant="contained">写真削除</Button>
+	                    <Button onClick={handleClickOpenModal} sx={{ backgroundColor: colorText, mt: '22px' }} fullWidth variant="contained">写真削除</Button>
 	                  </Grid>
 
 	                  <Grid item xs={2.7}>
@@ -265,7 +318,65 @@ export default function NotDetectiveProductModal() {
 	          </Grid>
           </Grid>
         </DialogContent>
-      
+	      <BootstrapDialog
+	        onClose={handleCloseModal}
+	        fullWidth
+	        aria-labelledby="customized-dialog-title"
+	        open={openModal}
+	        maxWidth="md"
+	      >
+	        <BootstrapDialogTitle id="customized-dialog-title" onClose={handleCloseModal}></BootstrapDialogTitle>
+	        <DialogContent>
+	          <Grid container spacing={2} sx={{ mt: 2, color: colorText}}>
+		          <Grid item xs={1}>
+                <Typography sx={{ mx: 2, fontSize: '15px', fontWeight: 700 }}>Item</Typography>
+		          </Grid>
+		          <Grid item xs={11}>
+                <Typography sx={{ mx: 2, fontSize: '15px', fontWeight: 700 }}>REF</Typography>
+		          </Grid>
+		        </Grid>
+
+		        <Grid container spacing={2} sx={{ mt: 0, color: colorText}}>
+		          <Grid item xs={12}>
+                <Typography component="div" sx={{ borderRadius: '10px', border: '1px solid #ccc', p: 2 }}>
+                  <Grid container spacing={2}>
+                    <Grid item xs={1.5}>
+                      <Typography component="div" sx={{ borderRadius: '5px', border: '1px solid #ccc', p: 1 }}>
+                      1
+                      </Typography>
+                      <Typography component="div" sx={{ mt: 1 ,borderRadius: '5px', border: '1px solid #ccc', p: 1, textAlign: 'center' }}>
+                       <img src="../spr/arrow_left.png"/>
+                      </Typography>
+                    </Grid>
+                    <Grid item xs={10.5}>
+                      <Typography component="div" sx={{ borderRadius: '5px', border: '1px solid #ccc', p: 1, height: '92px', fontWeight: 700 }}>
+                      REF AMM BULL 10-XE005 ADDITIONAL STORAGE WORK 1
+                      </Typography>
+                    </Grid>
+                  </Grid>
+                </Typography>
+
+                <Typography component="div" sx={{ borderRadius: '10px', border: '1px solid #ccc', p: 2, mt: 2 }}>
+                  <Grid container spacing={2}>
+                    <Grid item xs={1.5}>
+                      <Typography component="div" sx={{ borderRadius: '5px', border: '1px solid #ccc', p: 1 }}>
+                      1
+                      </Typography>
+                      <Typography component="div" sx={{ mt: 1 ,borderRadius: '5px', border: '1px solid #ccc', p: 1, textAlign: 'center' }}>
+                       <img src="../spr/arrow_left.png"/>
+                      </Typography>
+                    </Grid>
+                    <Grid item xs={10.5}>
+                      <Typography component="div" sx={{ borderRadius: '5px', border: '1px solid #ccc', p: 1, height: '92px', fontWeight: 700 }}>
+                      REF AMM BULL 10-XE005 ADDITIONAL STORAGE WORK 1
+                      </Typography>
+                    </Grid>
+                  </Grid>
+                </Typography>                
+		          </Grid>		          
+		        </Grid>
+		      </DialogContent>  
+	      </BootstrapDialog>
     </div>
   );
 }

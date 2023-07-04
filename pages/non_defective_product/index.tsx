@@ -270,7 +270,7 @@ export default function NotDetectiveProduct() {
       >
         <BootstrapDialogTitle id="customized-dialog-title-2" onClose={handleCloseModal2}></BootstrapDialogTitle>
         <NotDetectiveProductModal2/>
-      </BootstrapDialog>      
+      </BootstrapDialog>
 
     </Box>
   </div>
