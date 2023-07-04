@@ -1,0 +1,224 @@
+//Button
+.btn__table1 {
+    color: #325381;
+    background-color: #ffffff;
+    border-radius: 4px;
+    padding: 2px 8px;
+    margin-right: 5px;
+    min-width: 0;
+    border-color: rgba(0,0,0,0.25);
+    text-transform: none;
+}
+
+//Text
+//---Color
+.text {
+    &__font1, 
+    &__font2, 
+    &__font3 {
+        color: #325381;
+    }
+}
+//---Size
+.text {
+    &__font1 {
+        font-size: 20px;
+    }
+    &__font2 {
+        font-size: 25px;
+    }
+    &__font3 {
+        font-size: 13px;
+    }
+
+}
+
+//Style
+.mainTable {
+    background-color: #F8F8F8;
+    box-shadow: none;
+    tbody td, thead th {
+        position: relative;
+        color: #325381;
+        font-size: 12px;
+        text-align: center;
+        &:after {
+            content: '';
+            position: absolute;
+            background-color: #D9D9D9;
+            width: 1px;
+            height: 70%;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin-top: auto;
+            margin-bottom: auto;
+        }
+    }
+    tbody td:last-child, thead th:last-child {
+        &:after {
+            display: none;
+        }
+    }
+}
+.mainDialog {
+    .mainDialog {
+        &__content {
+            padding: 30px 50px;
+        }
+        &__table2 {
+            &>div {
+                box-shadow: none;
+            }
+            table {
+                background-color: #F8F8F8;
+                box-shadow: none;
+                thead th {
+                    padding: 5px;
+                    height: 60px;
+                    font-weight: bold;
+                    font-size: 15px;
+                }
+                tbody td, thead th {
+                    position: relative;
+                    color: #325381;
+                    font-size: 15px;
+                    text-align: center;
+                    &:after {
+                        content: '';
+                        position: absolute;
+                        background-color: #D9D9D9;
+                        width: 1px;
+                        height: 70%;
+                        right: 0;
+                        top: 0;
+                        bottom: 0;
+                        margin-top: auto;
+                        margin-bottom: auto;
+                    }
+                }
+                tbody td:last-child, thead th:last-child {
+                    &:after {
+                        display: 'none'
+                    }
+                }
+                tbody tr:last-child td {
+                    border-bottom: none;
+                }
+            }
+        }
+        &__table3 {
+            position: relative;
+            &>div {
+                box-shadow: none;
+            }
+            .validateText {
+                position: absolute;
+                bottom: -25px;
+                right: 20px;
+                color: #DE0606;
+                font-size: 11px;
+                text-align: right;
+                margin-top: 10px;
+                padding-right: 20px;
+            }
+            table {
+                background-color: #F8F8F8;
+                tbody td, thead th {
+                    position: relative;
+                    color: #325381;
+                    font-size: 12px;
+                    text-align: center;
+                    padding-top: 5px;
+                    padding-bottom: 5px;
+                    &:after {
+                        content: '';
+                        position: absolute;
+                        background-color: #D9D9D9;
+                        width: 1px;
+                        height: 70%;
+                        right: 0;
+                        top: 0;
+                        bottom: 0;
+                        margin-top: auto;
+                        margin-bottom: auto;
+                    }
+                }
+                tbody td:nth-child(9) span, tbody td:nth-child(10) span {
+                    font-size: 12px;
+                }
+                tbody td:last-child, thead th:last-child {
+                    &:after {
+                        display: 'none'
+                    }
+                }
+            }
+        }
+        &__mainBoxTable {
+            color: #325381;
+            font-size: 13px;
+            background-color: #F8F8F8;
+            padding: 10px 0 10px 30px;
+        }
+        &__boxInfo {
+            color: #325381;
+            font-size: 13px;
+            padding: 0 0 16px 30px;
+            border-bottom: 1px solid #E3E3E3;
+        }
+        &__stackTable {
+            .mainDialog__stackTable {
+                &_left {
+                    box-shadow: none;
+                    position: relative;
+                    width: 430px;
+                    color: #325381;
+                    font-size: 13px;
+                    text-align: center;
+                    padding-top: 10px;
+                    padding-bottom: 10px;
+                    &:after {
+                        content: '';
+                        position: absolute;
+                        background-color: #D9D9D9;
+                        width: 1px;
+                        height: 70%;
+                        right: 0;
+                        top: 0;
+                        bottom: 0;
+                        margin-top: auto;
+                        margin-bottom: auto;
+                    }
+                }
+                &_right {
+                    box-shadow: none;
+                    width: calc(100% - 430px);
+                    text-align: left;
+                    padding-left: 50px;
+                    padding-top: 10px;
+                    padding-bottom: 10px;
+                }
+            }
+        }
+    }
+}
+
+//Customize
+//---DatePicker
+.datePicker__style1 {
+    min-width: 150px !important;
+    width: 150px !important;
+    margin-right: 20px;
+    input {
+        color: #325381;
+        font-size: 13px;
+        order: 2;
+    }
+    fieldset {
+        border-width: 0;
+    }
+}
+//---Radio
+.radio__style1 {
+    justify-content: center;
+}
