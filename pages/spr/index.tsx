@@ -3,9 +3,9 @@ import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
-
-//CSS Customize
-import styles from '../spr/spr.module.scss';
+import Divider from '@mui/material/Divider';
+import CardMedia from '@mui/material/CardMedia';
+import Link from '@mui/material/Link';
 
 //Table
 import Table from '@mui/material/Table';
@@ -26,6 +26,10 @@ import Dialog from '@mui/material/Dialog';
 import DialogContent from '@mui/material/DialogContent';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
+import DialogTitle from '@mui/material/DialogTitle';
+import IconButton from '@mui/material/IconButton';
+import CloseIcon from '@mui/icons-material/Close';
+
 
 //Stack
 import Stack from '@mui/material/Stack';
@@ -84,12 +88,219 @@ const rows2 = [
     createData2('1', 'TAAI3 - 03 PE00-01', 'SEAT CAP', 'AE', 'EA', '', '2022/02/08', '0', '', '')
 ];
 
+
+// CSS
+const mainTable = {
+    backgroundColor: '#F8F8F8',
+    boxShadow: 'none', 
+    'tbody td, thead th': {
+        position: 'relative',
+        color: '#325381',
+        fontSize: '12px',
+        textAlign: 'center',
+        '&:after': {
+            content: `''`,
+            position: 'absolute',
+            backgroundColor: '#D9D9D9',
+            width: '1px',
+            height: '70%',
+            right: '0',
+            top: '0',
+            bottom: '0',
+            marginY: 'auto'
+        }
+    },
+    'tbody td:last-child, thead th:last-child': {
+        '&:after': {
+            display: 'none'
+        }
+    }
+}
+const mainTable2 = {
+    backgroundColor: '#F8F8F8',
+    boxShadow: 'none', 
+    'thead th': {
+        padding: '5px',
+        height: '60px',
+        fontWeight: 'bold',
+        fontSize: '15px'
+    },
+    'tbody td, thead th': {
+        position: 'relative',
+        color: '#325381',
+        fontSize: '15px',
+        textAlign: 'center',
+        '&:after': {
+            content: `''`,
+            position: 'absolute',
+            backgroundColor: '#D9D9D9',
+            width: '1px',
+            height: '70%',
+            right: '0',
+            top: '0',
+            bottom: '0',
+            marginY: 'auto'
+        },
+    },
+    'tbody td:last-child, thead th:last-child': {
+        '&:after': {
+            display: 'none'
+        }
+    },
+    'tbody tr:last-child td': {
+        borderBottom: 'none'
+    }, 
+}
+const mainTable3 = {
+    backgroundColor: '#F8F8F8',
+    boxShadow: 'none', 
+    'tbody td, thead th': {
+        position: 'relative',
+        color: '#325381',
+        fontSize: '12px',
+        textAlign: 'center',
+        paddingY: '5px', 
+        '&:after': {
+            content: `''`,
+            position: 'absolute',
+            backgroundColor: '#D9D9D9',
+            width: '1px',
+            height: '70%',
+            right: '0',
+            top: '0',
+            bottom: '0',
+            marginY: 'auto'
+        },
+        '.css-ahj2mt-MuiTypography-root': {
+            fontSize: '12px'
+        }
+    },
+    'tbody td:last-child, thead th:last-child': {
+        '&:after': {
+            display: 'none'
+        }
+    }
+}
+const mainDialog = {
+    '.css-ypiqx9-MuiDialogContent-root': {
+        padding: '30px 50px', 
+    }, 
+    '.css-tm6vhc-MuiGrid-root': {
+        position: 'relative', 
+        '.css-4enqgj': {
+            position: 'absolute',
+            bottom: '-25px',
+            right: '20px'
+        }
+    }  
+}
+const mainBoxTable = {
+    color: '#325381', 
+    fontSize: '13px',
+    backgroundColor: '#F8F8F8',
+    padding: '10px 0 10px 30px'
+}
+const mainBoxValidate = {
+    color: '#DE0606',
+    fontSize: '11px',
+    textAlign: 'right',
+    marginTop: '10px', 
+    paddingRight: '20px'
+}
+const mainBoxInfo = {
+    color: '#325381', 
+    fontSize: '13px',
+    padding: '0 0 16px 30px',
+    borderBottom: '1px solid #E3E3E3'
+}
+
 // Stack
 const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: '#F8F8F8',
     padding: theme.spacing(1),
     textAlign: 'center',
   }));
+const stackTable = {
+    '.css-ctpqxb-MuiPaper-root:first-child': {
+        width: '430px', 
+        color: '#325381', 
+        fontSize: '13px'
+    },
+    '.css-ctpqxb-MuiPaper-root:last-child': {
+        width: 'calc(100% - 430px)', 
+        textAlign: 'left',
+        paddingLeft: '50px', 
+        '&:after': {
+            display: 'none'
+        }
+    },
+    '.css-ctpqxb-MuiPaper-root': {
+        boxShadow: 'none', 
+        position: 'relative',
+        '&:after': {
+            content: `''`,
+            position: 'absolute',
+            backgroundColor: '#D9D9D9',
+            width: '1px',
+            height: '70%',
+            right: '0',
+            top: '0',
+            bottom: '0',
+            marginY: 'auto'
+        }
+    }
+}
+
+// DatePicker
+const datePicker = {
+    minWidth: '150px !important', 
+    width: '150px !important', 
+    marginRight: '20px',
+    'input': {
+        color: '#325381',
+        fontSize: '13px',
+        order: '2' 
+    }, 
+    '& .MuiOutlinedInput-notchedOutline': {
+        borderWidth: 0,
+    },
+}
+
+//Radio
+const radioMain = {
+    justifyContent: 'center'
+}
+
+const btnTable1 = { color: '#325381', backgroundColor: '#FFFFFF', borderRadius: '4px', p: '2px 8px', marginRight: '5px', minWidth: 0, borderColor: 'rgba(0,0,0,0.25)', textTransform: 'none' };
+const text1 = {color: '#325381', fontSize: '20px'}
+const text2 = {color: '#325381', fontSize: '25px'}
+const text3 = {color: '#325381', fontSize: '13px'}
+
+    
+//Dialog
+function BootstrapDialogTitle(props: DialogTitleProps) {
+    const { children, onClose, ...other } = props;
+  
+    return (
+      <DialogTitle sx={{ m: 0, p: 2 }} {...other}>
+        {children}
+        {onClose ? (
+          <IconButton
+            aria-label="close"
+            onClick={onClose}
+            sx={{
+              position: 'absolute',
+              right: 8,
+              top: 2,
+              color: (theme) => theme.palette.grey[500],
+            }}
+          >
+            <CloseIcon />
+          </IconButton>
+        ) : null}
+      </DialogTitle>
+    );
+}
 
 export default function SPR() {
     const [age, setAge] = React.useState('');
@@ -123,7 +334,7 @@ export default function SPR() {
                         <Typography sx={{ marginBottom: '10px' }}>
                             <strong>WO:</strong>
                         </Typography>
-                        <Grid xs={12}>
+                        <Box>
                             <FormControl sx={{ textAlign: 'center', marginRight: '5px', minWidth: 200 }} size="small">
                                 <Select
                                     value={age}
@@ -136,11 +347,11 @@ export default function SPR() {
                                     <MenuItem value={10024282}>10024282</MenuItem>
                                 </Select>
                             </FormControl>
-                            <Button variant="contained" sx={{ paddingX: '30px', backgroundColor: '#325381' }}>全て表示</Button>
-                        </Grid>
+                            <Button variant="contained" sx={{ paddingX: '30px' }} className="bg-blue-800">全て表示</Button>
+                        </Box>
                     </Grid>
                 </Grid>
-                <TableContainer component={Paper} className={styles.mainTable}>
+                <TableContainer component={Paper} sx={mainTable}>
                     <Table sx={{ minWidth: 650 }}>
                         <TableHead>
                             <TableRow>
@@ -164,29 +375,29 @@ export default function SPR() {
                                 >
                                     <TableCell>
                                         <span style={{ marginRight: '5px' }}>1</span>
-                                        <Button onClick={handleClickOpen} className={styles.btn__table1} variant="outlined">
+                                        <Button onClick={handleClickOpen} sx={btnTable1} variant="outlined">
                                             <img src="../spr/icon-edit.svg" style={{ marginRight: '3px' }} width="20" height="20" />
                                             修正
                                         </Button>
-                                        <Button className={styles.btn__table1} variant="outlined">
+                                        <Button sx={btnTable1} variant="outlined">
                                             <img src="../spr/icon-view.svg" style={{ marginRight: '3px' }} width="20" height="20" />
                                             View
                                         </Button>
-                                        <Button className={styles.btn__table1} variant="outlined">
+                                        <Button sx={btnTable1} variant="outlined">
                                             <img src="../spr/icon-pdf.svg" style={{ marginRight: '3px' }} width="20" height="20" />
                                             PDF
                                         </Button>
-                                        <Button className={styles.btn__table1} variant="outlined">
+                                        <Button sx={btnTable1} variant="outlined">
                                             <img src="../spr/icon-print.svg" style={{ marginRight: '3px' }} width="20" height="20" />
                                             Print
                                         </Button>
                                     </TableCell>
                                     <TableCell>
-                                        <Button className={styles.btn__table1} variant="outlined">
+                                        <Button sx={btnTable1} variant="outlined">
                                             <img src="../spr/icon-pdf.svg" style={{ marginRight: '3px' }} width="20" height="20" />
                                             PDF
                                         </Button>
-                                        <Button className={styles.btn__table1} variant="outlined">
+                                        <Button sx={btnTable1} variant="outlined">
                                             <img src="../spr/icon-print.svg" style={{ marginRight: '3px' }} width="20" height="20" />
                                             Print
                                         </Button>
@@ -213,35 +424,39 @@ export default function SPR() {
                 aria-labelledby="responsive-dialog-title"
                 fullWidth 
                 maxWidth="xl" 
-                className={styles.mainDialog}
+                sx={mainDialog}
             >
-                <DialogContent className={styles.mainDialog__content}>
-                    <Grid container spacing={0} sx={{ marginBottom: '10px' }}>
-                        <Grid item xs={6}>
-                            <Typography className={styles.text__font1}>
-                                <strong>SPR 修正</strong>
-                            </Typography>
+                <DialogTitle>
+                    <BootstrapDialogTitle id="customized-dialog-title" onClose={handleClose}> 
+                        <Grid container spacing={0} sx={{ marginBottom: '10px' }}>
+                            <Grid item xs={6}>
+                                <Typography sx={text1}>
+                                    <strong>SPR 修正</strong>
+                                </Typography>
+                            </Grid>
+                            <Grid item xs={6} sx={{ textAlign: 'right' }} >
+                                <Button variant="contained" sx={{ paddingX: '30px' }} className="bg-blue-800">N/R Task Data 更新</Button>
+                            </Grid>
+                            <Grid item xs={12} sx={{ textAlign: 'center' }} >
+                                <img src="../logo.png" width="174" height="35"/>
+                            </Grid>
+                            <Grid item xs={12} sx={{ textAlign: 'center' }} >
+                                <Typography sx={text2}>
+                                    <strong>SHORTAGE PARTS REPORT (SPR)</strong>
+                                </Typography>
+                            </Grid>
                         </Grid>
-                        <Grid item xs={6} sx={{ textAlign: 'right' }} >
-                            <Button variant="contained" sx={{ paddingX: '30px', backgroundColor: '#325381' }}>N/R Task Data 更新</Button>
-                        </Grid>
-                        <Grid item xs={12} sx={{ textAlign: 'center' }} >
-                            <img src="../logo.png" width="174" height="35"/>
-                        </Grid>
-                        <Grid item xs={12} sx={{ textAlign: 'center' }} >
-                            <Typography className={styles.text__font2}>
-                                <strong>SHORTAGE PARTS REPORT (SPR)</strong>
-                            </Typography>
-                        </Grid>
-                    </Grid>
+                    </BootstrapDialogTitle>
+                </DialogTitle>
+                <DialogContent>
                     <Grid container spacing={2} sx={{ marginBottom: '10px' }}>
                         <Grid item xs={12} sx={{ textAlign: 'right' }}>
-                            <Typography className={styles.text__font3}>
+                            <Typography sx={text3}>
                                 Issue date : 2023/05/19
                             </Typography>
                         </Grid>
-                        <Grid item xs={7} className={styles.mainDialog__table2}>
-                            <TableContainer component={Paper}>
+                        <Grid item xs={7}>
+                            <TableContainer component={Paper} sx={mainTable2}>
                                 <Table>
                                     <TableHead>
                                         <TableRow>
@@ -266,8 +481,8 @@ export default function SPR() {
                                 </Table>
                             </TableContainer>
                         </Grid>
-                        <Grid item xs={5} sx={{ textAlign: 'center' }} className={styles.mainDialog__table2}>
-                            <TableContainer component={Paper}>
+                        <Grid item xs={5} sx={{ textAlign: 'center' }} >
+                            <TableContainer component={Paper} sx={mainTable2}>
                                 <Table>
                                     <TableHead>
                                         <TableRow>
@@ -297,29 +512,29 @@ export default function SPR() {
                             </TableContainer>
                         </Grid>
                         <Grid item xs={12} sx={{ textAlign: 'right', marginTop: '5px' }}>
-                            <Stack direction="row" spacing={0} className={styles.mainDialog__stackTable}>
-                                <Item className={styles.mainDialog__stackTable_left}>
+                            <Stack direction="row" spacing={0} sx={stackTable}>
+                                <Item>
                                     Dock - in Period <br/>
                                     (yyyy/mm/dd - yyyy/mm/dd) <br/>
                                     ドックイン期間
                                 </Item>
-                                <Item className={styles.mainDialog__stackTable_right}>
+                                <Item>
                                     <LocalizationProvider dateAdapter={AdapterDayjs}>
-                                        <DatePicker className={styles.datePicker__style1} defaultValue={dayjs('2022/02/06')} />
+                                        <DatePicker sx={datePicker} defaultValue={dayjs('2022/02/06')} />
                                     </LocalizationProvider>
                                     <LocalizationProvider dateAdapter={AdapterDayjs}>
-                                        <DatePicker className={styles.datePicker__style1} defaultValue={dayjs('2022/02/09')}/>
+                                        <DatePicker sx={datePicker} defaultValue={dayjs('2022/02/09')}/>
                                     </LocalizationProvider>
                                 </Item>
                             </Stack>
                         </Grid>
                         <Grid item xs={12} sx={{ textAlign: 'left', marginTop: '5px' }}>
-                            <Box className={styles.mainDialog__mainBoxTable}>
+                            <Box sx={mainBoxTable}>
                                 Requested part  要求部品
                             </Box>
                         </Grid>
-                        <Grid item xs={12} sx={{ marginTop: '5px' }} className={styles.mainDialog__table3}>
-                            <TableContainer component={Paper}>
+                        <Grid item xs={12} sx={{ marginTop: '5px' }}>
+                            <TableContainer component={Paper} sx={mainTable3}>
                                 <Table>
                                     <TableHead>
                                         <TableRow>
@@ -366,7 +581,7 @@ export default function SPR() {
                                                     row
                                                     aria-labelledby="demo-row-radio-buttons-group-label"
                                                     name="row-radio-buttons-group"
-                                                    className={styles.radio__style1}
+                                                    sx={radioMain}
                                                 >
                                                     <FormControlLabel value="有" control={<Radio size="small"/>} label="有"/>
                                                     <FormControlLabel value="無" control={<Radio size="small"/>} label="無"/>
@@ -377,7 +592,7 @@ export default function SPR() {
                                                         row
                                                         aria-labelledby="demo-row-radio-buttons-group-label"
                                                         name="row-radio-buttons-group"
-                                                        className={styles.radio__style1}
+                                                        sx={radioMain}
                                                     >
                                                         <FormControlLabel value="有" control={<Radio size="small"/>} label="有"/>
                                                         <FormControlLabel value="無" control={<Radio size="small"/>} label="無"/>
@@ -388,22 +603,22 @@ export default function SPR() {
                                     </TableBody>
                                 </Table>
                             </TableContainer>
-                            <Box className={styles.validateText}>
+                            <Box sx={mainBoxValidate}>
                                 選択の削除はキーボードの[Delete]
                             </Box>
                         </Grid>
                         <Grid item xs={12} sx={{ textAlign: 'left', marginTop: '5px' }}>
-                            <Box className={styles.mainDialog__boxInfo}>
+                            <Box sx={mainBoxInfo}>
                                 N/R No :   ANA-12030006 
                             </Box>
                         </Grid>
                         <Grid item xs={12} sx={{ textAlign: 'left' }}>
-                            <Box className={styles.mainDialog__boxInfo}>
+                            <Box sx={mainBoxInfo}>
                                 Defects details 不具合内容: COND AND EXPIRATION DATE CK - LIFE VESTS
                             </Box>
                         </Grid>
                         <Grid item xs={12} sx={{ textAlign: 'left' }}>
-                            <Box className={styles.mainDialog__boxInfo}>
+                            <Box sx={mainBoxInfo}>
                                 Remarks  備考 :
                             </Box>
                         </Grid>
