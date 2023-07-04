@@ -150,7 +150,8 @@ export default function Parts() {
                 '& > :not(style)': {
                   m: 1,
                   width: 469,
-                  height: 260,
+                  height: '100%',
+                  pb:3,
                 },
               }}
             >
@@ -256,7 +257,8 @@ export default function Parts() {
                 '& > :not(style)': {
                   m: 1,
                   width: 469,
-                  height: 260,
+                  height: '100%',
+                  pb:3,
                 },
               }}
             >
@@ -378,7 +380,8 @@ export default function Parts() {
                 '& > :not(style)': {
                   m: 1,
                   width: 469,
-                  height: 260,
+                  height: '100%',
+                  pb:3,
                 },
               }}
             >
@@ -503,7 +506,8 @@ export default function Parts() {
                 '& > :not(style)': {
                   m: 1,
                   width: 469,
-                  height: 260,
+                  height: '100%',
+                  pb:3,
                 },
               }}
             >
@@ -625,7 +629,8 @@ export default function Parts() {
                 '& > :not(style)': {
                   m: 1,
                   width: 469,
-                  height: 260,
+                  height: '100%',
+                  pb:3,
                 },
               }}
             >
