@@ -3,6 +3,9 @@ import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
+import Divider from '@mui/material/Divider';
+import CardMedia from '@mui/material/CardMedia';
+import Link from '@mui/material/Link';
 
 //Table
 import Table from '@mui/material/Table';
@@ -20,12 +23,13 @@ import Select, { SelectChangeEvent } from '@mui/material/Select';
 
 //Dialog
 import Dialog from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
-import DialogTitle from '@mui/material/DialogTitle';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
+import DialogTitle from '@mui/material/DialogTitle';
+import IconButton from '@mui/material/IconButton';
+import CloseIcon from '@mui/icons-material/Close';
+
 
 //Stack
 import Stack from '@mui/material/Stack';
@@ -41,7 +45,6 @@ import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
-import FormLabel from '@mui/material/FormLabel';
 
 function createData(
     col1: string,
@@ -273,6 +276,32 @@ const text1 = {color: '#325381', fontSize: '20px'}
 const text2 = {color: '#325381', fontSize: '25px'}
 const text3 = {color: '#325381', fontSize: '13px'}
 
+    
+//Dialog
+function BootstrapDialogTitle(props: DialogTitleProps) {
+    const { children, onClose, ...other } = props;
+  
+    return (
+      <DialogTitle sx={{ m: 0, p: 2 }} {...other}>
+        {children}
+        {onClose ? (
+          <IconButton
+            aria-label="close"
+            onClick={onClose}
+            sx={{
+              position: 'absolute',
+              right: 8,
+              top: 2,
+              color: (theme) => theme.palette.grey[500],
+            }}
+          >
+            <CloseIcon />
+          </IconButton>
+        ) : null}
+      </DialogTitle>
+    );
+}
+
 export default function SPR() {
     const [age, setAge] = React.useState('');
     const handleChange = (event: SelectChangeEvent) => {
@@ -305,7 +334,7 @@ export default function SPR() {
                         <Typography sx={{ marginBottom: '10px' }}>
                             <strong>WO:</strong>
                         </Typography>
-                        <Grid xs={12}>
+                        <Box>
                             <FormControl sx={{ textAlign: 'center', marginRight: '5px', minWidth: 200 }} size="small">
                                 <Select
                                     value={age}
@@ -318,8 +347,8 @@ export default function SPR() {
                                     <MenuItem value={10024282}>10024282</MenuItem>
                                 </Select>
                             </FormControl>
-                            <Button variant="contained" sx={{ paddingX: '30px', backgroundColor: '#325381' }}>全て表示</Button>
-                        </Grid>
+                            <Button variant="contained" sx={{ paddingX: '30px' }} className="bg-blue-800">全て表示</Button>
+                        </Box>
                     </Grid>
                 </Grid>
                 <TableContainer component={Paper} sx={mainTable}>
@@ -397,25 +426,29 @@ export default function SPR() {
                 maxWidth="xl" 
                 sx={mainDialog}
             >
+                <DialogTitle>
+                    <BootstrapDialogTitle id="customized-dialog-title" onClose={handleClose}> 
+                        <Grid container spacing={0} sx={{ marginBottom: '10px' }}>
+                            <Grid item xs={6}>
+                                <Typography sx={text1}>
+                                    <strong>SPR 修正</strong>
+                                </Typography>
+                            </Grid>
+                            <Grid item xs={6} sx={{ textAlign: 'right' }} >
+                                <Button variant="contained" sx={{ paddingX: '30px' }} className="bg-blue-800">N/R Task Data 更新</Button>
+                            </Grid>
+                            <Grid item xs={12} sx={{ textAlign: 'center' }} >
+                                <img src="../logo.png" width="174" height="35"/>
+                            </Grid>
+                            <Grid item xs={12} sx={{ textAlign: 'center' }} >
+                                <Typography sx={text2}>
+                                    <strong>SHORTAGE PARTS REPORT (SPR)</strong>
+                                </Typography>
+                            </Grid>
+                        </Grid>
+                    </BootstrapDialogTitle>
+                </DialogTitle>
                 <DialogContent>
-                    <Grid container spacing={0} sx={{ marginBottom: '10px' }}>
-                        <Grid item xs={6}>
-                            <Typography sx={text1}>
-                                <strong>SPR 修正</strong>
-                            </Typography>
-                        </Grid>
-                        <Grid item xs={6} sx={{ textAlign: 'right' }} >
-                            <Button variant="contained" sx={{ paddingX: '30px', backgroundColor: '#325381' }}>N/R Task Data 更新</Button>
-                        </Grid>
-                        <Grid item xs={12} sx={{ textAlign: 'center' }} >
-                            <img src="../logo.png" width="174" height="35"/>
-                        </Grid>
-                        <Grid item xs={12} sx={{ textAlign: 'center' }} >
-                            <Typography sx={text2}>
-                                <strong>SHORTAGE PARTS REPORT (SPR)</strong>
-                            </Typography>
-                        </Grid>
-                    </Grid>
                     <Grid container spacing={2} sx={{ marginBottom: '10px' }}>
                         <Grid item xs={12} sx={{ textAlign: 'right' }}>
                             <Typography sx={text3}>
