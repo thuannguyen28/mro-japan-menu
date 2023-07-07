@@ -19,7 +19,7 @@ import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import ListPart from '../../components/request_for_part_and_material/ListPart';
 import theme from '../../src/theme';
-
+import Collapse from '@mui/material/Collapse';
 
 const filterOptions = createFilterOptions({
   matchFrom: 'start',
@@ -69,13 +69,47 @@ const shrink={
 }
 
 
+// Css TextField
+const CssTextField = styled(TextField)({
+
+  '& label.Mui-focused': {
+    color: '#A0AAB4',
+  },
+  '& .MuiInput-underline:after': {
+    borderBottomColor: 'transparent',
+  },
+  '& .MuiOutlinedInput-root': {
+    '& fieldset': {
+      borderColor: 'transparent',
+    },
+    '&:hover fieldset': {
+      borderColor: 'transparent',
+    },
+    '&.Mui-focused fieldset': {
+      borderColor: 'transparent',
+    },
+    '&.Mui-focused': {
+      backgroundColor: '#fff',
+      color:"#325381",
+      textAlign:'left',
+    },
+    '& input': {
+      height:20,
+      textAlign:'center',
+      color:"#325381",
+      backgroundColor: "#f5f5f5",
+      fontSize: '12px'
+    },
+  },
+
+});
 
 const cssAutoComplete={ maxwidth: {lg:234}, bgcolor:"#F0F0F0" }
 
 
 
 
-const CustomPopUpIcon = (props) => { 
+export const CustomPopUpIcon = (props) => { 
   return (
     <>
     <Box borderLeft={props.open?0:1} height={28} borderColor={'#E3E3E3'}></Box>
@@ -295,7 +329,7 @@ export default function RequestPartMaterials() {
     )}
         </Grid>  
     {/*Header 2*/}
- 
+{/*  
         <Grid  container spacing={2} width={"86%"} sx={
        showText?expand:shrink
          }>
@@ -330,9 +364,56 @@ export default function RequestPartMaterials() {
               </Box>
           </Grid>
         </Grid>
-      
+       */}
        
-    
+       <Collapse  in={showText} timeout="auto"
+                        unmountOnExit>
+          <Grid  container spacing={2}>
+            <Grid item xs={12} md={2}>
+                <Typography sx={{ fontSize: '13px', color: '#325381', fontWeight: 700 }}>Task Card</Typography>
+                <Box sx={cssBox}>
+                  <Grid container>
+                    <Grid item xs>
+                      <CssTextField fullWidth defaultValue="" size="small" placeholder="" />
+                    </Grid>   
+                  </Grid>
+                </Box>
+            </Grid>
+
+            <Grid item xs={12} md={2}>
+                <Typography sx={{ fontSize: '13px', color: '#325381', fontWeight: 700 }}>Category</Typography>
+                <Box sx={cssBox}>
+                  <Grid container>
+                    <Grid item xs>
+                      <CssTextField fullWidth defaultValue="" size="small" placeholder="" />
+                    </Grid>   
+                  </Grid>
+                </Box>
+            </Grid>
+
+            <Grid item xs={12} md={2}>
+                <Typography sx={{ fontSize: '13px', color: '#325381', fontWeight: 700 }}>AMM</Typography>
+                <Box sx={cssBox}>
+                  <Grid container>
+                    <Grid item xs>
+                      <CssTextField fullWidth defaultValue="" size="small" placeholder="" />
+                    </Grid>   
+                  </Grid>
+                </Box>
+            </Grid>
+
+            <Grid item xs={12} md={2}>
+                <Typography sx={{ fontSize: '13px', color: '#325381', fontWeight: 700 }}>Kit 名/作業名</Typography>
+                <Box sx={cssBox}>
+                  <Grid container>
+                    <Grid item xs>
+                      <CssTextField fullWidth defaultValue="" size="small" placeholder="" />
+                    </Grid>   
+                  </Grid>
+                </Box>
+            </Grid>
+          </Grid>
+         </Collapse>
       <Grid container spacing={2} justifyContent="flex-end" mt={"12px"}>
       
           {showText ?
