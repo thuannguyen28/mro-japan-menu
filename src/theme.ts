@@ -17,6 +17,7 @@ const theme = createTheme({
     },
     blue:createColor('#325381'),
     white:createColor('#ffffff'),
+    
   },
 });
 

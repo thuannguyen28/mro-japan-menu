@@ -66,7 +66,10 @@ const cssBox4 = { color: '#325381', backgroundColor: '#F5F5F5', py: 1, borderRad
 const font12Center = { fontSize: '15px', display: 'flex', alignItems: 'center', justifyContent: 'center' };
 const font12Left = { fontSize: '15px', display: 'flex', alignItems: 'center', justifyContent: 'left', ml: 4 };
 const font11 = { color: '#B8B8B8', fontSize: '11px', display: 'flex', alignItems: 'center', justifyContent: 'center', };
-const font11Right = { color: '#B8B8B8', fontSize: '11px', display: 'flex', alignItems: 'center', justifyContent: 'right' };
+const fontautoRight = { 
+  color: '#B8B8B8', fontSize: '9px', display: 'flex', alignItems: 'center', justifyContent: 'right',
+ 
+};
 const font11Center = { color: '#B8B8B8', fontSize: '11px', display: 'flex', alignItems: 'center', justifyContent: 'center' };
 const font12 = { fontSize: '12px' };
 const cssOderLeft = { width: '100%', fontSize: '14px', color: '#325381', fontWeight: 700, mb: '5px' };
@@ -195,22 +198,29 @@ export default function RequestPartMaterials() {
 
               <Box sx={cssBox}>
                 <FormGroup>
-                  <Grid container spacing={1} sx={{ padding: "5px" }}>
-                    <Grid item xs={1.5}>
-                      <FormControlLabel control={<Checkbox defaultChecked />} label="Parts" labelPlacement="start" sx={font12Center} />
+                  <Grid container spacing={1} alignItems={"center"} >
+                    <Grid item xs={1} >
+                      <FormControlLabel control={<Checkbox sx={{paddingX:0}} defaultChecked />} label="Parts" labelPlacement="start" sx={font12Center} />
                     </Grid>
-                    <Grid item xs={1.5}>
-                      <FormControlLabel control={<Checkbox />} label="Tools" labelPlacement="start" sx={font12Center} />
+                    <Grid item xs={2.1}>
+                      <FormControlLabel control={<Checkbox  sx={{paddingX:0}} />} label="Tools" labelPlacement="start" sx={font12Center} />
                     </Grid>
-                    <Grid item xs={1.5}>
-                      <FormControlLabel control={<Checkbox />} label="Trax" labelPlacement="start" sx={font12Center} />
+                    <Grid item xs={1} md={0.75}>
+                      <FormControlLabel control={<Checkbox  sx={{paddingX:0}}/>} label="Trax" labelPlacement="start" sx={font12Center} />
                     </Grid>
-                    <Grid item xs={2.5}>
-                      <FormControlLabel control={<Checkbox />} label="Knowledge" labelPlacement="start" sx={font12Center} />
+                    <Grid item xs={3}  md={3.1}>
+                      <FormControlLabel control={<Checkbox  sx={{paddingX:0}}/>} label="Knowledge" labelPlacement="start" sx={font12Center} />
                     </Grid>
-                    <Grid item xs={5}>
-                      <Typography sx={font11Right}><span>作成者 : 70075</span> <span>2023/05/19  14:00:00</span></Typography>
-                      <Typography sx={font11Right}>BD13793F-E0EE-024E-B282-E721B932BF45</Typography>
+                    <Grid item xs={4.9}  >
+                      <Grid container >
+                        <Grid item xs={12}>
+                        <Typography sx={fontautoRight}><span>作成者 : 70075</span> <span>2023/05/19  14:00:00</span></Typography>
+                     
+                        </Grid>
+                        <Grid item xs={12}>
+                        <Typography noWrap  sx={fontautoRight}>BD13793F-E0EE-024E-B282-E721B932BF45</Typography>
+                        </Grid>
+                      </Grid>
                     </Grid>
                   </Grid>
                 </FormGroup>
@@ -237,16 +247,16 @@ export default function RequestPartMaterials() {
 
 
 
-                <Grid container spacing={4}>
+                <Grid container  spacing={1}>
 
                   {
                     ["Zone", "AC Type", "Customer", "ATA", "Category"].map((e) =>
                       <Grid item xs={2.4}  >
-                        <Grid container flexDirection={'column'} spacing={2}>
+                        <Grid container flexDirection={'column'} spacing={1}>
 
-                          <Grid item> <Typography>{e}</Typography></Grid>
+                          <Grid item xs={12}> <Typography >{e}</Typography></Grid>
 
-                          <Grid item> <TextField id="outlined-basic" size='small' sx={cssText1} fullWidth /></Grid>
+                          <Grid item  xs={12}> <TextField id="outlined-basic" size='small' sx={cssText1} fullWidth /></Grid>
                         </Grid>
 
 
@@ -470,7 +480,7 @@ export default function RequestPartMaterials() {
       {/*----------Footer----------*/}
       <Divider />
       <Box component="footer">
-        <Typography sx={{ color: "#9AA1A9", fontSize: 13, ml: 4, mt: 4 }}>
+        <Typography sx={{ color: "#9AA1A9", fontSize: 13, ml: 4, mt: 4 ,mb:4}}>
           Copyright © 2023 OCC
         </Typography>
       </Box>
@@ -1389,9 +1399,11 @@ const PartOrderList = ({ open, toggleClick }) => {
                       <FormLabel><Typography {...cssTextListOrder}>Zone</Typography></FormLabel>
                       <FormGroup row>
                         {
-                          zones.map((value, index) => <FormControlLabel
+                          zones.map((value, index) => <FormControlLabel 
+                            
                             label={value}
                             control={<Checkbox value={value}
+                            sx={{padding:0}}
                               checked={selectZone == index}
                               onChange={() => setSelectZone(index)}
                             ></Checkbox>}

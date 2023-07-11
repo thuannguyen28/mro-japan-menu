@@ -75,7 +75,6 @@ color:'#325381',
         display:"flex",
         justifyContent:"center",
         alignItems:"center",
-
         height:"60px",
       },
       
@@ -97,8 +96,6 @@ color:'#325381',
     }))    
 const cssBox = { borderRadius: '5px', backgroundColor: '#F5F5F5' };
 export default function TableRowsDivideShort({params:{headers,rows,classNamePadding}}:Props){
-
-
   return (
     <Box sx={cssBox} >
   <StyledContainer>
