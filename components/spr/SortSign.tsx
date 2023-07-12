@@ -16,9 +16,10 @@ fontStyle: "normal",
 fontWeight: 400,
 lineHeight: "normal",
 }
+
 const SortSign = ({des,asc,title}:Props) => {
   return (
-       <Box sx={{display:"flex",alignItems:"center"}}>
+       <Box sx={{display:"flex",alignItems:"center",width:"100%",justifyContent:"center"}}>
           <Typography sx={
             textCss15
           }>{title}</Typography>
