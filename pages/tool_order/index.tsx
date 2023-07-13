@@ -287,7 +287,7 @@ export default function Parts() {
       {/*Head*/}
         <Grid item xs={12} backgroundColor="#F0F0F0">
           <Grid container spacing={0}>
-            <Grid item xs={isLaptop ? 12 : 4} sx={{ p:3 }}>
+            <Grid item xs={4} sx={{ p:3 }}>
               <FormControl sx={{ minWidth: 350, backgroundColor: '#FFFFFF' }} size="small">
                  <Select
                   labelId="demo-multiple-checkbox-label"
@@ -1262,7 +1262,9 @@ export default function Parts() {
                         </Typography>
                       </Grid>
                       <Grid item xs={4.7} sx={{ textAlign:'right' }}>
+                        <Link href="#print" sx={{ cusor:'pointer' }}>
                           <img src="../tool_order/print.png" width="35" height="35"/>
+                        </Link>
                       </Grid>
                     </Grid>
                   </Grid>
@@ -1559,7 +1561,7 @@ export default function Parts() {
               <Box
                 sx={{          
                     width: 390,
-                    height: 100,
+                    height: 110,
                 }}
               >
                 
@@ -1574,7 +1576,7 @@ export default function Parts() {
                     </Grid>
                   </Grid>
                 </Paper>
-                <Typography sx={{ textAlign:'right',fontSize:12, color:"#9C9C9C" }}>
+                <Typography sx={{ textAlign:'right',fontSize:12, color:"#9C9C9C", mt:2 }}>
                   要求者 : 10099
                 </Typography>
                 <Typography sx={{ textAlign:'right',fontSize:12, color:"#9C9C9C" }}>
