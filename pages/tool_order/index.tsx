@@ -57,6 +57,10 @@ import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
 
+//quantity
+import Add from '@mui/icons-material/Add';
+import Remove from '@mui/icons-material/Remove';
+
 //dialog
 function BootstrapDialogTitle(props: DialogTitleProps) {
   const { children, onClose, ...other } = props;
@@ -169,6 +173,8 @@ const names = [
 ];
 
 export default function Parts() {
+  //quantity
+  const [count, setCount] = React.useState(0);
   //select
   const [personName, setPersonName] = React.useState<string[]>([]);
 
@@ -251,6 +257,23 @@ export default function Parts() {
     setValue(newValue);
   };
 
+  // LAPTOP
+  const [width, setWidth] = React.useState(0);
+
+  const handleWindowSizeChange = () => {
+    setWidth(window.innerWidth);
+  };
+
+  React.useEffect(() => {
+      setWidth(window.innerWidth);
+      window.addEventListener('resize', handleWindowSizeChange);
+      return () => {
+          window.removeEventListener('resize', handleWindowSizeChange);
+      }
+  }, []);
+
+  const isLaptop = width <= 1400;
+
   return (
   <div>
     <Box sx={{
@@ -264,7 +287,7 @@ export default function Parts() {
       {/*Head*/}
         <Grid item xs={12} backgroundColor="#F0F0F0">
           <Grid container spacing={0}>
-            <Grid item xs={4} sx={{ p:3 }}>
+            <Grid item xs={isLaptop ? 12 : 4} sx={{ p:3 }}>
               <FormControl sx={{ minWidth: 350, backgroundColor: '#FFFFFF' }} size="small">
                  <Select
                   labelId="demo-multiple-checkbox-label"
@@ -284,9 +307,9 @@ export default function Parts() {
                 </Select>
               </FormControl>
 
-              <Button sx={{ ml: 2, backgroundColor: colorText }} variant="contained"  onClick={handleClickOpenSearch}>検索する</Button>
+              <Button sx={{ ml: 2, backgroundColor: colorText }} variant="contained">検索する</Button>
             </Grid>
-            <Grid item xs={8} sx={{ p:3 }}>
+            <Grid item xs={isLaptop ? 12 : 8} sx={{ p:3 }}>
                 <ButtonGroup variant="outlined" aria-label="outlined button group" sx={{ backgroundColor:'#FFF', }}>
                   <Button sx={{ width:250, color: colorText }} onClick={handleClickOpenHeavy}>HEAVY USED</Button>
                   <Button sx={{ width:250, color: colorText }} onClick={handleClickOpenKit}>TOOL KIT</Button>
@@ -360,7 +383,9 @@ export default function Parts() {
                   <TableRow key={row.id} hover>
                     <TableCell>
                       <Typography sx={cssSearchData}>
-                        <img src="../tool_order/card.png" width="35" height="35"/>
+                        <Link href="#card" sx={{ cusor:'pointer' }}>
+                          <img src="../tool_order/card.png" width="35" height="35"/>
+                        </Link>
                       </Typography>
                     </TableCell>
                     <TableCell>
@@ -395,7 +420,9 @@ export default function Parts() {
                     </TableCell>
                     <TableCell>
                       <Typography sx={cssSearchData}>
-                        <img src="../tool_order/image.png" width="25" height="25"/>
+                        <Link href="#picture-card" sx={{ cusor:'pointer' }}>
+                          <img src="../tool_order/image.png" width="25" height="25"/>
+                        </Link>
                       </Typography>
                     </TableCell>
                   </TableRow>
@@ -429,7 +456,7 @@ export default function Parts() {
                         </Typography>
                       </TableCell>
                       <TableCell></TableCell>
-                   
+
                     </TableRow>
                   </TableHead>
                   <TableBody>
@@ -442,7 +469,9 @@ export default function Parts() {
                         </TableCell>
                         <TableCell>
                           <Typography sx={cssSearchData}>
+                            <Link href="#with-card" sx={{ cusor:'pointer' }}>
                             {row.img}
+                            </Link>
                           </Typography>
                         </TableCell>
                         <TableCell>
@@ -454,9 +483,37 @@ export default function Parts() {
                           </Typography>
                         </TableCell>
                         <TableCell>
-                          <Typography sx={cssSearchData}>
-                            <strong>{row.quantity}</strong>
-                          </Typography>
+                          <Box
+                            sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 2 }}
+                          >
+                            <Box
+                              sx={{
+                                display: 'flex',
+                                alignItems: 'center',
+                                gap: 2,
+                                pt: 4,
+                                borderColor: 'background.level1',
+                              }}
+                            >
+                              <IconButton
+                                size="sm"
+                                variant="outlined"
+                                onClick={() => setCount((c) => c - 1)}
+                              >
+                                <Remove />
+                              </IconButton>
+                              <Typography fontWeight="md" textColor="text.secondary">
+                                {count}
+                              </Typography>
+                              <IconButton
+                                size="sm"
+                                variant="outlined"
+                                onClick={() => setCount((c) => c + 1)}
+                              >
+                                <Add />
+                              </IconButton>
+                            </Box>
+                          </Box>
                         </TableCell>
                         <TableCell>
                           <Typography sx={cssSearchData}>
@@ -464,7 +521,9 @@ export default function Parts() {
                           </Typography>
                         </TableCell>
                         <TableCell>
-                          <img src="../tool_order/delete.png" width="20" height="20"/>
+                          <Link href="#delete-card" sx={{ cusor:'pointer' }}>
+                            <img src="../tool_order/delete.png" width="20" height="20"/>
+                          </Link>
                         </TableCell>
                       </TableRow>
                     ))}
@@ -532,7 +591,7 @@ export default function Parts() {
 
             <DialogActions sx={{ justifyContent:'center', mt:1 }}>
               <Button sx={{ border:'1px solid #E3E3E3', color:'#9C9C9C', width:150, }} >キャンセル</Button>
-              <Button sx={{ border:'1px solid #E3E3E3', color:'#FFFFFF', backgroundColor:'#00C2FF', width:150 , }} >OK</Button>
+              <Button sx={{ border:'1px solid #E3E3E3', color:'#FFFFFF', backgroundColor:'#00C2FF', width:150 , }} onClick={handleClickOpenSearch}>OK</Button>
             </DialogActions>
 
           </DialogContentText>
@@ -946,8 +1005,8 @@ export default function Parts() {
                         <TabContext value={value}>
                           <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
                             <TabList onChange={handleChangeTab} aria-label="lab API tabs example">
-                              <Tab label="Individual" value="1" sx={{ width:507, }} />
-                              <Tab label="WO / Zone" value="2" sx={{ width:507 }} />
+                              <Tab label="Individual" value="1" sx={{ minWidth:507, }} />
+                              <Tab label="WO / Zone" value="2" sx={{ minWidth:507 }} />
                             </TabList>
                           </Box>
                           <TabPanel value="1">
