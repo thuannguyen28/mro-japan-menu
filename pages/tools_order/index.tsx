@@ -14,33 +14,42 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import { FixedSizeList } from 'react-window';
 
+//Dialog
+import Dialog from '@mui/material/Dialog';
+import DialogContent from '@mui/material/DialogContent';
+import useMediaQuery from '@mui/material/useMediaQuery';
+import { useTheme } from '@mui/material/styles';
+import DialogTitle from '@mui/material/DialogTitle';
+import IconButton from '@mui/material/IconButton';
+import CloseIcon from '@mui/icons-material/Close';
+
 // CSS
 const text__title1 = {
     textTransform: 'uppercase',
-    fontSize: '30px', 
+    fontSize: '30px',
     fontWeight: 'bold',
     textAlign: 'center'
 }
 const text__title2Center = {
-    fontSize: '20px', 
+    fontSize: '20px',
     fontWeight: 'bold',
     textAlign: 'center'
 }
 const text__title2Left = {
-    fontSize: '20px', 
+    fontSize: '20px',
     fontWeight: 'bold',
     textAlign: 'left'
 }
 
 //BoxItem
 const boxItem = {
-    display: 'flex', 
+    display: 'flex',
     justifyContent: 'center',
-    alignItems: 'center', 
+    alignItems: 'center',
     width: '100%',
     height: '118px',
     border: '2px solid #00000040',
-    borderRadius: '5px', 
+    borderRadius: '5px',
     position: 'relative',
     '&:after': {
         content: `''`,
@@ -52,39 +61,39 @@ const boxItem = {
         left: '0',
         bottom: '-83px',
         marginX: 'auto'
-    }, 
+    },
 }
 const boxItem2 = {
     position: 'relative',
     '.css-0': {
-        display: 'flex', 
+        display: 'flex',
         justifyContent: 'center',
-        alignItems: 'center', 
+        alignItems: 'center',
         width: '80%',
         height: '92px',
         border: '2px solid #00000040',
-        borderRadius: '5px', 
+        borderRadius: '5px',
         position: 'absolute',
         right: '0',
         left: '0',
         top: '-85px',
-        marginX: 'auto', 
+        marginX: 'auto',
         '&:before': {
             content: `''`,
             position: 'absolute',
             backgroundColor: '#D9D9D9',
-            width: '76%', 
-            height: '5px', 
-            left: '-76%', 
-        }, 
+            width: '76%',
+            height: '5px',
+            left: '-76%',
+        },
         '&:after': {
             content: `''`,
             position: 'absolute',
             backgroundColor: '#D9D9D9',
-            width: '76%', 
-            height: '5px', 
-            right: '-76%', 
-        }, 
+            width: '76%',
+            height: '5px',
+            right: '-76%',
+        },
     }
 }
 const boxLetter = {
@@ -92,15 +101,15 @@ const boxLetter = {
     height: '319px',
     border: '3px solid #00C2FF',
     borderRadius: '5px',
-    paddingX: '30px', 
+    paddingX: '30px',
     position: 'relative',
     '.css-477asx-MuiTypography-root': {
         position: 'absolute',
         top: '-35px',
         left: '0',
-        fontSize: '20px', 
+        fontSize: '20px',
         fontWeight: 'bold',
-    }, 
+    },
     '&:after': {
         content: `''`,
         position: 'absolute',
@@ -111,11 +120,11 @@ const boxLetter = {
         left: '0',
         bottom: '-84px',
         marginX: 'auto'
-    }, 
+    },
     'li': {
-        borderBottom: '1px solid #9C9C9C', 
-        paddingX: '0', 
-    }, 
+        borderBottom: '1px solid #9C9C9C',
+        paddingX: '0',
+    },
     'li .css-ftiju0-MuiButtonBase-root-MuiListItemButton-root': {
         paddingY: '0',
         marginY: '0'
@@ -131,9 +140,9 @@ const boxLetter2 = {
         position: 'absolute',
         top: '-35px',
         left: '0',
-        fontSize: '20px', 
+        fontSize: '20px',
         fontWeight: 'bold',
-    }, 
+    },
     '&:after': {
         content: `''`,
         position: 'absolute',
@@ -144,7 +153,7 @@ const boxLetter2 = {
         left: '0',
         bottom: '-84px',
         marginX: 'auto'
-    }, 
+    },
 }
 const boxLetter3 = {
     width: '100%',
@@ -156,7 +165,7 @@ const boxLetter3 = {
         position: 'absolute',
         top: '-35px',
         left: '0',
-        fontSize: '20px', 
+        fontSize: '20px',
         fontWeight: 'bold',
     }
 }
@@ -170,9 +179,9 @@ const boxLetter3__line = {
         position: 'absolute',
         top: '-35px',
         left: '0',
-        fontSize: '20px', 
+        fontSize: '20px',
         fontWeight: 'bold',
-    }, 
+    },
     '&:after': {
         content: `''`,
         position: 'absolute',
@@ -183,7 +192,7 @@ const boxLetter3__line = {
         left: '0',
         bottom: '-84px',
         marginX: 'auto'
-    }, 
+    },
 }
 const boxLetter4 = {
     width: '100%',
@@ -195,7 +204,7 @@ const boxLetter4 = {
         position: 'absolute',
         top: '-35px',
         left: '0',
-        fontSize: '20px', 
+        fontSize: '20px',
         fontWeight: 'bold',
     }
 }
@@ -209,7 +218,7 @@ const boxLetter5 = {
         position: 'absolute',
         top: '-35px',
         left: '0',
-        fontSize: '20px', 
+        fontSize: '20px',
         fontWeight: 'bold',
     }
 }
@@ -228,7 +237,44 @@ const boxDivider = {
     }
 }
 
+//Dialog
+function BootstrapDialogTitle(props: DialogTitleProps) {
+    const { children, onClose, ...other } = props;
+  
+    return (
+      <DialogTitle sx={{ m: 0, p: 2 }} {...other}>
+        {children}
+        {onClose ? (
+          <IconButton
+            aria-label="close"
+            onClick={onClose}
+            sx={{
+              position: 'absolute',
+              right: 8,
+              top: 2,
+              color: (theme) => theme.palette.grey[500],
+            }}
+          >
+            <CloseIcon />
+          </IconButton>
+        ) : null}
+      </DialogTitle>
+    );
+}
+
 export default function tools_order() {
+    const [open, setOpen] = React.useState(false);
+    const theme = useTheme();
+    const fullScreen = useMediaQuery(theme.breakpoints.down('md'));
+
+    const handleClickOpen = () => {
+        setOpen(true);
+    };
+
+    const handleClose = () => {
+        setOpen(false);
+    };
+
     return (
         <div>
             <Box sx={{ color: '#325381', my: 2, mx: 2 }}>
@@ -415,5 +461,40 @@ export default function tools_order() {
                 </Grid>
             </Box>
         </div>
+
+        // <Dialog
+        // fullScreen={fullScreen}
+        // open={open}
+        // onClose={handleClose}
+        // aria-labelledby="responsive-dialog-title"
+        // fullWidth 
+        // maxWidth="xl" 
+        // sx={mainDialog}
+        // >
+        // <DialogTitle>
+        //     <BootstrapDialogTitle id="customized-dialog-title" onClose={handleClose}> 
+        //         <Grid container spacing={0} sx={{ marginBottom: '10px' }}>
+        //             <Grid item xs={6}>
+        //                 <Typography sx={text1}>
+        //                     <strong>SPR 修正</strong>
+        //                 </Typography>
+        //             </Grid>
+        //             <Grid item xs={6} sx={{ textAlign: 'right' }} >
+        //                 <Button variant="contained" sx={{ paddingX: '30px' }} className="bg-blue-800">N/R Task Data 更新</Button>
+        //             </Grid>
+        //             <Grid item xs={12} sx={{ textAlign: 'center' }} >
+        //                 <img src="../logo.png" width="174" height="35"/>
+        //             </Grid>
+        //             <Grid item xs={12} sx={{ textAlign: 'center' }} >
+        //                 <Typography sx={text2}>
+        //                     <strong>SHORTAGE PARTS REPORT (SPR)</strong>
+        //                 </Typography>
+        //             </Grid>
+        //         </Grid>
+        //     </BootstrapDialogTitle>
+        // </DialogTitle>
+        // <DialogContent>
+        // </DialogContent>
+        // </Dialog>
     );
 }
